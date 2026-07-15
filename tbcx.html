@@ -112,9 +112,9 @@
 <div class="wrap">
   <header class="hero">
     <h1>🧭 投标必查 · <span class="pin">政务查询网站导航</span></h1>
-    <p>15 个权威官方平台，覆盖信用、司法、资质、知识产权、标准、税务银行等投标核查场景。链接直达，进度留痕。</p>
+    <p>16 个权威官方平台，覆盖信用、司法、资质、知识产权、标准、税务银行等投标核查场景。链接直达，进度留痕。</p>
     <div class="stats">
-      <div class="stat"><b id="stTotal">15</b>个权威平台</div>
+      <div class="stat"><b id="stTotal">16</b>个权威平台</div>
       <div class="stat"><b>100%</b>官方域名</div>
       <div class="stat"><b>6</b>大核查场景</div>
       <div class="stat">数据截至 2026-07</div>
@@ -137,7 +137,7 @@
   <div class="progress">
     <span>本单核查进度</span>
     <div class="bar"><i id="bar"></i></div>
-    <span><b id="pNum">0</b> / <span id="pTot">15</span> 已查</span>
+    <span><b id="pNum">0</b> / <span id="pTot">16</span> 已查</span>
   </div>
 
   <footer>提示：本页为离线工具，所有链接均指向政府/事业单位官方网站，请核对域名后再填报。核查状态自动保存在本地浏览器。</footer>
@@ -147,35 +147,37 @@
 
 <script>
 const SITES = [
-  {no:1, name:"中国政府采购网", url:"http://www.ccgp.gov.cn/", tags:["采购","失信"],
+  {no:1, name:"中央政府采购网", url:"https://www.zycg.gov.cn/", tags:["采购"],
+   desc:"中央国家机关政府采购中心（国采中心）主办的官方平台，是中央预算单位政府集中采购的核心载体。可查询中央政府采购招标/中标/成交公告、电子卖场、定点采购信息，以及供应商参与中央政府采购的违法违规与不良行为记录。"},
+  {no:2, name:"中国政府采购网", url:"http://www.ccgp.gov.cn/", tags:["采购","失信"],
    desc:"财政部唯一指定的政府采购信息发布媒体，也是最权威的网站。可查询“近三年有无在政府采购活动中出现重大违法失信行为记录”。"},
-  {no:2, name:"全国公共资源交易平台", url:"https://www.ggzy.gov.cn/", tags:["交易","采购"],
+  {no:3, name:"全国公共资源交易平台", url:"https://www.ggzy.gov.cn/", tags:["交易","采购"],
    desc:"提供各类公共资源交易信息的发布与查询功能。可查询招投标、土地使用权和矿业权出让、国有产权交易、政府采购等公共资源交易信息。"},
-  {no:3, name:"信用中国", url:"https://www.creditchina.gov.cn/", tags:["信用","失信"],
+  {no:4, name:"信用中国", url:"https://www.creditchina.gov.cn/", tags:["信用","失信"],
    desc:"提供企业信用信息查询功能，可查询企业的信用信息，包括行政处罚、经营异常名录、严重失信主体名单等。"},
-  {no:4, name:"小微企业名录查询", url:"https://xwqy.gsxt.gov.cn/", tags:["企业","小微"],
+  {no:5, name:"小微企业名录查询", url:"https://xwqy.gsxt.gov.cn/", tags:["企业","小微"],
    desc:"全国个体私营经济发展服务网（小微企业名录）。提供小微企业信息查询功能，可查询国家扶持的小微企业信息，常用于中小企业声明函佐证。"},
-  {no:5, name:"中国执行信息公开网", url:"http://zxgk.court.gov.cn/", tags:["司法","失信"],
+  {no:6, name:"中国执行信息公开网", url:"http://zxgk.court.gov.cn/", tags:["司法","失信"],
    desc:"提供法院的执行信息和相关法律文书，可查询被执行人（失信被执行人/“老赖”）信息以及相关判决、裁定等文书。"},
-  {no:6, name:"中国裁判文书网", url:"https://wenshu.court.gov.cn/", tags:["司法"],
+  {no:7, name:"中国裁判文书网", url:"https://wenshu.court.gov.cn/", tags:["司法"],
    desc:"提供裁判文书的查询和浏览功能，一般用于查询企业的司法信息，主要通过查询辨别公司或法人是否曾有违法犯罪记录。"},
-  {no:7, name:"国家企业信用信息公示系统", url:"https://www.gsxt.gov.cn/", tags:["信用","企业"],
+  {no:8, name:"国家企业信用信息公示系统", url:"https://www.gsxt.gov.cn/", tags:["信用","企业"],
    desc:"提供企业信用信息查询功能，可查询企业的信用信息，包括行政处罚、经营异常名录、严重违法失信名单等基础工商信息。"},
-  {no:8, name:"国家职业资格证书全国联网查询", url:"https://zscx.osta.org.cn/", tags:["资质","人员"],
+  {no:9, name:"国家职业资格证书全国联网查询", url:"https://zscx.osta.org.cn/", tags:["资质","人员"],
    desc:"技能人才评价证书全国联网查询（osta.org.cn，人社部鉴定中心）。用于查询人员职业资格证书是否真实有效，也可查技能人员职业资格目录。"},
-  {no:9, name:"全国银行行号查询", url:"http://www.pcac.org.cn/", tags:["银行"],
+  {no:10, name:"全国银行行号查询", url:"http://www.pcac.org.cn/", tags:["银行"],
    desc:"银行行号（联行号/CNAPS号）查询。最权威官方入口为中国支付清算协会“支付系统行号查询”，也可通过中国人民银行官网、各银行官网/APP查询。"},
-  {no:10, name:"国家税务总局", url:"https://www.chinatax.gov.cn/", tags:["税务"],
+  {no:11, name:"国家税务总局", url:"https://www.chinatax.gov.cn/", tags:["税务"],
    desc:"一般用于提供各类完税证明，或在商业信誉等证明材料中需提供银行和税务信用评价系统记录时使用。"},
-  {no:11, name:"全国建筑市场监管公共服务平台", url:"http://jzsc.mohurd.gov.cn/", tags:["资质","建筑"],
+  {no:12, name:"全国建筑市场监管公共服务平台", url:"http://jzsc.mohurd.gov.cn/", tags:["资质","建筑"],
    desc:"业内常说的住建部“四库一平台”。可查询企业数据、人员数据、项目数据以及诚信记录，四库互联互通，保证数据的全面性、真实性、关联性和动态性。"},
-  {no:12, name:"国家市场监督管理总局服务平台", url:"https://www.samr.gov.cn/", tags:["企业","监管"],
+  {no:13, name:"国家市场监督管理总局服务平台", url:"https://www.samr.gov.cn/", tags:["企业","监管"],
    desc:"主要负责市场综合监督管理、市场主体统一登记注册，以及规范市场监管行政执法行为。企业登记、监管信息权威来源。"},
-  {no:13, name:"国家知识产权公共服务网", url:"https://ggfw.cnipa.gov.cn/", tags:["知识产权"],
+  {no:14, name:"国家知识产权公共服务网", url:"https://ggfw.cnipa.gov.cn/", tags:["知识产权"],
    desc:"提供知识产权相关的查询、监管、维权、管理等服务。可查询的数据包括专利、商标、著作权等多个领域的知识产权。"},
-  {no:14, name:"全国认证认可信息公共服务平台", url:"https://cx.cnca.cn/", tags:["认证","资质"],
+  {no:15, name:"全国认证认可信息公共服务平台", url:"https://cx.cnca.cn/", tags:["认证","资质"],
    desc:"由国家市场监督管理总局(SAMR)推出。为用户提供认证认可信息查询、认证认可服务、政策法规查询、企业标准备案、自我声明等服务。"},
-  {no:15, name:"全国标准信息公共服务平台", url:"https://std.samr.gov.cn/", tags:["标准"],
+  {no:16, name:"全国标准信息公共服务平台", url:"https://std.samr.gov.cn/", tags:["标准"],
    desc:"各类标准有效期查询，一般用于招投标加分项。可查国家标准、行业标准、地方标准等现行有效状态。"},
 ];
 
@@ -281,7 +283,7 @@ CATS.forEach((c,i)=>{
 document.getElementById('q').addEventListener('input', e=>{ keyword = e.target.value.trim(); render(); });
 document.getElementById('copyAll').addEventListener('click', ()=>{
   const all = SITES.map(s=>s.no+". "+s.name+"  "+s.url).join("\n");
-  navigator.clipboard.writeText(all).then(()=>toast("已复制全部 15 个网址")).catch(()=>toast("复制失败"));
+  navigator.clipboard.writeText(all).then(()=>toast("已复制全部 16 个网址")).catch(()=>toast("复制失败"));
 });
 document.getElementById('resetCheck').addEventListener('click', ()=>{
   checked = []; saveCheck(); render(); toast("已重置核查清单");
