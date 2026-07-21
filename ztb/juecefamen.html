@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>不同招标类型 · 注意事项手册</title>
+<style>
+  :root{
+    --bg:#0d0e12; --bg2:#14151c; --card:#1a1c24; --card2:#20232e;
+    --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+    --tx:#e6e7ea; --tx2:#a1a4ad; --tx3:#6e727c;
+    --blue:#85B7EB; --blue-d:#042C53; --blue-f:#185FA5;
+    --teal:#5DCAA5; --teal-d:#085041; --teal-f:#1D9E75;
+    --amber:#EF9F27; --amber-d:#633806; --amber-f:#BA7517;
+    --purple:#AFA9EC; --purple-d:#3C3489; --purple-f:#7F77DD;
+    --coral:#F0997B; --coral-d:#712B13; --coral-f:#D85A30;
+    --red:#F09595; --red-d:#791F1F; --red-f:#A32D2D;
+    --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+
+  /* progress bar */
+  #progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--teal),var(--amber));width:0;z-index:100;transition:width .1s}
+
+  /* layout */
+  .wrap{display:flex;max-width:1280px;margin:0 auto}
+  /* sidebar */
+  #sidebar{width:260px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;padding:28px 18px 28px 28px;border-right:1px solid var(--line)}
+  #sidebar .brand{font-size:13px;color:var(--tx3);letter-spacing:.5px;margin-bottom:18px}
+  #sidebar nav a{display:block;color:var(--tx2);text-decoration:none;font-size:13.5px;padding:7px 12px;border-radius:8px;margin-bottom:2px;border-left:2px solid transparent;transition:.15s}
+  #sidebar nav a:hover{background:var(--card);color:var(--tx)}
+  #sidebar nav a.active{background:var(--card2);color:#fff;border-left-color:var(--teal)}
+  #sidebar nav a.sub{padding-left:26px;font-size:12.5px;color:var(--tx3)}
+  #sidebar nav a.sub.active{border-left-color:var(--blue);color:var(--tx)}
+  .nav-group{font-size:11px;color:var(--tx3);text-transform:uppercase;letter-spacing:1px;margin:16px 0 6px 12px}
+
+  /* main */
+  main{flex:1;min-width:0;padding:40px 48px 100px}
+  .doc-head{margin-bottom:36px}
+  .doc-head h1{font-size:30px;font-weight:600;letter-spacing:.5px;background:linear-gradient(120deg,#fff,#9fb6d8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:14px}
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .tag{font-size:12px;color:var(--tx2);background:var(--card);border:1px solid var(--line);padding:6px 12px;border-radius:20px}
+  .tag b{color:var(--teal)}
+
+  h2.chapter{font-size:22px;font-weight:600;margin:48px 0 8px;padding-bottom:12px;border-bottom:1px solid var(--line);color:#fff;scroll-margin-top:24px}
+  h2.chapter .num{color:var(--teal);font-weight:600;margin-right:8px}
+  h3.sect{font-size:18px;font-weight:600;margin:32px 0 4px;color:#fff;scroll-margin-top:24px}
+  h3.sect .dot{display:inline-block;width:8px;height:8px;border-radius:3px;margin-right:10px;vertical-align:middle}
+  p{margin:12px 0;color:var(--tx)}
+  .lead{color:var(--tx2);font-size:15px}
+  strong{color:#fff;font-weight:600}
+  .muted{color:var(--tx3)}
+
+  /* two-axis diagram */
+  .axis-box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;margin:20px 0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--tx2);white-space:pre;overflow-x:auto;line-height:1.5}
+
+  /* way cards grid */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:20px 0}
+  .wcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;position:relative;overflow:hidden}
+  .wcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c,f)}
+  .wcard h4{font-size:17px;font-weight:600;color:#fff;margin-bottom:2px}
+  .wcard .sub{font-size:12px;color:var(--ct);margin-bottom:14px}
+  .block{margin:14px 0}
+  .block .lab{font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--ct);margin-bottom:6px}
+  .wcard ul{list-style:none;margin:0;padding:0}
+  .wcard li{font-size:13.5px;color:var(--tx);padding:5px 0 5px 18px;position:relative;border-top:1px solid var(--line)}
+  .wcard li:first-child{border-top:none}
+  .wcard li::before{content:"›";position:absolute;left:2px;color:var(--ct);font-weight:700}
+  .wcard li b{color:#fff}
+  .traps li::before{content:"!";color:var(--red);}
+  .check li::before{content:"☐";color:var(--tx3);font-size:12px}
+  .strat{background:var(--card2);border-radius:8px;padding:10px 12px;margin-top:12px;font-size:13px}
+  .strat .lab{margin-bottom:4px}
+
+  /* industry cards */
+  .icard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:0;overflow:hidden;margin:18px 0;border-top:4px solid var(--c,f)}
+  .icard .hd{display:flex;align-items:baseline;gap:12px;padding:20px 24px 14px}
+  .icard .hd h4{font-size:19px;font-weight:600;color:#fff}
+  .icard .hd .range{font-size:12.5px;color:var(--ct)}
+  .icard .body{padding:0 24px 22px}
+  .icard .row{display:grid;grid-template-columns:160px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+  .icard .row:first-child{border-top:none}
+  .icard .row .t{font-size:13.5px;font-weight:600;color:var(--ct)}
+  .icard .row .d{font-size:14px;color:var(--tx)}
+  .icard .row .d ul{list-style:none;margin:4px 0 0;padding:0}
+  .icard .row .d li{padding:3px 0 3px 16px;position:relative;color:var(--tx2);font-size:13.5px}
+  .icard .row .d li::before{content:"•";position:absolute;left:2px;color:var(--ct)}
+  .icard .stratbox{padding:16px 24px;background:rgba(0,0,0,.18);font-size:13.5px}
+  .icard .stratbox .lab{color:var(--ct);font-weight:600;font-size:12px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}
+  .icard .stratbox li{color:var(--tx2)}
+
+  /* step block */
+  .step{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:12px;padding:20px 24px;margin:18px 0}
+  .step .sn{font-size:12px;font-weight:600;color:var(--teal);letter-spacing:1px}
+  .step h4{font-size:17px;font-weight:600;color:#fff;margin:4px 0 10px}
+  .step pre{background:#0a0b0f;border:1px solid var(--line);border-radius:8px;padding:14px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--tx2);overflow-x:auto;line-height:1.6;white-space:pre}
+  .step ul{list-style:none;margin:10px 0 0;padding:0}
+  .step li{padding:4px 0 4px 18px;position:relative;color:var(--tx2);font-size:13.5px}
+  .step li::before{content:"•";position:absolute;left:2px;color:var(--teal)}
+
+  /* tables */
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13.5px;background:var(--card);border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+  th{background:var(--card2);text-align:left;padding:12px 16px;font-weight:600;color:#fff;font-size:13px;border-bottom:1px solid var(--line2)}
+  td{padding:11px 16px;border-bottom:1px solid var(--line);color:var(--tx2)}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:rgba(255,255,255,.02)}
+  td b{color:var(--tx)}
+
+  /* callout */
+  .callout{background:rgba(93,202,165,.06);border:1px solid rgba(93,202,165,.25);border-radius:12px;padding:16px 20px;margin:18px 0;font-size:14px;color:var(--tx)}
+  .callout.danger{background:rgba(240,149,149,.06);border-color:rgba(240,149,149,.25)}
+
+  /* back to top */
+  #top{position:fixed;right:28px;bottom:28px;width:44px;height:44px;border-radius:50%;background:var(--card2);border:1px solid var(--line2);color:var(--tx);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.2s;z-index:90}
+  #top.show{opacity:1;pointer-events:auto}
+  #top:hover{background:var(--teal);color:#042C53}
+
+  /* mobile toggle */
+  #toggle{display:none}
+  @media(max-width:900px){
+    #sidebar{position:fixed;left:0;top:0;z-index:80;background:var(--bg2);transform:translateX(-100%);transition:.25s;width:240px}
+    #sidebar.open{transform:translateX(0)}
+    main{padding:24px 18px 80px}
+    .grid{grid-template-columns:1fr}
+    #toggle{display:flex;position:fixed;left:16px;top:14px;z-index:90;width:40px;height:40px;border-radius:10px;background:var(--card2);border:1px solid var(--line2);color:var(--tx);align-items:center;justify-content:center;font-size:20px;cursor:pointer}
+    .icard .row{grid-template-columns:1fr;gap:6px}
+    .doc-head h1{font-size:24px}
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<button id="toggle">☰</button>
+
+<div class="wrap">
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <div class="brand">投标助手 · 决策闸门层</div>
+    <nav id="nav">
+      <a href="#preface">前言 · 分类是投标第一课</a>
+      <div class="nav-group">第一章 采购方式</div>
+      <a href="#w1" class="sub">1.1 公开招标</a>
+      <a href="#w2" class="sub">1.2 邀请招标</a>
+      <a href="#w3" class="sub">1.3 竞争性磋商</a>
+      <a href="#w4" class="sub">1.4 竞争性谈判</a>
+      <a href="#w5" class="sub">1.5 询价</a>
+      <a href="#w6" class="sub">1.6 单一来源</a>
+      <div class="nav-group">第二章 行业专属坑</div>
+      <a href="#i1" class="sub">2.1 工程招标</a>
+      <a href="#i2" class="sub">2.2 货物招标</a>
+      <a href="#i3" class="sub">2.3 服务招标</a>
+      <a href="#i4" class="sub">2.4 政府采购</a>
+      <a href="#i5" class="sub">2.5 EPC / PPP</a>
+      <div class="nav-group">第三章 决策前哨</div>
+      <a href="#s1" class="sub">定方式</a>
+      <a href="#s2" class="sub">定行业</a>
+      <a href="#s3" class="sub">查废标</a>
+      <a href="#s4" class="sub">算匹配度</a>
+      <a href="#appendix">附录 A / B</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <header class="doc-head">
+      <h1>不同招标类型 · 注意事项手册</h1>
+      <p class="lead">拿到招标文件后，第一道分类研判——<strong>"这份标属于哪种采购方式 + 哪个行业赛道 → 雷埋在哪 → 该不该投"</strong></p>
+      <div class="tags">
+        <span class="tag">定位：<b>决策闸门层核心知识库</b></span>
+        <span class="tag">复用：<b>销售S1-S5 / 产品P3 / 运营O1-O2</b></span>
+        <span class="tag">方法：<b>两条轴定位法</b></span>
+      </div>
+    </header>
+
+    <!-- PREFACE -->
+    <section id="preface">
+      <h2 class="chapter"><span class="num">前言</span>为什么"分类"是投标第一课</h2>
+      <p class="lead">投标最常见的失误不是"标书写得差"，而是<strong>搞错战场</strong>——把货物标的逻辑套到服务标上，把公开招标的策略用到竞争性磋商里，把政府采购的政策红线当工程标处理。</p>
+      <h3 class="sect"><span class="dot" style="background:var(--teal)"></span>核心方法论：两条轴定位法</h3>
+      <div class="axis-box">                ┌─────────────────────────────────────┐
+   采购方式轴    │  公开招标 / 邀请招标 / 竞争性磋商      │
+   (怎么招)     │  竞争性谈判 / 询价 / 单一来源         │
+                └─────────────────────────────────────┘
+                              ✕ (交叉定位)
+                ┌─────────────────────────────────────┐
+   行业类型轴    │  工程 / 货物 / 服务 / 政府采购        │
+   (招什么)     │  EPC / PPP                          │
+                └─────────────────────────────────────┘</div>
+      <div class="callout"><strong>两条轴交叉点 = 死亡陷阱分布。</strong>同一张招标文件，在不同象限里雷埋在不同位置。投标助手的核心能力，就是先帮你定位象限，再告诉你这个象限专属的雷区。</div>
+    </section>
+
+    <!-- CH1 WAYS -->
+    <h2 class="chapter" id="ch1"><span class="num">第一章</span>采购方式六大门派</h2>
+
+    <div class="grid">
+      <!-- 1.1 -->
+      <article class="wcard" id="w1" style="--c:var(--blue-f);--ct:var(--blue)">
+        <h4>1.1 公开招标</h4>
+        <div class="sub">依法必招 · 主战场</div>
+        <div class="block">
+          <div class="lab">适用场景</div>
+          <ul><li>限额以上货物/工程/服务采购</li><li>招投标法强制公开项目</li><li>国企、事业单位大宗采购</li></ul>
+        </div>
+        <div class="block">
+          <div class="lab">核心机制</div>
+          <ul><li>公开发布招标公告</li><li>综合评分法（商务+技术+价格）</li><li>最低价 ≠ 中标</li></ul>
+        </div>
+        <div class="block traps">
+          <div class="lab">死亡陷阱</div>
+          <ul>
+            <li><b>实质性条款漏响应即废标</b>（第一大废标原因）</li>
+            <li><b>投标保证金截止前未到账</b>（到账≠汇出）</li>
+            <li><b>投标文件递交超时</b>（差一分钟即废）</li>
+            <li><b>资格后审不过</b>（证书/业绩/社保）</li>
+            <li><b>围标串标认定</b>（IP/MAC/报价规律）</li>
+          </ul>
+        </div>
+        <div class="strat"><div class="lab" style="color:var(--blue)">报价策略</div>价格分反推限价；商务技术分先算赢面；梯度报价不报最低</div>
+        <div class="block check" style="margin-top:12px">
+          <div class="lab">决策清单</div>
+          <ul><li>资质门槛齐备？</li><li>类似业绩达标？</li><li>项目经理可锁定？</li><li>限价有利润空间？</li><li>实质性条款能逐条响应？</li></ul>
+        </div>
+      </article>
+
+      <!-- 1.2 -->
+      <article class="wcard" id="w2" style="--c:var(--blue-f);--ct:var(--blue)">
+        <h4>1.2 邀请招标</h4>
+        <div class="sub">限制性竞争</div>
+        <div class="block">
+          <div class="lab">适用场景</div>
+          <ul><li>仅少数投标人具备能力</li><li>保密/安全/专利限制</li><li>依法不公开的特殊项目</li></ul>
+        </div>
+        <div class="block">
+          <div class="lab">核心机制</div>
+          <ul><li>向3家以上发邀请书</li><li>不公开发布公告</li><li>评标同公开招标</li></ul>
+        </div>
+        <div class="block traps">
+          <div class="lab">死亡陷阱</div>
+          <ul>
+            <li><b>邀请程序违法被质疑</b>（名单不透明）</li>
+            <li><b>围标串标嫌疑放大</b>（关联方聚集）</li>
+            <li><b>资格预审材料造假</b>→ 黑名单</li>
+            <li><b>受邀方不足3家流标</b></li>
+          </ul>
+        </div>
+        <div class="strat"><div class="lab" style="color:var(--blue)">报价策略</div>重点在合规非价格；防关联串标认定；报价贴近限价留空间</div>
+        <div class="block check" style="margin-top:12px">
+          <div class="lab">决策清单</div>
+          <ul><li>邀请资格合法取得？</li><li>与其他方有关联关系？</li><li>文件制作痕迹独立？</li><li>报价无规律性差异？</li></ul>
+        </div>
+      </article>
+
+      <!-- 1.3 -->
+      <article class="wcard" id="w3" style="--c:var(--teal-f);--ct:var(--teal)">
+        <h4>1.3 竞争性磋商</h4>
+        <div class="sub">服务与复杂项目首选</div>
+        <div class="block">
+          <div class="lab">适用场景</div>
+          <ul><li>政府购买服务</li><li>技术复杂/性质特殊</li><li>PPP / 专利专有技术</li></ul>
+        </div>
+        <div class="block">
+          <div class="lab">核心机制</div>
+          <ul><li>多轮磋商</li><li>最后报价密封提交</li><li>综合评分法</li></ul>
+        </div>
+        <div class="block traps">
+          <div class="lab">死亡陷阱</div>
+          <ul>
+            <li><b>磋商文件响应不彻底</b>（逐条响应）</li>
+            <li><b>最终报价超磋商范围</b>即废</li>
+            <li><b>磋商轮次控节奏失误</b></li>
+            <li><b>提交最后报价超时</b></li>
+            <li><b>磋商意见未书面留痕</b></li>
+          </ul>
+        </div>
+        <div class="strat"><div class="lab" style="color:var(--teal)">报价策略</div>首轮高10-15%留空间；末轮一锤定音；关注磋商组倾向</div>
+        <div class="block check" style="margin-top:12px">
+          <div class="lab">决策清单</div>
+          <ul><li>磋商文件逐条对应？</li><li>最终报价在磋商范围内？</li><li>要求书面留痕？</li><li>权重是否清晰？</li></ul>
+        </div>
+      </article>
+
+      <!-- 1.4 -->
+      <article class="wcard" id="w4" style="--c:var(--amber-f);--ct:var(--amber)">
+        <h4>1.4 竞争性谈判</h4>
+        <div class="sub">紧急 / 技术不确定</div>
+        <div class="block">
+          <div class="lab">适用场景</div>
+          <ul><li>紧急采购（抢险救灾）</li><li>技术方案不确定</li><li>招标后无合格标</li></ul>
+        </div>
+        <div class="block">
+          <div class="lab">核心机制</div>
+          <ul><li>多轮谈判</li><li><b>最低价中标</b></li><li>谈判后最后报价</li></ul>
+        </div>
+        <div class="block traps">
+          <div class="lab">死亡陷阱</div>
+          <ul>
+            <li><b>报价策略失误差价被砍</b></li>
+            <li><b>谈判泄露底价</b>（被对手参考）</li>
+            <li><b>最后报价超采购预算</b>即废</li>
+            <li><b>技术方案调整未响应</b></li>
+            <li><b>多家同价</b>再报/抽签</li>
+          </ul>
+        </div>
+        <div class="strat"><div class="lab" style="color:var(--amber)">报价策略</div>首轮高成本30-40%；末轮贴成本底线；不主动透露成本</div>
+        <div class="block check" style="margin-top:12px">
+          <div class="lab">决策清单</div>
+          <ul><li>采购预算已知？</li><li>谈判轮次上限？</li><li>技术方案可调整？</li><li>报价在成本底线之上？</li></ul>
+        </div>
+      </article>
+
+      <!-- 1.5 -->
+      <article class="wcard" id="w5" style="--c:var(--amber-f);--ct:var(--amber)">
+        <h4>1.5 询价</h4>
+        <div class="sub">标准现货货物</div>
+        <div class="block">
+          <div class="lab">适用场景</div>
+          <ul><li>规格标准统一</li><li>现货货源充足</li><li>金额较小</li></ul>
+        </div>
+        <div class="block">
+          <div class="lab">核心机制</div>
+          <ul><li>3家以上一次报价</li><li><b>不得更改</b></li><li>最低价中标</li></ul>
+        </div>
+        <div class="block traps">
+          <div class="lab">死亡陷阱</div>
+          <ul>
+            <li><b>询价文件响应不全</b>即废（逐项）</li>
+            <li><b>报价超采购预算</b></li>
+            <li><b>一次定终身</b>无谈判机会</li>
+            <li><b>交货期响应不到位</b></li>
+            <li><b>样品/检测报告缺失</b></li>
+          </ul>
+        </div>
+        <div class="strat"><div class="lab" style="color:var(--amber)">报价策略</div>一报价即终价精准报；算清成本+利润；报"次低"防质疑</div>
+        <div class="block check" style="margin-top:12px">
+          <div class="lab">决策清单</div>
+          <ul><li>询价文件逐项响应？</li><li>报价在预算内？</li><li>交货期可满足？</li><li>样品/检测报告齐全？</li></ul>
+        </div>
+      </article>
+
+      <!-- 1.6 -->
+      <article class="wcard" id="w6" style="--c:var(--red-f);--ct:var(--red)">
+        <h4>1.6 单一来源</h4>
+        <div class="sub">无竞争 · 高风险</div>
+        <div class="block">
+          <div class="lab">适用场景</div>
+          <ul><li>只能唯一供应商</li><li>紧急情况不可预见</li><li>保证一致性/配套</li></ul>
+        </div>
+        <div class="block">
+          <div class="lab">核心机制</div>
+          <ul><li>无竞争性采购</li><li>直接议价</li><li>公示期社会监督</li></ul>
+        </div>
+        <div class="block traps">
+          <div class="lab">死亡陷阱</div>
+          <ul>
+            <li><b>价格合理性被质疑</b>（对标行情）</li>
+            <li><b>公示期遭异议/举报</b>即终止</li>
+            <li><b>"唯一性"证据链不完整</b></li>
+            <li><b>审批层级不够</b>（省级财政）</li>
+            <li><b>关联交易嫌疑</b></li>
+          </ul>
+        </div>
+        <div class="strat"><div class="lab" style="color:var(--red)">报价策略</div>价格对标3份行情；成本构成透明；首轮高20%留空间</div>
+        <div class="block check" style="margin-top:12px">
+          <div class="lab">决策清单</div>
+          <ul><li>唯一性证据链完整？</li><li>价格合理性材料齐全？</li><li>异议应对预案？</li><li>审批层级合规？无关联？</li></ul>
+        </div>
+      </article>
+    </div>
+
+    <!-- CH2 INDUSTRIES -->
+    <h2 class="chapter" id="ch2"><span class="num">第二章</span>五大行业专属坑</h2>
+
+    <!-- 2.1 工程 -->
+    <article class="icard" id="i1" style="--c:var(--blue-f);--ct:var(--blue)">
+      <div class="hd"><h4>2.1 工程招标</h4><span class="range">施工 / 勘察 / 设计 / 监理 / 工程总承包</span></div>
+      <div class="body">
+        <div class="row"><div class="t">围标串标认定</div><div class="d"><ul>
+          <li>电子标：IP/MAC/CPU序列号/硬盘序列号重合 → 直接认定</li>
+          <li>文件痕迹：创建人/修改人/保存人一致 → 嫌疑</li>
+          <li>报价规律性：等差/等比数列 → 嫌疑</li>
+          <li>文件内容雷同：方案/错误表述一致 → 认定</li>
+        </ul></div></div>
+        <div class="row"><div class="t">项目经理锁定</div><div class="d"><ul>
+          <li>一造一建不能同时挂多个在建项目</li>
+          <li>社保连续缴纳（通常6个月以上）</li>
+          <li>证书有效且注册单位与投标人一致</li>
+          <li>中标后不得更换（更换需建设单位同意）</li>
+        </ul></div></div>
+        <div class="row"><div class="t">类似业绩认定</div><div class="d"><ul>
+          <li>合同 + 竣工验收证明<b>双件齐全</b></li>
+          <li>金额/规模/类型匹配"类似工程"定义</li>
+          <li>时间范围通常近3-5年</li>
+          <li>部分项目要求业绩项目经理与本次一致</li>
+        </ul></div></div>
+        <div class="row"><div class="t">履约保证金</div><div class="d">比例 ≤ 中标合同金额10%；方式：银行保函/担保保函/现金；退还：验收合格后28天内</div></div>
+        <div class="row"><div class="t">农民工工资保证金</div><div class="d">工程类强制；单独账户、专款专用；未存储影响开工</div></div>
+      </div>
+      <div class="stratbox"><div class="lab">应对策略</div><ul class="wcard" style="list-style:none;margin:0;padding:0">
+        <li style="padding:3px 0;color:var(--tx2)">投标文件独立制作：独立IP/设备/人员，杜绝痕迹重合</li>
+        <li style="padding:3px 0;color:var(--tx2)">项目经理查档：投标前"四库一平台"核查在建情况</li>
+        <li style="padding:3px 0;color:var(--tx2)">业绩双证齐全：合同+竣工验收缺一不可</li>
+        <li style="padding:3px 0;color:var(--tx2)">履约保证金优先银行保函（占用授信少）</li>
+      </ul></div>
+    </article>
+
+    <!-- 2.2 货物 -->
+    <article class="icard" id="i2" style="--c:var(--amber-f);--ct:var(--amber)">
+      <div class="hd"><h4>2.2 货物招标</h4><span class="range">设备 / 材料 / 系统集成 / 软硬件采购</span></div>
+      <div class="body">
+        <div class="row"><div class="t">参数控标</div><div class="d"><ul>
+          <li>"★"号条款（实质性）<b>逐条响应</b>，缺一条即废</li>
+          <li>参数倾向性：特定品牌参数需用"或同等品质"软化</li>
+          <li>参数负偏离：低于要求即失分，重大负偏离即废</li>
+          <li>关键技术参数须第三方检测报告支撑</li>
+        </ul></div></div>
+        <div class="row"><div class="t">原厂授权/代理</div><div class="d"><ul>
+          <li>代理商必须提供原厂授权书</li>
+          <li>授权层级：一级/二级代理权限不同</li>
+          <li>有效期：覆盖投标有效期+履约期</li>
+          <li>售后承诺函：原厂或授权机构出具</li>
+        </ul></div></div>
+        <div class="row"><div class="t">检测报告时效</div><div class="d">通常3年内有效（部分1年）；机构须CMA/CNAS；参数对应、型号一致</div></div>
+        <div class="row"><div class="t">知识产权连带</div><div class="d">侵权投标人担全责；软件需正版/著作权；硬件需专利避免仿冒；中标后兜底</div></div>
+        <div class="row"><div class="t">交货期与调试</div><div class="d">交货期为实质性条款；安装调试责任/费用/验收划分；培训要求；备品备件清单</div></div>
+      </div>
+      <div class="stratbox"><div class="lab">应对策略</div><ul style="list-style:none;margin:0;padding:0">
+        <li style="padding:3px 0;color:var(--tx2)">参数响应表逐条核对：每★号条款须"满足/优于"</li>
+        <li style="padding:3px 0;color:var(--tx2)">检测报告提前梳理：3年内CMA/CNAS，参数型号一致</li>
+        <li style="padding:3px 0;color:var(--tx2)">原厂授权提前申请：层级/有效期/范围核对</li>
+        <li style="padding:3px 0;color:var(--tx2)">知识产权自查：专利/软著避免侵权</li>
+      </ul></div>
+    </article>
+
+    <!-- 2.3 服务 -->
+    <article class="icard" id="i3" style="--c:var(--teal-f);--ct:var(--teal)">
+      <div class="hd"><h4>2.3 服务招标</h4><span class="range">咨询 / 物业 / 安保 / IT服务 / 政府购买服务</span></div>
+      <div class="body">
+        <div class="row"><div class="t">人员证书得分</div><div class="d"><ul>
+          <li>一建/PMP/高级职称/信息系统项目管理师/注册咨询师</li>
+          <li>证书有效且注册单位与投标人一致</li>
+          <li>数量/等级/专业方向匹配评分办法</li>
+          <li>社保连续缴纳（通常6个月-1年）</li>
+        </ul></div></div>
+        <div class="row"><div class="t">负责人履历</div><div class="d"><ul>
+          <li>类似项目经验：规模/类型/角色</li>
+          <li>工作年限：通常5-10年以上</li>
+          <li>证书：高级职称+行业执业资格</li>
+          <li>无在建冲突项目</li>
+        </ul></div></div>
+        <div class="row"><div class="t">类似业绩证明</div><div class="d">合同 + 用户证明<b>双件齐全</b>；用户证明需甲方盖章含服务内容/期限/质量评价；金额/类型/期限匹配</div></div>
+        <div class="row"><div class="t">社保真实性</div><div class="d">核心人员社保连续（6个月以上）；缴纳单位须一致；临时挂证易查出；变更需建设单位同意</div></div>
+        <div class="row"><div class="t">方案可执行性</div><div class="d">忌空话套话；须有流程/人员配置/应急预案；标准量化（响应/解决时间）；承诺可考核（KPI/违约）</div></div>
+      </div>
+      <div class="stratbox"><div class="lab">应对策略</div><ul style="list-style:none;margin:0;padding:0">
+        <li style="padding:3px 0;color:var(--tx2)">人员证书矩阵化管理：证书/社保/履历建卡避免复用</li>
+        <li style="padding:3px 0;color:var(--tx2)">业绩档案双件齐全：按行业/规模/金额分类归档</li>
+        <li style="padding:3px 0;color:var(--tx2)">社保一致性核查：投标前查所有核心人员缴纳单位</li>
+        <li style="padding:3px 0;color:var(--tx2)">方案模板化+个性化：避免千篇一律低分</li>
+      </ul></div>
+    </article>
+
+    <!-- 2.4 政采 -->
+    <article class="icard" id="i4" style="--c:var(--purple-f);--ct:var(--purple)">
+      <div class="hd"><h4>2.4 政府采购</h4><span class="range">各级国家机关 / 事业单位 / 团体组织 · 财政性资金</span></div>
+      <div class="body">
+        <div class="row"><div class="t">中小企业声明函</div><div class="d"><ul>
+          <li>强制提交（所有政采项目）</li>
+          <li>价格扣除：小微6-10%（工程5-6%）</li>
+          <li>联合体：大中型+小微，2-3%扣除</li>
+          <li>造假 → 进黑名单</li>
+        </ul></div></div>
+        <div class="row"><div class="t">进口产品审批</div><div class="d">原则采国货；确需进口：财政部审批+专家论证+公示；关境外生产算进口；中外合资不算</div></div>
+        <div class="row"><div class="t">节能产品清单</div><div class="d">强制清单：须采购清单内产品；优先清单：节能/环保/节水优先；半年更新；投标前核对版本</div></div>
+        <div class="row"><div class="t">信用中国查询</div><div class="d">不得为失信被执行人/重大税收违法/政采严重违法失信；查询投标截止日前3年内</div></div>
+        <div class="row"><div class="t">政策功能</div><div class="d">监狱企业/残疾人单位视同小微；支持脱贫农副产品；创新产品首购订购</div></div>
+      </div>
+      <div class="stratbox"><div class="lab">应对策略</div><ul style="list-style:none;margin:0;padding:0">
+        <li style="padding:3px 0;color:var(--tx2)">声明函模板化：严格按财政部模板，数据真实</li>
+        <li style="padding:3px 0;color:var(--tx2)">进口审批提前规划：周期2-3个月</li>
+        <li style="padding:3px 0;color:var(--tx2)">节能清单实时更新：投标前核对产品在列</li>
+        <li style="padding:3px 0;color:var(--tx2)">信用中国截图存档：投标前1周内查询</li>
+      </ul></div>
+    </article>
+
+    <!-- 2.5 EPC -->
+    <article class="icard" id="i5" style="--c:var(--coral-f);--ct:var(--coral)">
+      <div class="hd"><h4>2.5 EPC / PPP</h4><span class="range">工程总承包 / 政府和社会资本合作 / 特许经营</span></div>
+      <div class="body">
+        <div class="row"><div class="t">联合体责任</div><div class="d">协议明确设计/施工责任边界；各方承担<b>连带责任</b>；牵头方代表投标/签约/履约；成员变更需同意且资质不低于原</div></div>
+        <div class="row"><div class="t">融资可行性</div><div class="d"><ul>
+          <li>银行授信函：覆盖总投资50%以上</li>
+          <li>融资方案：来源/结构/还款计划</li>
+          <li>自有资金：覆盖20-30%</li>
+          <li>能力评估：资产负债率/流动比率/现金流</li>
+        </ul></div></div>
+        <div class="row"><div class="t">绩效与付费</div><div class="d">按绩效付费：可用性+运营绩效；建设期/运营期分别设指标；付费风险（能力/延迟）；调价机制（物价/汇率/利率）</div></div>
+        <div class="row"><div class="t">全周期成本</div><div class="d">建设+运营+维护+拆除；折现率6-8%；周期15-30年；精度±10%以内</div></div>
+        <div class="row"><div class="t">风险分担</div><div class="d">政策风险政府担；汇率政府担/共担；工期社会资本担；不可抗力共担；须在合同中明确</div></div>
+      </div>
+      <div class="stratbox"><div class="lab">应对策略</div><ul style="list-style:none;margin:0;padding:0">
+        <li style="padding:3px 0;color:var(--tx2)">联合体协议精细化：责任/权利/收益明确</li>
+        <li style="padding:3px 0;color:var(--tx2)">融资方案提前对接银行：授信/承诺/意向函分层</li>
+        <li style="padding:3px 0;color:var(--tx2)">绩效指标分别谈判：避免指标过高</li>
+        <li style="padding:3px 0;color:var(--tx2)">成本测算模型化 + 风险逐项谈</li>
+      </ul></div>
+    </article>
+
+    <!-- CH3 DECISION -->
+    <h2 class="chapter" id="ch3"><span class="num">第三章</span>决策前哨 · 四步定盘</h2>
+    <p class="lead">拿到招标文件，第一件事不是写标书，而是<strong>用四步法定盘</strong>——判断该不该投。</p>
+
+    <div class="step" id="s1">
+      <div class="sn">STEP 01</div>
+      <h4>定方式 · 属于哪种采购</h4>
+      <pre>是否使用财政性资金？
+├─ 是 → 政府采购法管辖
+│   ├─ 限额以上 → 公开招标（默认）
+│   ├─ 特殊性质 → 邀请招标
+│   ├─ 技术复杂/服务类 → 竞争性磋商
+│   ├─ 紧急/技术不确定 → 竞争性谈判
+│   ├─ 标准现货货物 → 询价
+│   └─ 唯一供应商 → 单一来源
+└─ 否 → 招标投标法管辖
+    ├─ 限额以上 → 公开招标（默认）
+    ├─ 特殊性质 → 邀请招标
+    └─ 其他方式参照政府采购</pre>
+      <ul><li>资金性质：财政性 vs 国有 vs 社会</li><li>项目金额：是否达限额</li><li>项目性质：保密/紧急/技术复杂</li><li>供应商数量：是否唯一</li></ul>
+    </div>
+
+    <div class="step" id="s2">
+      <div class="sn">STEP 02</div>
+      <h4>定行业 · 属于哪个赛道</h4>
+      <pre>采购对象是什么？
+├─ 工程建设（施工/勘察/设计/监理）→ 工程招标
+├─ 货物（设备/材料/系统）→ 货物招标
+├─ 服务（咨询/物业/IT/安保）→ 服务招标
+├─ 财政性资金采购 → 政府采购（叠加政策功能）
+└─ 工程总承包/特许经营 → EPC / PPP</pre>
+      <ul><li>采购对象：工程/货物/服务/综合</li><li>是否叠加政采政策功能</li><li>是否涉及融资/运营/绩效付费（EPC/PPP特征）</li></ul>
+    </div>
+
+    <div class="step" id="s3">
+      <div class="sn">STEP 03</div>
+      <h4>查废标条款 · 逐条核</h4>
+      <p style="font-size:13.5px;color:var(--tx2);margin:6px 0 0">废标条款来源：①"投标无效条款"章节 ②"实质性条款"清单（★号） ③"资格要求"章节 ④法律法规强制性规定</p>
+      <ul>
+        <li>资质证书齐备且有效？</li>
+        <li>业绩达标（合同+验收/用户证明）？</li>
+        <li>人员证书齐全且可锁定？</li>
+        <li>实质性条款逐条响应？</li>
+        <li>投标保证金按时到账？</li>
+        <li>投标文件按时递交？</li>
+        <li>中小企业声明函合规（政采）？</li>
+        <li>信用中国无失信记录？</li>
+      </ul>
+    </div>
+
+    <div class="step" id="s4">
+      <div class="sn">STEP 04</div>
+      <h4>算匹配度 · 资质/业绩/人员/财力</h4>
+      <table>
+        <thead><tr><th>维度</th><th>权重</th><th>评估要点</th></tr></thead>
+        <tbody>
+          <tr><td><b>资质匹配度</b></td><td>25%</td><td>资质等级、专项资质、行业许可</td></tr>
+          <tr><td><b>业绩匹配度</b></td><td>30%</td><td>类似项目数量、金额、类型、时间</td></tr>
+          <tr><td><b>人员匹配度</b></td><td>30%</td><td>项目经理、技术负责人、核心团队证书</td></tr>
+          <tr><td><b>财力匹配度</b></td><td>15%</td><td>营收规模、资产负债率、现金流、融资能力</td></tr>
+        </tbody>
+      </table>
+      <div class="callout" style="margin-top:14px">
+        <strong>匹配度阈值：</strong> ≥ 80分 高匹配必投 ｜ 60-80分 中匹配评估后决策 ｜ &lt; 60分 低匹配建议放弃（除非有定向优势）
+      </div>
+    </div>
+
+    <!-- APPENDIX -->
+    <h2 class="chapter" id="appendix"><span class="num">附录</span>A / B</h2>
+
+    <h3 class="sect"><span class="dot" style="background:var(--red)"></span>附录A · 废标条款速查表</h3>
+    <table>
+      <thead><tr><th>废标类型</th><th>具体情形</th><th>法律依据</th></tr></thead>
+      <tbody>
+        <tr><td><b>资格不符</b></td><td>资质证书过期/不符/造假</td><td>实施条例第36条</td></tr>
+        <tr><td><b>业绩不符</b></td><td>数量/金额/类型/时间不符</td><td>招标文件资格要求</td></tr>
+        <tr><td><b>人员不符</b></td><td>项目经理有在建/证书不符/社保不连续</td><td>招标文件人员要求</td></tr>
+        <tr><td><b>实质性条款未响应</b></td><td>★号条款未响应/负偏离</td><td>招投标法第27条</td></tr>
+        <tr><td><b>保证金未到账</b></td><td>金额不足/到账超时/账户错误</td><td>投标保证金条款</td></tr>
+        <tr><td><b>文件递交超时</b></td><td>送达超时/上传超时</td><td>招投标法第34条</td></tr>
+        <tr><td><b>围标串标</b></td><td>IP/MAC重合/痕迹一致/报价规律</td><td>招投标法第53条</td></tr>
+        <tr><td><b>弄虚作假</b></td><td>业绩/证书/社保造假</td><td>招投标法第54条</td></tr>
+        <tr><td><b>信用不良</b></td><td>失信被执行人/重大税收违法</td><td>政府采购法第22条</td></tr>
+        <tr><td><b>声明函造假</b></td><td>虚报企业类型/数据</td><td>政府采购法第77条</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sect"><span class="dot" style="background:var(--purple)"></span>附录B · 法律依据对照表</h3>
+    <table>
+      <thead><tr><th>采购方式</th><th>主要法律依据</th><th>适用范围</th></tr></thead>
+      <tbody>
+        <tr><td><b>公开招标</b></td><td>招投标法 / 政府采购法</td><td>限额以上必招项目</td></tr>
+        <tr><td><b>邀请招标</b></td><td>招投标法 / 政府采购法</td><td>特殊性质/有限投标人</td></tr>
+        <tr><td><b>竞争性磋商</b></td><td>政采磋商管理暂行办法</td><td>政府购买服务/技术复杂</td></tr>
+        <tr><td><b>竞争性谈判</b></td><td>政府采购法</td><td>紧急/技术不确定</td></tr>
+        <tr><td><b>询价</b></td><td>政府采购法</td><td>标准现货货物</td></tr>
+        <tr><td><b>单一来源</b></td><td>政府采购法</td><td>唯一供应商</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top:28px">
+      <strong>手册使用建议</strong><br>
+      · 销售侧（S1-S5）：商机研判话术基础，第一/二章可直接转化客户沟通<br>
+      · 产品侧（P3）：知识库核心素材，第三章"四步定盘"对应决策闸门功能<br>
+      · 运营侧（O1-O2）：附录A是高热度内容钩子，可拆系列图文<br>
+      · 技术侧（T1-T3）：行业专属坑可作解析Agent知识图谱节点
+    </div>
+  </main>
+</div>
+
+<button id="top" title="回到顶部">↑</button>
+
+<script>
+  // progress bar
+  const prog=document.getElementById('progress');
+  const top=document.getElementById('top');
+  const sidebar=document.getElementById('sidebar');
+  const toggle=document.getElementById('toggle');
+  function onScroll(){
+    const h=document.documentElement;
+    const sc=h.scrollTop, max=h.scrollHeight-h.clientHeight;
+    prog.style.width=(max>0?(sc/max*100):0)+'%';
+    top.classList.toggle('show',sc>400);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  top.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  toggle.addEventListener('click',()=>sidebar.classList.toggle('open'));
+
+  // scroll spy
+  const links=[...document.querySelectorAll('#nav a')];
+  const map={};
+  links.forEach(a=>{const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el)map[id]={a,el};});
+  const targets=Object.values(map).map(o=>o.el);
+  const spy=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const id=e.target.id;
+        links.forEach(l=>l.classList.remove('active'));
+        if(map[id])map[id].a.classList.add('active');
+      }
+    });
+  },{rootMargin:'-10% 0px -75% 0px',threshold:0});
+  targets.forEach(t=>spy.observe(t));
+
+  // close sidebar on mobile after click
+  links.forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=900)sidebar.classList.remove('open');}));
+</script>
+</body>
+</html>
