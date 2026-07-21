@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>招投标网站大全 · 政府 / 代理 / 公开 / 付费 对照速查</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f5f7fa;
+    --bg-card: #ffffff;
+    --text: #1f2733;
+    --text-soft: #5b6675;
+    --border: #e3e8ef;
+    --accent: #0d9488;
+    --accent-soft: #d6f3ef;
+    --green: #16a34a;
+    --green-bg: #e7f6ec;
+    --amber: #d97706;
+    --amber-bg: #fdf1de;
+    --red: #dc2626;
+    --red-bg: #fdeaea;
+    --shadow: 0 1px 3px rgba(16,24,40,.06), 0 1px 2px rgba(16,24,40,.04);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f141b;
+      --bg-soft: #161d27;
+      --bg-card: #161d27;
+      --text: #e6edf3;
+      --text-soft: #9aa7b5;
+      --border: #2a3441;
+      --accent: #2dd4bf;
+      --accent-soft: #103530;
+      --green: #4ade80;
+      --green-bg: #11271a;
+      --amber: #fbbf24;
+      --amber-bg: #2a2113;
+      --red: #f87171;
+      --red-bg: #2a1517;
+      --shadow: 0 1px 3px rgba(0,0,0,.3);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px 80px; }
+
+  header.hero {
+    background: linear-gradient(135deg, var(--accent-soft), transparent);
+    border-bottom: 1px solid var(--border);
+    padding: 38px 20px 30px;
+  }
+  header.hero .inner { max-width: 1080px; margin: 0 auto; }
+  .eyebrow {
+    display: inline-block; font-size: 12px; letter-spacing: .12em;
+    color: var(--accent); font-weight: 700; text-transform: uppercase; margin-bottom: 8px;
+  }
+  h1 { font-size: 30px; margin: 0 0 10px; line-height: 1.25; }
+  .lede { color: var(--text-soft); max-width: 760px; margin: 0; font-size: 15px; }
+  .note {
+    margin-top: 16px; background: var(--bg-soft); border: 1px solid var(--border);
+    border-left: 3px solid var(--accent); border-radius: 8px; padding: 12px 16px;
+    font-size: 13.5px; color: var(--text-soft);
+  }
+  .note b { color: var(--text); }
+
+  /* Filter bar */
+  .filterbar {
+    position: sticky; top: 0; z-index: 20; background: var(--bg);
+    border-bottom: 1px solid var(--border); padding: 12px 0; margin-bottom: 8px;
+    backdrop-filter: saturate(150%) blur(6px);
+  }
+  .filterbar .inner { max-width: 1080px; margin: 0 auto; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .filterbar .label { font-size: 13px; color: var(--text-soft); margin-right: 4px; }
+  .fbtn {
+    border: 1px solid var(--border); background: var(--bg-card); color: var(--text);
+    padding: 6px 14px; border-radius: 999px; font-size: 13.5px; cursor: pointer;
+    transition: all .15s ease; font-family: inherit;
+  }
+  .fbtn:hover { border-color: var(--accent); color: var(--accent); }
+  .fbtn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) { .fbtn.active { color: #062b27; } }
+
+  section { margin-top: 36px; scroll-margin-top: 70px; }
+  .cat-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; border-bottom: 2px solid var(--border); padding-bottom: 10px; margin-bottom: 18px; }
+  .cat-head h2 { font-size: 22px; margin: 0; }
+  .cat-head .sub { color: var(--text-soft); font-size: 14px; }
+  .tag {
+    font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 6px; white-space: nowrap;
+  }
+  .tag.free { color: var(--green); background: var(--green-bg); }
+  .tag.partial { color: var(--amber); background: var(--amber-bg); }
+  .tag.paid { color: var(--red); background: var(--red-bg); }
+  .desc { color: var(--text-soft); margin: 0 0 16px; font-size: 14.5px; }
+
+  .group-title { font-size: 15px; font-weight: 700; margin: 20px 0 10px; color: var(--text); }
+  .group-title:first-of-type { margin-top: 4px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 8px; background: var(--bg-card); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
+  thead th { text-align: left; background: var(--bg-soft); color: var(--text-soft); font-weight: 600; padding: 11px 14px; border-bottom: 1px solid var(--border); font-size: 13px; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--bg-soft); }
+  a { color: var(--accent); text-decoration: none; word-break: break-all; }
+  a:hover { text-decoration: underline; }
+  .plist { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; }
+  .plist li { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; box-shadow: var(--shadow); }
+  .plist .pname { font-weight: 600; }
+  .plist .purl { font-size: 12.5px; color: var(--accent); display: block; margin-top: 3px; word-break: break-all; }
+
+  .callout { border-radius: 10px; padding: 14px 18px; margin: 16px 0; font-size: 14px; border: 1px solid var(--border); }
+  .callout.info { background: var(--accent-soft); border-color: transparent; color: var(--text); }
+  .callout.info b { color: var(--accent); }
+
+  ol.tips { padding-left: 20px; margin: 8px 0; }
+  ol.tips li { margin-bottom: 10px; font-size: 14.5px; }
+  ol.tips b { color: var(--text); }
+
+  footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text-soft); font-size: 12.5px; text-align: center; }
+
+  /* hide when filtered */
+  .hidden { display: none !important; }
+  .tabbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 0; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="inner">
+    <span class="eyebrow">投标助手 · 信息源导航</span>
+    <h1>招投标网站大全</h1>
+    <p class="lede">政府 / 代理 / 公开 / 付费 四类对照速查。按"运营主体"归类，逐块标注是否免费、是否公开文件为主、投标门槛，并在末尾附一页速查表。</p>
+    <div class="note">
+      <b>怎么用：</b>省级子站域名偶尔调整，最稳妥入口是国家级平台（会向下链到各省）；商业平台存在山寨仿冒站，认准下表官方域名。用顶部筛选条可只看某一类。
+    </div>
+  </div>
+</header>
+
+<div class="filterbar">
+  <div class="inner">
+    <span class="label">筛选：</span>
+    <button class="fbtn active" data-filter="all">全部</button>
+    <button class="fbtn" data-filter="gov">政府官方（免费）</button>
+    <button class="fbtn" data-filter="soe">央企国企（免费）</button>
+    <button class="fbtn" data-filter="agent">代理（收费）</button>
+    <button class="fbtn" data-filter="commercial">商业（付费）</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- 一、政府 -->
+  <section data-type="gov">
+    <div class="cat-head">
+      <h2>一、政府 / 官方平台</h2>
+      <span class="sub">法定发布媒介 · 源头</span>
+      <span class="tag free">✅ 免费 · 公开文件为主</span>
+    </div>
+    <p class="desc">政府或事业单位运营，依法必须在这里发布公告。<b>标书大多免费下载</b>（尤其全流程电子标）。这是"决策闸门"第一步就该盯的源头。</p>
+
+    <div class="group-title">国家级</div>
+    <table>
+      <thead><tr><th style="width:30%">平台</th><th style="width:42%">网址</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>中国政府采购网</td><td><a href="http://www.ccgp.gov.cn/" target="_blank" rel="noopener">www.ccgp.gov.cn</a></td><td>政府采购法定发布媒介</td></tr>
+        <tr><td>全国公共资源交易平台</td><td><a href="https://www.ggzy.gov.cn/" target="_blank" rel="noopener">www.ggzy.gov.cn</a></td><td>工程建设/政府采购/土地/产权/碳排放等全品类</td></tr>
+        <tr><td>中国招标投标公共服务平台</td><td><a href="https://www.cebpubservice.com/" target="_blank" rel="noopener">www.cebpubservice.com</a></td><td>依法必须招标项目公告发布媒介，免费</td></tr>
+        <tr><td>中央政府采购网</td><td><a href="https://www.zycg.gov.cn/" target="_blank" rel="noopener">www.zycg.gov.cn</a></td><td>中央国家机关采购</td></tr>
+        <tr><td>中共中央直属机关采购中心</td><td><a href="https://www.zzcg.gov.cn/" target="_blank" rel="noopener">www.zzcg.gov.cn</a></td><td>中直机关采购</td></tr>
+        <tr><td>军队采购网</td><td><a href="http://plap.mil.cn/" target="_blank" rel="noopener">plap.mil.cn</a></td><td>军队采购</td></tr>
+        <tr><td>中国人民银行集中采购中心</td><td><a href="https://jzcg.pbc.gov.cn/" target="_blank" rel="noopener">jzcg.pbc.gov.cn</a></td><td>央行采购</td></tr>
+        <tr><td>中国海关政府采购网</td><td><a href="http://hgcg.customs.gov.cn/" target="_blank" rel="noopener">hgcg.customs.gov.cn</a></td><td>海关采购</td></tr>
+        <tr><td>教育部政府采购网</td><td><a href="https://www.zfcg.edu.cn/" target="_blank" rel="noopener">www.zfcg.edu.cn</a></td><td>高校/教育口采购</td></tr>
+        <tr><td>政府采购云平台</td><td><a href="https://www.zcygov.cn/" target="_blank" rel="noopener">www.zcygov.cn</a></td><td>多省政府采购线上交易统一入口</td></tr>
+      </tbody>
+    </table>
+
+    <div class="group-title">省市级（规律 + 高频代表）</div>
+    <div class="callout info"><b>规律：</b>每个省基本有两套 —— ①「中国政府采购网·XX分网」(<code>ccgp-xxx</code>) ②「全国公共资源交易平台·XX」(<code>ggzy.xxx</code> 或省本级域)。</div>
+    <table>
+      <thead><tr><th style="width:14%">省份</th><th style="width:43%">政府采购网</th><th>公共资源交易平台</th></tr></thead>
+      <tbody>
+        <tr><td>北京</td><td><a href="http://www.ccgp-beijing.gov.cn/" target="_blank" rel="noopener">ccgp-beijing.gov.cn</a></td><td><a href="https://ggzyfw.beijing.gov.cn/" target="_blank" rel="noopener">ggzyfw.beijing.gov.cn</a></td></tr>
+        <tr><td>上海</td><td><a href="http://www.ccgp-shanghai.gov.cn" target="_blank" rel="noopener">ccgp-shanghai.gov.cn</a></td><td><a href="https://www.shggzy.com/" target="_blank" rel="noopener">shggzy.com</a></td></tr>
+        <tr><td>广东</td><td><a href="http://www.ccgp-guangdong.gov.cn/" target="_blank" rel="noopener">ccgp-guangdong.gov.cn</a></td><td><a href="https://ygp.gdzwfw.gov.cn/" target="_blank" rel="noopener">ygp.gdzwfw.gov.cn</a></td></tr>
+        <tr><td>江苏</td><td><a href="http://www.ccgp-jiangsu.gov.cn/" target="_blank" rel="noopener">ccgp-jiangsu.gov.cn</a></td><td><a href="http://jsggzy.jszwfw.gov.cn/" target="_blank" rel="noopener">jsggzy.jszwfw.gov.cn</a></td></tr>
+        <tr><td>浙江</td><td><a href="http://www.ccgp-zhejiang.gov.cn/" target="_blank" rel="noopener">ccgp-zhejiang.gov.cn</a></td><td><a href="https://ggzy.zj.gov.cn/" target="_blank" rel="noopener">ggzy.zj.gov.cn</a></td></tr>
+        <tr><td>四川</td><td><a href="http://www.ccgp-sichuan.gov.cn/" target="_blank" rel="noopener">ccgp-sichuan.gov.cn</a></td><td><a href="http://ggzyjy.sc.gov.cn/" target="_blank" rel="noopener">ggzyjy.sc.gov.cn</a></td></tr>
+        <tr><td>重庆</td><td><a href="https://www.ccgp-chongqing.gov.cn/" target="_blank" rel="noopener">ccgp-chongqing.gov.cn</a></td><td><a href="https://www.cqggzy.com/" target="_blank" rel="noopener">cqggzy.com</a></td></tr>
+        <tr><td>山东</td><td><a href="http://www.ccgp-shandong.gov.cn/" target="_blank" rel="noopener">ccgp-shandong.gov.cn</a></td><td><a href="http://ggzyjy.shandong.gov.cn/" target="_blank" rel="noopener">ggzyjy.shandong.gov.cn</a></td></tr>
+        <tr><td>河南</td><td><a href="http://www.ccgp-henan.gov.cn/" target="_blank" rel="noopener">ccgp-henan.gov.cn</a></td><td><a href="http://ggzy.fgw.henan.gov.cn/" target="_blank" rel="noopener">ggzy.fgw.henan.gov.cn</a></td></tr>
+        <tr><td>湖北</td><td><a href="http://www.ccgp-hubei.gov.cn/" target="_blank" rel="noopener">ccgp-hubei.gov.cn</a></td><td><a href="https://www.hbggzyfwpt.cn/" target="_blank" rel="noopener">hbggzyfwpt.cn</a></td></tr>
+        <tr><td>湖南</td><td><a href="http://www.ccgp-hunan.gov.cn/" target="_blank" rel="noopener">ccgp-hunan.gov.cn</a></td><td><a href="https://www.hnsggzy.com/" target="_blank" rel="noopener">hnsggzy.com</a></td></tr>
+        <tr><td>福建</td><td><a href="http://www.ccgp-fujian.gov.cn/" target="_blank" rel="noopener">ccgp-fujian.gov.cn</a></td><td><a href="https://ggzyfw.fujian.gov.cn/" target="_blank" rel="noopener">ggzyfw.fujian.gov.cn</a></td></tr>
+        <tr><td>安徽</td><td><a href="http://www.ccgp-anhui.gov.cn/" target="_blank" rel="noopener">ccgp-anhui.gov.cn</a></td><td><a href="https://ggzy.ah.gov.cn/" target="_blank" rel="noopener">ggzy.ah.gov.cn</a></td></tr>
+        <tr><td>江西</td><td><a href="http://www.ccgp-jiangxi.gov.cn/web/" target="_blank" rel="noopener">ccgp-jiangxi.gov.cn</a></td><td><a href="http://jxsggzy.cn/web/" target="_blank" rel="noopener">jxsggzy.cn</a></td></tr>
+        <tr><td>河北</td><td><a href="http://www.ccgp-hebei.gov.cn/" target="_blank" rel="noopener">ccgp-hebei.gov.cn</a></td><td><a href="http://www.hebeieb.com.cn/" target="_blank" rel="noopener">hebeieb.com.cn</a></td></tr>
+      </tbody>
+    </table>
+    <div class="callout info">其余省份（山西/内蒙古/辽宁/吉林/黑龙江/广西/海南/贵州/云南/西藏/陕西/甘肃/青海/宁夏/新疆/兵团）同样遵循「ccgp-分网 + 公共资源平台」两套结构，入口可从 <a href="https://www.ggzy.gov.cn/" target="_blank" rel="noopener">ggzy.gov.cn</a> 全国站按省跳转，最不易错。</div>
+  </section>
+
+  <!-- 二、央企 -->
+  <section data-type="soe">
+    <div class="cat-head">
+      <h2>二、央企 / 国企自建采购平台</h2>
+      <span class="sub">招标方自建 · 单体金额大</span>
+      <span class="tag free">✅ 免费看公告 · 投标需 CA</span>
+    </div>
+    <p class="desc">招标方（集团）自己建的交易平台，信息权威、单体金额大。公告免费看，但<b>投标必须在该平台注册并办理 CA 电子钥匙</b>；标书多数免费或仅收工本费。投哪类标就盯哪类集团的入口（央企平台合计 60+ 家，下面是高频的）。</p>
+
+    <div class="group-title">能源 / 电力</div>
+    <ul class="plist">
+      <li><span class="pname">国家电网·国网电子商务平台</span><a class="purl" href="https://ecp.sgcc.com.cn" target="_blank" rel="noopener">ecp.sgcc.com.cn</a></li>
+      <li><span class="pname">南方电网·供应链统一服务平台</span><a class="purl" href="http://www.bidding.csg.cn" target="_blank" rel="noopener">bidding.csg.cn</a></li>
+      <li><span class="pname">国家电投·电子商务平台</span><a class="purl" href="https://www.espic.com.cn" target="_blank" rel="noopener">espic.com.cn</a></li>
+      <li><span class="pname">中国石油招标投标网</span><a class="purl" href="https://www.cnpcbidding.com" target="_blank" rel="noopener">cnpcbidding.com</a></li>
+      <li><span class="pname">中国石化·物资采购电子商务平台</span><a class="purl" href="https://ec.sinopec.com" target="_blank" rel="noopener">ec.sinopec.com</a></li>
+      <li><span class="pname">国家能源集团·国能e商</span><a class="purl" href="https://www.e-ceic.com" target="_blank" rel="noopener">e-ceic.com</a></li>
+      <li><span class="pname">中国华能·电子商务平台</span><a class="purl" href="https://ec.chng.com.cn" target="_blank" rel="noopener">ec.chng.com.cn</a></li>
+      <li><span class="pname">中国华电·电子商务平台</span><a class="purl" href="https://www.chdtp.com" target="_blank" rel="noopener">chdtp.com</a></li>
+      <li><span class="pname">中国广核·电子商务平台</span><a class="purl" href="https://ecp.cgnpc.com.cn" target="_blank" rel="noopener">ecp.cgnpc.com.cn</a></li>
+    </ul>
+
+    <div class="group-title">基建 / 制造</div>
+    <ul class="plist">
+      <li><span class="pname">中国建筑·云筑网</span><a class="purl" href="https://www.yzw.cn" target="_blank" rel="noopener">yzw.cn</a></li>
+      <li><span class="pname">中国中铁·鲁班商务网</span><a class="purl" href="https://www.crecgec.com" target="_blank" rel="noopener">crecgec.com</a></li>
+      <li><span class="pname">中国铁建·物资采购网</span><a class="purl" href="https://ecm.crcc.cn" target="_blank" rel="noopener">ecm.crcc.cn</a></li>
+      <li><span class="pname">中国交建·供应链管理信息系统</span><a class="purl" href="http://ec.ccccltd.cn" target="_blank" rel="noopener">ec.ccccltd.cn</a></li>
+      <li><span class="pname">中国电建·公共资源交易服务平台</span><a class="purl" href="https://bid.powerchina.cn" target="_blank" rel="noopener">bid.powerchina.cn</a></li>
+      <li><span class="pname">中国中车·中车购</span><a class="purl" href="http://ec.crrcgc.cc" target="_blank" rel="noopener">ec.crrcgc.cc</a></li>
+      <li><span class="pname">中国宝武·欧贝平台</span><a class="purl" href="https://www.obei.com.cn" target="_blank" rel="noopener">obei.com.cn</a></li>
+    </ul>
+
+    <div class="group-title">通信 / 科技</div>
+    <ul class="plist">
+      <li><span class="pname">中国移动·采购与招标网</span><a class="purl" href="https://b2b.10086.cn" target="_blank" rel="noopener">b2b.10086.cn</a></li>
+      <li><span class="pname">中国联通·采购与招标网</span><a class="purl" href="http://www.chinaunicombidding.cn" target="_blank" rel="noopener">chinaunicombidding.cn</a></li>
+      <li><span class="pname">中国电信·阳光采购网</span><a class="purl" href="https://caigou.chinatelecom.com.cn" target="_blank" rel="noopener">caigou.chinatelecom.com.cn</a></li>
+    </ul>
+
+    <div class="group-title">民生 / 综合</div>
+    <ul class="plist">
+      <li><span class="pname">华润集团·守正电子招标平台</span><a class="purl" href="https://szecp.crc.com.cn" target="_blank" rel="noopener">szecp.crc.com.cn</a></li>
+      <li><span class="pname">中国通用技术·中心采购平台</span><a class="purl" href="https://cg.gt.cn" target="_blank" rel="noopener">cg.gt.cn</a></li>
+      <li><span class="pname">中化商务（集团采购+代理）</span><a class="purl" href="https://www.sinochemitc.com" target="_blank" rel="noopener">sinochemitc.com</a></li>
+      <li><span class="pname">招商局集团·电子招标采购平台</span><a class="purl" href="https://dzzb.ciesco.com.cn" target="_blank" rel="noopener">dzzb.ciesco.com.cn</a></li>
+    </ul>
+  </section>
+
+  <!-- 三、代理 -->
+  <section data-type="agent">
+    <div class="cat-head">
+      <h2>三、招标代理机构自有平台</h2>
+      <span class="sub">中介自建 · 标书常收费</span>
+      <span class="tag partial">⚠️ 标书通常收费 · 需注册</span>
+    </div>
+    <p class="desc">代理公司（中介）自己搭的电子交易平台。<b>招标文件常收费（数百元/份）</b>，投标需在其平台注册；标书费是代理机构收的，不是平台收的。这些平台和第三方商业网常"绑定"——公告可能同时发在代理站和商业网。</p>
+    <table>
+      <thead><tr><th style="width:32%">代理机构 / 平台</th><th style="width:40%">网址</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>中招国际招标有限公司</td><td><a href="https://www.cntcitc.com.cn" target="_blank" rel="noopener">cntcitc.com.cn</a></td><td>配「中招联合」收标书款/保证金</td></tr>
+        <tr><td>中招联合招标采购平台</td><td><a href="http://www.365trade.com.cn" target="_blank" rel="noopener">365trade.com.cn</a></td><td>中招系电子交易/收付款</td></tr>
+        <tr><td>中国通用招标网（中技国际）</td><td><a href="https://www.china-tender.com.cn" target="_blank" rel="noopener">china-tender.com.cn</a></td><td>通用技术集团旗下</td></tr>
+        <tr><td>中化商务</td><td><a href="https://www.sinochemitc.com" target="_blank" rel="noopener">sinochemitc.com</a></td><td>中化集团统一采购平台</td></tr>
+        <tr><td>国信招标集团</td><td><a href="https://www.chinabidding.com.cn" target="_blank" rel="noopener">chinabidding.com.cn</a></td><td>老牌代理，与采招网生态关联</td></tr>
+        <tr><td>中国机电设备招标中心 / 中国招标网</td><td><a href="http://www.bidchance.com" target="_blank" rel="noopener">bidchance.com</a></td><td>部分代理项目在此发</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 四、商业 -->
+  <section data-type="commercial">
+    <div class="cat-head">
+      <h2>四、第三方商业信息网</h2>
+      <span class="sub">聚合全网 · 会员付费</span>
+      <span class="tag paid">❌ 需会员 / 付费</span>
+    </div>
+    <p class="desc">商业公司把全网公告抓取聚合，靠会员费赚钱。<b>看标题/基础公告免费，下载标书、查联系方式、看历史数据、批量导出都要付费</b>。本质是"效率工具"——花钱买的是商机推送和时间，不是标书本身（标书在官方也免费）。适合不想逐个官网刷的乙方。</p>
+    <table>
+      <thead><tr><th style="width:28%">平台</th><th style="width:38%">网址</th><th>付费特征（参考）</th></tr></thead>
+      <tbody>
+        <tr><td>中国采购与招标网</td><td><a href="https://www.chinabidding.com.cn" target="_blank" rel="noopener">chinabidding.com.cn</a></td><td>国信系老牌，分层会员</td></tr>
+        <tr><td>采招网</td><td><a href="https://www.bidcenter.com.cn" target="_blank" rel="noopener">bidcenter.com.cn</a></td><td>31省分站，会员定制推送</td></tr>
+        <tr><td>千里马招标网</td><td><a href="https://www.qianlima.com" target="_blank" rel="noopener">qianlima.com</a></td><td>流量最大之一，约 1980–9800 元/年</td></tr>
+        <tr><td>中国招标网</td><td><a href="http://www.bidchance.com" target="_blank" rel="noopener">bidchance.com</a></td><td>综合标讯</td></tr>
+        <tr><td>中国招投标网</td><td><a href="http://www.infobidding.com" target="_blank" rel="noopener">infobidding.com</a></td><td>综合标讯</td></tr>
+        <tr><td>必联网</td><td><a href="https://www.ebnew.com" target="_blank" rel="noopener">ebnew.com</a></td><td>偏机电产品国际招标</td></tr>
+        <tr><td>乙方宝（APP）</td><td>应用商店搜"乙方宝"</td><td>低门槛，29 元起</td></tr>
+        <tr><td>立达标讯（APP）</td><td>应用商店搜"立达标讯"</td><td>398 元起，含子账号</td></tr>
+        <tr><td>六度标讯</td><td><a href="https://www.6dbx.com" target="_blank" rel="noopener">6dbx.com</a></td><td>5亿+历史数据，全行业</td></tr>
+        <tr><td>招投标在线</td><td>行业垂直站</td><td>基建工程/拟在建跟踪</td></tr>
+        <tr><td>比比招标采购网</td><td>北京比比网络科技（确切域名以官网检索为准，谨防山寨）</td><td>华北/华东覆盖较高</td></tr>
+      </tbody>
+    </table>
+    <div class="callout info">价格随活动浮动，核心数据（联系方式、批量下载、竞品监控、AI 拆标）基本都在付费墙后。</div>
+  </section>
+
+  <!-- 五、速查表 -->
+  <section data-type="ref">
+    <div class="cat-head">
+      <h2>五、一页速查：免费 vs 付费对照表</h2>
+      <span class="tag free">速查</span>
+    </div>
+    <table>
+      <thead><tr><th style="width:18%">类别</th><th>代表网站</th><th style="width:14%">看公告</th><th style="width:18%">下载标书</th><th style="width:18%">投标门槛</th></tr></thead>
+      <tbody>
+        <tr><td>政府/官方平台</td><td>中国政府采购网、全国公共资源交易平台、各省 ccgp/ggzy</td><td><span class="tag free">✅ 免费</span></td><td><span class="tag free">✅ 免费（多数电子标）</span></td><td>免费注册；电子标需 CA（按项目）</td></tr>
+        <tr><td>央企/国企自建</td><td>国网ECP、移动b2b、云筑网等</td><td><span class="tag free">✅ 免费</span></td><td><span class="tag free">✅ 免费/工本费</span></td><td><span class="tag partial">⚠️ 必须注册 + 办 CA</span></td></tr>
+        <tr><td>代理自有平台</td><td>中招联合、通用招标网、中化商务</td><td><span class="tag free">✅ 免费看</span></td><td><span class="tag paid">❌ 收费（数百元）</span></td><td>平台注册 + 标书费</td></tr>
+        <tr><td>第三方商业网</td><td>采招网、千里马、中国采购与招标网</td><td><span class="tag free">✅ 免费看标题</span></td><td><span class="tag paid">❌ 付费会员才能下</span></td><td>会员才能下载/导出</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 六、提醒 -->
+  <section data-type="ref">
+    <div class="cat-head">
+      <h2>六、给你的实用提醒</h2>
+      <span class="sub">贴合「投标助手·决策闸门」</span>
+      <span class="tag free">建议</span>
+    </div>
+    <ol class="tips">
+      <li><b>源头优先盯官方</b>：政府平台免费且权威，是"该不该投"判断的第一手依据，别让商业网当了唯一信息源。</li>
+      <li><b>商业网买的是效率不是标书</b>：标书官方也免费，付费买的是推送、聚合、历史数据和 AI 拆标——按需选型，警惕隐性二次收费。</li>
+      <li><b>央企标提前办 CA</b>：对应集团平台注册 + 办电子锁周期不短，等看到标再办容易误时效（这正是决策闸门的"流程时效"红线）。</li>
+      <li><b>代理平台标书费是合规成本</b>：看到"中招联合/通用招标网"收标书款属正常，不等于乱收费；但若被要求向私人账户转"标书费"要警惕。</li>
+    </ol>
+  </section>
+
+  <footer>整理日期：2026-07-21 · 域名以各平台官网实时页面为准</footer>
+</div>
+
+<script>
+  const btns = document.querySelectorAll('.fbtn');
+  const sections = document.querySelectorAll('section[data-type]');
+  const map = { gov:'gov', soe:'soe', agent:'agent', commercial:'commercial' };
+  btns.forEach(b => b.addEventListener('click', () => {
+    btns.forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    const f = b.dataset.filter;
+    sections.forEach(s => {
+      if (f === 'all') { s.classList.remove('hidden'); return; }
+      s.classList.toggle('hidden', s.dataset.type !== map[f]);
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }));
+</script>
+</body>
+</html>
