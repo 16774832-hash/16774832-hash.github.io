@@ -254,6 +254,12 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   background: radial-gradient(circle, rgba(91,155,213,0.12) 0%, transparent 70%);
   animation: pulseGlow 4s ease-in-out infinite;
 }
+.hero-photo {
+  width: 320px; height: 320px; object-fit: cover; border-radius: 50%;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.18));
+  animation: floatRing 6s ease-in-out infinite;
+  background: #0d0d0d;
+}
 .hero-ring-svg {
   width: 280px; height: 280px;
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
@@ -413,6 +419,12 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   width: 65%; height: 65%; transition: transform var(--duration-slow) var(--ease-out-expo);
 }
 .product-card:hover .gem-visual { transform: scale(1.08) rotate(3deg); }
+/* Real jewelry photo in product cards */
+.product-card-image .gem-photo {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+.product-card:hover .gem-photo { transform: scale(1.06); }
 .product-card-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(13,13,13,0.6) 0%, transparent 50%);
@@ -747,82 +759,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
     <div class="hero-visual">
       <div class="hero-ring-container">
         <div class="hero-ring-glow"></div>
-        <!-- Diamond Ring SVG Illustration -->
-        <svg class="hero-ring-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Band -->
-          <ellipse cx="100" cy="148" rx="56" ry="16" fill="url(#bandGrad)" />
-          <ellipse cx="100" cy="144" rx="52" ry="14" fill="url(#bandShine)" />
-          <!-- Band inner shadow -->
-          <ellipse cx="100" cy="152" rx="44" ry="10" fill="rgba(0,0,0,0.15)" />
-          <!-- Setting / Prongs -->
-          <path d="M76 136 L84 95 L94 105 Z" fill="url(#metalGrad)" />
-          <path d="M124 136 L116 95 L106 105 Z" fill="url(#metalGrad)" />
-          <path d="M88 138 L100 88 L112 138" fill="none" stroke="url(#metalGrad)" stroke-width="3" />
-          <!-- Princess Cut Diamond Main Stone -->
-          <polygon points="100,54 132,74 132,108 100,128 68,108 68,74" fill="url(#diamondFace)" />
-          <polygon points="100,54 132,74 100,86 68,74" fill="url(#diamondTop)" />
-          <polygon points="68,74 68,108 100,86" fill="url(#diamondLeft)" />
-          <polygon points="132,74 132,108 100,86" fill="url(#diamondRight)" />
-          <polygon points="68,108 100,128 100,86" fill="url(#diamondBottomLeft)" />
-          <polygon points="132,108 100,128 100,86" fill="url(#diamondBottomRight)" />
-          <!-- Table facet lines -->
-          <line x1="100" y1="54" x2="100" y2="128" stroke="rgba(255,255,255,0.35)" stroke-width="0.5" />
-          <line x1="68" y1="74" x2="132" y2="108" stroke="rgba(255,255,255,0.2)" stroke-width="0.5" />
-          <line x1="132" y1="74" x2="68" y2="108" stroke="rgba(255,255,255,0.2)" stroke-width="0.5" />
-          <!-- Sparkle highlights -->
-          <circle cx="88" cy="68" r="2" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.5s" repeatCount="indefinite"/></circle>
-          <circle cx="114" cy="78" r="1.5" fill="#fff" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="3s" repeatCount="indefinite" begin="0.8s"/></circle>
-          <!-- Side diamonds on band -->
-          <circle cx="66" cy="146" r="3" fill="url(#smallDiamond)" /><circle cx="134" cy="146" r="3" fill="url(#smallDiamond)" />
-          <circle cx="56" cy="144" r="2.5" fill="url(#smallDiamond)" /><circle cx="144" cy="144" r="2.5" fill="url(#smallDiamond)" />
-          <circle cx="48" cy="141" r="2" fill="url(#smallDiamond)" /><circle cx="152" cy="141" r="2" fill="url(#smallDiamond)" />
-          <!-- Gradients -->
-          <defs>
-            <linearGradient id="bandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#E8E8E8"/>
-              <stop offset="50%" stop-color="#FFFFFF"/>
-              <stop offset="100%" stop-color="#C0C0C0"/>
-            </linearGradient>
-            <linearGradient id="bandShine" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
-              <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-            </linearGradient>
-            <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#F0F0F0"/>
-              <stop offset="100%" stop-color="#D4D4D4"/>
-            </linearGradient>
-            <linearGradient id="diamondFace" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#E8F4FD"/>
-              <stop offset="30%" stop-color="#FFFFFF"/>
-              <stop offset="60%" stop-color="#D6EAFC"/>
-              <stop offset="100%" stop-color="#B8D4ED"/>
-            </linearGradient>
-            <linearGradient id="diamondTop" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="rgba(255,255,255,0.95)"/>
-              <stop offset="100%" stop-color="rgba(220,240,255,0.6)"/>
-            </linearGradient>
-            <linearGradient id="diamondLeft" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="rgba(180,210,235,0.7)"/>
-              <stop offset="100%" stop-color="rgba(140,180,215,0.4)"/>
-            </linearGradient>
-            <linearGradient id="diamondRight" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="rgba(200,225,245,0.6)"/>
-              <stop offset="100%" stop-color="rgba(160,195,225,0.35)"/>
-            </linearGradient>
-            <linearGradient id="diamondBottomLeft" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="rgba(150,190,225,0.5)"/>
-              <stop offset="100%" stop-color="rgba(120,170,210,0.3)"/>
-            </linearGradient>
-            <linearGradient id="diamondBottomRight" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="rgba(170,205,235,0.45)"/>
-              <stop offset="100%" stop-color="rgba(135,178,212,0.28)"/>
-            </linearGradient>
-            <radialGradient id="smallDiamond" cx="30%" cy="30%">
-              <stop offset="0%" stop-color="#FFFFFF"/>
-              <stop offset="100%" stop-color="#C8DEEF"/>
-            </radialGradient>
-          </defs>
-        </svg>
+        <img class="hero-photo" src="images/ring1.jpg" alt="普柏琳玫瑰金光环钻戒实拍" loading="eager" />
         <div class="hero-ring-sparkles">
           <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
           <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
@@ -902,11 +839,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
       <!-- Product Card 1 -->
       <div class="product-card reveal" data-category="diamond">
         <div class="product-card-image" style="background:linear-gradient(145deg,#F0F6FB,#E0ECF8);">
-          <svg class="gem-visual gem-diamond" viewBox="0 0 120 120" fill="none">
-            <rect x="25" y="25" width="70" height="70" rx="4" fill="url(#g1)" transform="rotate(45 60 60)"/>
-            <rect x="38" y="38" width="44" height="44" rx="2" fill="rgba(255,255,255,0.4)" transform="rotate(45 60 60)"/>
-            <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8F2FF"/><stop offset="50%" stop-color="#FFF"/><stop offset="100%" stop-color="#C5DAF5"/></linearGradient></defs>
-          </svg>
+          <img class="gem-photo" src="images/ring2.jpg" alt="钻石戒指产品实拍" loading="lazy" />
           <div class="product-card-overlay"><span class="product-card-tag">热销</span></div>
         </div>
         <div class="product-card-info">
@@ -919,11 +852,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
       <!-- Product Card 2 -->
       <div class="product-card reveal reveal-delay-1" data-category="tourmaline">
         <div class="product-card-image" style="background:linear-gradient(145deg,#F5EFF5,#EADBE8);">
-          <svg class="gem-visual gem-emerald" viewBox="0 0 120 120" fill="none">
-            <rect x="30" y="20" width="60" height="80" rx="3" fill="url(#g2)"/>
-            <rect x="37" y="28" width="46" height="64" rx="1" fill="rgba(255,255,255,0.3)"/>
-            <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0D4F0"/><stop offset="50%" stop-color="#E8A8E0"/><stop offset="100%" stop-color="#C070B8"/></linearGradient></defs>
-          </svg>
+          <img class="gem-photo" src="images/necklace1.jpg" alt="蓝宝石吊坠项链实拍" loading="lazy" />
           <div class="product-card-overlay"><span class="product-card-tag">新品</span></div>
         </div>
         <div class="product-card-info">
@@ -936,11 +865,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
       <!-- Product Card 3 -->
       <div class="product-card reveal reveal-delay-2" data-category="platinum">
         <div class="product-card-image" style="background:linear-gradient(145deg,#F4F4F4,#E8E8E8);">
-          <svg class="gem-visual gem-round" viewBox="0 0 120 120" fill="none">
-            <circle cx="60" cy="60" r="35" fill="url(#g3)"/>
-            <circle cx="60" cy="60" r="25" fill="rgba(255,255,255,0.35)"/>
-            <defs><radialGradient id="g3" cx="35%" cy="35%"><stop offset="0%" stop-color="#FFF"/><stop offset="100%" stop-color="#D0D0D0"/></radialGradient></defs>
-          </svg>
+          <img class="gem-photo" src="images/diamond1.jpg" alt="叠戴珠宝佩戴实拍" loading="lazy" />
         </div>
         <div class="product-card-info">
           <h3 class="product-card-name">铂金素圈戒指</h3>
@@ -952,11 +877,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
       <!-- Product Card 4 -->
       <div class="product-card reveal reveal-delay-3" data-category="gemstone">
         <div class="product-card-image" style="background:linear-gradient(145deg,#EDF5F0,#D8EBDD);">
-          <svg class="gem-visual gem-cushion" viewBox="0 0 120 120" fill="none">
-            <rect x="22" y="22" width="76" height="76" rx="12" fill="url(#g4)"/>
-            <rect x="34" y="34" width="52" height="52" rx="6" fill="rgba(255,255,255,0.3)"/>
-            <defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#D4EED8"/><stop offset="50%" stop-color="#7BC99A"/><stop offset="100%" stop-color="#3A9058"/></linearGradient></defs>
-          </svg>
+          <img class="gem-photo" src="images/earring1.jpg" alt="蓝宝石水滴耳环实拍" loading="lazy" />
           <div class="product-card-overlay"><span class="product-card-tag">珍稀</span></div>
         </div>
         <div class="product-card-info">
@@ -969,11 +890,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
       <!-- Product Card 5 -->
       <div class="product-card reveal reveal-delay-4" data-category="colorgem">
         <div class="product-card-image" style="background:linear-gradient(145deg,#FFF8F0,#FFE8CC);">
-          <svg class="gem-visual gem-pear" viewBox="0 0 120 120" fill="none">
-            <path d="M60 20 C75 20 85 35 85 55 C85 75 72 95 60 100 C48 95 35 75 35 55 C35 35 45 20 60 20Z" fill="url(#g5)"/>
-            <path d="M60 32 C70 32 77 43 77 55 C77 68 68 85 60 88 C52 85 43 68 43 55 C43 43 50 32 60 32Z" fill="rgba(255,255,255,0.3)"/>
-            <defs><radialGradient id="g5" cx="40%" cy="30%"><stop offset="0%" stop-color="#FFF5E0"/><stop offset="100%" stop-color="#D4A050"/></radialGradient></defs>
-          </svg>
+          <img class="gem-photo" src="images/flatlay.jpg" alt="金链手链实拍" loading="lazy" />
         </div>
         <div class="product-card-info">
           <h3 class="product-card-name">黄水晶手链</h3>
@@ -985,11 +902,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
       <!-- Product Card 6 -->
       <div class="product-card reveal" data-category="diamond">
         <div class="product-card-image" style="background:linear-gradient(145deg,#F0F0FF,#E0E0F5);">
-          <svg class="gem-visual gem-oval" viewBox="0 0 120 120" fill="none">
-            <ellipse cx="60" cy="60" rx="38" ry="28" fill="url(#g6)"/>
-            <ellipse cx="60" cy="60" rx="28" ry="20" fill="rgba(255,255,255,0.35)"/>
-            <defs><radialGradient id="g6" cx="35%" cy="30%"><stop offset="0%" stop-color="#F0F0FF"/><stop offset="100%" stop-color="#A0A0D0"/></radialGradient></defs>
-          </svg>
+          <img class="gem-photo" src="images/ring2.jpg" alt="钻石戒指产品实拍" loading="lazy" />
           <div class="product-card-overlay"><span class="product-card-tag">经典</span></div>
         </div>
         <div class="product-card-info">
@@ -1002,11 +915,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
       <!-- Product Card 7 -->
       <div class="product-card reveal reveal-delay-1" data-category="tourmaline">
         <div class="product-card-image" style="background:linear-gradient(145deg,#F0F5FF,#DDE8F5);">
-          <svg class="gem-visual gem-diamond" viewBox="0 0 120 120" fill="none">
-            <polygon points="60,20 95,45 95,85 60,110 25,85 25,45" fill="url(#g7)"/>
-            <polygon points="60,20 95,45 60,58 25,45" fill="rgba(255,255,255,0.4)"/>
-            <defs><linearGradient id="g7" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#B8D4F0"/><stop offset="50%" stop-color="#5B9BD5"/><stop offset="100%" stop-color="#1B3A6B"/></linearGradient></defs>
-          </svg>
+          <img class="gem-photo" src="images/ring1.jpg" alt="玫瑰金光环钻戒实拍" loading="lazy" />
         </div>
         <div class="product-card-info">
           <h3 class="product-card-name">帕拉伊巴碧玺戒指</h3>
@@ -1018,11 +927,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
       <!-- Product Card 8 -->
       <div class="product-card reveal reveal-delay-2" data-category="colorgem">
         <div class="product-card-image" style="background:linear-gradient(145deg,#FFF0F5,#F5DDE8);">
-          <svg class="gem-visual gem-cushion" viewBox="0 0 120 120" fill="none">
-            <rect x="22" y="22" width="76" height="76" rx="12" fill="url(#g8)"/>
-            <rect x="34" y="34" width="52" height="52" rx="6" fill="rgba(255,255,255,0.3)"/>
-            <defs><linearGradient id="g8" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFD8E8"/><stop offset="50%" stop-color="#F080A0"/><stop offset="100%" stop-color="#C04070"/></linearGradient></defs>
-          </svg>
+          <img class="gem-photo" src="images/jewel1.jpg" alt="满钻金手镯实拍" loading="lazy" />
         </div>
         <div class="product-card-info">
           <h3 class="product-card-name">粉红碧玺手镯</h3>
