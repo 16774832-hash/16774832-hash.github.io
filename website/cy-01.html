@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>普柏琳 PLOY PAILIN | 晶莹的蓝宝石 · Since 1979</title>
+<meta name="description" content="普柏琳珠宝——源自泰语「晶莹的蓝宝石」，国际性珠宝企业，1979年创立于新加坡，以稀有有色宝石及高档翡翠享誉全球。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   DESIGN TOKENS — 光感工坊设计系统
+   ═══════════════════════════════════════ */
+:root {
+  /* Palette — Luminous Atelier */
+  --ivory: #FAF7F2;
+  --cream: #F3EDE4;
+  --warm-white: #FFFDF9;
+  --ink: #0D0D0D;
+  --charcoal: #2C2C2C;
+  --taupe: #8B7D6B;
+  --taupe-light: #C4B8A5;
+  /* Sapphire (brand identity: 晶莹的蓝宝石) */
+  --sapphire-deep: #0F2744;
+  --sapphire: #1B3A6B;
+  --sapphire-mid: #2D5A8C;
+  --sapphire-light: #5B9BD5;
+  --sapphire-glow: rgba(91,155,213,0.15);
+  /* Gold accent */
+  --gold: #B8860B;
+  --gold-light: #D4A84B;
+  --gold-pale: rgba(184,134,11,0.12);
+  /* Functional */
+  --success: #2D8659;
+  --error: #C0392B;
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 10rem;
+  /* Typography */
+  --font-display: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-cn: 'Noto Serif SC', 'Songti SC', STSong, serif;
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 500ms;
+  --duration-slow: 900ms;
+  --duration-hero: 1400ms;
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,0.10);
+  --shadow-xl: 0 24px 80px rgba(0,0,0,0.14);
+  --shadow-gold: 0 4px 24px rgba(184,134,11,0.20);
+  --shadow-sapphire: 0 8px 32px rgba(15,39,68,0.18);
+}
+
+/* ═══════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: var(--font-body); color: var(--ink); background: var(--ivory); line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; transition: color var(--duration-fast); }
+ul, ol { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, textarea, select { font-family: inherit; font-size: inherit; }
+
+/* ═══════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════ */
+.container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 var(--space-lg); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+/* Section base */
+.section { padding: var(--space-4xl) 0; position: relative; }
+.section-label { display: inline-flex; align-items: center; gap: var(--space-sm); font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sapphire-light); margin-bottom: var(--space-lg); }
+.section-label::before { content: ''; width: 32px; height: 1px; background: linear-gradient(90deg, var(--sapphire-light), transparent); }
+.section-title { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); margin-bottom: var(--space-lg); }
+.section-subtitle { font-size: clamp(1rem, 2vw, 1.2rem); color: var(--taupe); font-weight: 300; max-width: 560px; line-height: 1.8; }
+
+/* Reveal animation */
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity var(--duration-slow) var(--ease-out-expo), transform var(--duration-slow) var(--ease-out-expo); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 120ms; }
+.reveal-delay-2 { transition-delay: 240ms; }
+.reveal-delay-3 { transition-delay: 360ms; }
+.reveal-delay-4 { transition-delay: 480ms; }
+
+/* ═══════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════ */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: 72px;
+  display: flex; align-items: center;
+  padding: 0 var(--space-xl);
+  transition: all var(--duration-normal) var(--ease-in-out);
+  background: transparent;
+}
+.navbar.scrolled {
+  background: rgba(250,247,242,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  height: 64px;
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1280px; margin: 0 auto; }
+.nav-logo {
+  font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; letter-spacing: 0.08em;
+  color: var(--ink); display: flex; align-items: center; gap: var(--space-sm);
+  white-space: nowrap;
+}
+.nav-logo svg { width: 28px; height: 28px; }
+.nav-logo span { font-size: 0.65rem; font-family: var(--font-body); font-weight: 400; letter-spacing: 0.15em; opacity: 0.55; margin-left: 2px; }
+.nav-links { display: flex; align-items: center; gap: var(--space-xl); }
+.nav-link {
+  font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em;
+  position: relative; padding: var(--space-xs) 0;
+  color: var(--charcoal); transition: color var(--duration-fast);
+}
+.nav-link::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px;
+  background: linear-gradient(90deg, var(--sapphire), var(--gold));
+  transition: width var(--duration-normal) var(--ease-out-expo);
+}
+.nav-link:hover { color: var(--sapphire); }
+.nav-link:hover::after { width: 100%; }
+.nav-cta {
+  padding: 0.55rem 1.4rem; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.05em;
+  background: var(--sapphire); color: #fff !important;
+  border-radius: 2px;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  box-shadow: 0 2px 12px rgba(27,58,107,0.25);
+}
+.nav-cta:hover { background: var(--sapphire-mid); transform: translateY(-1px); box-shadow: var(--shadow-sapphire); }
+.nav-cta:hover::after { display: none; }
+
+/* Mobile menu toggle */
+.nav-toggle { display: none; flex-direction: column; gap: 5.5px; cursor: pointer; z-index: 1001; padding: 4px; }
+.nav-toggle span { display: block; width: 22px; height: 1.8px; background: var(--ink); transition: all var(--duration-normal) var(--ease-out-expo); border-radius: 1px; }
+.nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+
+/* Mobile nav overlay */
+.nav-mobile-overlay {
+  display: none; position: fixed; inset: 0; z-index: 999;
+  background: rgba(250,247,242,0.97); backdrop-filter: blur(20px);
+  opacity: 0; pointer-events: none; transition: opacity var(--duration-normal);
+}
+.nav-mobile-overlay.open { opacity: 1; pointer-events: auto; }
+.nav-mobile-links {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  height: 100%; gap: var(--space-xl);
+}
+.nav-mobile-links .nav-link { font-size: 1.35rem; font-weight: 400; }
+
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-mobile-overlay { display: block; }
+}
+
+/* ═══════════════════════════════════════
+   HERO SECTION — 替代 Flash 动画入口
+   ═══════════════════════════════════════ */
+.hero {
+  position: relative; min-height: 100vh; display: flex; align-items: center;
+  overflow: hidden; background: linear-gradient(165deg, #F8F4EE 0%, #EBE3D5 50%, #DDD4C6 100%);
+}
+.hero-canvas {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl);
+  align-items: center; width: 100%; max-width: 1280px; margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+.hero-text { max-width: 560px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: var(--space-sm);
+  padding: 0.45rem 1.1rem; font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  background: rgba(255,255,255,0.7); backdrop-filter: blur(8px);
+  border: 1px solid rgba(184,134,11,0.2); border-radius: 100px;
+  color: var(--gold); margin-bottom: var(--space-xl);
+  opacity: 0; transform: translateY(20px);
+  animation: heroFadeUp var(--duration-hero) var(--ease-out-expo) 0.3s forwards;
+}
+.hero-badge svg { width: 14px; height: 14px; }
+.hero-title {
+  font-family: var(--font-display); font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-weight: 300; line-height: 1.08; letter-spacing: -0.03em;
+  color: var(--ink); margin-bottom: var(--space-lg);
+  opacity: 0; transform: translateY(30px);
+  animation: heroFadeUp var(--duration-hero) var(--ease-out-expo) 0.55s forwards;
+}
+.hero-title em {
+  font-style: normal; font-weight: 600; color: var(--sapphire);
+  position: relative;
+}
+.hero-title em::after {
+  content: ''; position: absolute; bottom: 0.08em; left: 0; right: 0;
+  height: 0.18em; background: var(--sapphire-glow); z-index: -1;
+}
+.hero-desc {
+  font-size: 1.08rem; color: var(--taupe); line-height: 1.85;
+  max-width: 480px; margin-bottom: var(--space-2xl);
+  opacity: 0; transform: translateY(24px);
+  animation: heroFadeUp var(--duration-hero) var(--ease-out-expo) 0.8s forwards;
+}
+.hero-actions { display: flex; gap: var(--space-md); flex-wrap: wrap; opacity: 0; transform: translateY(20px); animation: heroFadeUp var(--duration-hero) var(--ease-out-expo) 1.05s forwards; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: var(--space-sm);
+  padding: 0.95rem 2rem; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.06em;
+  background: var(--sapphire); color: #fff; border-radius: 2px;
+  box-shadow: 0 4px 20px rgba(27,58,107,0.28);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+.btn-primary:hover { background: var(--sapphire-mid); transform: translateY(-2px); box-shadow: var(--shadow-sapphire); }
+.btn-primary svg { width: 16px; height: 16px; transition: transform var(--duration-fast); }
+.btn-primary:hover svg { transform: translateX(3px); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: var(--space-sm);
+  padding: 0.95rem 2rem; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.06em;
+  border: 1.5px solid var(--taupe-light); color: var(--charcoal); border-radius: 2px;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+.btn-outline:hover { border-color: var(--sapphire); color: var(--sapphire); transform: translateY(-2px); }
+
+/* Hero visual — ring illustration area */
+.hero-visual {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: scale(0.92) translateX(30px);
+  animation: heroVisualIn var(--duration-hero) var(--ease-out-expo) 0.7s forwards;
+}
+.hero-ring-container {
+  position: relative; width: 420px; height: 420px;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-ring-glow {
+  position: absolute; width: 340px; height: 340px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(91,155,213,0.12) 0%, transparent 70%);
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+.hero-ring-svg {
+  width: 280px; height: 280px;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+  animation: floatRing 6s ease-in-out infinite;
+}
+.hero-ring-sparkles {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.sparkle {
+  position: absolute; width: 4px; height: 4px; border-radius: 50%;
+  background: #fff; box-shadow: 0 0 8px 2px rgba(255,255,255,0.6), 0 0 20px 4px rgba(184,134,11,0.3);
+  animation: sparkleAnim 2.5s ease-in-out infinite;
+}
+.sparkle:nth-child(1) { top: 15%; left: 70%; animation-delay: 0s; }
+.sparkle:nth-child(2) { top: 60%; left: 85%; animation-delay: 0.6s; }
+.sparkle:nth-child(3) { top: 78%; left: 25%; animation-delay: 1.2s; }
+.sparkle:nth-child(4) { top: 22%; left: 18%; animation-delay: 1.8s; }
+.sparkle:nth-child(5) { top: 42%; left: 90%; animation-delay: 0.3s; }
+.sparkle:nth-child(6) { top: 85%; left: 62%; animation-delay: 1.5s; }
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  z-index: 2; display: flex; flex-direction: column; align-items: center; gap: var(--space-sm);
+  opacity: 0; animation: heroFadeUp var(--duration-hero) var(--ease-out-expo) 1.4s forwards;
+}
+.scroll-indicator span { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--taupe); }
+.scroll-line {
+  width: 1px; height: 40px; background: linear-gradient(to bottom, var(--taupe-light), transparent);
+  position: relative; overflow: hidden;
+}
+.scroll-line::after {
+  content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 50%;
+  background: var(--sapphire-light); animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes heroFadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes heroVisualIn { to { opacity: 1; transform: scale(1) translateX(0); } }
+@keyframes pulseGlow { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.12);opacity:0.7;} }
+@keyframes floatRing { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
+@keyframes sparkleAnim { 0%,100%{opacity:0;transform:scale(0);} 50%{opacity:1;transform:scale(1);} }
+@keyframes scrollLine { 0%{top:-100%;} 100%{top:200%;} }
+
+@media (max-width: 900px) {
+  .hero-content { grid-template-columns: 1fr; text-align: center; padding-top: 100px; padding-bottom: var(--space-3xl); }
+  .hero-text { max-width: 100%; }
+  .hero-desc { max-width: 100%; }
+  .hero-actions { justify-content: center; }
+  .hero-visual { order: -1; }
+  .hero-ring-container { width: 280px; height: 280px; }
+  .hero-ring-svg { width: 200px; height: 200px; }
+  .hero-ring-glow { width: 240px; height: 240px; }
+  .scroll-indicator { display: none; }
+}
+
+/* ═══════════════════════════════════════
+   ABOUT SECTION — 品牌故事
+   ═══════════════════════════════════════ */
+.about { background: var(--warm-white); position: relative; overflow: hidden; }
+.about::before {
+  content: ''; position: absolute; top: -200px; right: -200px;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, var(--sapphire-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4xl);
+  align-items: start;
+}
+.about-visual {
+  position: relative; aspect-ratio: 4/5; border-radius: 4px; overflow: hidden;
+  background: linear-gradient(145deg, #E8E0D4, #D8CEBF);
+  display: flex; align-items: center; justify-content: center;
+}
+.about-visual-inner {
+  text-align: center; padding: var(--space-2xl);
+}
+.about-visual-icon {
+  width: 80px; height: 80px; margin: 0 auto var(--space-lg);
+  opacity: 0.6;
+}
+.about-visual-text {
+  font-family: var(--font-display); font-size: 1.6rem; font-weight: 300;
+  color: var(--sapphire); line-height: 1.5; letter-spacing: 0.02em;
+}
+.about-stories { display: flex; flex-direction: column; gap: var(--space-2xl); }
+.story-card {
+  padding: var(--space-xl); border-radius: 4px;
+  background: var(--ivory); border: 1px solid rgba(139,125,107,0.08);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  position: relative; overflow: hidden;
+}
+.story-card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
+  background: linear-gradient(to bottom, var(--sapphire-light), var(--gold));
+  opacity: 0; transition: opacity var(--duration-normal);
+}
+.story-card:hover { transform: translateX(6px); box-shadow: var(--shadow-md); }
+.story-card:hover::before { opacity: 1; }
+.story-year {
+  font-family: var(--font-display); font-size: 2rem; font-weight: 600;
+  color: var(--sapphire-light); line-height: 1; margin-bottom: var(--space-sm);
+  opacity: 0.7;
+}
+.story-title {
+  font-family: var(--font-cn); font-size: 1.1rem; font-weight: 600;
+  color: var(--ink); margin-bottom: var(--space-sm);
+}
+.story-body {
+  font-size: 0.92rem; color: var(--taupe); line-height: 1.85;
+}
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+  .about-visual { aspect-ratio: 16/9; order: -1; }
+}
+
+/* ═══════════════════════════════════════
+   PRODUCTS SECTION — 产品展示
+   ═══════════════════════════════════════ */
+.products { background: var(--ivory); }
+.products-header { text-align: center; margin-bottom: var(--space-3xl); }
+.products-filters {
+  display: flex; justify-content: center; flex-wrap: wrap; gap: var(--space-sm);
+  margin-bottom: var(--space-2xl);
+}
+.filter-btn {
+  padding: 0.55rem 1.4rem; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.03em;
+  border: 1.5px solid var(--taupe-light); border-radius: 100px;
+  color: var(--taupe); background: transparent;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  cursor: pointer;
+}
+.filter-btn:hover { border-color: var(--sapphire); color: var(--sapphire); }
+.filter-btn.active {
+  background: var(--sapphire); border-color: var(--sapphire); color: #fff;
+  box-shadow: 0 4px 16px rgba(27,58,107,0.2);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-xl);
+}
+.product-card {
+  position: relative; border-radius: 6px; overflow: hidden;
+  background: var(--warm-white); border: 1px solid rgba(139,125,107,0.08);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  cursor: pointer;
+}
+.product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.product-card-image {
+  aspect-ratio: 1; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.product-card-image .gem-visual {
+  width: 65%; height: 65%; transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+.product-card:hover .gem-visual { transform: scale(1.08) rotate(3deg); }
+.product-card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,13,13,0.6) 0%, transparent 50%);
+  opacity: 0; transition: opacity var(--duration-normal);
+  display: flex; align-items: flex-end; padding: var(--space-lg);
+}
+.product-card:hover .product-card-overlay { opacity: 1; }
+.product-card-tag {
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #fff; background: rgba(255,255,255,0.15); backdrop-filter: blur(4px);
+  padding: 0.3rem 0.8rem; border-radius: 100px;
+}
+.product-card-info { padding: var(--space-lg); }
+.product-card-name {
+  font-family: var(--font-cn); font-size: 1.05rem; font-weight: 600;
+  color: var(--ink); margin-bottom: var(--space-xs);
+}
+.product-card-series {
+  font-size: 0.8rem; color: var(--taupe); letter-spacing: 0.04em;
+}
+.product-card-price {
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 600;
+  color: var(--sapphire); margin-top: var(--space-sm);
+}
+
+/* Gem SVG visuals for product cards */
+.gem-diamond { /* princess cut */ }
+.gem-emerald { /* emerald cut */ }
+.gem-round { /* round brilliant */ }
+.gem-pear { /* pear shape */ }
+.gem-cushion { /* cushion cut */ }
+.gem-oval { /* oval */ }
+
+@media (max-width: 600px) {
+  .products-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+}
+
+/* ═══════════════════════════════════════
+   NEWS SECTION — 最新资讯
+   ═══════════════════════════════════════ */
+.news { background: var(--cream); position: relative; }
+.news-list { display: flex; flex-direction: column; gap: var(--space-md); max-width: 800px; }
+.news-item {
+  display: flex; align-items: baseline; gap: var(--space-xl);
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--warm-white); border-radius: 4px;
+  border: 1px solid rgba(139,125,107,0.06);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  cursor: pointer;
+}
+.news-item:hover { transform: translateX(8px); box-shadow: var(--shadow-sm); border-color: var(--sapphire-glow); }
+.news-date {
+  font-family: var(--font-display); font-size: 0.95rem; font-weight: 600;
+  color: var(--sapphire-light); white-space: nowrap; min-width: 90px;
+}
+.news-title {
+  font-size: 0.95rem; color: var(--charcoal); font-weight: 500;
+  flex: 1; line-height: 1.6;
+}
+.news-item:hover .news-title { color: var(--sapphire); }
+
+@media (max-width: 600px) {
+  .news-item { flex-direction: column; gap: var(--space-sm); }
+  .news-date { font-size: 0.85rem; }
+}
+
+/* ═══════════════════════════════════════
+   HR / CAREERS SECTION — 人力资源
+   ═══════════════════════════════════════ */
+.careers { background: var(--warm-white); }
+.careers-grid {
+  display: grid; grid-template-columns: 260px 1fr; gap: var(--space-3xl);
+  align-items: start;
+}
+.careers-sidebar { position: sticky; top: 96px; }
+.careers-nav-title {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--sapphire-light); margin-bottom: var(--space-lg);
+}
+.careers-nav-list { display: flex; flex-direction: column; gap: var(--space-xs); }
+.careers-nav-item {
+  padding: 0.7rem 1rem; font-size: 0.9rem; color: var(--taupe);
+  border-left: 2px solid transparent;
+  transition: all var(--duration-fast); cursor: pointer; border-radius: 0 4px 4px 0;
+}
+.careers-nav-item:hover, .careers-nav-item.active {
+  color: var(--sapphire); border-left-color: var(--sapphire);
+  background: var(--sapphire-glow);
+}
+.careers-main {}
+.job-card {
+  padding: var(--space-xl); margin-bottom: var(--space-lg);
+  background: var(--ivory); border: 1px solid rgba(139,125,107,0.08);
+  border-radius: 4px; transition: all var(--duration-normal);
+}
+.job-card:hover { box-shadow: var(--shadow-md); }
+.job-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-md); flex-wrap: wrap; gap: var(--space-sm); }
+.job-title { font-family: var(--font-cn); font-size: 1.15rem; font-weight: 600; color: var(--ink); }
+.job-tags { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
+.job-tag {
+  font-size: 0.72rem; padding: 0.25rem 0.7rem; border-radius: 100px;
+  background: var(--gold-pale); color: var(--gold); font-weight: 500;
+}
+.job-desc { font-size: 0.9rem; color: var(--taupe); line-height: 1.8; }
+.job-apply {
+  display: inline-flex; align-items: center; gap: var(--space-sm);
+  margin-top: var(--space-md); padding: 0.6rem 1.4rem;
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em;
+  background: transparent; border: 1.5px solid var(--sapphire);
+  color: var(--sapphire); border-radius: 2px;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  cursor: pointer;
+}
+.job-apply:hover { background: var(--sapphire); color: #fff; }
+
+@media (max-width: 900px) {
+  .careers-grid { grid-template-columns: 1fr; }
+  .careers-sidebar { position: static; }
+  .careers-nav-list { flex-direction: row; flex-wrap: wrap; }
+  .careers-nav-item { border-left: none; border-bottom: 2px solid transparent; }
+  .careers-nav-item.active { border-left: none; border-bottom-color: var(--sapphire); }
+}
+
+/* ═══════════════════════════════════════
+   CONTACT SECTION — 联系我们 + 表单
+   ═══════════════════════════════════════ */
+.contact { background: var(--sapphire-deep); color: #fff; position: relative; overflow: hidden; }
+.contact::before {
+  content: ''; position: absolute; top: -300px; left: -200px;
+  width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(91,155,213,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.contact::after {
+  content: ''; position: absolute; bottom: -200px; right: -150px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,134,11,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4xl);
+  position: relative; z-index: 1;
+}
+.contact-info { }
+.contact-info .section-label { color: var(--sapphire-light); }
+.contact-info .section-label::before { background: linear-gradient(90deg, var(--sapphire-light), transparent); }
+.contact-info .section-title { color: #fff; }
+.contact-details { display: flex; flex-direction: column; gap: var(--space-xl); margin-top: var(--space-2xl); }
+.detail-item { display: flex; gap: var(--space-lg); align-items: flex-start; }
+.detail-icon {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.detail-icon svg { width: 20px; height: 20px; stroke: var(--sapphire-light); }
+.detail-text h4 { font-size: 0.92rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
+.detail-text p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+.contact-form-wrapper { }
+.contact-form-wrapper .section-subtitle { color: rgba(255,255,255,0.6); }
+.contact-form {
+  display: flex; flex-direction: column; gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+.form-group { position: relative; }
+.form-group label {
+  display: block; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: var(--space-sm);
+}
+.form-input {
+  width: 100%; padding: 0.9rem 1.1rem;
+  background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: 3px; color: #fff; font-size: 0.92rem;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  outline: none;
+}
+.form-input::placeholder { color: rgba(255,255,255,0.3); }
+.form-input:focus {
+  border-color: var(--sapphire-light);
+  background: rgba(255,255,255,0.09);
+  box-shadow: 0 0 0 3px rgba(91,155,213,0.12);
+}
+.form-textarea {
+  resize: vertical; min-height: 130px;
+}
+.form-submit {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-sm);
+  padding: 1rem 2.5rem; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.08em;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--sapphire-deep); border: none; border-radius: 3px;
+  cursor: pointer; transition: all var(--duration-normal) var(--ease-out-expo);
+  box-shadow: 0 4px 20px rgba(184,134,11,0.25);
+  align-self: flex-start;
+}
+.form-submit:hover { transform: translateY(-2px); box-shadow: var(--shadow-gold); }
+.form-submit:active { transform: translateY(0); }
+.form-submit svg { width: 18px; height: 18px; }
+.form-success {
+  display: none; padding: var(--space-lg);
+  background: rgba(45,134,89,0.15); border: 1px solid rgba(45,134,89,0.3);
+  border-radius: 4px; color: var(--success); font-size: 0.92rem;
+  text-align: center; margin-top: var(--space-md);
+}
+.form-success.show { display: block; animation: fadeIn 0.5s ease forwards; }
+
+@keyframes fadeIn { from{opacity:0;transform:translateY(-8px);} to{opacity:1;transform:translateY(0);} }
+
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+  .form-submit { width: 100%; }
+}
+
+/* ═══════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════ */
+.footer {
+  background: var(--ink); color: rgba(255,255,255,0.45);
+  padding: var(--space-3xl) 0 var(--space-xl);
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-3xl);
+  margin-bottom: var(--space-3xl);
+}
+.footer-brand .nav-logo { color: #fff; margin-bottom: var(--space-lg); }
+.footer-brand p { font-size: 0.85rem; line-height: 1.8; max-width: 320px; }
+.footer-col h4 {
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7); margin-bottom: var(--space-lg);
+}
+.footer-col ul { display: flex; flex-direction: column; gap: var(--space-sm); }
+.footer-col li a {
+  font-size: 0.85rem; color: rgba(255,255,255,0.4);
+  transition: color var(--duration-fast);
+}
+.footer-col li a:hover { color: #fff; }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: var(--space-xl); border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.78rem;
+}
+.footer-socials { display: flex; gap: var(--space-md); }
+.footer-socials a {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--duration-fast);
+}
+.footer-socials a:hover { border-color: var(--gold); color: var(--gold); }
+.footer-socials a svg { width: 16px; height: 16px; }
+
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-2xl); }
+  .footer-bottom { flex-direction: column; gap: var(--space-md); text-align: center; }
+}
+@media (max-width: 520px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════
+   DECORATIVE ELEMENTS
+   ═══════════════════════════════════════ */
+.divider {
+  width: 60px; height: 2px; background: linear-gradient(90deg, var(--sapphire-light), var(--gold));
+  margin: var(--space-xl) 0; border-radius: 1px;
+}
+.divider-center { margin-left: auto; margin-right: auto; }
+
+/* Gold line decoration */
+.gold-line {
+  height: 1px; background: linear-gradient(90deg, transparent, var(--gold-pale), transparent);
+  margin: var(--space-2xl) 0;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ NAVBAR ═══════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <svg viewBox="0 0 32 32" fill="none"><path d="M16 2L28 9v14l-12 7-12-7V9L16 2z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M16 8l6 3.5v7L16 22l-6-3.5v-7L16 8z" fill="var(--sapphire)" opacity="0.3"/><path d="M16 2L20 4.5v5L16 11l-4-1.5v-5L16 2z" fill="var(--gold)" opacity="0.5"/></svg>
+      PLOY PAILIN <span>SINCE 1979</span>
+    </a>
+    <div class="nav-links">
+      <a href="#hero" class="nav-link">首页</a>
+      <a href="#about" class="nav-link">关于我们</a>
+      <a href="#products" class="nav-link">产品展示</a>
+      <a href="#news" class="nav-link">最新资讯</a>
+      <a href="#careers" class="nav-link">人力资源</a>
+      <a href="#contact" class="nav-cta nav-link">联系我们</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav overlay -->
+<div class="nav-mobile-overlay" id="mobileOverlay">
+  <div class="nav-mobile-links">
+    <a href="#hero" class="nav-link mobile-link">首页</a>
+    <a href="#about" class="nav-link mobile-link">关于我们</a>
+    <a href="#products" class="nav-link mobile-link">产品展示</a>
+    <a href="#news" class="nav-link mobile-link">最新资讯</a>
+    <a href="#careers" class="nav-link mobile-link">人力资源</a>
+    <a href="#contact" class="nav-cta nav-link mobile-link">联系我们</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+<section class="hero" id="hero">
+  <canvas class="hero-canvas" id="heroCanvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        国际珠宝品牌 · Since 1979
+      </div>
+      <h1 class="hero-title">
+        晶莹的<br><em>蓝宝石</em>
+      </h1>
+      <p class="hero-desc">
+        普柏琳源自于泰语——意为「晶莹的蓝宝石」。她正像她的名字般，将珠宝的优雅渗入到每一件产品中。专业而精湛的工艺与款式设计，深受世界各地时尚人士的青睐。
+      </p>
+      <div class="hero-actions">
+        <a href="#products" class="btn-primary">
+          探索系列 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#about" class="btn-outline">品牌故事</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-ring-container">
+        <div class="hero-ring-glow"></div>
+        <!-- Diamond Ring SVG Illustration -->
+        <svg class="hero-ring-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Band -->
+          <ellipse cx="100" cy="148" rx="56" ry="16" fill="url(#bandGrad)" />
+          <ellipse cx="100" cy="144" rx="52" ry="14" fill="url(#bandShine)" />
+          <!-- Band inner shadow -->
+          <ellipse cx="100" cy="152" rx="44" ry="10" fill="rgba(0,0,0,0.15)" />
+          <!-- Setting / Prongs -->
+          <path d="M76 136 L84 95 L94 105 Z" fill="url(#metalGrad)" />
+          <path d="M124 136 L116 95 L106 105 Z" fill="url(#metalGrad)" />
+          <path d="M88 138 L100 88 L112 138" fill="none" stroke="url(#metalGrad)" stroke-width="3" />
+          <!-- Princess Cut Diamond Main Stone -->
+          <polygon points="100,54 132,74 132,108 100,128 68,108 68,74" fill="url(#diamondFace)" />
+          <polygon points="100,54 132,74 100,86 68,74" fill="url(#diamondTop)" />
+          <polygon points="68,74 68,108 100,86" fill="url(#diamondLeft)" />
+          <polygon points="132,74 132,108 100,86" fill="url(#diamondRight)" />
+          <polygon points="68,108 100,128 100,86" fill="url(#diamondBottomLeft)" />
+          <polygon points="132,108 100,128 100,86" fill="url(#diamondBottomRight)" />
+          <!-- Table facet lines -->
+          <line x1="100" y1="54" x2="100" y2="128" stroke="rgba(255,255,255,0.35)" stroke-width="0.5" />
+          <line x1="68" y1="74" x2="132" y2="108" stroke="rgba(255,255,255,0.2)" stroke-width="0.5" />
+          <line x1="132" y1="74" x2="68" y2="108" stroke="rgba(255,255,255,0.2)" stroke-width="0.5" />
+          <!-- Sparkle highlights -->
+          <circle cx="88" cy="68" r="2" fill="#fff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.5s" repeatCount="indefinite"/></circle>
+          <circle cx="114" cy="78" r="1.5" fill="#fff" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="3s" repeatCount="indefinite" begin="0.8s"/></circle>
+          <!-- Side diamonds on band -->
+          <circle cx="66" cy="146" r="3" fill="url(#smallDiamond)" /><circle cx="134" cy="146" r="3" fill="url(#smallDiamond)" />
+          <circle cx="56" cy="144" r="2.5" fill="url(#smallDiamond)" /><circle cx="144" cy="144" r="2.5" fill="url(#smallDiamond)" />
+          <circle cx="48" cy="141" r="2" fill="url(#smallDiamond)" /><circle cx="152" cy="141" r="2" fill="url(#smallDiamond)" />
+          <!-- Gradients -->
+          <defs>
+            <linearGradient id="bandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#E8E8E8"/>
+              <stop offset="50%" stop-color="#FFFFFF"/>
+              <stop offset="100%" stop-color="#C0C0C0"/>
+            </linearGradient>
+            <linearGradient id="bandShine" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
+              <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+            </linearGradient>
+            <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#F0F0F0"/>
+              <stop offset="100%" stop-color="#D4D4D4"/>
+            </linearGradient>
+            <linearGradient id="diamondFace" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#E8F4FD"/>
+              <stop offset="30%" stop-color="#FFFFFF"/>
+              <stop offset="60%" stop-color="#D6EAFC"/>
+              <stop offset="100%" stop-color="#B8D4ED"/>
+            </linearGradient>
+            <linearGradient id="diamondTop" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.95)"/>
+              <stop offset="100%" stop-color="rgba(220,240,255,0.6)"/>
+            </linearGradient>
+            <linearGradient id="diamondLeft" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="rgba(180,210,235,0.7)"/>
+              <stop offset="100%" stop-color="rgba(140,180,215,0.4)"/>
+            </linearGradient>
+            <linearGradient id="diamondRight" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="rgba(200,225,245,0.6)"/>
+              <stop offset="100%" stop-color="rgba(160,195,225,0.35)"/>
+            </linearGradient>
+            <linearGradient id="diamondBottomLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="rgba(150,190,225,0.5)"/>
+              <stop offset="100%" stop-color="rgba(120,170,210,0.3)"/>
+            </linearGradient>
+            <linearGradient id="diamondBottomRight" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="rgba(170,205,235,0.45)"/>
+              <stop offset="100%" stop-color="rgba(135,178,212,0.28)"/>
+            </linearGradient>
+            <radialGradient id="smallDiamond" cx="30%" cy="30%">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="100%" stop-color="#C8DEEF"/>
+            </radialGradient>
+          </defs>
+        </svg>
+        <div class="hero-ring-sparkles">
+          <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+          <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ ABOUT ═══════════════════════════════════ -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-visual-inner">
+          <svg class="about-visual-icon" viewBox="0 0 80 80" fill="none">
+            <path d="M40 5L71 22v36L40 75 9 58V22L40 5z" stroke="var(--sapphire)" stroke-width="1.5" fill="var(--sapphire-glow)"/>
+            <path d="M40 18l17 10v20L40 58 23 48V28L40 18z" fill="var(--sapphire)" opacity="0.2"/>
+            <path d="M40 5L49 10.5v11L40 27l-9-5.5v-11L40 5z" fill="var(--gold)" opacity="0.4"/>
+          </svg>
+          <p class="about-visual-text">「晶莹的<br>蓝宝石」</p>
+        </div>
+      </div>
+      <div class="about-stories">
+        <div class="reveal">
+          <span class="section-label">Brand Story</span>
+          <h2 class="section-title">关于普柏琳</h2>
+          <p class="section-subtitle">源自泰语的「晶莹之石」，四十余载匠心传承</p>
+        </div>
+        <div class="story-card reveal reveal-delay-1">
+          <div class="story-year">1979</div>
+          <div class="story-title">创立新加坡总公司</div>
+          <div class="story-body">普柏琳珠宝在新加坡设立总公司，以经营稀有有色宝石及高档翡翠为主，凭借专业而精湛的产品工艺和款式设计，迅速享誉东南亚及日本高端市场。</div>
+        </div>
+        <div class="story-card reveal reveal-delay-2">
+          <div class="story-year">1988</div>
+          <div class="story-title">曼谷珠宝生产厂</div>
+          <div class="story-body">随着业务规模不断扩大，普柏琳于泰国曼谷设立了第一家珠宝生产厂，业务范围拓展至亚欧美三大洲市场。</div>
+        </div>
+        <div class="story-card reveal reveal-delay-3">
+          <div class="story-year">1993</div>
+          <div class="story-title">进军中国大陆</div>
+          <div class="story-body">在北京独资创建中国大陆第一家珠宝加工厂，同年于北京燕莎友谊商城设立首个零售点。随后在上海、武汉、南京、大连等地开设多家专卖店。</div>
+        </div>
+        <div class="story-card reveal reveal-delay-4">
+          <div class="story-year">1997 – 至今</div>
+          <div class="story-title">罗飞诺 &amp; 直营时代</div>
+          <div class="story-body">1997年成功将意大利最古老的珠宝品牌之一罗飞诺带入中国市场。2001年于北京东方广场、2002年于上海正大广场设立直营专卖店。至今已在北京、大连、南京、杭州等多城成功举办珠宝珍品展。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ PRODUCTS ═══════════════════════════════════ -->
+<section class="section products" id="products">
+  <div class="container">
+    <div class="products-header reveal">
+      <span class="section-label">Collections</span>
+      <h2 class="section-title">产品系列</h2>
+      <p class="section-subtitle" style="margin:0 auto;">从铂金经典到彩宝瑰丽，每一件作品都是对光与美的极致追求</p>
+    </div>
+    <div class="products-filters reveal reveal-delay-1">
+      <button class="filter-btn active" data-filter="all">全部系列</button>
+      <button class="filter-btn" data-filter="platinum">铂金系列</button>
+      <button class="filter-btn" data-filter="diamond">钻石系列</button>
+      <button class="filter-btn" data-filter="gemstone">宝石系列</button>
+      <button class="filter-btn" data-filter="tourmaline">碧玺系列</button>
+      <button class="filter-btn" data-filter="colorgem">彩宝系列</button>
+    </div>
+    <div class="products-grid" id="productsGrid">
+
+      <!-- Product Card 1 -->
+      <div class="product-card reveal" data-category="diamond">
+        <div class="product-card-image" style="background:linear-gradient(145deg,#F0F6FB,#E0ECF8);">
+          <svg class="gem-visual gem-diamond" viewBox="0 0 120 120" fill="none">
+            <rect x="25" y="25" width="70" height="70" rx="4" fill="url(#g1)" transform="rotate(45 60 60)"/>
+            <rect x="38" y="38" width="44" height="44" rx="2" fill="rgba(255,255,255,0.4)" transform="rotate(45 60 60)"/>
+            <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8F2FF"/><stop offset="50%" stop-color="#FFF"/><stop offset="100%" stop-color="#C5DAF5"/></linearGradient></defs>
+          </svg>
+          <div class="product-card-overlay"><span class="product-card-tag">热销</span></div>
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-name">公主方钻戒</h3>
+          <p class="product-card-series">钻石系列 · 戒指</p>
+          <p class="product-card-price">询价</p>
+        </div>
+      </div>
+
+      <!-- Product Card 2 -->
+      <div class="product-card reveal reveal-delay-1" data-category="tourmaline">
+        <div class="product-card-image" style="background:linear-gradient(145deg,#F5EFF5,#EADBE8);">
+          <svg class="gem-visual gem-emerald" viewBox="0 0 120 120" fill="none">
+            <rect x="30" y="20" width="60" height="80" rx="3" fill="url(#g2)"/>
+            <rect x="37" y="28" width="46" height="64" rx="1" fill="rgba(255,255,255,0.3)"/>
+            <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F0D4F0"/><stop offset="50%" stop-color="#E8A8E0"/><stop offset="100%" stop-color="#C070B8"/></linearGradient></defs>
+          </svg>
+          <div class="product-card-overlay"><span class="product-card-tag">新品</span></div>
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-name">碧玺吊坠项链</h3>
+          <p class="product-card-series">碧玺系列 · 项链</p>
+          <p class="product-card-price">询价</p>
+        </div>
+      </div>
+
+      <!-- Product Card 3 -->
+      <div class="product-card reveal reveal-delay-2" data-category="platinum">
+        <div class="product-card-image" style="background:linear-gradient(145deg,#F4F4F4,#E8E8E8);">
+          <svg class="gem-visual gem-round" viewBox="0 0 120 120" fill="none">
+            <circle cx="60" cy="60" r="35" fill="url(#g3)"/>
+            <circle cx="60" cy="60" r="25" fill="rgba(255,255,255,0.35)"/>
+            <defs><radialGradient id="g3" cx="35%" cy="35%"><stop offset="0%" stop-color="#FFF"/><stop offset="100%" stop-color="#D0D0D0"/></radialGradient></defs>
+          </svg>
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-name">铂金素圈戒指</h3>
+          <p class="product-card-series">铂金系列 · 戒指</p>
+          <p class="product-card-price">询价</p>
+        </div>
+      </div>
+
+      <!-- Product Card 4 -->
+      <div class="product-card reveal reveal-delay-3" data-category="gemstone">
+        <div class="product-card-image" style="background:linear-gradient(145deg,#EDF5F0,#D8EBDD);">
+          <svg class="gem-visual gem-cushion" viewBox="0 0 120 120" fill="none">
+            <rect x="22" y="22" width="76" height="76" rx="12" fill="url(#g4)"/>
+            <rect x="34" y="34" width="52" height="52" rx="6" fill="rgba(255,255,255,0.3)"/>
+            <defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#D4EED8"/><stop offset="50%" stop-color="#7BC99A"/><stop offset="100%" stop-color="#3A9058"/></linearGradient></defs>
+          </svg>
+          <div class="product-card-overlay"><span class="product-card-tag">珍稀</span></div>
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-name">祖母绿耳环</h3>
+          <p class="product-card-series">宝石系列 · 耳环</p>
+          <p class="product-card-price">询价</p>
+        </div>
+      </div>
+
+      <!-- Product Card 5 -->
+      <div class="product-card reveal reveal-delay-4" data-category="colorgem">
+        <div class="product-card-image" style="background:linear-gradient(145deg,#FFF8F0,#FFE8CC);">
+          <svg class="gem-visual gem-pear" viewBox="0 0 120 120" fill="none">
+            <path d="M60 20 C75 20 85 35 85 55 C85 75 72 95 60 100 C48 95 35 75 35 55 C35 35 45 20 60 20Z" fill="url(#g5)"/>
+            <path d="M60 32 C70 32 77 43 77 55 C77 68 68 85 60 88 C52 85 43 68 43 55 C43 43 50 32 60 32Z" fill="rgba(255,255,255,0.3)"/>
+            <defs><radialGradient id="g5" cx="40%" cy="30%"><stop offset="0%" stop-color="#FFF5E0"/><stop offset="100%" stop-color="#D4A050"/></radialGradient></defs>
+          </svg>
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-name">黄水晶手链</h3>
+          <p class="product-card-series">彩宝系列 · 手链</p>
+          <p class="product-card-price">询价</p>
+        </div>
+      </div>
+
+      <!-- Product Card 6 -->
+      <div class="product-card reveal" data-category="diamond">
+        <div class="product-card-image" style="background:linear-gradient(145deg,#F0F0FF,#E0E0F5);">
+          <svg class="gem-visual gem-oval" viewBox="0 0 120 120" fill="none">
+            <ellipse cx="60" cy="60" rx="38" ry="28" fill="url(#g6)"/>
+            <ellipse cx="60" cy="60" rx="28" ry="20" fill="rgba(255,255,255,0.35)"/>
+            <defs><radialGradient id="g6" cx="35%" cy="30%"><stop offset="0%" stop-color="#F0F0FF"/><stop offset="100%" stop-color="#A0A0D0"/></radialGradient></defs>
+          </svg>
+          <div class="product-card-overlay"><span class="product-card-tag">经典</span></div>
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-name">椭圆形钻戒</h3>
+          <p class="product-card-series">钻石系列 · 戒指</p>
+          <p class="product-card-price">询价</p>
+        </div>
+      </div>
+
+      <!-- Product Card 7 -->
+      <div class="product-card reveal reveal-delay-1" data-category="tourmaline">
+        <div class="product-card-image" style="background:linear-gradient(145deg,#F0F5FF,#DDE8F5);">
+          <svg class="gem-visual gem-diamond" viewBox="0 0 120 120" fill="none">
+            <polygon points="60,20 95,45 95,85 60,110 25,85 25,45" fill="url(#g7)"/>
+            <polygon points="60,20 95,45 60,58 25,45" fill="rgba(255,255,255,0.4)"/>
+            <defs><linearGradient id="g7" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#B8D4F0"/><stop offset="50%" stop-color="#5B9BD5"/><stop offset="100%" stop-color="#1B3A6B"/></linearGradient></defs>
+          </svg>
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-name">帕拉伊巴碧玺戒指</h3>
+          <p class="product-card-series">碧玺系列 · 戒指</p>
+          <p class="product-card-price">询价</p>
+        </div>
+      </div>
+
+      <!-- Product Card 8 -->
+      <div class="product-card reveal reveal-delay-2" data-category="colorgem">
+        <div class="product-card-image" style="background:linear-gradient(145deg,#FFF0F5,#F5DDE8);">
+          <svg class="gem-visual gem-cushion" viewBox="0 0 120 120" fill="none">
+            <rect x="22" y="22" width="76" height="76" rx="12" fill="url(#g8)"/>
+            <rect x="34" y="34" width="52" height="52" rx="6" fill="rgba(255,255,255,0.3)"/>
+            <defs><linearGradient id="g8" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFD8E8"/><stop offset="50%" stop-color="#F080A0"/><stop offset="100%" stop-color="#C04070"/></linearGradient></defs>
+          </svg>
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-name">粉红碧玺手镯</h3>
+          <p class="product-card-series">彩宝系列 · 手镯</p>
+          <p class="product-card-price">询价</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ NEWS ═══════════════════════════════════ -->
+<section class="section news" id="news">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="section-label">Latest News</span>
+      <h2 class="section-title">最新资讯</h2>
+      <div class="divider divider-center"></div>
+    </div>
+    <div class="news-list">
+      <div class="news-item reveal">
+        <span class="news-date">2024.12</span>
+        <span class="news-title">普柏琳「蓝宝石之夜」高级珠宝展于北京东方广场成功举办，展出逾百件稀世珍品</span>
+      </div>
+      <div class="news-item reveal reveal-delay-1">
+        <span class="news-date">2024.09</span>
+        <span class="news-title">全新「极光」彩宝系列正式发布，以天然帕拉伊巴碧玺诠释北极光的绚烂色彩</span>
+      </div>
+      <div class="news-item reveal reveal-delay-2">
+        <span class="news-date">2024.06</span>
+        <span class="news-title">普柏琳荣获中国珠宝玉石首饰行业协会「年度最具影响力珠宝品牌」奖项</span>
+      </div>
+      <div class="news-item reveal reveal-delay-3">
+        <span class="news-date">2024.03</span>
+        <span class="news-title">杭州大厦旗舰店盛大开幕，呈现沉浸式珠宝艺术体验空间</span>
+      </div>
+      <div class="news-item reveal reveal-delay-4">
+        <span class="news-date">2023.11</span>
+        <span class="news-title">罗飞诺(Raffaello)百年典藏展巡展至上海正大广场，展出意大利古董珠宝臻品</span>
+      </div>
+      <div class="news-item reveal">
+        <span class="news-date">2023.08</span>
+        <span class="news-title">普柏琳携手国际宝石实验室(GIL)发布2023年度彩色宝石市场趋势报告</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ CAREERS ═══════════════════════════════════ -->
+<section class="section careers" id="careers">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Join Us</span>
+      <h2 class="section-title">人力资源</h2>
+      <p class="section-subtitle">加入普柏琳，与我们一起雕琢时光、传承美丽</p>
+    </div>
+    <div class="careers-grid">
+      <aside class="careers-sidebar reveal reveal-delay-1">
+        <div class="careers-nav-title">职位类别</div>
+        <nav class="careers-nav-list">
+          <div class="careers-nav-item active" data-career="all">全部职位</div>
+          <div class="careers-nav-item" data-career="design">设计与工艺</div>
+          <div class="careers-nav-item" data-career="sales">销售与零售</div>
+          <div class="careers-nav-item" data-career="operation">运营与管理</div>
+        </nav>
+      </aside>
+      <main class="careers-main">
+        <div class="job-card reveal reveal-delay-2" data-career="design">
+          <div class="job-header">
+            <h3 class="job-title">高级珠宝设计师</h3>
+            <div class="job-tags">
+              <span class="job-tag">全职</span>
+              <span class="job-tag">北京</span>
+            </div>
+          </div>
+          <p class="job-desc">负责高级定制珠宝产品的创意设计与3D建模；要求具备5年以上珠宝设计经验，精通Rhino/JewelCAD，有国际珠宝品牌工作经历者优先。</p>
+          <button class="job-apply">申请职位 →</button>
+        </div>
+        <div class="job-card reveal reveal-delay-3" data-career="sales">
+          <div class="job-header">
+            <h3 class="job-title">旗舰店珠宝顾问</h3>
+            <div class="job-tags">
+              <span class="job-tag">全职</span>
+              <span class="job-tag">上海/北京</span>
+            </div>
+          </div>
+          <p class="job-desc">为顾客提供专业的珠宝咨询与搭配建议；维护客户关系，达成销售目标。形象气质佳，热爱珠宝行业，有奢侈品零售经验者优先。</p>
+          <button class="job-apply">申请职位 →</button>
+        </div>
+        <div class="job-card reveal reveal-delay-4" data-career="operation">
+          <div class="job-header">
+            <h3 class="job-title">供应链管理专员</h3>
+            <div class="job-tags">
+              <span class="job-tag">全职</span>
+              <span class="job-tag">北京</span>
+            </div>
+          </div>
+          <p class="job-desc">负责宝石原料采购、供应商管理与库存优化；熟悉国际宝石贸易流程，英语流利，可接受海外出差。</p>
+          <button class="job-apply">申请职位 →</button>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ CONTACT ═══════════════════════════════════ -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title">联系我们</h2>
+        <p class="section-subtitle">欢迎莅临我们的精品店，或通过以下方式与我们取得联系</p>
+        <div class="contact-details">
+          <div class="detail-item">
+            <div class="detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="detail-text">
+              <h4>北京东方广场旗舰店</h4>
+              <p>北京市东城区东长安街1号东方广场首层<br>营业时间：10:00 – 21:00</p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div class="detail-text">
+              <h4>服务热线</h4>
+              <p>+86 10 8518 8888（周一至周日 9:00–20:00）</p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="detail-text">
+              <h4>电子邮箱</h4>
+              <p>service@ploypailin.cn</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrapper reveal reveal-delay-2">
+        <span class="section-label">Message</span>
+        <h2 class="section-title" style="color:#fff;">在线留言</h2>
+        <p class="section-subtitle">填写下方表单，我们的顾问将在24小时内与您联系</p>
+        <form class="contact-form" id="contactForm" onsubmit="return handleSubmit(event)">
+          <div class="form-group">
+            <label for="formName">您的姓名</label>
+            <input type="text" id="formName" class="form-input" placeholder="请输入姓名" required>
+          </div>
+          <div class="form-group">
+            <label for="formEmail">电子邮箱</label>
+            <input type="email" id="formEmail" class="form-input" placeholder="example@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="formPhone">联系电话</label>
+            <input type="tel" id="formPhone" class="form-input" placeholder="选填">
+          </div>
+          <div class="form-group">
+            <label for="formMsg">留言内容</label>
+            <textarea id="formMsg" class="form-input form-textarea" placeholder="请描述您的需求或问题..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            发送留言 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+          <div class="form-success" id="formSuccess">✓ 感谢您的留言！我们将尽快与您联系。</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo">
+          <svg viewBox="0 0 32 32" fill="none" width="24" height="24"><path d="M16 2L28 9v14l-12 7-12-7V9L16 2z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M16 8l6 3.5v7L16 22l-6-3.5v-7L16 8z" fill="var(--sapphire-light)" opacity="0.4"/></svg>
+          PLOY PAILIN
+        </a>
+        <p>普柏琳珠宝——源自泰语「晶莹的蓝宝石」，国际性珠宝企业。自1979年创立以来，以专业精湛的工艺与款式设计，为世界呈献稀世之美。</p>
+      </div>
+      <div class="footer-col">
+        <h4>产品系列</h4>
+        <ul>
+          <li><a href="#products">铂金系列</a></li>
+          <li><a href="#products">钻石系列</a></li>
+          <li><a href="#products">宝石系列</a></li>
+          <li><a href="#products">碧玺系列</a></li>
+          <li><a href="#products">彩宝系列</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <ul>
+          <li><a href="#about">品牌故事</a></li>
+          <li><a href="#news">最新资讯</a></li>
+          <li><a href="#careers">加入我们</a></li>
+          <li><a href="#contact">联系我们</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>关注我们</h4>
+        <ul>
+          <li><a href="#">微信公众号</a></li>
+          <li><a href="#">微博 @普柏琳珠宝</a></li>
+          <li><a href="#">小红书官方账号</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024 北京普柏林珠宝饰品有限公司 版权所有</span>
+      <div class="footer-socials">
+        <a href="#" aria-label="微信">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8.5 14c-2.5 0-4.5-1.8-4.5-4s2-4 4.5-4 4.5 1.8 4.5 4c0 .8-.3 1.6-.7 2.2l.7 2-2.2-.6c-.7.3-1.5.4-2.3.4z"/><path d="M15.5 18c-3 0-5.5-2.2-5.5-5s2.5-5 5.5-5 5.5 2.2 5.5 5c0 1-.3 1.9-.8 2.7l.8 2.5-2.7-.8c-.9.4-1.8.6-2.8.6z"/></svg>
+        </a>
+        <a href="#" aria-label="微博">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════ JAVASCRIPT ═══════════════════════════════════ -->
+<script>
+// ─── Navbar scroll effect ───
+const navbar = document.getElementById('navbar');
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const s = window.scrollY;
+  navbar.classList.toggle('scrolled', s > 60);
+  lastScroll = s;
+}, { passive: true });
+
+// ─── Mobile menu ───
+const navToggle = document.getElementById('navToggle');
+const mobileOverlay = document.getElementById('mobileOverlay');
+const mobileLinks = mobileOverlay.querySelectorAll('.mobile-link');
+
+navToggle.addEventListener('click', () => {
+  const isOpen = navToggle.classList.toggle('active');
+  mobileOverlay.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+mobileLinks.forEach(link => link.addEventListener('click', () => {
+  navToggle.classList.remove('active');
+  mobileOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}));
+
+// ─── Scroll reveal (IntersectionObserver) ───
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ─── Product filter ───
+const filterBtns = document.querySelectorAll('.filter-btn');
+const productCards = document.querySelectorAll('.product-card');
+
+filterBtns.forEach(btn => btn.addEventListener('click', () => {
+  filterBtns.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const cat = btn.dataset.filter;
+
+  productCards.forEach(card => {
+    const match = cat === 'all' || card.dataset.category === cat;
+    card.style.display = match ? '' : 'none';
+    if (match) {
+      card.style.animation = 'fadeIn 0.4s ease forwards';
+    }
+  });
+}));
+
+// ─── Careers navigation ───
+const careerNavItems = document.querySelectorAll('.careers-nav-item');
+const jobCards = document.querySelectorAll('.job-card');
+
+careerNavItems.forEach(item => item.addEventListener('click', () => {
+  careerNavItems.forEach(i => i.classList.remove('active'));
+  item.classList.add('active');
+  const cat = item.dataset.career;
+
+  jobCards.forEach(card => {
+    const match = cat === 'all' || card.dataset.career === cat;
+    card.style.display = match ? '' : 'none';
+  });
+}));
+
+// ─── Contact form handler ───
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+  // Simulate submission
+  const submitBtn = form.querySelector('.form-submit');
+  submitBtn.textContent = '发送中...';
+  submitBtn.disabled = true;
+
+  setTimeout(() => {
+    success.classList.add('show');
+    form.reset();
+    submitBtn.innerHTML = '发送留言 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+    submitBtn.disabled = false;
+    setTimeout(() => success.classList.remove('show'), 5000);
+  }, 1200);
+
+  return false;
+}
+
+// ─── Hero canvas particles (bokeh homage to original poster) ───
+(function initHeroCanvas() {
+  const canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let w, h, animId;
+
+  function resize() {
+    w = canvas.width = canvas.offsetWidth;
+    h = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  class Particle {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
+      this.r = Math.max(1, Math.random() * 3 + 0.5);
+      this.vx = (Math.random() - 0.5) * 0.3;
+      this.vy = (Math.random() - 0.5) * 0.3 - 0.15;
+      this.alpha = Math.random() * 0.25 + 0.05;
+      this.fadeSpeed = Math.random() * 0.002 + 0.001;
+      this.hue = Math.random() > 0.7 ? 40 : 210; // gold or sapphire tint
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.alpha -= this.fadeSpeed;
+      if (this.alpha <= 0 || this.x < -10 || this.x > w + 10 || this.y < -10 || this.y > h + 10) this.reset();
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${this.hue}, 40%, 75%, ${this.alpha})`;
+      ctx.fill();
+      // glow
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r * 3, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${this.hue}, 40%, 75%, ${this.alpha * 0.15})`;
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < 35; i++) particles.push(new Particle());
+
+  function animate() {
+    ctx.clearRect(0, 0, w, h);
+    particles.forEach(p => { p.update(); p.draw(); });
+    animId = requestAnimationFrame(animate);
+  }
+  animate();
+
+  // Pause when not visible
+  const visObs = new IntersectionObserver(entries => {
+    entries[0].isIntersecting ? (animId || animate()) : cancelAnimationFrame(animId);
+  }, { threshold: 0 });
+  visObs.observe(canvas);
+})();
+
+// ─── Smooth scroll for anchor links (fallback) ───
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
