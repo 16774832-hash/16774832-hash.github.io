@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>国考智能选岗助手 · 产品调研与可行性分析报告</title>
+<style>
+:root{--navy:#1E3A5F;--blue:#3B82F6;--gold:#F59E0B;--red:#DC2626;--ink:#1A1A1A;--sub:#64748B;--line:#E2E8F0;--bg:#F8FAFC;--soft:#F1F5F9}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;padding:40px 20px}
+.layout{max-width:1200px;margin:0 auto;display:flex;gap:24px;align-items:flex-start}
+.wrap{flex:1;min-width:0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 28px rgba(30,58,95,.10)}
+.toc{position:sticky;top:24px;flex:0 0 234px;align-self:flex-start;background:#fff;border-radius:14px;box-shadow:0 6px 28px rgba(30,58,95,.10);padding:18px 14px}
+.toc .tt{font-size:13px;font-weight:800;color:var(--navy);letter-spacing:2px;padding:0 8px 10px;border-bottom:2px solid var(--line);margin-bottom:6px}
+.toc .grp{font-size:12px;font-weight:800;margin:16px 8px 6px;letter-spacing:.5px}
+.toc .grp.go{color:#B45309}
+.toc .grp.no{color:#991B1B}
+.toc a{display:block;font-size:13px;color:var(--ink);text-decoration:none;padding:6px 10px;border-radius:8px;line-height:1.4;border-left:3px solid transparent;transition:background .15s,border-color .15s}
+.toc a:hover{background:var(--soft);border-left-color:var(--blue)}
+.toc a.r:hover{border-left-color:var(--red)}
+header{background:linear-gradient(135deg,var(--navy),#274b73);color:#fff;padding:34px 42px}
+header .kicker{font-size:12px;letter-spacing:3px;color:#93C5FD;margin-bottom:10px}
+header h1{font-size:24px;font-weight:800;margin-bottom:8px}
+header .meta{font-size:13px;color:#CBD5E1}
+header .tags{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+header .tag{font-weight:700;font-size:13px;padding:7px 16px;border-radius:22px}
+.tag.go{background:var(--gold);color:#1A1A1A}
+.tag.no{background:var(--red);color:#fff}
+.partbar{background:var(--soft);padding:16px 42px;border-bottom:1px solid var(--line);font-size:14px;color:var(--navy);font-weight:700;border-left:5px solid var(--blue)}
+.partbar.red{border-left-color:var(--red);color:#991B1B}
+.dims{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:22px 42px;background:var(--soft);border-bottom:1px solid var(--line)}
+.dim{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:13px}
+.dim b{display:block;color:var(--blue);font-size:12px;margin-bottom:3px;letter-spacing:.5px}
+.sec{padding:24px 42px;border-bottom:1px solid var(--line)}
+.sec h2{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.sec h2 .no{background:var(--blue);color:#fff;font-size:13px;width:24px;height:24px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+.sec ul{list-style:none;padding-left:0}
+.sec li{position:relative;padding:6px 0 6px 20px;font-size:14px}
+.sec li::before{content:"";position:absolute;left:4px;top:14px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.sec li.nob::before{background:var(--red);content:"✕"}
+.sec li b{color:var(--navy)}
+.conc{margin-top:12px;background:#EFF6FF;border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;color:#1E40AF}
+.conc b{color:#1E3AF0}
+.conc.no{background:#FEF2F2;border-left-color:var(--red);color:#991B1B}
+.conc.no b{color:#991B1B}
+.redzone{padding:24px 42px;border-bottom:1px solid var(--line)}
+.redzone h2{font-size:17px;font-weight:800;color:#991B1B;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.redzone h2 .no{background:var(--red);color:#fff;font-size:13px;width:24px;height:24px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+.redzone ul{list-style:none;padding-left:0}
+.redzone li{position:relative;padding:8px 0 8px 22px;font-size:14px;border-bottom:1px dashed var(--line)}
+.redzone li:last-child{border-bottom:none}
+.redzone li::before{content:"✕";position:absolute;left:0;top:8px;color:var(--red);font-weight:700}
+.redzone li b{color:#991B1B}
+.redzone li .src{display:block;margin-top:3px;font-size:12px;color:var(--sub)}
+.summary{background:linear-gradient(135deg,#1E3A5F,#274B73);color:#fff;padding:24px 42px;border-bottom:1px solid var(--line)}
+.summary h2{font-size:18px;font-weight:800;margin-bottom:14px}
+.summary ol{padding-left:20px}
+.summary li{margin:6px 0;font-size:14px;line-height:1.7}
+.alt{padding:24px 42px;border-bottom:1px solid var(--line)}
+.alt h2{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--ambertwo,#B45309)}
+.alt ul{list-style:none;padding-left:0}
+.alt li{padding:6px 0 6px 22px;position:relative;font-size:14px}
+.alt li::before{content:"→";position:absolute;left:0;top:6px;color:#B45309;font-weight:700}
+footer{padding:18px 42px;background:var(--soft);font-size:11.5px;color:var(--sub);line-height:1.7}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="toc">
+  <div class="tt">目录</div>
+  <div class="grp go">第一部分 · 产品调研</div>
+  <a href="#p1">概览</a>
+  <a href="#s1">1 目标用户与核心痛点</a>
+  <a href="#s2">2 市场需求与规模</a>
+  <a href="#s3">3 竞品分析</a>
+  <a href="#s4">4 用户使用场景</a>
+  <a href="#s5">5 商业模式与变现路径</a>
+  <div class="grp no">第二部分 · 可信性分析</div>
+  <a class="r" href="#p2">整体立场</a>
+  <a class="r" href="#r1">1 目标用户与痛点</a>
+  <a class="r" href="#r2">2 市场需求与规模</a>
+  <a class="r" href="#r3">3 竞品分析</a>
+  <a class="r" href="#r4">4 使用场景</a>
+  <a class="r" href="#r5">5 商业模式</a>
+  <a class="r" href="#r6">6 优先级与可行性</a>
+  <a class="r" href="#sum">综合判断：7 条障碍</a>
+  <a class="r" href="#alt">替代建议</a>
+</aside>
+<div class="wrap">
+
+<header>
+  <div class="kicker">PRODUCT RESEARCH &amp; FEASIBILITY ANALYSIS</div>
+  <h1>国考智能选岗助手 · 产品调研与可行性分析报告</h1>
+  <div class="meta">调研人：产品调研专员　|　日期：2026-08-12　|　对象：应届毕业生国考选岗工具</div>
+  <div class="tags">
+    <span class="tag go">第一部分：产品调研</span>
+    <span class="tag no">第二部分：可信性分析 · 结论：不建议推进</span>
+  </div>
+</header>
+
+<!-- ============ 第一部分：产品调研 ============ -->
+<div class="partbar" id="p1">第一部分　产品调研报告</div>
+
+<div class="dims">
+  <div class="dim"><b>01 目标用户与痛点</b>谁在用、为什么痛</div>
+  <div class="dim"><b>02 需求与规模</b>盘子多大、是否高频</div>
+  <div class="dim"><b>03 竞品分析</b>巨头做到哪、缝隙在哪</div>
+  <div class="dim"><b>04 使用场景</b>何时用、怎么用</div>
+  <div class="dim"><b>05 商业模式</b>怎么赚钱、值不值</div>
+</div>
+
+<div class="sec" id="s1">
+  <h2><span class="no">1</span>目标用户与核心痛点</h2>
+  <ul>
+    <li><b>主力人群：应届毕业生。</b>2026 国考约 2.6 万个计划专供应届，占招录总数 68%——招录端绝对主力，需求真实性无需再证。</li>
+    <li><b>三大真痛点：</b>①专业到底算不算（超 30% 卡在专业目录匹配）；②一次性不可逆（限报 1 岗、过审不可改）；③不知道自己考不考得上（看不到胜算）。</li>
+  </ul>
+  <div class="conc"><b>关键结论：</b>痛点真实且高频，但"找岗"已被解决，"判岗"（能不能报、胜算多大）才是真痛点，也是产品立足点。</div>
+</div>
+
+<div class="sec" id="s2">
+  <h2><span class="no">2</span>市场需求与规模</h2>
+  <ul>
+    <li><b>国考过审 371.8 万</b>（2026，历史新高，6 年涨 2.6 倍）；平均竞争比 98:1，最高 6470:1。</li>
+    <li><b>省考联考 586.95 万</b>（23 省）+ 事业单位——考编总盘近 800 万。</li>
+    <li><b>巡考复购：</b>同一批人全年在多场考试间流动，选岗是高频复购需求，非一次性。</li>
+    <li><b>季节硬伤：</b>国考选岗窗口仅约 10 天/年，拉新贵、留存差，不能靠自然流量养。</li>
+  </ul>
+  <div class="conc"><b>关键结论：</b>需求是真金白银，但高度季节化——产品必须"平时蓄流量、窗口期转化"，而非常驻活跃。</div>
+</div>
+
+<div class="sec" id="s3">
+  <h2><span class="no">3</span>竞品分析</h2>
+  <ul>
+    <li><b>粉笔：</b>2025-10 已升级"智能选岗"——主动推荐、竞争力排名、预测数据入口；强依赖自有模考库（9000 万次参与，不可复制）；备注栏靠人工指南，未结构化。<span style="color:#166534;font-weight:700">已核实</span></li>
+    <li><b>中公 / 华图：</b>AI 人岗匹配 + 线下强；2025-12-15 已宣布股权级战略合作，数据+流量联合。</li>
+    <li><b>独立工具缝隙：</b>筛选已商品化、决策建议被部分覆盖——剩余缝隙收敛为"备注栏 NLP 结构化解析"与"冷门专业/择业期长尾精准匹配"。</li>
+  </ul>
+  <div class="conc"><b>关键结论：</b>别和巨头拼"筛"与"推荐"，借其软肋（无结构化备注解析、长尾覆盖弱）切入，做可信决策参谋。</div>
+</div>
+
+<div class="sec" id="s4">
+  <h2><span class="no">4</span>用户使用场景</h2>
+  <ul>
+    <li><b>核心场景（报名前 10 天）：</b>输入条件 → 匹配岗位 → 看报考建议与胜算 → 当场决策。</li>
+    <li><b>备考期：</b>用历年进面分锚定目标岗、倒推所需分数。</li>
+    <li><b>二战复盘：</b>回溯上次为何失败（专业不符/竞争过高），指导下次调整。</li>
+  </ul>
+  <div class="conc"><b>关键结论：</b>核心场景短、压强高，产品必须"快、准、稳"，任一歧义都可能引发投诉乃至信任崩塌。</div>
+</div>
+
+<div class="sec" id="s5">
+  <h2><span class="no">5</span>商业模式与变现路径</h2>
+  <ul>
+    <li><b>独立付费存疑：</b>筛选免费已成标配，用户为"建议"付费意愿未验证；粉笔 AI 刷题班 30 万付费仅 3810 万收入，AI 被当低价获客。</li>
+    <li><b> 路径：</b>①获客钩子→培训转化（粉笔打法）；②细分差异化（冷门专业/择业期）；③内容+社区引流。</li>
+    <li><b>变现尝试：</b>深度报告会员、培训分佣、B 端高校就业指导系统。</li>
+  </ul>
+  <div class="conc"><b>关键结论：</b>勿作为独立印钞机立项；当作公考生态的流量钩子或一环，才有商业意义。</div>
+</div>
+
+<!-- ============ 第二部分：不建议推进 ============ -->
+<div class="partbar red" id="p2">第二部分　可行性优化分析（反方论证 · 不建议推进）</div>
+
+<div class="redzone" style="background:#FFF8F8" id="s-overview">
+  <h2>整体立场</h2>
+  <p style="font-size:14px;color:#991B1B;padding:0 0 4px">项目市场潜力真实——考编人群 800 万，选岗是一次性不可逆的高压决策。但落地过程中存在一系列系统性障碍，单独成型的商业价值难以独立支撑。综合判断：<b>不建议作为独立项目推进</b>，可考虑依附成熟公考生态作为细分模块或获客入口。</p>
+</div>
+
+<div class="redzone" style="background:#FFF8F8" id="r1">
+  <h2><span class="no">1</span>目标用户与痛点：主力人群已被巨头覆盖</h2>
+  <ul>
+    <li><b>主力人群已被巨头锁定。</b>应届生占国考招录 68%，正是粉笔、中公、华图的核心付费用户群，三家产品已覆盖其从备考到选岗的完整链路。<span class="src">来源：2026 国考招录计划、粉笔公开用户画像</span></li>
+    <li><b>"判岗"真痛点的解决能力被巨头结构性锁死。</b>用户最深的痛点依赖模考数据库（粉笔 9000 万次模考参与量），新进入者无法在短期内复制。<span class="src">来源：粉笔官方介绍、东方财富网 2025-10-21</span></li>
+    <li><b>长尾人群规模小且获客难。</b>冷门专业/二战/择业期人群付费意愿强但分散，难以支撑独立产品获客成本。</li>
+  </ul>
+</div>
+
+<div class="redzone" style="background:#FFF8F8" id="r2">
+  <h2><span class="no">2</span>市场需求与规模：盘子大但季节硬伤致命</h2>
+  <ul>
+    <li><b>国考选岗窗口仅约 10 天/年。</b>报名期集中在 10 月中下旬，过审不可改报，窗口期外几乎无活跃用户。<span class="src">来源：2026 年度国考时间节点</span></li>
+    <li><b>季节性导致拉新贵、留存差。</b>非窗口期日活趋零，自然流量无法养团队。</li>
+    <li><b>盘子大 ≠ 你的盘子。</b>800 万考编总盘中过半已被三家占据；省考联考窗口错开，对独立工具反增运营负担。</li>
+  </ul>
+</div>
+
+<div class="redzone" style="background:#FFF8F8" id="r3">
+  <h2><span class="no">3</span>竞品分析：龙头资源壁垒已构成可替代方案</h2>
+  <ul>
+    <li><b>粉笔已升级"智能选岗"。</b>主动推荐、竞争力排名、预测数据入口、捡漏榜/卷王榜/人气榜已上线；网盘公开 2021–2025 历年进面分 Excel，免费用户即可使用。<span class="src">来源：粉笔官方、东方财富网 2025-10-21、fenbi.com/fpr</span></li>
+    <li><b>中公 + 华图 + 粉笔联合。</b>2025-12-15 华图粉笔宣布股权级战略合作，共押 AI 人岗匹配——流量、数据、品牌首次合并。<span class="src">来源：公开报道</span></li>
+    <li><b>官方职位表 Excel 已是可替代品。</b>国家公务员局免费公开，权威完整；老用户搭配上岸师兄经验即可决策，免费门槛极低。</li>
+    <li><b>差异化缝隙不足以独立支撑。</b>剩余缝隙收敛为"备注栏 NLP 解析"与"长尾精准匹配"，体量不足以撑起独立产品。</li>
+  </ul>
+</div>
+
+<div class="redzone" style="background:#FFF8F8" id="r4">
+  <h2><span class="no">4</span>使用场景：一次性不可逆 + 高合规压力</h2>
+  <ul>
+    <li><b>决策一次成型，不可逆。</b>限报 1 岗、过审不得改报——任一硬性资格误判将直接影响用户前途，容错率为零。</li>
+    <li><b>误判代价远高于误判收益。</b>被判错一次，社会传播负面成本足以击垮品牌；巨头通过"仅作参考，以官方为准"免责，独立产品无此豁免。</li>
+    <li><b>核心场景高度集中。</b>报名前 10 天是唯一爆发期，其余时间用户几乎不打开，难以建立粘性。</li>
+  </ul>
+</div>
+
+<div class="redzone" style="background:#FFF8F8" id="r5">
+  <h2><span class="no">5</span>商业模式：独立付费未验证 + 变现弱</h2>
+  <ul>
+    <li><b>独立付费意愿未验证。</b>用户已习惯免费获取筛选与历年数据，为"决策建议"付费意愿缺乏公开数据支撑。</li>
+    <li><b>巨头自己都跑不通。</b>粉笔 AI 刷题系统班 30 万付费仅换 3810 万收入，智能选岗被当低价获客而非高毛利单品。<span class="src">来源：粉笔公开财务、行业报道</span></li>
+    <li><b>最高价值环节恰是最高责任环节。</b>"分数预测/报考建议"最值钱也最易引发投诉乃至法律纠纷，巨头规避因怕担责，新进入者承担风险能力更弱。</li>
+    <li><b>季节窗口短，付费密度低。</b>10 天/年窗口期转化效率受限于决策时间，单用户 ARPU 上限明显。</li>
+  </ul>
+</div>
+
+<div class="redzone" style="background:#FFF8F8" id="r6">
+  <h2><span class="no">6</span>优先级与可行性：资源壁垒短期难跨越</h2>
+  <ul>
+    <li><b>核心数据资产采集周期长。</b>历年进面分散落在数百招录机关面试公告中，需多年系统采集才能形成可对比时序库——恰是巨头多年沉淀。<span class="src">来源：各部委面试公告分散分布的客观事实</span></li>
+    <li><b>合规审核要求高。</b>政治面貌属敏感个人信息，依《个人信息保护法》须单独告知同意；采集须守 robots 协议；不得暗示与官方关联。法务与持续合规成本高。</li>
+    <li><b>流量获取成本极不友好。</b>小红书、知乎、抖音公考赛道已是红海，粉笔、中公持续投放，新进入者 CAC 高、回收周期长。</li>
+    <li><b>ROI 测算不支持独立立项。</b>启动成本（采集 3–5 年 + 合规审核 + 流量获取）+ 季节性收入上限，独立运营财务模型难成立。</li>
+  </ul>
+</div>
+
+<div class="summary" id="sum">
+  <h2>综合判断：7 条系统性障碍</h2>
+  <ol>
+    <li>主力用户（应届生）已被粉笔/中公/华图三家锁定，新进入者获客成本高</li>
+    <li>"判岗"核心痛点的解决能力被巨头模考数据库结构性垄断，不可短期复制</li>
+    <li>季节窗口仅 10 天/年，留存趋零，独立运营养不活团队</li>
+    <li>粉笔 + 华图股权级合作后，独立工具面对的是合并资源体量</li>
+    <li>官方 Excel + 历年中标者经验已构成免费可替代方案</li>
+    <li>独立付费意愿未验证，连巨头 AI 选岗都跑不通单独变现</li>
+    <li>一次性不可逆决策 + 误判零容忍，合规风险远超营收上限</li>
+  </ol>
+</div>
+
+<div class="alt" id="alt">
+  <h2>替代建议（如确需切入该赛道）</h2>
+  <ul>
+    <li><b>依附成熟生态：</b>与粉笔、中公、华图之一合作，以细分模块（备注栏解析/冷门专业匹配）嵌入其产品矩阵，分担流量与合规成本。</li>
+    <li><b>转向高 ROI 细分：</b>聚焦"二战失败者复盘"这一付费意愿最强但巨头不愿做的窄场景，做小而精的咨询型产品，避免正面竞争。</li>
+    <li><b>延后立项节奏：</b>待巨头合作落地后观察其结构性短板，再判断是否仍有可切入的真实缝隙，避免过早消耗资源。</li>
+  </ul>
+</div>
+
+<footer>
+  <b>数据来源（两部分共用）</b><br>
+  · 国家公务员局 2026 年度国考公告与职位表（bm.scs.gov.cn/kl2026）<br>
+  · 东方财富网：粉笔教育智能选岗升级报道（2025-10-21）　|　粉笔科技新浪微博官方号（2025-10-21）　|　粉笔网盘历年进面分（fenbi.com/fpr）<br>
+  · 华图教育 × 粉笔战略合作公开报道（2025-12-15）<br>
+  · 《北京日报》《中国青年报》《澎湃新闻》《中新网》《光明网》《人民网》2026 国考报道<br>
+  本文为内部评估，不构成报考建议。
+</footer>
+
+</div>
+</div>
+</body>
+</html>
