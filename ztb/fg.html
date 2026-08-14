@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>招投标法律法规汇编 · 决策知识库</title>
+<style>
+  :root{
+    --bg:#0b0f17;
+    --bg-side:#0e1420;
+    --panel:#121826;
+    --panel-2:#161e2e;
+    --border:#1f2a3d;
+    --border-2:#2a3852;
+    --text:#e8edf5;
+    --text-2:#9aa7bd;
+    --text-3:#6b7a93;
+    --accent-1:#ff8a3d;
+    --accent-2:#ff4d6d;
+    --grad:linear-gradient(135deg,#ff8a3d 0%,#ff4d6d 100%);
+    --law:#ffd166;
+    --adlaw:#4ecdc4;
+    --rule:#5da9e9;
+    --norm:#b388ff;
+    --jud:#ff7eb6;
+    --local:#7bd88f;
+    --side-w:300px;
+    --top-h:56px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--top-h) + 16px)}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.75;font-size:15px;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:rgba(255,77,109,.35);color:#fff}
+
+  /* ===== 顶部栏（移动端） ===== */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;height:var(--top-h);z-index:60;
+    display:none;align-items:center;gap:12px;padding:0 16px;
+    background:rgba(11,15,23,.9);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .topbar .menu-btn{
+    width:36px;height:36px;border:1px solid var(--border-2);border-radius:8px;
+    background:var(--panel);color:var(--text);font-size:17px;cursor:pointer;flex:none;
+  }
+  .topbar .menu-btn:hover{border-color:var(--accent-1)}
+  .topbar .tt{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .topbar .tt em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+  /* ===== 侧边导航 ===== */
+  .sidebar{
+    position:fixed;top:0;left:0;bottom:0;width:var(--side-w);z-index:50;
+    background:var(--bg-side);border-right:1px solid var(--border);
+    display:flex;flex-direction:column;transition:transform .3s ease;
+  }
+  .side-head{padding:22px 20px 14px;border-bottom:1px solid var(--border)}
+  .side-logo{font-size:18px;font-weight:800;letter-spacing:.5px}
+  .side-logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .side-sub{font-size:12px;color:var(--text-3);margin-top:4px;letter-spacing:1px}
+  .side-stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .stat{
+    display:inline-flex;align-items:center;gap:5px;font-size:11px;
+    padding:3px 9px;border-radius:999px;border:1px solid var(--border-2);color:var(--text-2);background:var(--panel);
+  }
+  .stat b{font-weight:700;color:var(--text)}
+  .side-nav{flex:1;overflow-y:auto;padding:14px 12px 24px;scrollbar-width:thin;scrollbar-color:var(--border-2) transparent}
+  .side-nav::-webkit-scrollbar{width:5px}
+  .side-nav::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:3px}
+  .nav-sec{margin:2px 0 4px}
+  .nav-sec > a{
+    display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--text-2);
+    font-size:13.5px;font-weight:600;padding:8px 12px;border-radius:8px;
+    border-left:3px solid transparent;transition:all .18s ease;cursor:pointer;
+  }
+  .nav-sec > a .dot{width:8px;height:8px;border-radius:50%;flex:none}
+  .nav-sec > a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+  .nav-sec.active > a{
+    color:#fff;background:rgba(255,77,109,.10);border-left-color:var(--accent-2);
+  }
+  .nav-sec.active > a .dot{box-shadow:0 0 0 3px rgba(255,77,109,.25)}
+  .nav-sub{padding:2px 0 6px 30px;border-left:1px dashed var(--border-2);margin-left:15px}
+  .nav-sub a{
+    display:block;text-decoration:none;color:var(--text-3);font-size:12.5px;
+    padding:5px 10px;border-radius:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    transition:all .15s ease;cursor:pointer;
+  }
+  .nav-sub a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+  .nav-sub a.active{color:var(--accent-1);background:rgba(255,138,61,.08);font-weight:600}
+  .side-foot{padding:12px 20px;border-top:1px solid var(--border);font-size:11px;color:var(--text-3)}
+
+  /* ===== 主内容区 ===== */
+  .main{margin-left:var(--side-w);min-height:100vh}
+  .wrap{max-width:920px;margin:0 auto;padding:34px 36px 80px}
+
+  /* Hero */
+  .hero{
+    position:relative;padding:40px 36px;border-radius:18px;overflow:hidden;
+    background:linear-gradient(160deg,#131b2e 0%,#0e1420 55%,#141024 100%);
+    border:1px solid var(--border-2);
+  }
+  .hero::before{
+    content:"";position:absolute;top:-80px;right:-60px;width:300px;height:300px;
+    background:radial-gradient(circle,rgba(255,77,109,.22),transparent 65%);
+  }
+  .hero::after{
+    content:"";position:absolute;bottom:-100px;left:-40px;width:260px;height:260px;
+    background:radial-gradient(circle,rgba(255,138,61,.16),transparent 65%);
+  }
+  .hero .tag{
+    display:inline-block;font-size:11px;letter-spacing:2px;color:#ffd0c2;
+    border:1px solid rgba(255,138,61,.4);border-radius:999px;padding:3px 12px;margin-bottom:16px;
+    background:rgba(255,138,61,.08);position:relative;z-index:1;
+  }
+  .hero h1{font-size:30px;font-weight:800;letter-spacing:.5px;position:relative;z-index:1}
+  .hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{color:var(--text-2);font-size:14px;margin-top:10px;max-width:620px;position:relative;z-index:1}
+  .hero .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;position:relative;z-index:1}
+  .hero .meta span{
+    font-size:12px;color:var(--text-2);border:1px solid var(--border-2);
+    background:rgba(11,15,23,.6);padding:4px 12px;border-radius:8px;
+  }
+  .hero .meta b{color:#fff;font-weight:700}
+
+  /* 章节 */
+  .section{margin-top:52px;scroll-margin-top:calc(var(--top-h) + 20px)}
+  .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+  .sec-no{
+    flex:none;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:15px;color:#fff;background:var(--grad);
+    box-shadow:0 4px 14px rgba(255,77,109,.35);
+  }
+  .sec-title{font-size:22px;font-weight:800;letter-spacing:.5px}
+  .sec-en{font-size:11px;color:var(--text-3);letter-spacing:2px;margin-top:2px;text-transform:uppercase}
+  .sec-divider{height:1px;background:linear-gradient(90deg,var(--accent-2),transparent);margin:14px 0 22px;opacity:.5}
+  .sec-desc{color:var(--text-2);font-size:13.5px;margin:-10px 0 20px}
+
+  /* 法规卡片 */
+  .law-card{
+    background:var(--panel);border:1px solid var(--border);border-radius:14px;
+    padding:22px 24px;margin-bottom:18px;position:relative;
+    transition:border-color .2s ease,transform .2s ease;
+  }
+  .law-card:hover{border-color:var(--border-2);transform:translateY(-2px)}
+  .law-card::before{
+    content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:3px;
+    background:var(--card-c,var(--rule));
+  }
+  .law-top{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
+  .law-no{
+    flex:none;font-size:12px;font-weight:800;color:#fff;border-radius:8px;
+    padding:3px 10px;background:var(--card-c,var(--rule));
+  }
+  .law-name{font-size:17px;font-weight:700;line-height:1.4;flex:1;min-width:200px}
+  .law-status{
+    flex:none;font-size:11px;font-weight:600;border-radius:999px;padding:3px 10px;
+    color:#7bd88f;background:rgba(123,216,143,.1);border:1px solid rgba(123,216,143,.35);
+  }
+  .law-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+  .law-meta span{
+    font-size:11.5px;color:var(--text-2);border:1px solid var(--border-2);
+    border-radius:7px;padding:3px 9px;background:var(--panel-2);
+  }
+  .law-meta b{color:#fff;font-weight:600}
+  .law-rows{margin-top:14px;border-top:1px dashed var(--border-2);padding-top:12px}
+  .law-row{display:flex;gap:10px;font-size:13.5px;padding:5px 0;color:var(--text-2)}
+  .law-row .k{flex:none;width:64px;color:var(--text-3);font-size:12.5px;padding-top:1px}
+  .law-row .v{flex:1;color:var(--text)}
+  .law-src{margin-top:12px;font-size:12.5px;color:var(--text-3)}
+  .law-src a{color:var(--accent-1);text-decoration:none;word-break:break-all}
+  .law-src a:hover{text-decoration:underline;color:var(--accent-2)}
+  .law-note{margin-top:10px;font-size:12.5px;color:#ffd166;background:rgba(255,209,102,.07);
+    border-left:2px solid #ffd166;padding:8px 12px;border-radius:0 8px 8px 0}
+
+  /* 说明列表 */
+  .note-card{
+    background:var(--panel);border:1px solid var(--border);border-radius:14px;
+    padding:22px 24px;margin-bottom:16px;
+  }
+  .note-card ol{padding-left:22px;color:var(--text-2);font-size:14px}
+  .note-card li{padding:6px 0}
+  .note-card li::marker{color:var(--accent-2);font-weight:700}
+  .note-card b{color:var(--text)}
+
+  /* 回到顶部 */
+  .back-top{
+    position:fixed;right:24px;bottom:24px;width:44px;height:44px;border-radius:12px;
+    background:var(--grad);color:#fff;border:none;font-size:19px;cursor:pointer;z-index:55;
+    box-shadow:0 6px 20px rgba(255,77,109,.4);opacity:0;pointer-events:none;
+    transition:opacity .25s ease,transform .25s ease;
+  }
+  .back-top.show{opacity:1;pointer-events:auto}
+  .back-top:hover{transform:translateY(-3px)}
+
+  /* ===== 响应式 ===== */
+  @media (max-width:1023px){
+    .topbar{display:flex}
+    .sidebar{transform:translateX(-100%);box-shadow:none}
+    .sidebar.open{transform:translateX(0);box-shadow:0 0 40px rgba(0,0,0,.6)}
+    .scrim{
+      position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:45;opacity:0;
+      pointer-events:none;transition:opacity .3s ease;
+    }
+    .scrim.show{opacity:1;pointer-events:auto}
+    .main{margin-left:0}
+    .wrap{padding:calc(var(--top-h) + 22px) 18px 60px}
+    .hero{padding:30px 22px}
+    .hero h1{font-size:24px}
+  }
+  @media (max-width:640px){
+    .law-card{padding:18px 16px}
+    .law-name{font-size:15.5px}
+    .sec-title{font-size:19px}
+  }
+</style>
+</head>
+<body>
+
+<!-- 移动端顶部栏 -->
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="打开目录">☰</button>
+  <div class="tt">招投标法律法规<em>汇编</em></div>
+</header>
+
+<!-- 移动端遮罩 -->
+<div class="scrim" id="scrim"></div>
+
+<!-- ===== 侧边导航 ===== -->
+<aside class="sidebar" id="sidebar">
+  <div class="side-head">
+    <div class="side-logo">招投标法律法规<em>汇编</em></div>
+    <div class="side-sub">BIDDING LAW COMPENDIUM · 官方来源核实版</div>
+    <div class="side-stats">
+      <span class="stat">法律 <b>2</b></span>
+      <span class="stat">行政法规 <b>2</b></span>
+      <span class="stat">部门规章 <b>15</b></span>
+      <span class="stat">规范性文件 <b>3</b></span>
+      <span class="stat">司法解释 <b>1</b></span>
+      <span class="stat">地方性法规 <b>2</b></span>
+    </div>
+  </div>
+  <nav class="side-nav" id="sideNav">
+    <!-- JS 动态渲染 -->
+  </nav>
+  <div class="side-foot">核实时点：2026-08-14 · 未虚构任何条目</div>
+</aside>
+
+<!-- ===== 主内容 ===== -->
+<main class="main">
+  <div class="wrap">
+
+    <!-- Hero -->
+    <div class="hero" id="top">
+      <span class="tag">决策知识库 · 法律基础层</span>
+      <h1>招投标相关法律法规汇编</h1>
+      <p>覆盖法律、行政法规、部门规章、规范性文件、司法解释及地方性法规，全部条目均基于中国政府网、国务院公报、国家发展改革委、财政部、最高人民法院等官方渠道核实，每条注明制定机关、发布文号、公布及施行日期。</p>
+      <div class="meta">
+        <span>收录法规 <b>25</b> 条</span>
+        <span>官方来源 <b>100%</b> 可溯源</span>
+        <span>未核实条目 <b>已标注</b></span>
+      </div>
+    </div>
+
+    <!-- 一、法律 -->
+    <section class="section" id="law">
+      <div class="sec-head">
+        <div class="sec-no">一</div>
+        <div>
+          <div class="sec-title">法律</div>
+          <div class="sec-en">Laws · National People's Congress</div>
+        </div>
+      </div>
+      <div class="sec-divider"></div>
+      <div class="sec-desc">全国人民代表大会及其常务委员会制定 · 招投标领域顶层规范</div>
+
+      <div class="law-card" style="--card-c:var(--law)" id="law-1">
+        <div class="law-top">
+          <span class="law-no">01</span>
+          <div class="law-name">《中华人民共和国招标投标法》</div>
+          <span class="law-status">现行有效</span>
+        </div>
+        <div class="law-meta">
+          <span>制定机关：<b>全国人大常委会</b></span>
+          <span>文号：<b>主席令第21号</b></span>
+          <span>修正文号：<b>主席令第86号</b></span>
+        </div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">通过</span><span class="v">1999年8月30日 第九届全国人民代表大会常务委员会第十一次会议通过</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2000年1月1日</span></div>
+          <div class="law-row"><span class="k">修正</span><span class="v">根据2017年12月27日第十二届全国人大常委会第三十一次会议《关于修改〈中华人民共和国招标投标法〉、〈中华人民共和国计量法〉的决定》修正，自2017年12月28日起施行</span></div>
+        </div>
+        <div class="law-src">来源：中国政府网 <a href="https://www.gov.cn/xinwen/2017-12/27/content_5250941.htm" target="_blank" rel="noopener">www.gov.cn/xinwen/2017-12/27/content_5250941.htm</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--law)" id="law-2">
+        <div class="law-top">
+          <span class="law-no">02</span>
+          <div class="law-name">《中华人民共和国政府采购法》</div>
+          <span class="law-status">现行有效</span>
+        </div>
+        <div class="law-meta">
+          <span>制定机关：<b>全国人大常委会</b></span>
+          <span>文号：<b>主席令第68号</b></span>
+          <span>修正文号：<b>主席令第14号</b></span>
+        </div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">通过</span><span class="v">2002年6月29日 第九届全国人民代表大会常务委员会第二十八次会议通过</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2003年1月1日</span></div>
+          <div class="law-row"><span class="k">修正</span><span class="v">根据2014年8月31日第十二届全国人大常委会第十次会议《关于修改〈中华人民共和国保险法〉等五部法律的决定》修正，自2014年8月31日施行</span></div>
+        </div>
+        <div class="law-src">来源：城阳区政府网（2014修正全文）<a href="http://www.chengyang.gov.cn/rmzt/nccqjy/smjd/xgzl/202203/t20220311_4781816.shtml" target="_blank" rel="noopener">chengyang.gov.cn</a> · 北大法宝 <a href="https://law.pkulaw.com/chinalaw/233283.html" target="_blank" rel="noopener">law.pkulaw.com/chinalaw/233283.html</a></div>
+      </div>
+    </section>
+
+    <!-- 二、行政法规 -->
+    <section class="section" id="adlaw">
+      <div class="sec-head">
+        <div class="sec-no">二</div>
+        <div>
+          <div class="sec-title">行政法规</div>
+          <div class="sec-en">Administrative Regulations · State Council</div>
+        </div>
+      </div>
+      <div class="sec-divider"></div>
+      <div class="sec-desc">国务院制定 · 两部核心实施条例</div>
+
+      <div class="law-card" style="--card-c:var(--adlaw)" id="adlaw-3">
+        <div class="law-top">
+          <span class="law-no">03</span>
+          <div class="law-name">《中华人民共和国招标投标法实施条例》</div>
+          <span class="law-status">现行有效</span>
+        </div>
+        <div class="law-meta">
+          <span>制定机关：<b>国务院</b></span>
+          <span>文号：<b>国务院令第613号</b></span>
+          <span>2019修订版：<b>国务院令第709号</b></span>
+        </div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">公布</span><span class="v">2011年12月20日 中华人民共和国国务院令第613号</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2012年2月1日</span></div>
+          <div class="law-row"><span class="k">修订</span><span class="v">根据2017年3月1日《国务院关于修改和废止部分行政法规的决定》第一次修订；根据2018年3月19日《国务院关于修改和废止部分行政法规的决定》第二次修订；根据2019年3月2日《国务院关于修改部分行政法规的决定》第三次修订</span></div>
+        </div>
+        <div class="law-src">来源：中国政府网·国务院公报（2019版全文）<a href="https://www.gov.cn/gongbao/content/2019/content_5468831.htm" target="_blank" rel="noopener">www.gov.cn/gongbao/content/2019/content_5468831.htm</a> · 北大法宝 <a href="https://law.pkulaw.com/chinalaw/e7f93f8a4b71aef3bdfb.html" target="_blank" rel="noopener">law.pkulaw.com/chinalaw/e7f93f8a4b71aef3bdfb.html</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--adlaw)" id="adlaw-4">
+        <div class="law-top">
+          <span class="law-no">04</span>
+          <div class="law-name">《中华人民共和国政府采购法实施条例》</div>
+          <span class="law-status">现行有效</span>
+        </div>
+        <div class="law-meta">
+          <span>制定机关：<b>国务院</b></span>
+          <span>文号：<b>国务院令第658号</b></span>
+        </div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">审议</span><span class="v">2014年12月31日国务院第75次常务会议通过</span></div>
+          <div class="law-row"><span class="k">公布</span><span class="v">2015年1月30日 中华人民共和国国务院令第658号</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2015年3月1日</span></div>
+        </div>
+        <div class="law-src">来源：中国政府网·国务院公报（2015年第7号）<a href="https://www.gov.cn/gongbao/content/2015/content_2827183.htm" target="_blank" rel="noopener">www.gov.cn/gongbao/content/2015/content_2827183.htm</a></div>
+      </div>
+    </section>
+
+    <!-- 三、部门规章 -->
+    <section class="section" id="rules">
+      <div class="sec-head">
+        <div class="sec-no">三</div>
+        <div>
+          <div class="sec-title">部门规章</div>
+          <div class="sec-en">Departmental Rules · 15 items</div>
+        </div>
+      </div>
+      <div class="sec-divider"></div>
+
+      <!-- 三（一） -->
+      <h3 class="sub-sec" id="rules-dev">（一）发展改革部门及多部门联合规章</h3>
+      <div class="sec-desc" style="margin-bottom:18px">工程建设项目招投标 · 8 项</div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-5">
+        <div class="law-top"><span class="law-no">05</span><div class="law-name">《评标委员会和评标方法暂行规定》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>国家计委等七部委</b></span><span>文号：<b>七部委令第12号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">公布</span><span class="v">2001年7月5日 七部委令第12号</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2001年7月5日</span></div>
+          <div class="law-row"><span class="k">修正</span><span class="v">根据2013年3月11日国家发展改革委等九部门令第23号修正，自2013年5月1日起施行</span></div>
+        </div>
+        <div class="law-src">来源：中国政府网 <a href="https://www.gov.cn/zhengce/2001-07/05/content_5713201.htm" target="_blank" rel="noopener">www.gov.cn/zhengce/2001-07/05/content_5713201.htm</a> · 国家发展改革委 <a href="https://zfxxgk.ndrc.gov.cn/web/iteminfo.jsp?id=18489" target="_blank" rel="noopener">zfxxgk.ndrc.gov.cn</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-6">
+        <div class="law-top"><span class="law-no">06</span><div class="law-name">《工程建设项目施工招标投标办法》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>国家计委等七部委</b></span><span>文号：<b>七部委令第30号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">公布</span><span class="v">2003年3月8日 七部委令第30号</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2003年5月1日</span></div>
+          <div class="law-row"><span class="k">修正</span><span class="v">根据2013年3月11日国家发展改革委等九部门令第23号修正，自2013年5月1日起施行</span></div>
+        </div>
+        <div class="law-src">来源：中国政府网 <a href="https://www.gov.cn/zhengce/2003-03/08/content_5712315.htm" target="_blank" rel="noopener">www.gov.cn/zhengce/2003-03/08/content_5712315.htm</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-7">
+        <div class="law-top"><span class="law-no">07</span><div class="law-name">《工程建设项目勘察设计招标投标办法》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>国家发改委等八部委</b></span><span>文号：<b>八部委令第2号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">公布</span><span class="v">2003年6月12日 八部委令第2号</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2003年8月1日</span></div>
+          <div class="law-row"><span class="k">修正</span><span class="v">根据2013年3月11日国家发展改革委等九部门令第23号修正</span></div>
+        </div>
+        <div class="law-src">来源：中国政府网 <a href="https://www.gov.cn/zhengce/2003-06/12/content_5712311.htm" target="_blank" rel="noopener">www.gov.cn/zhengce/2003-06/12/content_5712311.htm</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-8">
+        <div class="law-top"><span class="law-no">08</span><div class="law-name">《工程建设项目货物招标投标办法》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>国家发改委等七部委</b></span><span>文号：<b>七部委令第27号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">公布</span><span class="v">2005年1月18日 七部委令第27号</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2005年3月1日</span></div>
+          <div class="law-row"><span class="k">修正</span><span class="v">根据2013年3月11日国家发展改革委等九部门令第23号修正</span></div>
+        </div>
+        <div class="law-src">来源：中国政府网 <a href="https://www.gov.cn/zhengce/2021-11/30/content_5713214.htm" target="_blank" rel="noopener">www.gov.cn/zhengce/2021-11/30/content_5713214.htm</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-9">
+        <div class="law-top"><span class="law-no">09</span><div class="law-name">《电子招标投标办法》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>国家发改委等八部门</b></span><span>文号：<b>八部委令第20号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">公布</span><span class="v">2013年2月4日 八部委令第20号</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2013年5月1日</span></div>
+        </div>
+        <div class="law-src">来源：国家发展改革委 <a href="https://www.ndrc.gov.cn/xxgk/zcfb/fzggwl/201302/t20130220_960752.html" target="_blank" rel="noopener">www.ndrc.gov.cn/xxgk/zcfb/fzggwl/201302/t20130220_960752.html</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-10">
+        <div class="law-top"><span class="law-no">10</span><div class="law-name">《招标公告和公示信息发布管理办法》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>国家发展改革委</b></span><span>文号：<b>国家发改委令第10号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">公布</span><span class="v">2017年11月23日 国家发展改革委令第10号</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2018年1月1日（原《招标公告发布暂行办法》国家计委第4号令同时废止）</span></div>
+        </div>
+        <div class="law-src">来源：中国政府网·国务院公报（2018年第4号）<a href="https://www.gov.cn/gongbao/content/2018/content_5264881.htm" target="_blank" rel="noopener">www.gov.cn/gongbao/content/2018/content_5264881.htm</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-11">
+        <div class="law-top"><span class="law-no">11</span><div class="law-name">《必须招标的工程项目规定》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>国家发展改革委（经国务院批准）</b></span><span>文号：<b>国家发改委令第16号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">公布</span><span class="v">2018年3月27日 国家发展改革委令第16号</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2018年6月1日</span></div>
+        </div>
+        <div class="law-src">来源：中国政府网·国务院公报（2018年第16号）<a href="https://www.gov.cn/gongbao/content/2018/content_5296544.htm" target="_blank" rel="noopener">www.gov.cn/gongbao/content/2018/content_5296544.htm</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-12">
+        <div class="law-top"><span class="law-no">12</span><div class="law-name">《招标投标领域公平竞争审查规则》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>国家发改委等八部门</b></span><span>文号：<b>国家发展改革委令第16号（2024年度）</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">审议</span><span class="v">2024年1月31日国家发展改革委第8次委务会议通过</span></div>
+          <div class="law-row"><span class="k">公布</span><span class="v">2024年3月25日（与《必须招标的工程项目规定》之"16号令"为不同年度编号）</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2024年5月1日</span></div>
+        </div>
+        <div class="law-src">来源：国家发展改革委 <a href="https://www.ndrc.gov.cn/xxgk/jd/jd/202404/t20240402_1365431.html" target="_blank" rel="noopener">www.ndrc.gov.cn/xxgk/jd/jd/202404/t20240402_1365431.html</a></div>
+      </div>
+
+      <!-- 三（二） -->
+      <h3 class="sub-sec" id="rules-mof">（二）财政部门规章</h3>
+      <div class="sec-desc" style="margin-bottom:18px">政府采购 · 6 项</div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-13">
+        <div class="law-top"><span class="law-no">13</span><div class="law-name">《政府采购非招标采购方式管理办法》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>财政部</b></span><span>文号：<b>财政部令第74号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">审议</span><span class="v">2013年10月28日财政部部务会议通过</span></div>
+          <div class="law-row"><span class="k">公布</span><span class="v">2013年12月19日 财政部令第74号</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2014年2月1日</span></div>
+        </div>
+        <div class="law-src">来源：中国政府网·国务院公报（2014年第9号）<a href="https://www.gov.cn/gongbao/content/2014/content_2644816.htm" target="_blank" rel="noopener">www.gov.cn/gongbao/content/2014/content_2644816.htm</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-14">
+        <div class="law-top"><span class="law-no">14</span><div class="law-name">《政府采购货物和服务招标投标管理办法》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>财政部</b></span><span>文号：<b>财政部令第87号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">公布</span><span class="v">2017年7月11日 财政部令第87号（修订自财政部令第18号）</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2017年10月1日</span></div>
+        </div>
+        <div class="law-src">来源：中国政府网·国务院公报（2017年第33号）<a href="https://www.gov.cn/gongbao/content/2017/content_5241918.htm" target="_blank" rel="noopener">www.gov.cn/gongbao/content/2017/content_5241918.htm</a> · 中国政府采购网 <a href="https://www.ccgp.gov.cn/zcfg/mofgz/201707/t20170718_8541199.htm" target="_blank" rel="noopener">www.ccgp.gov.cn</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-15">
+        <div class="law-top"><span class="law-no">15</span><div class="law-name">《政府采购质疑和投诉办法》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>财政部</b></span><span>文号：<b>财政部令第94号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">公布</span><span class="v">2017年12月 财政部令第94号（修订自财政部令第20号《政府采购供应商投诉处理办法》并更名）</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2018年3月1日</span></div>
+        </div>
+        <div class="law-src">来源：中国政府网（财政部负责人答记者问）<a href="https://www.gov.cn/zhengce/2018-01/09/content_5254848.htm" target="_blank" rel="noopener">www.gov.cn/zhengce/2018-01/09/content_5254848.htm</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-16">
+        <div class="law-top"><span class="law-no">16</span><div class="law-name">《政府采购信息发布管理办法》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>财政部</b></span><span>文号：<b>财政部令第101号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">公布</span><span class="v">2019年11月27日 财政部令第101号</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2020年3月1日（原《政府采购信息公告管理办法》财政部令第19号同时废止）</span></div>
+        </div>
+        <div class="law-src">来源：中国政府采购网 <a href="https://www.ccgp.gov.cn/zcfg/mofgz/201912/t20191211_13537333.htm" target="_blank" rel="noopener">www.ccgp.gov.cn/zcfg/mofgz/201912/t20191211_13537333.htm</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-17">
+        <div class="law-top"><span class="law-no">17</span><div class="law-name">《政府购买服务管理办法》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>财政部</b></span><span>文号：<b>财政部令第102号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">审议</span><span class="v">2019年11月19日财政部第一次部务会议通过</span></div>
+          <div class="law-row"><span class="k">公布</span><span class="v">2020年1月3日 财政部令第102号</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2020年3月1日（原财综〔2014〕96号《政府购买服务管理办法（暂行）》同时废止）</span></div>
+        </div>
+        <div class="law-src">来源：财政部 <a href="https://tfs.mof.gov.cn/caizhengbuling/202001/t20200122_3463449.htm" target="_blank" rel="noopener">tfs.mof.gov.cn/caizhengbuling/202001/t20200122_3463449.htm</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-18">
+        <div class="law-top"><span class="law-no">18</span><div class="law-name">《政府采购框架协议采购方式管理暂行办法》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>财政部</b></span><span>文号：<b>财政部令第110号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">审议</span><span class="v">2021年12月31日财政部部务会议通过</span></div>
+          <div class="law-row"><span class="k">公布</span><span class="v">2022年1月14日 财政部令第110号</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2022年3月1日</span></div>
+        </div>
+        <div class="law-src">来源：财政部 <a href="https://tfs.mof.gov.cn/caizhengbuling/202201/t20220127_3785268.htm" target="_blank" rel="noopener">tfs.mof.gov.cn/caizhengbuling/202201/t20220127_3785268.htm</a></div>
+      </div>
+
+      <!-- 三（三） -->
+      <h3 class="sub-sec" id="rules-mohurd">（三）住房城乡建设部门规章</h3>
+      <div class="sec-desc" style="margin-bottom:18px">1 项</div>
+
+      <div class="law-card" style="--card-c:var(--rule)" id="rule-19">
+        <div class="law-top"><span class="law-no">19</span><div class="law-name">《房屋建筑和市政基础设施工程施工招标投标管理办法》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>住房和城乡建设部（原建设部）</b></span><span>文号：<b>建设部令第89号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">公布</span><span class="v">2001年6月1日 建设部令第89号</span></div>
+          <div class="law-row"><span class="k">修正</span><span class="v">根据2019年3月13日住房和城乡建设部令第47号《住房和城乡建设部关于修改部分部门规章的决定》修正（第二次修正）</span></div>
+        </div>
+        <div class="law-src">来源：济南市政府办事指南（设定依据引用）<a href="https://zwfw.jinan.gov.cn/jpaas-jiq-web-jnywtb/front/transition/ywTransToDetail?areaCode=370126000000&innerCode=bf5b76f3-e4e3-45f4-99a6-16a9b4165d37&taskType=QT" target="_blank" rel="noopener">zwfw.jinan.gov.cn</a></div>
+      </div>
+    </section>
+
+    <!-- 四、规范性文件 -->
+    <section class="section" id="normative">
+      <div class="sec-head">
+        <div class="sec-no">四</div>
+        <div>
+          <div class="sec-title">规范性文件</div>
+          <div class="sec-en">Normative Documents · 3 items</div>
+        </div>
+      </div>
+      <div class="sec-divider"></div>
+      <div class="sec-desc">部委规范性文件</div>
+
+      <div class="law-card" style="--card-c:var(--norm)" id="norm-20">
+        <div class="law-top"><span class="law-no">20</span><div class="law-name">《必须招标的基础设施和公用事业项目范围规定》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>国家发展改革委</b></span><span>文号：<b>发改法规规〔2018〕843号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">印发</span><span class="v">2018年（作为《必须招标的工程项目规定》国家发展改革委第16号令的配套文件）</span></div>
+        </div>
+        <div class="law-src">来源：国家发展改革委 <a href="https://www.ndrc.gov.cn/fzggw/jgsj/fgs/sjdt/201806/t20180612_1107137.html" target="_blank" rel="noopener">www.ndrc.gov.cn/fzggw/jgsj/fgs/sjdt/201806/t20180612_1107137.html</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--norm)" id="norm-21">
+        <div class="law-top"><span class="law-no">21</span><div class="law-name">《房屋建筑和市政基础设施项目工程总承包管理办法》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>住房和城乡建设部、国家发展改革委</b></span><span>文号：<b>建市规〔2019〕12号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">施行</span><span class="v">2020年3月1日</span></div>
+        </div>
+        <div class="law-src">来源：临汾市公共资源交易平台"工程建设项目招投标现行有效制度政策文件目录(2022版)"<a href="http://lfggzyjy.linfen.gov.cn/cmsController.do?goPage&page=article&articleid=3859B1C21C414C83ABD6CB838492FE98&menuid=A09A07" target="_blank" rel="noopener">lfggzyjy.linfen.gov.cn</a> · 中国政府采购网（施行日期）<a href="https://www.ccgp.gov.cn/llsw/202003/t20200302_13946246.htm" target="_blank" rel="noopener">www.ccgp.gov.cn/llsw/202003/t20200302_13946246.htm</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--norm)" id="norm-22">
+        <div class="law-top"><span class="law-no">22</span><div class="law-name">《政府采购评审专家管理办法》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>财政部</b></span><span>文号：<b>财库〔2016〕198号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">公布</span><span class="v">2016年（规范性文件，规范评审专家抽取与行为）</span></div>
+        </div>
+        <div class="law-src">来源：湖北政府采购网"快问快答"（法规索引）<a href="https://ccgp-hubei.gov.cn/news/202307/news_5c48980f34c8424a9ea7477c160f0495.html" target="_blank" rel="noopener">ccgp-hubei.gov.cn</a></div>
+      </div>
+    </section>
+
+    <!-- 五、司法解释 -->
+    <section class="section" id="judicial">
+      <div class="sec-head">
+        <div class="sec-no">五</div>
+        <div>
+          <div class="sec-title">司法解释</div>
+          <div class="sec-en">Judicial Interpretation · 1 item</div>
+        </div>
+      </div>
+      <div class="sec-divider"></div>
+      <div class="sec-desc">最高人民法院发布 · 招投标效力与黑白合同认定</div>
+
+      <div class="law-card" style="--card-c:var(--jud)" id="jud-23">
+        <div class="law-top"><span class="law-no">23</span><div class="law-name">《最高人民法院关于审理建设工程施工合同纠纷案件适用法律问题的解释（一）》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>最高人民法院</b></span><span>文号：<b>法释〔2020〕25号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">通过</span><span class="v">2020年12月25日最高人民法院审判委员会第1825次会议</span></div>
+          <div class="law-row"><span class="k">公布</span><span class="v">2020年12月29日</span></div>
+          <div class="law-row"><span class="k">施行</span><span class="v">2021年1月1日</span></div>
+        </div>
+        <div class="law-note">注：该解释第一、二、二十二、二十三条直接涉及招投标活动效力及"黑白合同"认定（必须招标而未招标、中标无效、中标合同实质性内容等），是招投标领域最重要的配套司法解释。</div>
+        <div class="law-src">来源：最高人民法院 <a href="https://www.court.gov.cn/zixun/xiangqing/282111.html" target="_blank" rel="noopener">www.court.gov.cn/zixun/xiangqing/282111.html</a></div>
+      </div>
+    </section>
+
+    <!-- 六、地方性法规 -->
+    <section class="section" id="local">
+      <div class="sec-head">
+        <div class="sec-no">六</div>
+        <div>
+          <div class="sec-title">地方性法规</div>
+          <div class="sec-en">Local Regulations · 示例：北京市</div>
+        </div>
+      </div>
+      <div class="sec-divider"></div>
+      <div class="sec-desc">示例：北京市</div>
+
+      <div class="law-card" style="--card-c:var(--local)" id="loc-24">
+        <div class="law-top"><span class="law-no">24</span><div class="law-name">《北京市招标投标条例》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>北京市人大常委会</b></span><span>修正文号：<b>公告〔十五届〕第61号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">通过</span><span class="v">2002年9月6日北京市第十一届人大常委会第三十六次会议通过</span></div>
+          <div class="law-row"><span class="k">修正</span><span class="v">根据2010年12月23日北京市第十三届人大常委会第二十二次会议《关于修改部分地方性法规的决定》修正；根据2021年9月24日北京市第十五届人大常委会第三十三次会议《关于修改部分地方性法规的决定》修正，修改条款自公布之日（2021年9月24日）起施行</span></div>
+        </div>
+        <div class="law-src">来源：北京市人民政府 <a href="https://www.beijing.gov.cn/gate/big5/www.beijing.gov.cn/zhengce/dfxfg/202111/t20211103_2528555.html" target="_blank" rel="noopener">www.beijing.gov.cn</a> · 北京市人大常委会（修改决定PDF）<a href="https://www.bjrd.gov.cn/rdzl/dfxfgdxb/202201/P020220119334554668105.pdf" target="_blank" rel="noopener">www.bjrd.gov.cn</a></div>
+      </div>
+
+      <div class="law-card" style="--card-c:var(--local)" id="loc-25">
+        <div class="law-top"><span class="law-no">25</span><div class="law-name">《北京市建设工程招标投标监督管理规定》</div><span class="law-status">现行有效</span></div>
+        <div class="law-meta"><span>制定机关：<b>北京市人民政府</b></span><span>文号：<b>北京市人民政府令第122号</b></span></div>
+        <div class="law-rows">
+          <div class="law-row"><span class="k">备注</span><span class="v">本次核实未取得该规章的完整公布/施行日期原文，建议以北京市人民政府公布文本为准</span></div>
+        </div>
+        <div class="law-src">来源：北京市政府办事指南（设定依据引用）<a href="https://banshi.beijing.gov.cn/pubtask/task/1/110000000000/2760f2c8-ba3c-4527-8857-1980482b694f.html" target="_blank" rel="noopener">banshi.beijing.gov.cn</a></div>
+      </div>
+    </section>
+
+    <!-- 七、未能核实说明 -->
+    <section class="section" id="notes">
+      <div class="sec-head">
+        <div class="sec-no">七</div>
+        <div>
+          <div class="sec-title">未能核实 / 未列入的说明</div>
+          <div class="sec-en">Verification Notes</div>
+        </div>
+      </div>
+      <div class="sec-divider"></div>
+      <div class="note-card">
+        <ol>
+          <li>除北京市外，全国各省、自治区、直辖市普遍制定了本地区招标投标（政府采购）地方性法规与政府规章（如上海市、广东省、山东省等），本清单未逐一核实其文号与施行日期，<b>不列入以免虚构</b>。如需某特定省份清单，可另行定向核实。</li>
+          <li>本清单为"现行有效"核心法规汇编，未穷尽全部配套规范性文件（如各行业主管部门发布的招标文件示范文本、评标专家库管理办法等层级较低文件）；对未列出的文件不代表其不存在，仅代表本次未完成官方来源核实。</li>
+          <li>个别网络资料（如某县政府抽查清单转载）将《政府采购法实施条例》公布日期误写为"2014年1月30日"，本清单以国务院公报原文（2015年1月30日公布）为准。</li>
+        </ol>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ===== 目录数据 ===== */
+  var NAV = [
+    { id:'law', label:'一、法律', dot:'var(--law)', count:2, items:[
+      { id:'law-1', label:'1 招标投标法' },
+      { id:'law-2', label:'2 政府采购法' }
+    ]},
+    { id:'adlaw', label:'二、行政法规', dot:'var(--adlaw)', count:2, items:[
+      { id:'adlaw-3', label:'3 招标投标法实施条例' },
+      { id:'adlaw-4', label:'4 政府采购法实施条例' }
+    ]},
+    { id:'rules', label:'三、部门规章', dot:'var(--rule)', count:15, items:[
+      { id:'rules-dev', label:'（一）发改委及多部门联合规章', sub:true },
+      { id:'rule-5', label:'5 评标委员会和评标方法暂行规定' },
+      { id:'rule-6', label:'6 施工招标投标办法' },
+      { id:'rule-7', label:'7 勘察设计招标投标办法' },
+      { id:'rule-8', label:'8 货物招标投标办法' },
+      { id:'rule-9', label:'9 电子招标投标办法' },
+      { id:'rule-10', label:'10 招标公告和公示信息发布管理办法' },
+      { id:'rule-11', label:'11 必须招标的工程项目规定' },
+      { id:'rule-12', label:'12 招标投标领域公平竞争审查规则' },
+      { id:'rules-mof', label:'（二）财政部门规章', sub:true },
+      { id:'rule-13', label:'13 非招标采购方式管理办法' },
+      { id:'rule-14', label:'14 货物和服务招标投标管理办法' },
+      { id:'rule-15', label:'15 质疑和投诉办法' },
+      { id:'rule-16', label:'16 信息发布管理办法' },
+      { id:'rule-17', label:'17 政府购买服务管理办法' },
+      { id:'rule-18', label:'18 框架协议采购方式暂行办法' },
+      { id:'rules-mohurd', label:'（三）住房城乡建设部门规章', sub:true },
+      { id:'rule-19', label:'19 房屋建筑和市政基础设施施工招标办法' }
+    ]},
+    { id:'normative', label:'四、规范性文件', dot:'var(--norm)', count:3, items:[
+      { id:'norm-20', label:'20 必须招标的基础设施和公用事业项目范围规定' },
+      { id:'norm-21', label:'21 房屋建筑和市政基础设施项目工程总承包管理办法' },
+      { id:'norm-22', label:'22 政府采购评审专家管理办法' }
+    ]},
+    { id:'judicial', label:'五、司法解释', dot:'var(--jud)', count:1, items:[
+      { id:'jud-23', label:'23 建设工程施工合同纠纷解释（一）' }
+    ]},
+    { id:'local', label:'六、地方性法规', dot:'var(--local)', count:2, items:[
+      { id:'loc-24', label:'24 北京市招标投标条例' },
+      { id:'loc-25', label:'25 北京市建设工程招标投标监督管理规定' }
+    ]},
+    { id:'notes', label:'七、未能核实 / 未列入说明', dot:'var(--accent-1)', count:0, items:[] }
+  ];
+
+  var sideNav = document.getElementById('sideNav');
+  var html = '';
+  NAV.forEach(function(sec){
+    html += '<div class="nav-sec" data-sec="' + sec.id + '">';
+    html += '<a href="#' + sec.id + '"><span class="dot" style="background:' + sec.dot + '"></span>' + sec.label +
+            (sec.count ? ' <span style="margin-left:auto;font-size:10.5px;color:var(--text-3)">' + sec.count + '</span>' : '') + '</a>';
+    if(sec.items.length){
+      html += '<div class="nav-sub">';
+      sec.items.forEach(function(it){
+        html += '<a href="#' + it.id + '" data-target="' + it.id + '"' + (it.sub ? ' style="font-weight:700;color:var(--text-2)"' : '') + '>' + it.label + '</a>';
+      });
+      html += '</div>';
+    }
+    html += '</div>';
+  });
+  sideNav.innerHTML = html;
+
+  /* ===== 移动端抽屉 ===== */
+  var sidebar = document.getElementById('sidebar');
+  var scrim = document.getElementById('scrim');
+  var menuBtn = document.getElementById('menuBtn');
+  function closeDrawer(){ sidebar.classList.remove('open'); scrim.classList.remove('show'); }
+  menuBtn.addEventListener('click', function(){ sidebar.classList.toggle('open'); scrim.classList.toggle('show'); });
+  scrim.addEventListener('click', closeDrawer);
+
+  /* ===== 锚点平滑滚动 ===== */
+  sideNav.addEventListener('click', function(e){
+    var a = e.target.closest('a');
+    if(!a) return;
+    var target = document.getElementById(a.getAttribute('href').slice(1));
+    if(target){
+      e.preventDefault();
+      var isMobile = window.innerWidth <= 1023;
+      var offset = isMobile ? 74 : 24;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+      closeDrawer();
+    }
+  });
+
+  /* ===== 滚动高亮（scrollspy） ===== */
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.section, .sub-sec'));
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.side-nav a[data-target], .nav-sec > a'));
+  var secElems = {};
+  NAV.forEach(function(sec){ secElems[sec.id] = Array.prototype.slice.call(document.querySelectorAll('[data-sec="' + sec.id + '"] > a')); });
+
+  function getActiveId(){
+    var pos = window.pageYOffset + (window.innerWidth <= 1023 ? 90 : 120);
+    var current = null;
+    sections.forEach(function(s){
+      if(s.offsetTop <= pos) current = s;
+    });
+    return current ? current.id : null;
+  }
+
+  function updateSpy(){
+    var active = getActiveId();
+    // 主章节高亮
+    document.querySelectorAll('.nav-sec').forEach(function(ns){ ns.classList.remove('active'); });
+    // 条目高亮
+    navLinks.forEach(function(l){ l.classList.remove('active'); });
+
+    if(!active) return;
+    // 条目：精确匹配
+    var subLink = sideNav.querySelector('a[data-target="' + active + '"]');
+    if(subLink){
+      subLink.classList.add('active');
+      // 所属主章节高亮
+      var sec = subLink.closest('.nav-sec');
+      if(sec) sec.classList.add('active');
+    } else {
+      // 主章节本身
+      var secLink = sideNav.querySelector('.nav-sec[data-sec="' + active + '"] > a');
+      if(secLink){ secLink.closest('.nav-sec').classList.add('active'); }
+    }
+  }
+
+  /* ===== 回到顶部 ===== */
+  var backTop = document.getElementById('backTop');
+  function updateBackTop(){ backTop.classList.toggle('show', window.pageYOffset > 500); }
+  backTop.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  window.addEventListener('scroll', function(){
+    updateSpy();
+    updateBackTop();
+  }, { passive:true });
+  window.addEventListener('resize', updateSpy);
+  updateSpy();
+  updateBackTop();
+})();
+</script>
+</body>
+</html>
