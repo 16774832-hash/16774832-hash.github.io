@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>网景认证数据中心 · 著作权 / 资质管理</title>
+<style>
+/* ============================================================
+   设计令牌 Design Tokens
+   ============================================================ */
+:root {
+  /* 主色 · 墨蓝 (品牌) */
+  --ink-950: #0f1e33;
+  --ink-900: #16294a;
+  --ink-800: #1e3a63;
+  --ink-700: #2a4d80;
+  --ink-600: #35639e;
+  --ink-500: #4a7abf;
+
+  /* 金色点缀 (证书/荣誉感) */
+  --gold-600: #a87f2d;
+  --gold-500: #c29a44;
+  --gold-400: #d4b26a;
+  --gold-100: #f7eeda;
+
+  /* 中性色 · 暖调偏冷 (带墨蓝气息) */
+  --bg: #f4f6fa;
+  --surface: #ffffff;
+  --surface-2: #f8fafd;
+  --surface-3: #eef2f8;
+  --border: #dfe5ee;
+  --border-strong: #c9d3e0;
+  --text: #1d2a3d;
+  --text-2: #4a5a72;
+  --text-3: #7c8ba1;
+  --text-4: #a3aec0;
+
+  /* 语义色 */
+  --success-bg: #e6f4ea;
+  --success-text: #1e6f3e;
+  --success-border: #b7e0c3;
+  --danger-bg: #fdecec;
+  --danger-text: #b33a3a;
+  --danger-border: #f5c2c2;
+  --warn-bg: #fdf3e0;
+  --warn-text: #96650f;
+  --warn-border: #f0d9a8;
+  --info-bg: #e8effa;
+  --info-text: #2b5da8;
+  --info-border: #c3d5f0;
+
+  /* 阴影 */
+  --shadow-xs: 0 1px 2px rgba(15,30,51,0.05);
+  --shadow-sm: 0 1px 3px rgba(15,30,51,0.08), 0 1px 2px rgba(15,30,51,0.04);
+  --shadow-md: 0 4px 12px rgba(15,30,51,0.10), 0 2px 4px rgba(15,30,51,0.06);
+  --shadow-lg: 0 12px 32px rgba(15,30,51,0.16), 0 4px 8px rgba(15,30,51,0.08);
+
+  /* 圆角 */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-full: 999px;
+
+  /* 字体 */
+  --font-ui: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+             "Microsoft YaHei", "Noto Sans SC", "Segoe UI", sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+
+  /* 间距 (4pt 基准) */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px; --sp-12: 48px;
+
+  /* 层级 */
+  --z-dropdown: 100; --z-sticky: 200; --z-backdrop: 300;
+  --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-ui);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-kerning: normal;
+}
+
+::selection { background: rgba(74,122,191,0.22); }
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c6cfdd; border-radius: 5px; border: 2px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: #a9b6c9; border: 2px solid transparent; background-clip: content-box; }
+
+button { font-family: inherit; cursor: pointer; }
+input, select, textarea { font-family: inherit; }
+
+/* ============================================================
+   布局骨架
+   ============================================================ */
+.app { display: flex; min-height: 100vh; }
+
+/* ---------- 侧边栏 ---------- */
+.sidebar {
+  width: 232px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, var(--ink-950) 0%, var(--ink-900) 60%, var(--ink-800) 100%);
+  color: #e6edf7;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.brand {
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.brand-mark {
+  width: 40px; height: 40px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-600));
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 18px; color: var(--ink-950);
+  box-shadow: 0 4px 12px rgba(194,154,68,0.35);
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+.brand-name { font-size: 15px; font-weight: 700; letter-spacing: 0.02em; }
+.brand-sub { font-size: 11px; color: rgba(230,237,247,0.55); margin-top: 3px; letter-spacing: 0.05em; }
+
+.nav { padding: 16px 12px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.nav-label {
+  font-size: 11px; color: rgba(230,237,247,0.4);
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 0 8px 8px; font-weight: 600;
+}
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+  color: rgba(230,237,247,0.78);
+  font-size: 13.5px; font-weight: 500;
+  border: none; background: transparent;
+  transition: background 150ms ease, color 150ms ease;
+  text-align: left; width: 100%;
+}
+.nav-item:hover { background: rgba(255,255,255,0.06); color: #fff; }
+.nav-item.active {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+}
+.nav-item:focus-visible { outline: 2px solid var(--gold-400); outline-offset: 2px; }
+.nav-ico {
+  width: 20px; height: 20px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+}
+.nav-count {
+  margin-left: auto;
+  background: rgba(255,255,255,0.12);
+  color: rgba(230,237,247,0.85);
+  font-size: 11px; font-weight: 600;
+  padding: 1px 8px; border-radius: var(--r-full);
+  font-variant-numeric: tabular-nums;
+}
+.nav-item.active .nav-count { background: var(--gold-500); color: var(--ink-950); }
+
+.sidebar-footer {
+  padding: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.side-footer-btn {
+  display: flex; align-items: center; gap: 8px;
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(230,237,247,0.8);
+  border-radius: var(--r-md);
+  padding: 8px 12px;
+  font-size: 12.5px; font-weight: 500;
+  transition: all 150ms ease;
+}
+.side-footer-btn:hover { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.28); }
+.side-footer-btn.danger:hover { background: rgba(179,58,58,0.18); border-color: rgba(245,194,194,0.4); color: #f5c9c9; }
+.side-footer-btn:focus-visible { outline: 2px solid var(--gold-400); outline-offset: 2px; }
+
+/* ---------- 主区域 ---------- */
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  position: sticky; top: 0; z-index: var(--z-sticky);
+  background: rgba(244,246,250,0.86);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 32px 14px;
+}
+.topbar-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.page-title { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink-950); }
+.page-sub { font-size: 12.5px; color: var(--text-3); margin-top: 2px; }
+.topbar-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+/* 工具条 */
+.toolbar {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 16px; flex-wrap: wrap;
+}
+.search-box {
+  position: relative; flex: 1; min-width: 200px; max-width: 360px;
+}
+.search-box svg {
+  position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+  width: 15px; height: 15px; color: var(--text-3); pointer-events: none;
+}
+.search-input {
+  width: 100%;
+  height: 38px;
+  padding: 0 12px 0 34px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13.5px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+.search-input::placeholder { color: var(--text-4); }
+.search-input:hover { border-color: #b3c0d2; }
+.search-input:focus {
+  outline: none;
+  border-color: var(--ink-500);
+  box-shadow: 0 0 0 3px rgba(74,122,191,0.15);
+}
+
+.select-wrap { position: relative; }
+.select-wrap::after {
+  content: ''; position: absolute; right: 12px; top: 50%;
+  width: 7px; height: 7px;
+  border-right: 1.5px solid var(--text-3);
+  border-bottom: 1.5px solid var(--text-3);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+.select-control {
+  appearance: none; -webkit-appearance: none;
+  height: 38px;
+  padding: 0 32px 0 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+.select-control:hover { border-color: #b3c0d2; }
+.select-control:focus { outline: none; border-color: var(--ink-500); box-shadow: 0 0 0 3px rgba(74,122,191,0.15); }
+
+/* 按钮体系 */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  height: 38px; padding: 0 16px;
+  border-radius: var(--r-md);
+  font-size: 13.5px; font-weight: 600;
+  border: 1px solid transparent;
+  transition: all 150ms ease;
+  white-space: nowrap;
+}
+.btn:focus-visible { outline: 2px solid var(--ink-500); outline-offset: 2px; }
+.btn:active { transform: translateY(1px); }
+.btn-primary {
+  background: var(--ink-800); color: #fff;
+  box-shadow: var(--shadow-xs);
+}
+.btn-primary:hover { background: var(--ink-700); box-shadow: var(--shadow-sm); }
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-500), var(--gold-600));
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(168,127,45,0.35);
+}
+.btn-gold:hover { filter: brightness(1.06); box-shadow: 0 4px 10px rgba(168,127,45,0.4); }
+.btn-ghost {
+  background: var(--surface); color: var(--text-2);
+  border-color: var(--border-strong);
+}
+.btn-ghost:hover { background: var(--surface-2); color: var(--text); border-color: #b3c0d2; }
+.btn-danger-ghost {
+  background: transparent; color: var(--danger-text);
+  border-color: var(--danger-border);
+}
+.btn-danger-ghost:hover { background: var(--danger-bg); }
+.btn-sm { height: 32px; padding: 0 12px; font-size: 12.5px; border-radius: var(--r-sm); }
+.btn-icon {
+  width: 32px; height: 32px; padding: 0;
+  border-radius: var(--r-sm);
+  background: transparent; border: 1px solid transparent;
+  color: var(--text-3);
+  transition: all 150ms ease;
+}
+.btn-icon:hover { background: var(--surface-3); color: var(--text); border-color: var(--border); }
+.btn-icon.danger:hover { background: var(--danger-bg); color: var(--danger-text); border-color: var(--danger-border); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+
+/* ---------- 统计卡 ---------- */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+  padding: 20px 32px 0;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 16px 18px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+.stat-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--stat-accent, var(--ink-500));
+  border-radius: 0 3px 3px 0;
+}
+.stat-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+/* 聚合类高亮卡：墨蓝微光（软件著作权证书） */
+.stat-card.is-promo-ink {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f5fc 100%);
+  border-color: #c8d5ea;
+}
+.stat-card.is-promo-ink::before {
+  width: 4px;
+  box-shadow: 0 0 8px var(--ink-500);
+}
+/* 聚合类高亮卡：金色微光（产品兼容性认证） */
+.stat-card.is-promo-gold {
+  background: linear-gradient(135deg, #ffffff 0%, #fbf4e3 100%);
+  border-color: #e6d5a8;
+}
+.stat-card.is-promo-gold::before {
+  width: 4px;
+  box-shadow: 0 0 8px var(--gold-500);
+}
+/* 可点击的聚合卡：cursor + 微动效 */
+.stat-card[data-group] { cursor: pointer; user-select: none; }
+.stat-card[data-group]:active { transform: translateY(0) scale(0.99); }
+/* 选中态：墨蓝 / 金色 边框 + 光晕 + 右上角 ✓ 标记 */
+.stat-card.is-selected.is-promo-ink {
+  border-color: var(--ink-600);
+  box-shadow: 0 0 0 4px rgba(42,77,128,0.12), 0 8px 20px rgba(42,77,128,0.20);
+}
+.stat-card.is-selected.is-promo-gold {
+  border-color: var(--gold-500);
+  box-shadow: 0 0 0 4px rgba(194,154,68,0.16), 0 8px 20px rgba(194,154,68,0.22);
+}
+.stat-card.is-selected::after {
+  content: '✓';
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--ink-700); color: #fff;
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+}
+.stat-card.is-selected.is-promo-gold::after { background: var(--gold-600); }
+/* 聚焦条：选中态时左侧色条再粗一点 */
+.stat-card.is-selected::before { width: 5px; }
+.stat-label { font-size: 12px; color: var(--text-3); font-weight: 500; }
+.stat-value {
+  font-size: 28px; font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  color: var(--stat-accent, var(--ink-900));
+  line-height: 1.3;
+  margin-top: 2px;
+}
+.stat-sub { font-size: 11.5px; color: var(--text-4); margin-top: 4px; }
+
+/* ---------- 数据表 ---------- */
+.table-card {
+  margin: 20px 32px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 760px; }
+thead th {
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  padding: 11px 16px;
+  text-align: left;
+  font-size: 12px; font-weight: 600; color: var(--text-3);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  user-select: none;
+}
+th.sortable { cursor: pointer; }
+th.sortable:hover { color: var(--ink-700); background: var(--surface-3); }
+.th-inner { display: inline-flex; align-items: center; gap: 5px; }
+.sort-ind {
+  font-size: 10px; color: var(--text-4);
+  display: inline-flex; flex-direction: column; line-height: 1; margin-left: 2px;
+}
+.sort-ind .up, .sort-ind .down { opacity: 0.35; }
+th.sort-asc .sort-ind .up { opacity: 1; color: var(--ink-600); }
+th.sort-desc .sort-ind .down { opacity: 1; color: var(--ink-600); }
+
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #edf1f7;
+  font-size: 13.5px;
+  color: var(--text);
+  vertical-align: top;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr { transition: background 120ms ease; }
+tbody tr:hover { background: var(--surface-2); }
+tbody tr.row-added { animation: rowFlash 1.6s ease; }
+@keyframes rowFlash {
+  0% { background: rgba(194,154,68,0.18); }
+  100% { background: transparent; }
+}
+
+.cell-main { font-weight: 600; color: var(--ink-900); }
+.cell-sub { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+.cell-num { font-variant-numeric: tabular-nums; color: var(--text-3); }
+.cell-clamp {
+  max-width: 300px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 12.5px; color: var(--text-2); line-height: 1.55;
+}
+.td-actions { white-space: nowrap; text-align: right; width: 88px; }
+.td-actions .btn-icon { margin-left: 4px; }
+
+/* 徽章 */
+.badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  font-size: 12px; font-weight: 600;
+  white-space: nowrap;
+}
+.badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: currentColor;
+}
+.badge-success { background: var(--success-bg); color: var(--success-text); border: 1px solid var(--success-border); }
+.badge-danger  { background: var(--danger-bg);  color: var(--danger-text);  border: 1px solid var(--danger-border); }
+.badge-warn    { background: var(--warn-bg);    color: var(--warn-text);    border: 1px solid var(--warn-border); }
+.badge-info    { background: var(--info-bg);    color: var(--info-text);    border: 1px solid var(--info-border); }
+.badge-muted   { background: var(--surface-3);  color: var(--text-3);       border: 1px solid var(--border); }
+.badge-gold    { background: var(--gold-100);   color: #8a6a24;             border: 1px solid #e6d5a8; }
+
+/* 类别标签 */
+.cat-tag {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: var(--r-sm);
+  font-size: 12px; font-weight: 500;
+  background: var(--info-bg); color: var(--info-text);
+  border: 1px solid var(--info-border);
+  max-width: 200px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* 空状态 */
+.empty-state {
+  padding: 64px 24px;
+  text-align: center;
+  color: var(--text-3);
+}
+.empty-state .empty-ico { font-size: 40px; margin-bottom: 12px; opacity: 0.5; }
+.empty-state .empty-title { font-size: 15px; font-weight: 600; color: var(--text-2); margin-bottom: 6px; }
+.empty-state .empty-desc { font-size: 13px; color: var(--text-4); max-width: 340px; margin: 0 auto 18px; }
+
+/* 分页 */
+.pagination {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+  flex-wrap: wrap; gap: 10px;
+}
+.page-info { font-size: 12.5px; color: var(--text-3); font-variant-numeric: tabular-nums; }
+.page-info b { color: var(--text); font-weight: 600; }
+.pager { display: flex; align-items: center; gap: 4px; }
+.page-btn {
+  min-width: 32px; height: 32px; padding: 0 6px;
+  border-radius: var(--r-sm);
+  border: 1px solid transparent;
+  background: transparent; color: var(--text-2);
+  font-size: 13px; font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  transition: all 130ms ease;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.page-btn:hover:not(:disabled) { background: var(--surface-3); color: var(--text); }
+.page-btn.active { background: var(--ink-800); color: #fff; box-shadow: var(--shadow-xs); }
+.page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.page-btn:focus-visible { outline: 2px solid var(--ink-500); outline-offset: 1px; }
+.page-size-select { height: 32px; font-size: 12.5px; }
+
+/* ---------- 弹窗 ---------- */
+dialog.modal {
+  border: none;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  padding: 0;
+  width: min(560px, calc(100vw - 40px));
+  color: var(--text);
+  /* 显式居中：避免被全局 * { margin:0 } 重置破坏 dialog UA 的 margin:auto */
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  height: fit-content;
+  max-height: calc(100vh - 80px);
+}
+dialog.modal::backdrop {
+  background: rgba(15,30,51,0.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.modal-head {
+  padding: 20px 24px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+}
+.modal-title { font-size: 17px; font-weight: 700; color: var(--ink-950); }
+.modal-sub { font-size: 12.5px; color: var(--text-3); margin-top: 3px; }
+.modal-close {
+  width: 30px; height: 30px; flex-shrink: 0;
+  border-radius: var(--r-sm); border: none;
+  background: transparent; color: var(--text-3);
+  font-size: 18px; line-height: 1;
+  transition: all 130ms ease;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-close:hover { background: var(--surface-3); color: var(--text); }
+.modal-body { padding: 20px 24px; max-height: 62vh; overflow-y: auto; }
+.modal-foot {
+  padding: 14px 24px 18px;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: flex-end; gap: 10px;
+}
+
+/* 表单 */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field.full { grid-column: 1 / -1; }
+.form-label { font-size: 12.5px; font-weight: 600; color: var(--text-2); }
+.form-label .req { color: var(--danger-text); margin-left: 2px; }
+.form-control {
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13.5px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  width: 100%;
+}
+textarea.form-control { height: auto; min-height: 88px; padding: 10px 12px; resize: vertical; line-height: 1.6; }
+.form-control::placeholder { color: var(--text-4); }
+.form-control:hover:not(:disabled) { border-color: #b3c0d2; }
+.form-control:focus {
+  outline: none; border-color: var(--ink-500);
+  box-shadow: 0 0 0 3px rgba(74,122,191,0.15);
+}
+.form-control.is-invalid { border-color: var(--danger-text); }
+.form-control.is-invalid:focus { box-shadow: 0 0 0 3px rgba(179,58,58,0.12); }
+.form-hint { font-size: 11.5px; color: var(--text-4); }
+.form-error { font-size: 11.5px; color: var(--danger-text); min-height: 0; }
+
+/* 开关 (是否) */
+.switch-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; }
+.switch-row .form-label { font-size: 13px; }
+.switch {
+  position: relative; width: 42px; height: 24px; flex-shrink: 0;
+  appearance: none; -webkit-appearance: none;
+  background: var(--border-strong); border-radius: var(--r-full);
+  cursor: pointer; transition: background 180ms ease;
+  border: none;
+}
+.switch::after {
+  content: ''; position: absolute; top: 3px; left: 3px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  transition: transform 180ms cubic-bezier(0.34,1.56,0.64,1);
+}
+.switch:checked { background: var(--ink-600); }
+.switch:checked::after { transform: translateX(18px); }
+.switch:focus-visible { outline: 2px solid var(--ink-500); outline-offset: 2px; }
+
+/* ---------- 日期选择器（下拉日历） ---------- */
+.date-field { position: relative; }
+.date-input {
+  width: 100%;
+  height: 38px;
+  padding: 0 36px 0 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  font-variant-numeric: tabular-nums;
+}
+.date-input::placeholder { color: var(--text-4); }
+.date-input:hover { border-color: #b3c0d2; }
+.date-input:focus {
+  outline: none;
+  border-color: var(--ink-500);
+  box-shadow: 0 0 0 3px rgba(74,122,191,0.15);
+}
+.date-input.is-invalid { border-color: var(--danger-text); }
+.date-input.is-invalid:focus { box-shadow: 0 0 0 3px rgba(179,58,58,0.12); }
+.date-input:disabled { background: var(--surface-3); cursor: not-allowed; opacity: 0.6; }
+.date-field .cal-ico {
+  position: absolute; right: 11px; top: 50%; transform: translateY(-50%);
+  width: 16px; height: 16px; color: var(--text-3);
+  pointer-events: none;
+  display: flex; align-items: center; justify-content: center;
+}
+.date-field:focus-within .cal-ico { color: var(--ink-500); }
+
+/* 日历浮层 */
+.cal-pop {
+  position: absolute;
+  z-index: var(--z-dropdown);
+  margin-top: 6px;
+  width: 292px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 14px;
+  animation: calIn 160ms cubic-bezier(0.21,1.02,0.73,1);
+  transform-origin: top center;
+}
+@keyframes calIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.cal-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 4px;
+}
+.cal-title {
+  font-size: 14px; font-weight: 700; color: var(--ink-950);
+  font-variant-numeric: tabular-nums;
+  flex: 1; text-align: center;
+  user-select: none;
+}
+.cal-nav {
+  width: 28px; height: 28px;
+  border: none; border-radius: var(--r-sm);
+  background: transparent; color: var(--text-2);
+  font-size: 14px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 130ms ease;
+}
+.cal-nav:hover { background: var(--surface-3); color: var(--text); }
+.cal-nav:focus-visible { outline: 2px solid var(--ink-500); outline-offset: 1px; }
+.cal-week {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 4px;
+}
+.cal-week span {
+  text-align: center;
+  font-size: 11px; font-weight: 600;
+  color: var(--text-4);
+  padding: 4px 0;
+  user-select: none;
+}
+.cal-week span:first-child, .cal-week span:last-child { color: var(--warn-text); }
+.cal-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.cal-day {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: var(--r-full);
+  background: transparent;
+  color: var(--text);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 110ms ease, color 110ms ease, transform 110ms ease;
+  position: relative;
+}
+.cal-day:hover { background: var(--surface-3); }
+.cal-day:focus-visible { outline: 2px solid var(--ink-500); outline-offset: 1px; }
+.cal-day.today { color: var(--ink-800); font-weight: 700; }
+.cal-day.today::after {
+  content: ''; position: absolute; bottom: 3px;
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--gold-500);
+}
+.cal-day.selected { background: var(--ink-800); color: #fff; font-weight: 600; box-shadow: var(--shadow-xs); }
+.cal-day.selected:hover { background: var(--ink-700); }
+.cal-day.other { color: var(--text-4); }
+.cal-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.cal-clear {
+  border: none; background: transparent;
+  color: var(--text-3); font-size: 12.5px; font-weight: 500;
+  padding: 5px 10px; border-radius: var(--r-sm);
+  display: inline-flex; align-items: center; gap: 5px;
+  transition: all 130ms ease;
+}
+.cal-clear:hover { background: var(--danger-bg); color: var(--danger-text); }
+.cal-clear:focus-visible { outline: 2px solid var(--danger-text); outline-offset: 1px; }
+.cal-today-btn {
+  border: 1px solid var(--border-strong); background: var(--surface-2);
+  color: var(--text-2); font-size: 12.5px; font-weight: 600;
+  padding: 5px 12px; border-radius: var(--r-sm);
+  transition: all 130ms ease;
+}
+.cal-today-btn:hover { background: var(--surface-3); color: var(--text); border-color: #b3c0d2; }
+.cal-today-btn:focus-visible { outline: 2px solid var(--ink-500); outline-offset: 1px; }
+
+/* ---------- Toast ---------- */
+.toast-container {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  z-index: var(--z-toast);
+  display: flex; flex-direction: column; gap: 8px; align-items: center;
+  pointer-events: none;
+}
+.toast {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--ink-900); color: #eef3fb;
+  padding: 11px 18px;
+  border-radius: var(--r-md);
+  font-size: 13.5px; font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  animation: toastIn 260ms cubic-bezier(0.21,1.02,0.73,1);
+  pointer-events: auto;
+  max-width: min(420px, calc(100vw - 48px));
+}
+.toast.success { background: #1e5c38; }
+.toast.danger { background: #8f2f2f; }
+.toast .t-ico { flex-shrink: 0; }
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.toast.out { animation: toastOut 220ms ease forwards; }
+@keyframes toastOut { to { opacity: 0; transform: translateY(8px); } }
+
+/* ---------- 确认弹窗 ---------- */
+.confirm-body { display: flex; gap: 14px; align-items: flex-start; }
+.confirm-ico {
+  width: 42px; height: 42px; flex-shrink: 0;
+  border-radius: var(--r-full);
+  background: var(--danger-bg); color: var(--danger-text);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+}
+.confirm-title { font-size: 16px; font-weight: 700; color: var(--ink-950); margin-bottom: 6px; }
+.confirm-desc { font-size: 13px; color: var(--text-2); line-height: 1.7; }
+.confirm-desc b { color: var(--danger-text); }
+
+/* ---------- 详情预览弹层（半透明毛玻璃） ---------- */
+dialog.preview-modal {
+  /* 显式居中：避免被全局 * { margin:0 } 重置破坏 */
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  padding: 0;
+  width: min(620px, calc(100vw - 40px));
+  height: fit-content;
+  max-height: calc(100vh - 80px);
+  border: none;
+  border-radius: 20px;
+  color: var(--text);
+  /* 半透明毛玻璃面板：透过面板能看到页面，但文字保持清晰 */
+  background: linear-gradient(165deg, rgba(255,255,255,0.92), rgba(250,252,255,0.78));
+  -webkit-backdrop-filter: blur(22px) saturate(1.6);
+  backdrop-filter: blur(22px) saturate(1.6);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.55) inset,
+    0 28px 72px rgba(15,30,51,0.30),
+    0 10px 24px rgba(15,30,51,0.16);
+  animation: previewIn 300ms cubic-bezier(0.21,1.02,0.73,1);
+  overflow: hidden;
+}
+dialog.preview-modal::backdrop {
+  background: rgba(15,30,51,0.42);
+  -webkit-backdrop-filter: blur(5px) saturate(0.9);
+  backdrop-filter: blur(5px) saturate(0.9);
+}
+@keyframes previewIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.955); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+/* 顶部金色饰线（挂在 head 上，避免被 overflow 裁剪或被其他内容覆盖） */
+.pv-head::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(194,154,68,0.35) 8%,
+    var(--gold-500) 50%,
+    rgba(194,154,68,0.35) 92%,
+    transparent 100%);
+  border-radius: 20px 20px 0 0;
+  pointer-events: none;
+}
+.pv-head {
+  display: flex; align-items: center; gap: 12px;
+  padding: 20px 24px 14px;
+  border-bottom: 1px solid rgba(201,211,224,0.45);
+  position: relative;
+}
+.pv-badge {
+  flex-shrink: 0;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.03em;
+  background: var(--gold-100); color: #8a6a24;
+  border: 1px solid #e6d5a8;
+}
+.pv-badge.info { background: var(--info-bg); color: var(--info-text); border-color: var(--info-border); }
+.pv-title-wrap { flex: 1; min-width: 0; }
+.pv-title {
+  font-size: 15.5px; font-weight: 700; color: var(--ink-950);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.pv-sub { font-size: 12px; color: var(--text-3); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pv-body {
+  padding: 20px 24px;
+  max-height: 58vh;
+  overflow-y: auto;
+}
+/* 正文衬底：半透明白底 + 高对比深字，保证内容清晰可读 */
+.preview-content {
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(201,211,224,0.5);
+  border-radius: 14px;
+  padding: 18px 22px;
+  font-size: 14px; line-height: 1.95;
+  color: #233047;
+  white-space: pre-wrap;
+  word-break: break-word;
+  box-shadow: 0 1px 3px rgba(15,30,51,0.06) inset;
+}
+.preview-content:empty::after {
+  content: '（空）';
+  color: var(--text-4);
+  font-style: italic;
+}
+.pv-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 24px 16px;
+  border-top: 1px solid rgba(201,211,224,0.45);
+}
+.pv-hint { font-size: 11.5px; color: var(--text-4); display: inline-flex; align-items: center; gap: 6px; }
+.pv-hint kbd {
+  font-family: var(--font-mono); font-size: 10.5px;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  padding: 1px 6px;
+  color: var(--text-2);
+}
+@media (max-width: 640px) {
+  dialog.preview-modal { width: calc(100vw - 28px); border-radius: 16px; }
+  .pv-head { padding: 16px 18px 12px; flex-wrap: wrap; }
+  .pv-title-wrap { order: 2; flex-basis: 100%; }
+  .pv-body { padding: 16px 18px; }
+  .preview-content { padding: 14px 16px; font-size: 13.5px; }
+  .pv-foot { padding: 10px 18px 14px; }
+}
+
+/* ---------- 移动端卡片视图 ---------- */
+.mobile-cards { display: none; }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 1024px) {
+  .topbar, .stats-row, .table-card { padding-left: 20px; padding-right: 20px; }
+  .table-card { margin-left: 20px; margin-right: 20px; }
+  .stat-value { font-size: 24px; }
+}
+@media (max-width: 768px) {
+  .app { flex-direction: column; }
+  .sidebar {
+    width: 100%; height: auto; position: static;
+    flex-direction: row; align-items: center;
+    padding: 12px 16px; gap: 12px;
+    overflow-x: auto;
+  }
+  .brand { padding: 0; border-bottom: none; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .brand-mark { width: 34px; height: 34px; font-size: 15px; margin-bottom: 0; border-radius: 9px; }
+  .brand-name { font-size: 14px; }
+  .brand-sub { display: none; }
+  .nav { padding: 0; flex-direction: row; gap: 6px; flex: 1; }
+  .nav-label { display: none; }
+  .nav-item { width: auto; padding: 8px 12px; font-size: 13px; white-space: nowrap; }
+  .nav-count { display: none; }
+  .sidebar-footer { display: none; }
+  .topbar { padding: 14px 16px 10px; }
+  .page-title { font-size: 19px; }
+  .stats-row { padding: 16px 16px 0; gap: 10px; }
+  .table-card { margin: 16px; }
+  .form-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  /* 表格 -> 卡片 */
+  .desktop-table { display: none; }
+  .mobile-cards { display: flex; flex-direction: column; gap: 10px; padding: 12px; }
+  .m-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 14px;
+    display: flex; flex-direction: column; gap: 8px;
+    transition: box-shadow 150ms ease;
+  }
+  .m-card:active { box-shadow: var(--shadow-sm); }
+  .m-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .m-card-title { font-weight: 700; font-size: 14.5px; color: var(--ink-900); line-height: 1.45; }
+  .m-card .badge { flex-shrink: 0; }
+  .m-card-meta { display: flex; flex-direction: column; gap: 3px; font-size: 12.5px; color: var(--text-3); }
+  .m-card-meta span b { color: var(--text-2); font-weight: 500; }
+  .m-card-actions { display: flex; gap: 8px; border-top: 1px dashed var(--border); padding-top: 10px; }
+  .m-card-actions .btn { flex: 1; }
+  .pagination { flex-direction: column; align-items: stretch; }
+  .pager { justify-content: center; flex-wrap: wrap; }
+  .page-info { text-align: center; }
+}
+
+/* 减少动效偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ======== 侧边栏 ======== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">网</div>
+      <div>
+        <div class="brand-name">认证数据中心</div>
+        <div class="brand-sub">NETSCAPE · CERT MANAGEMENT</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <div class="nav-label">数据目录</div>
+      <button class="nav-item active" data-tab="copyright" id="nav-copyright">
+        <span class="nav-ico">©️</span>
+        <span>著作权证书</span>
+        <span class="nav-count" id="nav-count-cp">0</span>
+      </button>
+      <button class="nav-item" data-tab="qualification" id="nav-qualification">
+        <span class="nav-ico">🛡️</span>
+        <span>资质证书</span>
+        <span class="nav-count" id="nav-count-qz">0</span>
+      </button>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="side-footer-btn" id="btn-export-json">⬇ 导出 JSON</button>
+      <button class="side-footer-btn" id="btn-export-csv">⬇ 导出 CSV</button>
+      <button class="side-footer-btn" id="btn-import">⬆ 导入 JSON</button>
+      <button class="side-footer-btn danger" id="btn-reset">↺ 恢复初始数据</button>
+      <input type="file" id="import-file" accept=".json" hidden>
+    </div>
+  </aside>
+
+  <!-- ======== 主区域 ======== -->
+  <main class="main">
+
+    <!-- 顶栏 -->
+    <header class="topbar">
+      <div class="topbar-row">
+        <div>
+          <h1 class="page-title" id="page-title">著作权证书</h1>
+          <p class="page-sub" id="page-sub">网景著作权及产品兼容性认证统计</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn btn-ghost" id="btn-export-csv-top" title="导出当前视图为 CSV">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            导出 CSV
+          </button>
+          <button class="btn btn-primary" id="btn-add">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            新增记录
+          </button>
+        </div>
+      </div>
+
+      <!-- 工具条 -->
+      <div class="toolbar">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="search-input" id="search-input" placeholder="搜索名称、版本、年份…">
+        </div>
+        <div class="select-wrap">
+          <select class="select-control" id="filter-category" aria-label="按类别筛选">
+            <option value="">全部类别</option>
+          </select>
+        </div>
+        <div class="select-wrap" id="filter-status-wrap">
+          <select class="select-control" id="filter-status" aria-label="按状态筛选">
+            <option value="">全部状态</option>
+          </select>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="btn-clear-filter" style="display:none">
+          ✕ 清除筛选
+        </button>
+      </div>
+    </header>
+
+    <!-- 统计 -->
+    <section class="stats-row" id="stats-row"></section>
+
+    <!-- 表格 -->
+    <div class="table-card">
+      <div class="table-scroll">
+        <table class="desktop-table" id="data-table">
+          <thead id="table-head"></thead>
+          <tbody id="table-body"></tbody>
+        </table>
+        <div class="mobile-cards" id="mobile-cards"></div>
+      </div>
+      <div class="pagination">
+        <div class="page-info" id="page-info"></div>
+        <div class="pager">
+          <select class="select-control page-size-select" id="page-size" aria-label="每页条数">
+            <option value="10">10 / 页</option>
+            <option value="20" selected>20 / 页</option>
+            <option value="50">50 / 页</option>
+            <option value="100">100 / 页</option>
+          </select>
+          <button class="page-btn" id="pg-first" title="首页">«</button>
+          <button class="page-btn" id="pg-prev" title="上一页">‹</button>
+          <span id="pg-numbers"></span>
+          <button class="page-btn" id="pg-next" title="下一页">›</button>
+          <button class="page-btn" id="pg-last" title="末页">»</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ======== 新增/编辑弹窗 ======== -->
+<dialog class="modal" id="modal-form">
+  <div class="modal-head">
+    <div>
+      <div class="modal-title" id="modal-form-title">新增记录</div>
+      <div class="modal-sub" id="modal-form-sub"></div>
+    </div>
+    <button class="modal-close" id="modal-close" aria-label="关闭">✕</button>
+  </div>
+  <div class="modal-body">
+    <form id="edit-form" novalidate>
+      <div class="form-grid" id="form-fields"></div>
+    </form>
+  </div>
+
+  <!-- 日期选择浮层（挂载在 dialog 内，避免被 modal-body 的 overflow 裁剪） -->
+  <div class="cal-pop" id="cal-pop" role="dialog" aria-label="选择日期" hidden>
+    <div class="cal-head">
+      <button class="cal-nav" id="cal-prev-year" aria-label="上一年" title="上一年">«</button>
+      <button class="cal-nav" id="cal-prev-month" aria-label="上个月" title="上个月">‹</button>
+      <span class="cal-title" id="cal-title">2026年8月</span>
+      <button class="cal-nav" id="cal-next-month" aria-label="下个月" title="下个月">›</button>
+      <button class="cal-nav" id="cal-next-year" aria-label="下一年" title="下一年">»</button>
+    </div>
+    <div class="cal-week">
+      <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+    </div>
+    <div class="cal-grid" id="cal-grid"></div>
+    <div class="cal-foot">
+      <button class="cal-today-btn" id="cal-today" type="button">今天</button>
+      <button class="cal-clear" id="cal-clear" type="button">✕ 清除</button>
+    </div>
+  </div>
+
+  <div class="modal-foot">
+    <button class="btn btn-ghost" id="modal-cancel">取消</button>
+    <button class="btn btn-primary" id="modal-save">保存</button>
+  </div>
+</dialog>
+
+<!-- ======== 删除确认弹窗 ======== -->
+<dialog class="modal" id="modal-confirm" style="width:min(440px,calc(100vw - 40px))">
+  <div class="modal-body" style="padding:24px">
+    <div class="confirm-body">
+      <div class="confirm-ico">⚠</div>
+      <div>
+        <div class="confirm-title">确认删除这条记录？</div>
+        <p class="confirm-desc" id="confirm-desc"></p>
+      </div>
+    </div>
+  </div>
+  <div class="modal-foot">
+    <button class="btn btn-ghost" id="confirm-cancel">取消</button>
+    <button class="btn btn-danger-ghost" id="confirm-ok">确认删除</button>
+  </div>
+</dialog>
+
+<!-- 详情预览弹层（说明 / 备注 大文本查看） -->
+<dialog class="preview-modal" id="modal-preview">
+  <div class="pv-head">
+    <span class="pv-badge" id="preview-badge">说明</span>
+    <div class="pv-title-wrap">
+      <div class="pv-title" id="preview-title">记录详情</div>
+      <div class="pv-sub" id="preview-sub">点击外部区域关闭</div>
+    </div>
+    <button class="modal-close" id="preview-close" aria-label="关闭">✕</button>
+  </div>
+  <div class="pv-body">
+    <div class="preview-content" id="preview-content"></div>
+  </div>
+  <div class="pv-foot">
+    <span class="pv-hint"><kbd>Esc</kbd> 或点击遮罩关闭</span>
+    <span class="pv-hint" id="preview-meta"></span>
+  </div>
+</dialog>
+
+<div class="toast-container" id="toast-container"></div>
+
+<script>
+/* ============================================================
+   初始数据 (由腾讯文档导出，可被 localStorage 覆盖)
+   ============================================================ */
+const INITIAL_DATA = {"copyrights":[{"id":1,"category":"计算机软件著作权登记证书","name":"WebMessage东方网景商务通系统","version":"V1.0","year":"2007年6月30日","owner":"信息科技有限公司","electronic":""},{"id":2,"category":"计算机软件著作权登记证书","name":"ADM东方网景直邮系统","version":"V1.0","year":"2009年11月1日","owner":"","electronic":""},{"id":3,"category":"计算机软件著作权登记证书","name":"EastWebShop东方网景网络商城系统","version":"V3.0","year":"2009年5月30日","owner":"","electronic":""},{"id":4,"category":"计算机软件著作权登记证书","name":"EastWebShop东方网景网络商城系统","version":"V4.0","year":"2012年6月20日","owner":"","electronic":""},{"id":5,"category":"计算机软件著作权登记证书","name":"EastOA东方网景协同办公系统","version":"V3.0","year":"2009年8月30日","owner":"","electronic":""},{"id":6,"category":"计算机软件著作权登记证书","name":"EastOA东方网景协同办公系统","version":"V4.0","year":"2011年12月14日","owner":"","electronic":""},{"id":7,"category":"计算机软件著作权登记证书","name":"EastMail东方网景企业邮件系统","version":"V5.0","year":"2009年5月7日","owner":"","electronic":""},{"id":8,"category":"计算机软件著作权登记证书","name":"EastMail东方网景企业邮件系统","version":"V6.0","year":"2011年10月19日","owner":"","electronic":""},{"id":9,"category":"计算机软件著作权登记证书","name":"EastIACS东方网景智能门禁调度系统","version":"V1.3","year":"2012年10月12日","owner":"","electronic":""},{"id":10,"category":"计算机软件著作权登记证书","name":"EastEditor东方网景可视化HTML编辑器系统","version":"V1.0","year":"2012年6月21日","owner":"","electronic":""},{"id":11,"category":"计算机软件著作权登记证书","name":"EastPMRPP东方网景图片媒体实时发布平台","version":"V1.0","year":"2012年10月31日","owner":"","electronic":""},{"id":12,"category":"计算机软件著作权登记证书","name":"东方网景商城管理系统","version":"V1.0","year":"2015年6月26日","owner":"网络技术有限公司","electronic":"是"},{"id":13,"category":"计算机软件著作权登记证书","name":"东方网景移动端景邮箱管理平台【景邮箱 iOS 版】","version":"V1.0","year":"2015年8月14日","owner":"","electronic":"是"},{"id":14,"category":"计算机软件著作权登记证书","name":"景素材（EastMaterial）资源管理系统","version":"V1.0","year":"2015年10月16日","owner":"","electronic":""},{"id":15,"category":"计算机软件著作权登记证书","name":"东方网景在线问卷调研系统","version":"V1.0","year":"2015年3月26日","owner":"","electronic":"是"},{"id":16,"category":"计算机软件著作权登记证书","name":"东方网景移动端景邮箱软件【景邮箱安卓版】","version":"V1.0","year":"2015年3月6日","owner":"","electronic":"是"},{"id":17,"category":"计算机软件著作权登记证书","name":"东方网景办公自动化OA系统","version":"V1.0","year":"2015年8月19日","owner":"","electronic":""},{"id":18,"category":"计算机软件著作权登记证书","name":"触景站群管理系统","version":"V1.0","year":"2015年4月16日","owner":"","electronic":""},{"id":19,"category":"计算机软件著作权登记证书","name":"触景站群管理系统","version":"V3.0.0","year":"2017年2月16日","owner":"","electronic":"是"},{"id":20,"category":"计算机软件著作权登记证书","name":"触景站群管理系统","version":"V4.0.0","year":"2018年5月18日","owner":"","electronic":""},{"id":21,"category":"计算机软件著作权登记证书","name":"触景站群管理系统","version":"V4.2.0","year":"2020年4月20日","owner":"","electronic":""},{"id":22,"category":"计算机软件著作权登记证书","name":"网景考务调度管理系统","version":"V1.0","year":"2018年4月27日","owner":"","electronic":""},{"id":23,"category":"计算机软件著作权登记证书","name":"网景在线考试系统","version":"V1.0","year":"2018年1月26日","owner":"","electronic":""},{"id":24,"category":"计算机软件著作权登记证书","name":"室间质评管理系统","version":"V1.0.0","year":"2018年9月14日","owner":"","electronic":""},{"id":25,"category":"计算机软件著作权登记证书","name":"校园信息化办公系统","version":"V1.0.0","year":"2018年9月28日","owner":"","electronic":""},{"id":26,"category":"计算机软件著作权登记证书","name":"健康营养咨询系统","version":"V1.0.0","year":"2018年10月25日","owner":"","electronic":""},{"id":27,"category":"计算机软件著作权登记证书","name":"AD集成平台","version":"V1.0.0","year":"2018年7月27日","owner":"","electronic":""},{"id":28,"category":"计算机软件著作权登记证书","name":"触景TouchSite轻办公管理系统","version":"V1.0.0","year":"2018年6月15日","owner":"","electronic":""},{"id":29,"category":"计算机软件著作权登记证书","name":"网景预结算管理系统","version":"V1.0","year":"2018年5月25日","owner":"","electronic":""},{"id":30,"category":"计算机软件著作权登记证书","name":"网景预结算管理系统","version":"V2.0","year":"2020年5月11日","owner":"","electronic":""},{"id":31,"category":"计算机软件著作权登记证书","name":"触景TouchSite商城管理系统","version":"V1.0.0","year":"2018年8月30日","owner":"","electronic":""},{"id":32,"category":"计算机软件著作权登记证书","name":"触景TouchSite商城管理系统","version":"V2.0.0","year":"2019年4月26日","owner":"","electronic":""},{"id":33,"category":"计算机软件著作权登记证书","name":"景邮箱本地归档系统","version":"V1.0.0","year":"2018年8月24日","owner":"","electronic":""},{"id":34,"category":"计算机软件著作权登记证书","name":"景邮箱本地归档系统","version":"V2.0","year":"2021年5月30日","owner":"","electronic":""},{"id":35,"category":"计算机软件著作权登记证书","name":"工程设备模型展示系统","version":"V1.0.0","year":"2020年4月26日","owner":"","electronic":""},{"id":36,"category":"计算机软件著作权登记证书","name":"网易企业邮箱账户集成平台","version":"V4.0","year":"2021年3月11日","owner":"","electronic":""},{"id":37,"category":"计算机软件著作权登记证书","name":"网易企业邮箱账户集成平台","version":"V4.5","year":"2023年6月22日","owner":"","electronic":"是"},{"id":38,"category":"计算机软件著作权登记证书","name":"景展会管理系统","version":"V1.0.0","year":"2019年12月20日","owner":"","electronic":""},{"id":39,"category":"计算机软件著作权登记证书","name":"云计算服务安全评估系统","version":"V1.0.0","year":"2021年3月2日","owner":"","electronic":""},{"id":40,"category":"计算机软件著作权登记证书","name":"古气候数据查询系统","version":"V1.0.0","year":"2019年6月18日","owner":"","electronic":""},{"id":41,"category":"计算机软件著作权登记证书","name":"蓝信预约报名系统","version":"V1.0.0","year":"2020年9月10日","owner":"","electronic":""},{"id":42,"category":"计算机软件著作权登记证书","name":"景安邮件归档系统","version":"V3.0","year":"2021年12月15日","owner":"","electronic":""},{"id":43,"category":"计算机软件著作权登记证书","name":"景通动态令牌软件","version":"V1.0","year":"2022年11月18日","owner":"","electronic":""},{"id":44,"category":"计算机软件著作权登记证书","name":"景云信息发布系统","version":"V1.0","year":"2021年11月25日","owner":"","electronic":""},{"id":45,"category":"计算机软件著作权登记证书","name":"景通企业身份管理系统","version":"V5.0","year":"2023年6月15日","owner":"","electronic":"是"},{"id":46,"category":"计算机软件著作权登记证书","name":"景安邮件归档系统","version":"V3.5","year":"2024年8月8日","owner":"","electronic":"是"},{"id":47,"category":"计算机软件著作权登记证书","name":"景云信息发布系统","version":"V3.0","year":"2024年8月8日","owner":"","electronic":"是"},{"id":48,"category":"计算机软件著作权登记证书","name":"","version":"","year":"","owner":"","electronic":""},{"id":1,"category":"宝兰德-产品兼容性互认证","name":"宝兰德应用服务器软件V9.5与景云信息发布系统产品可以顺利安装、相互良好兼容，稳定运行。","version":"","year":"","owner":"","electronic":"是"},{"id":2,"category":"达梦数据库-产品兼容性互认证","name":"景云信息发布系统V2.1产品与达梦数据库管理系统V8能够相互兼容，系统运行稳定。","version":"V2.1","year":"","owner":"","electronic":"是"},{"id":3,"category":"东方通-产品兼容性互认证明","name":"东方通应用服务器软件TongWeb V7.0产品可以与景云信息发布系统V2.1 产品完全兼容，整体运行稳定高效。","version":"","year":"","owner":"","electronic":"是"},{"id":4,"category":"飞腾-产品兼容性证明","name":"网易企业邮箱账号集成平台在飞腾信息技术有限公司的FT-2000+/64处理器平台上顺利安装，运行稳定。","version":"V4.5.3","year":"","owner":"与景安","electronic":"是"},{"id":5,"category":"飞腾-产品兼容性证明","name":"景云信息发布系统 V2.1在飞腾信息技术有限公司的FT-2000+/64处理器平台上顺利安装，运行稳定。","version":"V2.1","year":"","owner":"","electronic":"是"},{"id":6,"category":"金蝶天燕-产品兼容互认证明","name":"金蝶Aqusic负载均衡器软件与景云信息发布系统互认","version":"","year":"","owner":"","electronic":"是"},{"id":7,"category":"金蝶天燕-产品兼容互认证明","name":"金蝶Aqusic内存数据缓存软件与景云信息发布系统互认","version":"","year":"","owner":"","electronic":"是"},{"id":8,"category":"金蝶天燕-产品兼容互认证明","name":"金蝶Aqusic分布式消息队列软件与景云信息发布系统互认","version":"","year":"","owner":"","electronic":"是"},{"id":9,"category":"金蝶天燕-产品兼容互认证明","name":"金蝶Aqusic应用服务器V9.0和V10软件与景云信息发布系统互认","version":"","year":"","owner":"","electronic":"是"},{"id":10,"category":"麒麟软件NeoCertify认证","name":"银河麒麟高级服务操作系统（飞腾版）（鲲鹏版）V10\n与网易企业邮箱账号集成平台V4.5.2\n完成兼容性测试，能够达到通用兼容性要求及性能、可靠性要求，满足用户的关键性应用需求","version":"V4.5.2","year":"","owner":"与景安","electronic":"是"},{"id":11,"category":"麒麟软件NeoCertify认证","name":"银河麒麟高级服务操作系统（飞腾版）（鲲鹏版）V10\n与景云信息发布系统 V2.1\n完成兼容性测试，能够达到通用兼容性要求及性能、可靠性要求，满足用户的关键性应用需求","version":"V2.1","year":"","owner":"","electronic":"是"},{"id":12,"category":"人大金仓-产品兼容性认证","name":"金仓数据库管理系统 KingbaseES V7、V8与景云信息发布系统完全兼容，其功能、性能和兼容性等各方面表现良好，运行稳定、安全，可以满足用户的需求。","version":"","year":"","owner":"","electronic":"是"},{"id":13,"category":"统信软件产品互认证明","name":"统信服务器操作系统V20与景云信息发布系统V2.1\n(CPU平台：飞腾FT-2000+/64,腾云S2500)","version":"","year":"","owner":"","electronic":"是"},{"id":14,"category":"统信软件产品互认证明","name":"统信服务器操作系统V20与景云信息发布系统V2.1\n(CPU平台：鲲鹏916，鲲鹏920","version":"","year":"","owner":"","electronic":"是"}],"qualifications":[{"id":1,"category":"ISO 认证\n（招投标、供应商入库经常作为门槛 / 加分项）","name":"ISO 9001 质量管理体系","validFrom":"2025年9月29日","validTo":"2028年9月28日","desc":"基础资质；证明企业具备稳定输出合格产品 / 服务的标准化能力","owned":"是","note":""},{"id":2,"category":"ISO 认证\n（招投标、供应商入库经常作为门槛 / 加分项）","name":"ISO/IEC 27001 信息安全管理体系（ISMS）","validFrom":"","validTo":"","desc":"保护客户数据、防止信息泄露；政务项目、软件外包、云服务商、数据服务商高频要求。","owned":"否","note":"咨询机构搭建体系 + CNAS 认可认证机构审核发证\n证书有效期 3 年，每年监督审核，3 年到期再认证。两套体系共用一套管理架构、一次审核；文件大量共用，适合投标经常同时要求两张证书的企业。\n初次单项2w～2.8w。\n有效期内每年需要续费，大致三分之一费用。"},{"id":3,"category":"ISO 认证\n（招投标、供应商入库经常作为门槛 / 加分项）","name":"ISO/IEC 20000 信息技术服务管理体系","validFrom":"","validTo":"","desc":"IT 运维、系统集成、技术服务公司适用，规范 IT 服务交付流程。","owned":"否","note":""},{"id":4,"category":"国内能力评估认证\n及专项准入资质（政企招标高分资质，特定项目强制门槛，无证不能承接）","name":"CMMI2/3/4/5；市场主流 CMMI3\n企业建立组织级标准化研发流程，政企信息化、系统集成投标最通用门槛。90% 企业首次认证选择 3 级","validFrom":"","validTo":"","desc":"定制软件开发、平台建设、信创软件项目；大量政务、金融招标直接设置加分。","owned":"否","note":"CMMI‑DEV：面向软件 / 系统产品研发、定制开发项目；CMMI‑SVC：面向信息技术服务、运维、外包服务交付。两者模型域不同、过程域不一样、不能直接互相替代。\n18 万～26 万元"},{"id":5,"category":"国内能力评估认证\n及专项准入资质（政企招标高分资质，特定项目强制门槛，无证不能承接）","name":"CCRC 信息安全服务资质（信息安全专项项目）","validFrom":"","validTo":"","desc":"网络安全建设、等保相关安全实施项目；普通软件开发项目一般不需要。","owned":"否","note":"CCRC 三级（单类别，新手入门投标）\n全包总价：3.2 万～4.2 万\n构成：官费 1.8 万 + 咨询辅导 1.2~2 万 + 审核差旅杂费\n年度维护成本（证书有效期 3 年，每年监督审核）三级年审全包：1.8 万～2.2 万 / 年\n三级需要 2~3 名持CISP/CISAW 证人员"},{"id":6,"category":"国内能力评估认证\n及专项准入资质（政企招标高分资质，特定项目强制门槛，无证不能承接）","name":"CS 信息系统建设和服务能力评估","validFrom":"","validTo":"","desc":"智慧城市、政务平台、软硬件一体化集成、信息化工程实施；纯软件研发企业需求偏低。","owned":"否","note":"侧重【信息系统集成项目总包实施能力】，集成类项目刚需"},{"id":7,"category":"国内能力评估认证\n及专项准入资质（政企招标高分资质，特定项目强制门槛，无证不能承接）","name":"ITSS 信息技术服务标准认证\n四级（基本级）→三级（拓展级，主流选择）→二级（协同级）→一级（量化级）","validFrom":"","validTo":"","desc":"信息化运维、驻场外包、政务系统维保项目，运维类项目对标 ISO20000。","owned":"否","note":"90% 系统集成商、运维服务商目标等级；绝大多数政务、国企运维招标文件最低要求。\n核心门槛：运维业务满 2 年；运维团队≥15 人；配备运维工单 / 监控工具；具备 3 个以上运维项目；体系有效运行≥6 个月；部分人员持有 ITSS 培训证书。\nITSS 三级：7.5 万～11 万"},{"id":8,"category":"人员证书\n（常用来填充技术团队分值）","name":"软考（计算机技术与软件专业资格）\n高级：信息系统项目管理师（项目经理标配）、系统分析师\n中级：系统集成项目管理工程师、网络工程师","validFrom":"","validTo":"","desc":"大多标书要求提供项目人员证书，并提供社保。","owned":"","note":"1. 高级资格（对应高级职称：高级工程师）\n信息系统项目管理师、系统架构设计师、系统分析师、网络规划设计师、系统规划与管理师\n2. 中级资格（对应中级职称：工程师）\n系统集成项目管理工程师、软件设计师、网络工程师、信息系统监理师、数据库系统工程师、信息安全工程师 \n3. 初级资格（助理工程师）\n网络管理员、程序员、信息处理技术员等"},{"id":9,"category":"人员证书\n（常用来填充技术团队分值）","name":"PMP 项目管理师","validFrom":"","validTo":"","desc":"","owned":"","note":""},{"id":10,"category":"人员证书\n（常用来填充技术团队分值）","name":"CISP、CISAW 信息安全人员证书","validFrom":"","validTo":"","desc":"","owned":"","note":"CISAW：CCRC（网络安全审查中心）\n\tCISP：中国信息安全测评中心"},{"id":11,"category":"人员证书\n（常用来填充技术团队分值）","name":"","validFrom":"","validTo":"","desc":"","owned":"","note":""},{"id":12,"category":"人员证书\n（常用来填充技术团队分值）","name":"","validFrom":"","validTo":"","desc":"","owned":"","note":""},{"id":13,"category":"人员证书\n（常用来填充技术团队分值）","name":"","validFrom":"","validTo":"","desc":"","owned":"","note":""},{"id":14,"category":"人员证书\n（常用来填充技术团队分值）","name":"","validFrom":"","validTo":"","desc":"","owned":"","note":""},{"id":15,"category":"人员证书\n（常用来填充技术团队分值）","name":"","validFrom":"","validTo":"","desc":"","owned":"","note":""},{"id":16,"category":"人员证书\n（常用来填充技术团队分值）","name":"","validFrom":"","validTo":"","desc":"","owned":"","note":""},{"id":17,"category":"人员证书\n（常用来填充技术团队分值）","name":"","validFrom":"","validTo":"","desc":"","owned":"","note":""},{"id":18,"category":"人员证书\n（常用来填充技术团队分值）","name":"","validFrom":"","validTo":"","desc":"","owned":"","note":""},{"id":19,"category":"人员证书\n（常用来填充技术团队分值）","name":"","validFrom":"","validTo":"","desc":"","owned":"","note":""},{"id":20,"category":"人员证书\n（常用来填充技术团队分值）","name":"","validFrom":"","validTo":"","desc":"","owned":"","note":""}]};
+
+/* 著作权列定义 */
+const COLUMNS_CP = [
+  { key: 'id',         label: '序号',   width: '64px',  sortable: true,  numeric: true },
+  { key: 'category',   label: '著作权大类', width: '180px', sortable: true,  render: (r) => catTag(r.category) },
+  { key: 'name',       label: '软件名称', width: 'auto', sortable: true,  render: (r) => `<div class="cell-main">${esc(r.name)}</div><div class="cell-sub">${esc(r.owner || '—')}</div>` },
+  { key: 'version',    label: '版本号',   width: '90px',  sortable: true,  render: (r) => r.version ? `<span class="cell-num">${esc(r.version)}</span>` : '<span class="cell-sub">—</span>' },
+  { key: 'year',       label: '颁发年份', width: '140px', sortable: true,  render: (r) => r.year || '<span class="cell-sub">—</span>' },
+  { key: 'electronic', label: '电子版',   width: '90px',  sortable: true,  render: (r) => electronicBadge(r.electronic) },
+  { key: '_actions',   label: '操作',     width: '96px',  sortable: false, render: (r) => actionsHtml(r) }
+];
+
+const COLUMNS_QZ = [
+  { key: 'id',         label: '序号',   width: '64px',  sortable: true,  numeric: true },
+  { key: 'category',   label: '资质大类', width: '190px', sortable: true,  render: (r) => catTag(r.category, true) },
+  { key: 'name',       label: '资质名称', width: 'auto', sortable: true,  render: (r) => `<div class="cell-main">${esc(r.name)}</div>` },
+  { key: 'validFrom',  label: '有效期起', width: '120px', sortable: true,  render: (r) => r.validFrom || '<span class="cell-sub">—</span>' },
+  { key: 'validTo',    label: '有效期止', width: '120px', sortable: true,  render: (r) => validToBadge(r) },
+  { key: 'owned',      label: '已有',     width: '86px',  sortable: true,  render: (r) => ownedBadge(r.owned) },
+  { key: 'desc',       label: '说明',     width: '240px', sortable: false, render: (r) => clampCell(r.desc, '说明') },
+  { key: 'note',       label: '备注',     width: '200px', sortable: false, render: (r) => clampCell(r.note, '备注') },
+  { key: '_actions',   label: '操作',     width: '96px',  sortable: false, render: (r) => actionsHtml(r) }
+];
+
+/* ============================================================
+   状态
+   ============================================================ */
+const STORE_KEY = 'wangjing-cert-manager-v1';
+
+let state = {
+  tab: 'copyright',       // copyright | qualification
+  query: '',
+  category: '',
+  status: '',
+  // 聚合卡筛选：'' | 'sw'（软件著作权） | 'compat'（产品兼容性认证）
+  // 与 category/search/status 是 AND 关系，可叠加生效
+  groupFilter: '',
+  // 默认按类别排序（著作权 tab 会把"计算机软件著作权登记证书"放最前）
+  sortKey: 'category',
+  sortDir: 'asc',
+  page: 1,
+  pageSize: 20,
+};
+
+// 著作权核心类别：默认排前，且作为"软件著作权证书"聚合卡的统计依据
+const PRIMARY_CATEGORY = '计算机软件著作权登记证书';
+
+let store = null; // { copyrights: [], qualifications: [] }
+
+function loadStore() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed && Array.isArray(parsed.copyrights) && Array.isArray(parsed.qualifications)) {
+        store = parsed;
+        return;
+      }
+    }
+  } catch (e) { /* 损坏则回退初始数据 */ }
+  store = JSON.parse(JSON.stringify(INITIAL_DATA));
+}
+
+function persist() {
+  try {
+    localStorage.setItem(STORE_KEY, JSON.stringify(store));
+  } catch (e) { /* 存储满时静默 */ }
+}
+
+/* ============================================================
+   工具函数
+   ============================================================ */
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, (c) => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ));
+}
+function norm(s) { return String(s ?? '').toLowerCase(); }
+function catTag(cat, wide = false) {
+  if (!cat) return '<span class="cell-sub">—</span>';
+  return `<span class="cat-tag" title="${esc(cat)}">${esc(cat)}</span>`;
+}
+function electronicBadge(v) {
+  if (v === '是') return '<span class="badge badge-success">有电子版</span>';
+  if (v === '否') return '<span class="badge badge-warn">无</span>';
+  return '<span class="badge badge-muted">未标注</span>';
+}
+function ownedBadge(v) {
+  if (v === '是') return '<span class="badge badge-success">已持有</span>';
+  if (v === '否') return '<span class="badge badge-warn">待办理</span>';
+  return '<span class="badge badge-muted">未标注</span>';
+}
+function validToBadge(r) {
+  if (!r.validTo) return '<span class="cell-sub">长期 / 未填</span>';
+  const d = parseDate(r.validTo);
+  if (!d) return esc(r.validTo);
+  const diffDays = (d - Date.now()) / 86400000;
+  if (diffDays < 0) return `<span class="badge badge-danger">已过期 · ${esc(r.validTo)}</span>`;
+  if (diffDays <= 90) return `<span class="badge badge-warn">${Math.ceil(diffDays)} 天后到期</span>`;
+  return `<span class="badge badge-info">${esc(r.validTo)}</span>`;
+}
+function parseDate(s) {
+  // 支持 "2025年9月29日" / "2025-09-29" / "2025/09/29"
+  let m = String(s).match(/(\d{4})[年\-/](\d{1,2})[月\-/](\d{1,2})日?/);
+  if (!m) return null;
+  return new Date(+m[1], +m[2] - 1, +m[3]);
+}
+function formatCN(d) {
+  if (!d || isNaN(d)) return '';
+  return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+}
+function dateISO(d) {
+  if (!d || isNaN(d)) return '';
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+/* ============================================================
+   日期选择器（下拉日历）
+   ============================================================ */
+const CalPicker = {
+  input: null,      // 当前绑定的 date-input
+  viewY: null,      // 当前展示的年
+  viewM: null,      // 当前展示的月 (0-based)
+  pop: null,
+
+  open(input) {
+    this.input = input;
+    const val = input.value;
+    const d = parseDate(val) || new Date();
+    this.viewY = d.getFullYear();
+    this.viewM = d.getMonth();
+    this.pop = document.getElementById('cal-pop');
+    this.pop.hidden = false;
+    this.render();
+    // 定位：相对 dialog（cal-pop 挂在 modal-form 内）
+    const dialog = document.getElementById('modal-form');
+    const dlgRect = dialog.getBoundingClientRect();
+    const inpRect = input.getBoundingClientRect();
+    let left = inpRect.left - dlgRect.left;
+    const top = inpRect.bottom - dlgRect.top + 8;
+    const popW = 292;
+    // 水平防溢出（dialog 宽 560，留右 padding 24）
+    const maxLeft = dlgRect.width - popW - 24;
+    if (left > maxLeft) left = maxLeft;
+    if (left < 24) left = 24;
+    this.pop.style.left = left + 'px';
+    this.pop.style.top = top + 'px';
+    // 若下方空间不足，翻转到上方
+    const popH = this.pop.offsetHeight;
+    const spaceBelow = dlgRect.bottom - inpRect.bottom;
+    if (spaceBelow < popH + 12) {
+      const up = inpRect.top - dlgRect.top - popH - 8;
+      if (up > 12) this.pop.style.top = up + 'px';
+    }
+  },
+
+  close() {
+    if (this.pop) { this.pop.hidden = true; this.pop = null; }
+    this.input = null;
+  },
+
+  render() {
+    const y = this.viewY, m = this.viewM;
+    const title = document.getElementById('cal-title');
+    title.textContent = `${y}年${m + 1}月`;
+
+    const firstDay = new Date(y, m, 1).getDay();
+    const daysInMonth = new Date(y, m + 1, 0).getDate();
+    const today = new Date();
+    const todayISO = dateISO(today);
+    const selectedVal = this.input ? this.input.value : '';
+    const selectedDate = parseDate(selectedVal);
+    const selectedISO = selectedDate ? dateISO(selectedDate) : '';
+
+    const grid = document.getElementById('cal-grid');
+    let html = '';
+    // 当月第一天前的空白
+    for (let i = 0; i < firstDay; i++) html += '<span class="cal-day other" aria-hidden="true"></span>';
+    // 日期格子
+    for (let day = 1; day <= daysInMonth; day++) {
+      const iso = `${y}-${String(m + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+      const cls = ['cal-day'];
+      if (iso === todayISO) cls.push('today');
+      if (iso === selectedISO) cls.push('selected');
+      html += `<button type="button" class="${cls.join(' ')}" data-date="${iso}" aria-label="${y}年${m + 1}月${day}日">${day}</button>`;
+    }
+    grid.innerHTML = html;
+  },
+
+  select(iso) {
+    if (!this.input) return;
+    const d = new Date(iso + 'T00:00:00');
+    this.input.value = formatCN(d);
+    this.input.dispatchEvent(new Event('change', { bubbles: true }));
+    this.close();
+  },
+
+  nav(deltaY, deltaM) {
+    this.viewM += deltaM;
+    if (this.viewM < 0) { this.viewM = 11; this.viewY--; }
+    if (this.viewM > 11) { this.viewM = 0; this.viewY++; }
+    this.viewY += deltaY;
+    this.render();
+  },
+};
+
+function initCalPicker() {
+  // 点击 date-input 打开日历
+  document.getElementById('modal-form').addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-date-input]');
+    const isInsidePop = e.target.closest('#cal-pop');
+    if (isInsidePop) return; // 浮层内部点击交给下方事件
+    if (trigger) {
+      e.preventDefault();
+      if (CalPicker.input === trigger && CalPicker.pop && !CalPicker.pop.hidden) {
+        CalPicker.close();
+      } else {
+        CalPicker.open(trigger);
+      }
+      return;
+    }
+    // 点击浮层外的其他区域 → 关闭
+    if (CalPicker.pop && !CalPicker.pop.hidden) CalPicker.close();
+  });
+
+  // 浮层事件（stopPropagation 防止触发外层关闭）
+  const pop = document.getElementById('cal-pop');
+  pop.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const dayBtn = e.target.closest('[data-date]');
+    if (dayBtn) { CalPicker.select(dayBtn.dataset.date); return; }
+    if (e.target.closest('#cal-prev-year')) { CalPicker.nav(-1, 0); return; }
+    if (e.target.closest('#cal-next-year')) { CalPicker.nav(1, 0); return; }
+    if (e.target.closest('#cal-prev-month')) { CalPicker.nav(0, -1); return; }
+    if (e.target.closest('#cal-next-month')) { CalPicker.nav(0, 1); return; }
+    if (e.target.closest('#cal-today')) {
+      const now = new Date();
+      CalPicker.input.value = formatCN(now);
+      CalPicker.close();
+      return;
+    }
+    if (e.target.closest('#cal-clear')) {
+      CalPicker.input.value = '';
+      CalPicker.close();
+      return;
+    }
+  });
+
+  // Esc 关闭
+  document.getElementById('modal-form').addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && CalPicker.pop && !CalPicker.pop.hidden) {
+      CalPicker.close();
+    }
+  });
+
+  // dialog 关闭时强制关闭日历
+  document.getElementById('modal-form').addEventListener('close', () => CalPicker.close());
+}
+
+function clampCell(text, field = '说明') {
+  if (!text) return '<span class="cell-sub">—</span>';
+  const t = esc(text);
+  return `<span class="cell-clamp" data-field="${esc(field)}" title="${t.replace(/"/g, '&quot;')}">${t}</span>`;
+}
+function actionsHtml(r) {
+  return `<div class="td-actions">
+    <button class="btn-icon" data-act="edit" data-id="${r.id}" title="编辑" aria-label="编辑">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+    </button>
+    <button class="btn-icon danger" data-act="del" data-id="${r.id}" title="删除" aria-label="删除">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+    </button>
+  </div>`;
+}
+
+/* ============================================================
+   数据访问
+   ============================================================ */
+function currentList() { return state.tab === 'copyright' ? store.copyrights : store.qualifications; }
+function currentCols() { return state.tab === 'copyright' ? COLUMNS_CP : COLUMNS_QZ; }
+
+/* ============================================================
+   统计
+   ============================================================ */
+function renderStats() {
+  const wrap = document.getElementById('stats-row');
+  const list = currentList();
+  const isCp = state.tab === 'copyright';
+  let cards = [];
+  if (isCp) {
+    const withElec = list.filter(r => r.electronic === '是').length;
+    const without = list.filter(r => r.electronic === '否').length;
+    const unmarked = list.length - withElec - without;
+    const cats = new Set(list.map(r => r.category).filter(Boolean)).size;
+    const swCount = list.filter(r => r.category === PRIMARY_CATEGORY).length;
+    const compatCount = list.length - swCount;
+    const compatSubs = new Set(list.filter(r => r.category && r.category !== PRIMARY_CATEGORY).map(r => r.category)).size;
+    // 聚合卡选中态：与 state.groupFilter 同步
+    const gf = state.groupFilter;
+    cards = [
+      { label: '软件著作权证书', value: swCount, sub: gf === 'sw' ? '✓ 已筛选聚焦 · 点击取消' : '主类别 · 点击聚焦', accent: 'var(--ink-600)', promo: 'ink', group: 'sw', selected: gf === 'sw' },
+      { label: '产品兼容性认证', value: compatCount, sub: gf === 'compat' ? '✓ 已筛选聚焦 · 点击取消' : `含 ${compatSubs} 个品牌 · 点击聚焦`, accent: 'var(--gold-600)', promo: 'gold', group: 'compat', selected: gf === 'compat' },
+      { label: '著作权总数', value: list.length, sub: `${cats} 个类别`, accent: 'var(--ink-600)' },
+      { label: '有电子版', value: withElec, sub: '电子存档已齐', accent: 'var(--success-text)' },
+      { label: '无电子版', value: without, sub: '需补充扫描件', accent: 'var(--warn-text)' },
+      { label: '未标注', value: unmarked, sub: '建议核对补充', accent: 'var(--text-3)' },
+    ];
+  } else {
+    const owned = list.filter(r => r.owned === '是').length;
+    const todo = list.filter(r => r.owned === '否').length;
+    const unmarked = list.length - owned - todo;
+    const expiring = list.filter(r => {
+      if (!r.validTo) return false;
+      const d = parseDate(r.validTo);
+      return d && (d - Date.now()) / 86400000 <= 90;
+    }).length;
+    const cats = new Set(list.map(r => r.category).filter(Boolean)).size;
+    cards = [
+      { label: '资质总数', value: list.length, sub: `${cats} 个大类`, accent: 'var(--ink-600)' },
+      { label: '已持有', value: owned, sub: '证书在手', accent: 'var(--success-text)' },
+      { label: '待办理', value: todo, sub: '建议推进', accent: 'var(--warn-text)' },
+      { label: '90 天内到期', value: expiring, sub: '需关注续期', accent: expiring > 0 ? 'var(--danger-text)' : 'var(--text-3)' },
+    ];
+  }
+  wrap.innerHTML = cards.map(c => {
+    const promoCls = c.promo === 'ink' ? ' is-promo-ink' : c.promo === 'gold' ? ' is-promo-gold' : '';
+    const selCls = c.selected ? ' is-selected' : '';
+    const groupAttr = c.group ? ` data-group="${c.group}" role="button" tabindex="0" aria-pressed="${c.selected ? 'true' : 'false'}" title="${c.selected ? '点击取消筛选' : '点击聚焦到' + c.label}"` : '';
+    return `
+    <div class="stat-card${promoCls}${selCls}" style="--stat-accent:${c.accent}"${groupAttr}>
+      <div class="stat-label">${c.label}</div>
+      <div class="stat-value">${c.value}</div>
+      <div class="stat-sub">${c.sub}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ============================================================
+   筛选器选项
+   ============================================================ */
+function renderFilters() {
+  const list = currentList();
+  const isCp = state.tab === 'copyright';
+  const catSel = document.getElementById('filter-category');
+  // 著作权 tab：把 PRIMARY_CATEGORY 优先置顶，其余按中文排序
+  let cats = [...new Set(list.map(r => r.category).filter(Boolean))];
+  if (isCp) {
+    cats = cats.sort((a, b) => {
+      if (a === PRIMARY_CATEGORY) return -1;
+      if (b === PRIMARY_CATEGORY) return 1;
+      return a.localeCompare(b, 'zh');
+    });
+  } else {
+    cats.sort((a, b) => a.localeCompare(b, 'zh'));
+  }
+  const prevCat = state.category;
+  catSel.innerHTML = '<option value="">全部类别</option>' +
+    cats.map(c => `<option value="${esc(c)}" ${prevCat === c ? 'selected' : ''}>${esc(c)}</option>`).join('');
+
+  const statusSel = document.getElementById('filter-status');
+  if (isCp) {
+    statusSel.innerHTML = '<option value="">全部状态</option>' +
+      '<option value="是" ' + (state.status==='是'?'selected':'') + '>有电子版</option>' +
+      '<option value="否" ' + (state.status==='否'?'selected':'') + '>无电子版</option>' +
+      '<option value="__none__" ' + (state.status==='__none__'?'selected':'') + '>未标注</option>';
+  } else {
+    statusSel.innerHTML = '<option value="">全部状态</option>' +
+      '<option value="是" ' + (state.status==='是'?'selected':'') + '>已持有</option>' +
+      '<option value="否" ' + (state.status==='否'?'selected':'') + '>待办理</option>' +
+      '<option value="__none__" ' + (state.status==='__none__'?'selected':'') + '>未标注</option>';
+  }
+}
+
+/* ============================================================
+   过滤 + 排序 + 分页
+   ============================================================ */
+function getFiltered() {
+  let list = [...currentList()];
+  const q = norm(state.query);
+  if (q) {
+    list = list.filter(r => {
+      const fields = Object.values(r).map(norm).join(' ');
+      return fields.includes(q);
+    });
+  }
+  // 聚合卡筛选（与 category/status/search 是 AND 关系）
+  if (state.groupFilter === 'sw') {
+    list = list.filter(r => r.category === PRIMARY_CATEGORY);
+  } else if (state.groupFilter === 'compat') {
+    // 排除"计算机软件著作权登记证书"，其余（含空 category）算入
+    list = list.filter(r => r.category !== PRIMARY_CATEGORY);
+  }
+  if (state.category) {
+    list = list.filter(r => r.category === state.category);
+  }
+  if (state.status) {
+    const key = state.tab === 'copyright' ? 'electronic' : 'owned';
+    if (state.status === '__none__') list = list.filter(r => !r[key]);
+    else list = list.filter(r => r[key] === state.status);
+  }
+  // 排序
+  const { sortKey, sortDir } = state;
+  const dir = sortDir === 'asc' ? 1 : -1;
+  list.sort((a, b) => {
+    if (sortKey === 'id') return (a.id - b.id) * dir;
+    const va = a[sortKey] ?? '';
+    const vb = b[sortKey] ?? '';
+    if (sortKey === 'validTo' || sortKey === 'year') {
+      const da = parseDate(va), db = parseDate(vb);
+      if (da && db) return (da - db) * dir;
+    }
+    // 著作权 tab 的 category 列：把"计算机软件著作权登记证书"强制排在最前
+    if (sortKey === 'category' && state.tab === 'copyright') {
+      const pa = (va === PRIMARY_CATEGORY) ? 0 : 1;
+      const pb = (vb === PRIMARY_CATEGORY) ? 0 : 1;
+      if (pa !== pb) return (pa - pb);
+    }
+    return String(va).localeCompare(String(vb), 'zh', { numeric: true }) * dir;
+  });
+  return list;
+}
+
+function renderTable() {
+  const filtered = getFiltered();
+  const total = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(total / state.pageSize));
+  if (state.page > totalPages) state.page = totalPages;
+  const start = (state.page - 1) * state.pageSize;
+  const pageItems = filtered.slice(start, start + state.pageSize);
+
+  // 表头
+  const cols = currentCols();
+  const isCp = state.tab === 'copyright';
+  const head = cols.map(c => {
+    if (c.key === '_actions') return `<th style="width:${c.width};text-align:right">${c.label}</th>`;
+    if (!c.sortable) return `<th style="width:${c.width}">${c.label}</th>`;
+    const cls = state.sortKey === c.key ? (state.sortDir === 'asc' ? 'sort-asc' : 'sort-desc') : '';
+    return `<th class="sortable ${cls}" style="width:${c.width}" data-sort="${c.key}" aria-sort="${state.sortKey===c.key?(state.sortDir==='asc'?'ascending':'descending'):'none'}">
+      <span class="th-inner">${c.label}
+        <span class="sort-ind"><span class="up">▲</span><span class="down">▼</span></span>
+      </span>
+    </th>`;
+  }).join('');
+
+  // 表体
+  let body = '';
+  if (pageItems.length === 0) {
+    body = `<tr><td colspan="${cols.length}">
+      <div class="empty-state">
+        <div class="empty-ico">🔍</div>
+        <div class="empty-title">没有找到匹配的记录</div>
+        <div class="empty-desc">试试调整关键词或清除筛选条件</div>
+        <button class="btn btn-ghost btn-sm" onclick="clearAllFilters()">清除全部筛选</button>
+      </div>
+    </td></tr>`;
+  } else {
+    body = pageItems.map(r => `<tr data-id="${r.id}">
+      ${cols.map(c => {
+        if (c.key === '_actions') return `<td class="td-actions">${c.render(r)}</td>`;
+        if (c.key === 'id') return `<td class="cell-num">${r.id}</td>`;
+        if (c.key === 'category') return `<td>${c.render(r)}</td>`;
+        if (c.key === 'electronic' || c.key === 'owned') return `<td>${c.render(r)}</td>`;
+        return `<td>${c.render(r)}</td>`;
+      }).join('')}
+    </tr>`).join('');
+  }
+
+  document.getElementById('table-head').innerHTML = head;
+  document.getElementById('table-body').innerHTML = body;
+
+  // 移动端卡片
+  renderMobileCards(pageItems);
+
+  // 分页信息
+  const shownStart = total === 0 ? 0 : start + 1;
+  const shownEnd = Math.min(start + state.pageSize, total);
+  document.getElementById('page-info').innerHTML =
+    `共 <b>${total}</b> 条记录 · 显示 <b>${shownStart}-${shownEnd}</b> 条`;
+
+  // 页码
+  renderPager(totalPages);
+
+  // 清除筛选按钮
+  const hasFilter = state.query || state.category || state.status;
+  document.getElementById('btn-clear-filter').style.display = hasFilter ? 'inline-flex' : 'none';
+}
+
+function renderMobileCards(pageItems) {
+  const wrap = document.getElementById('mobile-cards');
+  const isCp = state.tab === 'copyright';
+  if (pageItems.length === 0) {
+    wrap.innerHTML = `<div class="empty-state">
+      <div class="empty-ico">🔍</div>
+      <div class="empty-title">没有找到匹配的记录</div>
+      <button class="btn btn-ghost btn-sm" onclick="clearAllFilters()">清除全部筛选</button>
+    </div>`;
+    return;
+  }
+  wrap.innerHTML = pageItems.map(r => {
+    const badge = isCp ? electronicBadge(r.electronic) : ownedBadge(r.owned);
+    const meta = isCp
+      ? `<span><b>版本：</b>${esc(r.version || '—')}</span>
+         <span><b>颁发：</b>${esc(r.year || '—')}</span>
+         <span><b>著作权人：</b>${esc(r.owner || '—')}</span>`
+      : `<span><b>有效期：</b>${esc(r.validFrom || '—')} ~ ${esc(r.validTo || '长期')}</span>
+         <span><b>类别：</b>${esc(r.category || '—')}</span>`;
+    const preview = !isCp && (r.desc || r.note)
+      ? `<span class="cell-clamp" data-field="${r.desc ? '说明' : '备注'}" title="${esc(r.desc || r.note).replace(/"/g, '&quot;')}" style="max-width:100%">${esc(r.desc || r.note)}</span>`
+      : '';
+    return `<div class="m-card" data-id="${r.id}">
+      <div class="m-card-head">
+        <div class="m-card-title">${esc(r.name)}</div>
+        ${badge}
+      </div>
+      <div class="m-card-meta">${meta}${preview ? `<span style="margin-top:4px">${preview}</span>` : ''}</div>
+      <div class="m-card-actions">
+        <button class="btn btn-ghost btn-sm" data-act="edit" data-id="${r.id}">编辑</button>
+        <button class="btn btn-danger-ghost btn-sm" data-act="del" data-id="${r.id}">删除</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderPager(totalPages) {
+  const wrap = document.getElementById('pg-numbers');
+  const cur = state.page;
+  let items = [];
+  const add = (n) => items.push(n);
+  if (totalPages <= 7) {
+    for (let i = 1; i <= totalPages; i++) add(i);
+  } else {
+    add(1);
+    if (cur > 3) items.push('…');
+    for (let i = Math.max(2, cur - 1); i <= Math.min(totalPages - 1, cur + 1); i++) add(i);
+    if (cur < totalPages - 2) items.push('…');
+    add(totalPages);
+  }
+  wrap.innerHTML = items.map(n =>
+    n === '…' ? '<span class="page-btn" style="cursor:default">…</span>'
+      : `<button class="page-btn ${n===cur?'active':''}" data-page="${n}">${n}</button>`
+  ).join('');
+  document.getElementById('pg-first').disabled = cur <= 1;
+  document.getElementById('pg-prev').disabled = cur <= 1;
+  document.getElementById('pg-next').disabled = cur >= totalPages;
+  document.getElementById('pg-last').disabled = cur >= totalPages;
+}
+
+/* ============================================================
+   导航 / 标题
+   ============================================================ */
+function renderNavCounts() {
+  document.getElementById('nav-count-cp').textContent = store.copyrights.length;
+  document.getElementById('nav-count-qz').textContent = store.qualifications.length;
+}
+function renderTitles() {
+  const isCp = state.tab === 'copyright';
+  document.getElementById('page-title').textContent = isCp ? '著作权证书' : '资质证书';
+  document.getElementById('page-sub').textContent = isCp ? '网景著作权及产品兼容性认证统计' : '网景资质列表';
+  document.getElementById('nav-copyright').classList.toggle('active', isCp);
+  document.getElementById('nav-qualification').classList.toggle('active', !isCp);
+}
+
+/* ============================================================
+   CRUD
+   ============================================================ */
+function renderForm() {
+  const wrap = document.getElementById('form-fields');
+  const isCp = state.tab === 'copyright';
+  const list = currentList();
+  const cats = [...new Set(list.map(r => r.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'zh'));
+
+  if (isCp) {
+    document.getElementById('modal-form-sub').textContent = '新增一条著作权 / 兼容性认证记录';
+    wrap.innerHTML = `
+      <div class="form-field full">
+        <label class="form-label" for="f-category">著作权大类 <span class="req">*</span></label>
+        <input type="text" id="f-category" class="form-control" list="cat-list-cp" placeholder="如：计算机软件著作权登记证书" required>
+        <datalist id="cat-list-cp">${cats.map(c=>`<option value="${esc(c)}">`).join('')}</datalist>
+      </div>
+      <div class="form-field full">
+        <label class="form-label" for="f-name">软件名称 <span class="req">*</span></label>
+        <input type="text" id="f-name" class="form-control" placeholder="如：EastMail东方网景企业邮件系统" required>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="f-version">版本号</label>
+        <input type="text" id="f-version" class="form-control" placeholder="如：V6.0">
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="f-year">颁发年份</label>
+        <div class="date-field" id="df-year">
+          <input type="text" id="f-year" class="date-input" placeholder="选择日期" readonly data-date-input>
+          <span class="cal-ico" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </span>
+        </div>
+      </div>
+      <div class="form-field full">
+        <label class="form-label" for="f-owner">著作权人</label>
+        <input type="text" id="f-owner" class="form-control" placeholder="如：信息科技有限公司">
+      </div>
+      <div class="form-field full">
+        <div class="switch-row">
+          <div>
+            <div class="form-label">是否有电子版</div>
+            <div class="form-hint">是否已归档电子扫描件</div>
+          </div>
+          <input type="checkbox" id="f-electronic" class="switch" role="switch">
+        </div>
+      </div>`;
+  } else {
+    document.getElementById('modal-form-sub').textContent = '新增一条资质证书记录';
+    wrap.innerHTML = `
+      <div class="form-field full">
+        <label class="form-label" for="f-category">资质大类 <span class="req">*</span></label>
+        <input type="text" id="f-category" class="form-control" list="cat-list-qz" placeholder="如：ISO 认证" required>
+        <datalist id="cat-list-qz">${cats.map(c=>`<option value="${esc(c)}">`).join('')}</datalist>
+      </div>
+      <div class="form-field full">
+        <label class="form-label" for="f-name">资质名称 <span class="req">*</span></label>
+        <input type="text" id="f-name" class="form-control" placeholder="如：ISO 9001 质量管理体系" required>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="f-validFrom">有效期起</label>
+        <div class="date-field" id="df-validFrom">
+          <input type="text" id="f-validFrom" class="date-input" placeholder="选择日期" readonly data-date-input>
+          <span class="cal-ico" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </span>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="f-validTo">有效期止</label>
+        <div class="date-field" id="df-validTo">
+          <input type="text" id="f-validTo" class="date-input" placeholder="选择日期" readonly data-date-input>
+          <span class="cal-ico" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </span>
+        </div>
+      </div>
+      <div class="form-field full">
+        <label class="form-label" for="f-desc">说明</label>
+        <textarea id="f-desc" class="form-control" placeholder="适用范围、项目场景说明"></textarea>
+      </div>
+      <div class="form-field full">
+        <label class="form-label" for="f-note">备注</label>
+        <textarea id="f-note" class="form-control" placeholder="办理成本、维护要求等"></textarea>
+      </div>
+      <div class="form-field full">
+        <div class="switch-row">
+          <div>
+            <div class="form-label">是否已持有该资质</div>
+            <div class="form-hint">已持有 / 待办理状态标记</div>
+          </div>
+          <input type="checkbox" id="f-owned" class="switch" role="switch">
+        </div>
+      </div>`;
+  }
+}
+
+function openForm(record) {
+  renderForm();
+  const isCp = state.tab === 'copyright';
+  const title = document.getElementById('modal-form-title');
+  const modal = document.getElementById('modal-form');
+  const isEdit = !!record;
+
+  title.textContent = isEdit ? '编辑记录' : '新增记录';
+  const set = (id, val) => { const el = document.getElementById(id); if (el) el.value = val || ''; };
+
+  if (isEdit) {
+    if (isCp) {
+      set('f-category', record.category);
+      set('f-name', record.name);
+      set('f-version', record.version);
+      set('f-year', record.year);
+      set('f-owner', record.owner);
+      document.getElementById('f-electronic').checked = record.electronic === '是';
+    } else {
+      set('f-category', record.category);
+      set('f-name', record.name);
+      set('f-validFrom', record.validFrom);
+      set('f-validTo', record.validTo);
+      set('f-desc', record.desc);
+      set('f-note', record.note);
+      document.getElementById('f-owned').checked = record.owned === '是';
+    }
+  } else {
+    if (!isCp) {
+      document.getElementById('f-owned').checked = false;
+    } else {
+      document.getElementById('f-electronic').checked = false;
+    }
+  }
+
+  modal.showModal();
+  modal.dataset.editId = isEdit ? record.id : '';
+  setTimeout(() => {
+    const first = modal.querySelector('.form-control');
+    if (first) first.focus();
+  }, 50);
+}
+
+function saveForm() {
+  const modal = document.getElementById('modal-form');
+  const isCp = state.tab === 'copyright';
+  const isEdit = modal.dataset.editId !== '';
+
+  const category = document.getElementById('f-category').value.trim();
+  const name = document.getElementById('f-name').value.trim();
+  if (!category) { toast('请填写大类', 'danger'); document.getElementById('f-category').focus(); return; }
+  if (!name) { toast('请填写名称', 'danger'); document.getElementById('f-name').focus(); return; }
+
+  const list = currentList();
+  let nextId = 1;
+  if (list.length) nextId = Math.max(...list.map(r => r.id)) + 1;
+
+  let record;
+  if (isCp) {
+    const prev = isEdit ? list.find(r => r.id === parseInt(modal.dataset.editId)) : null;
+    record = {
+      id: isEdit ? parseInt(modal.dataset.editId) : nextId,
+      category,
+      name,
+      version: document.getElementById('f-version').value.trim(),
+      year: document.getElementById('f-year').value.trim(),
+      owner: document.getElementById('f-owner').value.trim(),
+      // 勾选=是；编辑时未勾选保留原值；新增时未勾选=未标注
+      electronic: document.getElementById('f-electronic').checked ? '是' : (isEdit ? (prev?.electronic ?? '') : ''),
+    };
+  } else {
+    const prev = isEdit ? list.find(r => r.id === parseInt(modal.dataset.editId)) : null;
+    record = {
+      id: isEdit ? parseInt(modal.dataset.editId) : nextId,
+      category,
+      name,
+      validFrom: document.getElementById('f-validFrom').value.trim(),
+      validTo: document.getElementById('f-validTo').value.trim(),
+      desc: document.getElementById('f-desc').value.trim(),
+      note: document.getElementById('f-note').value.trim(),
+      owned: document.getElementById('f-owned').checked ? '是' : (isEdit ? (prev?.owned ?? '') : ''),
+    };
+  }
+
+  if (isEdit) {
+    const idx = list.findIndex(r => r.id === parseInt(modal.dataset.editId));
+    if (idx > -1) list[idx] = record;
+    toast('记录已更新', 'success');
+  } else {
+    list.push(record);
+    toast('已新增记录', 'success');
+    state.page = 1;
+  }
+  persist();
+  modal.close();
+  fullRender();
+}
+
+function askDelete(record) {
+  const modal = document.getElementById('modal-confirm');
+  const isCp = state.tab === 'copyright';
+  const name = record.name || '(未命名)';
+  const detail = isCp
+    ? `软件：<b>${esc(name)}</b> ${esc(record.version || '')}`
+    : `资质：<b>${esc(name)}</b>`;
+  document.getElementById('confirm-desc').innerHTML =
+    `即将删除 ${isCp ? '著作权' : '资质'}记录：<br>${detail}<br>此操作不可撤销，请确认。`;
+  modal.dataset.delId = record.id;
+  modal.showModal();
+}
+function doDelete() {
+  const modal = document.getElementById('modal-confirm');
+  const id = parseInt(modal.dataset.delId);
+  const list = currentList();
+  const idx = list.findIndex(r => r.id === id);
+  if (idx > -1) {
+    const removed = list.splice(idx, 1)[0];
+    persist();
+    fullRender();
+    toast(`已删除「${removed.name || '记录'}」`, 'success');
+  }
+  modal.close();
+}
+
+/* ============================================================
+   导入 / 导出 / 重置
+   ============================================================ */
+function exportCSV() {
+  const isCp = state.tab === 'copyright';
+  const list = getFiltered();
+  const headers = isCp
+    ? ['序号', '著作权大类', '软件名称', '版本号', '颁发年份', '著作权人', '是否有电子版']
+    : ['序号', '资质大类', '资质名称', '有效期起', '有效期止', '说明', '已有', '备注'];
+  const rows = list.map(r => isCp
+    ? [r.id, r.category, r.name, r.version, r.year, r.owner, r.electronic]
+    : [r.id, r.category, r.name, r.validFrom, r.validTo, r.desc, r.owned, r.note]
+  );
+  const csvContent = '\ufeff' + [headers, ...rows].map(row =>
+    row.map(v => `"${String(v ?? '').replace(/"/g, '""')}"`).join(',')
+  ).join('\n');
+  downloadBlob(csvContent, `网景${isCp ? '著作权' : '资质'}_导出_${dateStamp()}.csv`, 'text/csv;charset=utf-8');
+  toast('CSV 已导出（含 BOM，可直接用 Excel 打开）', 'success');
+}
+
+function exportJSON() {
+  downloadBlob(JSON.stringify(store, null, 2), `网景认证数据_${dateStamp()}.json`, 'application/json');
+  toast('JSON 已导出，可用于备份或导入', 'success');
+}
+
+function importJSON(file) {
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (Array.isArray(data.copyrights) && Array.isArray(data.qualifications)) {
+        store = {
+          copyrights: data.copyrights.map(normalizeRec),
+          qualifications: data.qualifications.map(normalizeRec),
+        };
+        persist();
+        fullRender();
+        toast('数据导入成功', 'success');
+      } else {
+        throw new Error('结构不匹配');
+      }
+    } catch (err) {
+      toast('导入失败：JSON 格式或结构不正确', 'danger');
+    }
+  };
+  reader.readAsText(file);
+}
+
+function normalizeRec(r) {
+  const o = { ...r };
+  ['id','category','name','version','year','owner','electronic',
+   'validFrom','validTo','desc','owned','note'].forEach(k => {
+    if (!(k in o)) o[k] = '';
+  });
+  if (!o.id) o.id = Math.floor(Math.random() * 100000);
+  o.id = parseInt(o.id) || 0;
+  return o;
+}
+
+function resetData() {
+  const modal = document.getElementById('modal-confirm');
+  document.getElementById('confirm-desc').innerHTML =
+    `将恢复为腾讯文档中的<b>初始数据</b>（著作权 ${INITIAL_DATA.copyrights.length} 条、资质 ${INITIAL_DATA.qualifications.length} 条）。<br>当前所有本地修改将丢失，此操作不可撤销。`;
+  modal.dataset.delId = '__RESET__';
+  modal.showModal();
+}
+
+function doReset() {
+  store = JSON.parse(JSON.stringify(INITIAL_DATA));
+  persist();
+  state = { ...state, page: 1, query: '', category: '', status: '' };
+  document.getElementById('search-input').value = '';
+  fullRender();
+  toast('已恢复初始数据', 'success');
+}
+
+function downloadBlob(content, filename, mime) {
+  const blob = new Blob([content], { type: mime });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 100);
+}
+function dateStamp() {
+  const d = new Date();
+  return `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
+}
+
+/* ============================================================
+   Toast
+   ============================================================ */
+function toast(msg, type = 'success') {
+  const container = document.getElementById('toast-container');
+  const el = document.createElement('div');
+  el.className = `toast ${type}`;
+  el.innerHTML = `<span class="t-ico">${type === 'success' ? '✓' : type === 'danger' ? '✕' : 'ℹ'}</span><span>${esc(msg)}</span>`;
+  container.appendChild(el);
+  setTimeout(() => { el.classList.add('out'); setTimeout(() => el.remove(), 240); }, 2600);
+}
+
+/* ============================================================
+   事件绑定
+   ============================================================ */
+function fullRender() {
+  renderNavCounts();
+  renderTitles();
+  renderFilters();
+  renderStats();
+  renderTable();
+}
+
+function clearAllFilters() {
+  state.query = ''; state.category = ''; state.status = ''; state.groupFilter = '';
+  state.page = 1;
+  document.getElementById('search-input').value = '';
+  fullRender();
+}
+
+/**
+ * 切换聚合卡筛选状态
+ *  - group: 'sw'（软件著作权） | 'compat'（产品兼容性认证）
+ *  - 点击未选中的卡片 → 设 groupFilter = group，列表聚焦该聚合
+ *  - 点击已选中的卡片 → 清空 groupFilter，恢复全部
+ *  - 与现有 category/search/status 是 AND 关系，可叠加生效
+ */
+function toggleGroupFilter(group) {
+  if (!group || state.tab !== 'copyright') return; // 仅著作权 tab 生效
+  state.groupFilter = (state.groupFilter === group) ? '' : group;
+  state.page = 1;
+  renderStats();   // 更新卡片选中态视觉
+  renderTable();   // 重新过滤并渲染表格
+  renderFilters(); // 同步清除筛选按钮显示状态
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadStore();
+  fullRender();
+  initCalPicker();
+
+  // Tab 切换
+  document.querySelectorAll('.nav-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.tab = btn.dataset.tab;
+      state.page = 1; state.query = ''; state.category = ''; state.status = ''; state.groupFilter = '';
+      document.getElementById('search-input').value = '';
+      fullRender();
+    });
+  });
+
+  // 搜索
+  let searchTimer;
+  document.getElementById('search-input').addEventListener('input', (e) => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      state.query = e.target.value.trim();
+      state.page = 1;
+      renderTable();
+    }, 180);
+  });
+
+  // 筛选
+  document.getElementById('filter-category').addEventListener('change', (e) => {
+    state.category = e.target.value;
+    state.page = 1;
+    renderTable();
+  });
+  document.getElementById('filter-status').addEventListener('change', (e) => {
+    state.status = e.target.value;
+    state.page = 1;
+    renderTable();
+  });
+  document.getElementById('btn-clear-filter').addEventListener('click', clearAllFilters);
+
+  // 聚合卡点击：切换 groupFilter（点击已选中的卡片可取消）
+  const statsRow = document.getElementById('stats-row');
+  statsRow.addEventListener('click', (e) => {
+    const card = e.target.closest('.stat-card[data-group]');
+    if (!card) return;
+    toggleGroupFilter(card.dataset.group);
+  });
+  // 键盘可达：Enter/Space 触发
+  statsRow.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const card = e.target.closest('.stat-card[data-group]');
+    if (!card) return;
+    e.preventDefault();
+    toggleGroupFilter(card.dataset.group);
+  });
+
+  // 排序 (事件委托)
+  document.getElementById('table-head').addEventListener('click', (e) => {
+    const th = e.target.closest('th.sortable');
+    if (!th) return;
+    const key = th.dataset.sort;
+    if (state.sortKey === key) {
+      state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      state.sortKey = key;
+      state.sortDir = 'asc';
+    }
+    renderTable();
+  });
+
+  // 行操作 (编辑/删除)
+  document.getElementById('table-body').addEventListener('click', handleRowAction);
+  document.getElementById('mobile-cards').addEventListener('click', handleRowAction);
+
+  // 分页
+  document.getElementById('pg-numbers').addEventListener('click', (e) => {
+    const btn = e.target.closest('.page-btn[data-page]');
+    if (!btn) return;
+    state.page = parseInt(btn.dataset.page);
+    renderTable();
+  });
+  document.getElementById('pg-first').addEventListener('click', () => { state.page = 1; renderTable(); });
+  document.getElementById('pg-prev').addEventListener('click', () => { state.page = Math.max(1, state.page - 1); renderTable(); });
+  document.getElementById('pg-next').addEventListener('click', () => { state.page += 1; renderTable(); });
+  document.getElementById('pg-last').addEventListener('click', () => {
+    const totalPages = Math.max(1, Math.ceil(getFiltered().length / state.pageSize));
+    state.page = totalPages; renderTable();
+  });
+  document.getElementById('page-size').addEventListener('change', (e) => {
+    state.pageSize = parseInt(e.target.value);
+    state.page = 1;
+    renderTable();
+  });
+
+  // 新增
+  document.getElementById('btn-add').addEventListener('click', () => openForm(null));
+
+  // 表单弹窗
+  document.getElementById('modal-close').addEventListener('click', () => document.getElementById('modal-form').close());
+  document.getElementById('modal-cancel').addEventListener('click', () => document.getElementById('modal-form').close());
+  document.getElementById('modal-save').addEventListener('click', saveForm);
+  document.getElementById('modal-form').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('modal-form')) document.getElementById('modal-form').close();
+  });
+
+  // 确认弹窗
+  document.getElementById('confirm-cancel').addEventListener('click', () => document.getElementById('modal-confirm').close());
+  document.getElementById('confirm-ok').addEventListener('click', () => {
+    const delId = document.getElementById('modal-confirm').dataset.delId;
+    if (delId === '__RESET__') doReset();
+    else doDelete();
+  });
+
+  // 导入导出
+  document.getElementById('btn-export-csv').addEventListener('click', exportCSV);
+  document.getElementById('btn-export-csv-top').addEventListener('click', exportCSV);
+  document.getElementById('btn-export-json').addEventListener('click', exportJSON);
+  document.getElementById('btn-import').addEventListener('click', () => document.getElementById('import-file').click());
+  document.getElementById('import-file').addEventListener('change', (e) => {
+    if (e.target.files[0]) importJSON(e.target.files[0]);
+    e.target.value = '';
+  });
+  document.getElementById('btn-reset').addEventListener('click', resetData);
+
+  // 点击说明/备注预览（委托：cell-clamp 点击展开详情弹层）
+  const openPreview = (cell) => {
+    if (!cell || !cell.title) return;
+    const container = cell.closest('tr') || cell.closest('.m-card');
+    let recName = '';
+    let recMeta = '';
+    if (container && container.dataset.id) {
+      const rec = currentList().find(r => r.id === parseInt(container.dataset.id));
+      if (rec) {
+        recName = rec.name || '';
+        recMeta = `序号 ${rec.id} · ${rec.category || '未分类'}`;
+      }
+    }
+    const field = cell.dataset.field || '详情';
+    const badge = document.getElementById('preview-badge');
+    badge.textContent = field;
+    badge.className = 'pv-badge ' + (field === '备注' ? '' : 'info');
+    document.getElementById('preview-title').textContent = recName || field + '详情';
+    document.getElementById('preview-sub').textContent = recMeta || '点击外部区域关闭';
+    document.getElementById('preview-content').textContent = cell.title;
+    document.getElementById('preview-meta').textContent = `全文 ${cell.title.length} 字`;
+    document.getElementById('modal-preview').showModal();
+  };
+  document.getElementById('table-body').addEventListener('click', (e) => openPreview(e.target.closest('.cell-clamp')));
+  document.getElementById('mobile-cards').addEventListener('click', (e) => openPreview(e.target.closest('.cell-clamp')));
+
+  // 预览弹层关闭
+  const pvModal = document.getElementById('modal-preview');
+  document.getElementById('preview-close').addEventListener('click', () => pvModal.close());
+  pvModal.addEventListener('click', (e) => {
+    // 用坐标判断点击在 dialog 矩形外（遮罩区域），而不是 e.target
+    const r = pvModal.getBoundingClientRect();
+    const inDialog = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+    if (!inDialog) pvModal.close();
+  });
+
+  // 键盘：Esc 关闭（原生 cancel 默认会关闭 dialog，无需干预）
+});
+
+function handleRowAction(e) {
+  const btn = e.target.closest('[data-act]');
+  if (!btn) return;
+  const id = parseInt(btn.dataset.id);
+  const list = currentList();
+  const rec = list.find(r => r.id === id);
+  if (!rec) return;
+  if (btn.dataset.act === 'edit') openForm(rec);
+  else if (btn.dataset.act === 'del') askDelete(rec);
+}
+</script>
+</body>
+</html>
