@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<title>第三部分 · 响应合规与格式 | 招投标学习手册</title>
+<style>
+  :root{
+    --bg:#0d0e12; --bg2:#14151c; --card:#1a1c24; --card2:#20232e;
+    --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+    --tx:#e6e7ea; --tx2:#a1a4ad; --tx3:#6e727c;
+    --blue:#85B7EB; --blue-f:#185FA5; --blue-d:#042C53;
+    --teal:#5DCAA5; --teal-f:#1D9E75; --teal-d:#085041;
+    --amber:#EF9F27; --amber-f:#BA7517; --amber-d:#633806;
+    --purple:#AFA9EC; --purple-f:#7F77DD; --purple-d:#3C3489;
+    --coral:#F0997B; --coral-f:#D85A30; --coral-d:#712B13;
+    --red:#F09595; --red-f:#A32D2D; --red-d:#791F1F;
+    --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+  #progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--amber),var(--coral),var(--red));width:0;z-index:100;transition:width .1s}
+  .wrap{display:flex;max-width:1280px;margin:0 auto}
+  #sidebar{width:260px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;padding:28px 18px 28px 28px;border-right:1px solid var(--line)}
+  #sidebar .brand{font-size:13px;color:var(--tx3);letter-spacing:.5px;margin-bottom:14px}
+  #sidebar .back{display:block;font-size:12.5px;color:var(--amber);text-decoration:none;padding:7px 12px;border-radius:8px;background:rgba(239,159,39,.08);border:1px solid rgba(239,159,39,.25);margin-bottom:16px;transition:.15s}
+  #sidebar .back:hover{background:var(--amber);color:#042C53}
+  #sidebar nav a{display:block;color:var(--tx2);text-decoration:none;font-size:13.5px;padding:7px 12px;border-radius:8px;margin-bottom:2px;border-left:2px solid transparent;transition:.15s}
+  #sidebar nav a:hover{background:var(--card);color:var(--tx)}
+  #sidebar nav a.active{background:var(--card2);color:#fff;border-left-color:var(--amber)}
+  #sidebar nav a.sub{padding-left:26px;font-size:12.5px;color:var(--tx3)}
+  #sidebar nav a.sub.active{border-left-color:var(--amber);color:var(--tx)}
+  .nav-group{font-size:11px;color:var(--tx3);text-transform:uppercase;letter-spacing:1px;margin:16px 0 6px 12px}
+  main{flex:1;min-width:0;padding:40px 48px 100px}
+  .doc-head{margin-bottom:30px}
+  .doc-head h1{font-size:30px;font-weight:600;letter-spacing:.5px;background:linear-gradient(120deg,#fff,#e6c9a8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .tag{font-size:12px;color:var(--tx2);background:var(--card);border:1px solid var(--line);padding:6px 12px;border-radius:20px}
+  .tag b{color:var(--amber)}
+  h2.chapter{font-size:22px;font-weight:600;margin:44px 0 8px;padding-bottom:12px;border-bottom:1px solid var(--line);color:#fff;scroll-margin-top:24px}
+  h2.chapter .num{color:var(--amber);font-weight:600;margin-right:8px}
+  h3.sect{font-size:18px;font-weight:600;margin:32px 0 4px;color:#fff;scroll-margin-top:24px}
+  h3.sect .dot{display:inline-block;width:8px;height:8px;border-radius:3px;margin-right:10px;vertical-align:middle}
+  p{margin:12px 0;color:var(--tx)}
+  .lead{color:var(--tx2);font-size:15px}
+  strong{color:#fff;font-weight:600}
+  .muted{color:var(--tx3);font-size:12.5px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:18px 0}
+  .wcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;position:relative;overflow:hidden}
+  .wcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c,#BA7517)}
+  .wcard h4{font-size:16.5px;font-weight:600;color:#fff;margin-bottom:2px}
+  .wcard .sub{font-size:12px;color:var(--ct,var(--amber));margin-bottom:12px}
+  .wcard .lab{font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--ct,var(--amber));margin-bottom:6px}
+  .wcard ul{list-style:none;margin:0;padding:0}
+  .wcard li{font-size:13.5px;color:var(--tx);padding:6px 0 6px 20px;position:relative;border-top:1px solid var(--line)}
+  .wcard li:first-child{border-top:none}
+  .wcard li::before{content:"›";position:absolute;left:4px;color:var(--ct,var(--amber));font-weight:700}
+  .wcard li b{color:#fff}
+  .step{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:12px;padding:18px 22px;margin:16px 0}
+  .step .sn{font-size:12px;font-weight:600;color:var(--amber);letter-spacing:1px}
+  .step h4{font-size:17px;font-weight:600;color:#fff;margin:4px 0 10px}
+  .step ul{list-style:none;margin:8px 0 0;padding:0}
+  .step li{padding:4px 0 4px 18px;position:relative;color:var(--tx2);font-size:13.5px}
+  .step li::before{content:"•";position:absolute;left:2px;color:var(--amber)}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13.5px;background:var(--card);border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+  th{background:var(--card2);text-align:left;padding:12px 16px;font-weight:600;color:#fff;font-size:13px;border-bottom:1px solid var(--line2)}
+  td{padding:11px 16px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td b{color:var(--tx)}
+  .callout{background:rgba(239,159,39,.06);border:1px solid rgba(239,159,39,.25);border-radius:12px;padding:16px 20px;margin:18px 0;font-size:14px;color:var(--tx)}
+  .callout.danger{background:rgba(240,149,149,.06);border-color:rgba(240,149,149,.25)}
+  .callout.blue{background:rgba(133,183,235,.06);border-color:rgba(133,183,235,.25)}
+  #top{position:fixed;right:28px;bottom:28px;width:44px;height:44px;border-radius:50%;background:var(--card2);border:1px solid var(--line2);color:var(--tx);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.2s;z-index:90}
+  #top.show{opacity:1;pointer-events:auto}
+  #top:hover{background:var(--amber);color:#042C53}
+  #toggle{display:none}
+  @media(max-width:900px){
+    #sidebar{position:fixed;left:0;top:0;z-index:80;background:var(--bg2);transform:translateX(-100%);transition:.25s;width:240px}
+    #sidebar.open{transform:translateX(0)}
+    main{padding:24px 18px 80px}
+    .grid{grid-template-columns:1fr}
+    #toggle{display:flex;position:fixed;left:16px;top:14px;z-index:90;width:40px;height:40px;border-radius:10px;background:var(--card2);border:1px solid var(--line2);color:var(--tx);align-items:center;justify-content:center;font-size:20px;cursor:pointer}
+    .doc-head h1{font-size:24px}
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<button id="toggle">☰</button>
+
+<div class="wrap">
+  <aside id="sidebar">
+    <div class="brand">招投标学习手册 · 第三部分</div>
+    <a class="back" href="招投标学习手册.html">← 返回学习手册主页</a>
+    <nav id="nav">
+      <div class="nav-group">第三部分 · 响应合规与格式</div>
+      <a href="#s31" class="sub">3.1 暗标13条红线</a>
+      <a href="#s32" class="sub">3.2 实质性响应写法</a>
+      <a href="#s33" class="sub">3.3 签字盖章装订密封</a>
+      <a href="#s34" class="sub">3.4 格式翻车案例</a>
+      <div class="nav-group">学习路径</div>
+      <a href="#part3" class="sub">本部分定位</a>
+      <a href="招投标学习手册_第四部分_报价策略.html" class="sub">④ 报价策略 →</a>
+      <a href="招投标学习手册.html" class="sub">主页：①决策闸门</a>
+      <a href="招投标学习手册.html#part2" class="sub">主页：②吃透招标文件</a>
+    </nav>
+  </aside>
+
+  <main>
+    <header class="doc-head">
+      <h1>第三部分 · 响应合规与格式</h1>
+      <p class="lead">一条踩雷，全盘皆输 —— 暗标泄露公司名、盖章漏签、★号没响应，<strong>都是"写了就废"的格式坑</strong></p>
+      <div class="tags">
+        <span class="tag">优先级：<b>③ 响应合规与格式</b></span>
+        <span class="tag">定位：<b>合规入场·一票否决重灾区</b></span>
+        <span class="tag">标注：<b>✅依据 / 🔶实践惯例</b></span>
+      </div>
+    </header>
+
+    <div class="callout" id="part3">
+      <strong>本部分定位：</strong>投标工作优先级框架第③层。第①②层解决"该不该投、规则怎么读"，本层解决"<strong>怎么交才不被废</strong>"——技术/商务内容再漂亮，格式踩雷直接出局。核心三件事：<strong>暗标13条红线（身份不泄露）→ 实质性响应（★号不踩雷）→ 装订密封（程序零失误）</strong>。
+    </div>
+
+    <!-- 3.1 暗标13条 -->
+    <h2 class="chapter" id="s31"><span class="num">3.1</span>暗标13条红线 · 身份零泄露自查清单</h2>
+    <p class="lead">暗标 = 技术标隐去一切可识别身份信息，评委盲评打分。<strong>任一条红线踩中 = 直接废标</strong>，无自由裁量空间。</p>
+    <div class="callout danger"><strong>⚠️ 适用范围：</strong>以下13条是行业通行实践汇总（🔶，具体以本项目招标文件"暗标要求"章节为准）。招标文件怎么写，就按什么标准自查——它可能更严，不会更松。</div>
+    <div class="grid">
+      <div class="wcard" style="--c:var(--red-f);--ct:var(--red)"><div class="lab">红线 01-04 · 身份信息</div><ul>
+        <li><b>01 公司名称/简称/Logo</b>：正文、封面、页眉页脚均不得出现</li>
+        <li><b>02 人员信息</b>：项目负责人、技术负责人、任何人员姓名、证书编号</li>
+        <li><b>03 联系方式</b>：地址、电话、邮箱、网址、公众号</li>
+        <li><b>04 可识别痕迹</b>：照片、印章、签名、专属水印、特殊图案</li>
+      </ul></div>
+      <div class="wcard" style="--c:var(--red-f);--ct:var(--red)"><div class="lab">红线 05-09 · 版面格式</div><ul>
+        <li><b>05 字体字号</b>：全篇统一（正文常用宋体小四/仿宋，按文件约定）</li>
+        <li><b>06 行距段距</b>：全篇一致，不得差异化缩进暗示</li>
+        <li><b>07 页码</b>：连续统一，位置/格式一致</li>
+        <li><b>08 标记</b>：不得做任何符号、颜色、高亮、加粗等特殊标记</li>
+        <li><b>09 涂改粘贴</b>：不得涂改、刮擦、粘贴覆盖、夹带纸条</li>
+      </ul></div>
+      <div class="wcard" style="--c:var(--red-f);--ct:var(--red)"><div class="lab">红线 10-13 · 封装与电子</div><ul>
+        <li><b>10 封面统一</b>：暗标封面按招标文件统一格式，不写公司名</li>
+        <li><b>11 密封</b>：暗标密封袋/信封按文件要求，密封处不得署名</li>
+        <li><b>12 电子文档属性</b>：清除作者/创建者/公司信息（Word/PDF元数据）</li>
+        <li><b>13 超链接/嵌入</b>：不得含暴露身份的链接、嵌入对象、宏</li>
+      </ul></div>
+    </div>
+    <div class="callout danger"><strong>自查动作：</strong>① 技术标全文搜索公司名/人员名/电话/邮箱（Ctrl+F 逐个清）；② 检查页眉页脚、封面、目录；③ 检查文档属性（文件→信息→属性，清除作者与公司）；④ 导出 PDF 后再全文检索一遍——很多公司是"Word里删了、PDF里没更新"。</div>
+
+    <!-- 3.2 实质性响应 -->
+    <h2 class="chapter" id="s32"><span class="num">3.2</span>实质性响应写法 · ★号条款无偏离表</h2>
+    <p class="lead">实质性条款 = 不可偏离的"硬杠"（★号、黑体、"废标/无效投标"醒目标明）。<strong>任一负偏离/漏响应 = 直接否决</strong>。</p>
+    <div class="callout blue"><strong>法律依据（✅）：</strong>《招标投标法》第27条——投标文件应当对招标文件提出的实质性要求和条件作出响应；87号令第32条——未明确标注为实质性的内容，不得作为否决依据（即：标了★必须逐条响应）。</div>
+    <div class="step">
+      <div class="sn">标准写法 · 无偏离表</div>
+      <h4>逐条"完全响应 / 无偏离" + 佐证位置</h4>
+      <ul>
+        <li>把招标文件所有★号条款摘出，建"实质性条款响应表"</li>
+        <li>每条写"完全响应 / 无偏离"，并注明佐证材料所在页码/章节</li>
+        <li>技术偏离表一律写"无偏离"——绝不写"见检测报告""略低""基本满足"等模糊词</li>
+        <li>电子评标系统会做结构化比对：微小负偏离（如主频低0.1GHz、噪声高1dB）也可能被刚性否决</li>
+        <li>偏离表填"无偏离"但实际参数不满足 = 虚假响应（重大风险），必须在投标前逐项核对产品/方案真实参数</li>
+      </ul>
+    </div>
+    <div class="grid">
+      <div class="wcard" style="--c:var(--amber-f);--ct:var(--amber)"><div class="lab">★号条款四大类</div><ul>
+        <li><b>准入资格</b>：资质等级/财务状况/类似业绩/信用记录</li>
+        <li><b>标的核心</b>：核心技术参数/交付标准/验收等级</li>
+        <li><b>商务核心</b>：投标有效期/工期/质保期/付款条件/违约责任</li>
+        <li><b>程序合规</b>：签署/密封/保证金缴纳</li>
+      </ul></div>
+      <div class="wcard" style="--c:var(--amber-f);--ct:var(--amber)"><div class="lab">三条铁律</div><ul>
+        <li><b>铁律一</b>：★号无豁免口子，负偏离即否决（87号令第20条）</li>
+        <li><b>铁律二</b>：未标★的内容不得作否决依据（87号令第32条）——但别赌"没标★就不管"</li>
+        <li><b>铁律三</b>：响应表与正文要一致，正文参数必须真实达标</li>
+      </ul></div>
+    </div>
+
+    <!-- 3.3 装订密封 -->
+    <h2 class="chapter" id="s33"><span class="num">3.3</span>签字 · 盖章 · 装订 · 密封清单</h2>
+    <p class="lead">程序性动作最容易在最后关头翻车。<strong>以下为通行实务清单（🔶），以招标文件"投标文件编制要求"章节为准。</strong></p>
+    <div class="callout blue"><strong>法律依据（✅）：</strong>《招标投标法实施条例》第51条第（一）项——投标文件未经投标单位盖章和单位负责人签字的，评标委员会应当否决其投标。第36条——逾期送达或未按要求密封的，招标人应当拒收。</div>
+    <table>
+      <thead><tr><th>环节</th><th>检查项</th><th>翻车后果</th></tr></thead>
+      <tbody>
+        <tr><td><b>签字</b></td><td>法定代表人/授权代表签字、签署位置齐全；正副本均签</td><td>缺签→实施条例51条否决</td></tr>
+        <tr><td><b>盖章</b></td><td>单位公章/投标专用章按文件要求；骑缝章全册覆盖</td><td>漏章→否决；骑缝漏页→被质疑</td></tr>
+        <tr><td><b>装订</b></td><td>页码连续、目录与正文对应、不得活页/散页/夹带</td><td>散页→拒收风险</td></tr>
+        <tr><td><b>密封</b></td><td>正本/副本/电子U盘分开密封；封套按文件标注；密封处盖章</td><td>未密封→实施条例36条拒收</td></tr>
+        <tr><td><b>电子标</b></td><td>CA证书有效期、上传截止时间、文件格式（pdf/doxc）、大小限制</td><td>上传超时→0分；格式错→无法解密</td></tr>
+        <tr><td><b>保证金</b></td><td>金额/到账时间/基本户转出/保函格式（实施条例26条：上限估算价2%）</td><td>未到账→资格性检查不过</td></tr>
+      </tbody>
+    </table>
+    <div class="callout danger"><strong>提交前最后5分钟清单：</strong>签字✓ 盖章✓ 骑缝章✓ 密封✓ 保证金到账✓ 递交时间✓ 副本齐全✓ U盘/CA✓ —— 一项不过，前面所有努力清零。</div>
+
+    <!-- 3.4 案例 -->
+    <h2 class="chapter" id="s34"><span class="num">3.4</span>格式翻车高频案例 · 血的教训</h2>
+    <table>
+      <thead><tr><th>案例类型</th><th>翻车点</th><th>结果</th><th>预防</th></tr></thead>
+      <tbody>
+        <tr><td><b>暗标泄露公司名</b></td><td>技术标页眉带了公司缩写；PDF元数据作者为"XX有限公司"</td><td>废标</td><td>全文检索 + 清文档属性 + PDF后复检</td></tr>
+        <tr><td><b>★号漏响应</b></td><td>★条款表填了"见检测报告"未逐条写无偏离</td><td>废标</td><td>响应表逐条"完全响应"+佐证页码</td></tr>
+        <tr><td><b>盖章漏签</b></td><td>副本没盖骑缝章；法定代表人只签了正本</td><td>否决/被质疑</td><td>正副本同标准走"提交前清单"</td></tr>
+        <tr><td><b>密封不符</b></td><td>电子U盘没单独密封；封套未按文件标注</td><td>拒收</td><td>按文件"密封要求"逐项核对</td></tr>
+        <tr><td><b>电子标超时</b></td><td>上传在截止前2分钟开始，网络卡顿未传完</td><td>0分</td><td>提前2小时上传，截止前1小时复检</td></tr>
+        <tr><td><b>保证金到账晚</b></td><td>网银跨行转账，截止后到账（到账≠汇出）</td><td>资格性不过</td><td>提前1-2个工作日转账，核对基本户</td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><strong>本部分小结：</strong>格式合规 = 三个"零"——<strong>身份零泄露、响应零偏离、程序零失误</strong>。每一个都是"一票否决"级别，但每一个都能靠"清单化自查"防住。下一部分（报价策略）解决"报多少能赢还能赚"。</div>
+  </main>
+</div>
+
+<button id="top" title="回到顶部">↑</button>
+
+<script>
+  const prog=document.getElementById('progress');
+  const topBtn=document.getElementById('top');
+  const sidebar=document.getElementById('sidebar');
+  const toggle=document.getElementById('toggle');
+  function onScroll(){
+    const h=document.documentElement;
+    const sc=h.scrollTop, max=h.scrollHeight-h.clientHeight;
+    prog.style.width=(max>0?(sc/max*100):0)+'%';
+    topBtn.classList.toggle('show',sc>400);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  toggle.addEventListener('click',()=>sidebar.classList.toggle('open'));
+  const links=[...document.querySelectorAll('#nav a[href^="#"]')];
+  const map={};
+  links.forEach(a=>{const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el)map[id]={a,el};});
+  const targets=Object.values(map).map(o=>o.el);
+  const spy=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const id=e.target.id;
+        links.forEach(l=>l.classList.remove('active'));
+        if(map[id])map[id].a.classList.add('active');
+      }
+    });
+  },{rootMargin:'-10% 0px -75% 0px',threshold:0});
+  targets.forEach(t=>spy.observe(t));
+  links.forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=900)sidebar.classList.remove('open');}));
+</script>
+</body>
+</html>
