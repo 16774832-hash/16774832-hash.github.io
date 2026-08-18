@@ -1179,11 +1179,11 @@
   // ---- 展示区渲染 ----
   function renderPanels(){
     var grids={sectors:'clg-sectors',objects:'clg-objects',methods:'clg-methods',attrs:'clg-attrs',deliveries:'clg-deliveries',th:'clg-th'};
-    $('clg-sectors').innerHTML=CLS.sectors.map(function(s){return '<div class="cl-item" data-sector="'+s.c+'"><div class="nm">'+s.n+'</div><div class="ds">归口：'+s.r+'</div><div class="lk">'+s.c+'</div><span class="bdg">已适配</span></div>'}).join('');
-    $('clg-objects').innerHTML=CLS.objects.map(function(o){return '<div class="cl-item" data-object="'+o.c+'"><div class="nm">'+o.n+'</div><div class="ds">'+o.d+'</div><div class="lk">'+o.c+'</div><span class="bdg">已适配</span></div>'}).join('');
-    $('clg-methods').innerHTML=CLS.methods.map(function(m){return '<div class="cl-item" data-method="'+m.c+'"><div class="nm">'+m.n+'</div><div class="ds">'+m.e+'</div><div class="lk">'+m.l+'</div><span class="bdg">已适配</span></div>'}).join('');
-    $('clg-attrs').innerHTML=CLS.attrs.map(function(a){return '<div class="cl-item" data-attr="'+a.c+'"><div class="nm">'+a.n+'</div><div class="ds">适用：'+a.l+'</div><div class="lk">'+a.c+'</div><span class="bdg">已适配</span></div>'}).join('');
-    $('clg-deliveries').innerHTML=CLS.deliveries.map(function(d){return '<div class="cl-item" data-delivery="'+d.c+'"><div class="nm">'+d.n+'</div><div class="ds">'+d.d+'</div><div class="lk">'+d.c+'</div><span class="bdg">已适配</span></div>'}).join('');
+    $('clg-sectors').innerHTML=CLS.sectors.map(function(s){return '<div class="cl-item" data-sector="'+s.c+'"><div class="nm">'+s.n+'</div><div class="ds">归口：'+s.r+'</div><span class="bdg">已适配</span></div>'}).join('');
+    $('clg-objects').innerHTML=CLS.objects.map(function(o){return '<div class="cl-item" data-object="'+o.c+'"><div class="nm">'+o.n+'</div><div class="ds">'+o.d+'</div><span class="bdg">已适配</span></div>'}).join('');
+    $('clg-methods').innerHTML=CLS.methods.map(function(m){return '<div class="cl-item" data-method="'+m.c+'"><div class="nm">'+m.n+'</div><div class="ds">'+m.e+'</div><span class="bdg">已适配</span></div>'}).join('');
+    $('clg-attrs').innerHTML=CLS.attrs.map(function(a){return '<div class="cl-item" data-attr="'+a.c+'"><div class="nm">'+a.n+'</div><div class="ds">适用：'+a.l+'</div><span class="bdg">已适配</span></div>'}).join('');
+    $('clg-deliveries').innerHTML=CLS.deliveries.map(function(d){return '<div class="cl-item" data-delivery="'+d.c+'"><div class="nm">'+d.n+'</div><div class="ds">'+d.d+'</div><span class="bdg">已适配</span></div>'}).join('');
     $('clg-th').innerHTML=CLS.th.map(function(t){return '<div class="cl-item"><div class="nm">'+t.t+'</div><div class="ds">'+t.v+'</div><div class="lk">'+t.l+'</div></div>'}).join('');
     // 行业 chips
     $('clIndustry').innerHTML=CLS.sectors.map(function(s){return '<button class="cl-chip" data-v="'+s.c+'">'+s.n+'</button>'}).join('');
