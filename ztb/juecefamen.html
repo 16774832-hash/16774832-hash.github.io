@@ -117,6 +117,66 @@
   #top.show{opacity:1;pointer-events:auto}
   #top:hover{background:var(--teal);color:#042C53}
 
+  /* ============ 招标项目分类 · 工具箱 ============ */
+  .cl-note{font-size:13.5px;color:var(--tx2);margin:14px 0}
+  .cl-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 14px}
+  .cl-tab{font-size:13px;color:var(--tx2);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:6px 14px;cursor:pointer;transition:.15s;user-select:none}
+  .cl-tab:hover{color:var(--tx);border-color:var(--line2)}
+  .cl-tab.active{background:var(--teal);color:#042C53;border-color:var(--teal);font-weight:600}
+  .cl-panel{display:none}
+  .cl-panel.active{display:block;animation:clfade .25s ease}
+  @keyframes clfade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .cl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+  .cl-item{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;transition:.2s}
+  .cl-item .nm{font-size:14.5px;font-weight:600;color:#fff}
+  .cl-item .ds{font-size:12px;color:var(--tx3);margin-top:3px;line-height:1.5}
+  .cl-item .lk{font-size:11px;color:var(--tx3);margin-top:6px;letter-spacing:.3px}
+  .cl-item .bdg{position:absolute;top:10px;right:10px;font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(93,202,165,.15);color:var(--teal);opacity:0;transition:.2s}
+  .cl-item.matched{border-color:var(--teal);background:linear-gradient(180deg,rgba(93,202,165,.08),var(--card))}
+  .cl-item.matched .bdg{opacity:1}
+  .cl-item.matched .nm::after{content:"✓";color:var(--teal);margin-left:6px;font-size:12px}
+  .cl-item.dim{opacity:.32;filter:saturate(.4)}
+  .cl-work{display:grid;grid-template-columns:400px 1fr;gap:20px;margin-top:20px}
+  .cl-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .cl-card>h4{font-size:15px;color:#fff;margin-bottom:4px}
+  .cl-card .sub2{font-size:12px;color:var(--tx3);margin-bottom:14px}
+  .cl-fs{border:none;border-top:1px solid var(--line);padding:12px 0 4px;margin:0}
+  .cl-fs legend{font-size:12px;font-weight:600;color:var(--teal);letter-spacing:.5px;padding:0 8px 0 0}
+  .cl-chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 2px}
+  .cl-chip{font-size:12.5px;color:var(--tx2);background:var(--card2);border:1px solid var(--line);border-radius:8px;padding:5px 12px;cursor:pointer;transition:.15s;user-select:none}
+  .cl-chip:hover{color:var(--tx);border-color:var(--line2)}
+  .cl-chip.on{background:rgba(93,202,165,.14);border-color:var(--teal);color:var(--teal);font-weight:600}
+  .cl-input{width:100%;background:var(--bg2);border:1px solid var(--line2);border-radius:10px;color:var(--tx);font-size:13.5px;padding:10px 14px;outline:none;font-family:var(--sans);transition:.15s}
+  .cl-input:focus{border-color:var(--teal)}
+  .cl-input::placeholder{color:var(--tx3)}
+  .cl-actions{display:flex;gap:10px;margin-top:14px}
+  .cl-btn{font-size:13px;padding:8px 18px;border-radius:10px;border:1px solid var(--line2);background:var(--card2);color:var(--tx2);cursor:pointer;transition:.15s}
+  .cl-btn:hover{color:var(--tx);border-color:var(--teal)}
+  .cl-btn.primary{background:var(--teal);border-color:var(--teal);color:#042C53;font-weight:600}
+  .cl-btn.primary:hover{opacity:.9}
+  .cl-summary{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .cl-schip{font-size:11.5px;background:rgba(133,183,235,.12);color:var(--blue);border:1px solid rgba(133,183,235,.25);border-radius:12px;padding:3px 10px}
+  .cl-schip b{color:#fff;font-weight:600;cursor:pointer}
+  .cl-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px dashed var(--line2);border-radius:14px;padding:46px 24px;color:var(--tx3);font-size:14px}
+  .cl-empty .big{font-size:30px;margin-bottom:10px}
+  .cl-recs{display:flex;flex-direction:column;gap:12px}
+  .cl-rec{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;border-left:4px solid var(--teal);transition:.2s}
+  .cl-rec:hover{border-color:var(--line2)}
+  .cl-rec .rh{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .cl-rec .rt{font-size:16px;font-weight:600;color:#fff}
+  .cl-rec .rt .so{color:var(--teal)}
+  .cl-rec .rt .sn{color:var(--tx2);font-size:13px;font-weight:400;margin-left:8px}
+  .cl-rec .mh{display:flex;align-items:center;gap:8px}
+  .cl-rec .ms{font-size:12px;font-weight:700;color:var(--teal)}
+  .cl-rec .mbar{width:74px;height:6px;border-radius:3px;background:var(--card2);overflow:hidden}
+  .cl-rec .mbar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--amber));border-radius:3px;transition:width .4s ease}
+  .cl-rec .rm{font-size:12.5px;color:var(--tx2);margin:8px 0 10px;line-height:1.7}
+  .cl-rec .rb{display:flex;flex-wrap:wrap;gap:6px}
+  .cl-reason{font-size:11.5px;background:var(--card2);border:1px solid var(--line);color:var(--tx2);border-radius:10px;padding:3px 10px}
+  .cl-reason b{color:var(--teal);font-weight:600}
+  @media(max-width:1100px){.cl-work{grid-template-columns:1fr}}
+  @media(max-width:640px){.cl-grid{grid-template-columns:1fr 1fr}}
+
   /* mobile toggle */
   #toggle{display:none}
   @media(max-width:900px){
@@ -139,26 +199,28 @@
   <aside id="sidebar">
     <div class="brand">投标助手 · 决策闸门层</div>
     <nav id="nav">
+      <a href="#roadmap">📚 知识库学习路径</a>
       <a href="#preface">前言 · 分类是投标第一课</a>
-      <div class="nav-group">第一章 采购方式</div>
-      <a href="#w1" class="sub">1.1 公开招标</a>
-      <a href="#w2" class="sub">1.2 邀请招标</a>
-      <a href="#w3" class="sub">1.3 竞争性磋商</a>
-      <a href="#w4" class="sub">1.4 竞争性谈判</a>
-      <a href="#w5" class="sub">1.5 询价</a>
-      <a href="#w6" class="sub">1.6 单一来源</a>
-      <div class="nav-group">第二章 行业专属坑</div>
-      <a href="#i1" class="sub">2.1 工程招标</a>
-      <a href="#i2" class="sub">2.2 货物招标</a>
-      <a href="#i3" class="sub">2.3 服务招标</a>
-      <a href="#i4" class="sub">2.4 政府采购</a>
-      <a href="#i5" class="sub">2.5 EPC / PPP</a>
-      <div class="nav-group">第三章 决策前哨</div>
-      <a href="#s1" class="sub">定方式</a>
-      <a href="#s2" class="sub">定行业</a>
-      <a href="#s3" class="sub">查废标</a>
-      <a href="#s4" class="sub">算匹配度</a>
-      <a href="#appendix">附录 A / B</a>
+      <div class="nav-group">第一部分 · 决策闸门层</div>
+      <a href="#ch1" class="sub">采购方式六大门派</a>
+      <a href="#ch2" class="sub">五大行业专属坑</a>
+      <a href="#ch3" class="sub">决策前哨四步</a>
+      <a href="#kongbiao" class="sub">控标识别实战</a>
+      <a href="#shangji" class="sub">商机价值判断</a>
+      <a href="#mingan" class="sub">评标明暗双轨</a>
+      <a href="#classify" class="sub">🧰 招标项目分类工具箱</a>
+      <a href="#appendix" class="sub">附录 A / B</a>
+      <div class="nav-group">第二部分 · 吃透招标文件 ✅</div>
+      <a href="#part2" class="sub">章节总览</a>
+      <a href="#pf-read" class="sub">前附表精读</a>
+      <a href="#pf-score" class="sub">评标办法拆解</a>
+      <a href="#pf-sub" class="sub">实质性条款锁定</a>
+      <a href="#pf-hidden" class="sub">隐性坑族谱</a>
+      <div class="nav-group">第三至六部分 · 待建</div>
+      <a href="#p3" class="sub">③ 响应合规与格式</a>
+      <a href="#p4" class="sub">④ 报价策略</a>
+      <a href="#p5" class="sub">⑤ 方案编制</a>
+      <a href="#p6" class="sub">⑥ 流程时效与履约兜底</a>
     </nav>
   </aside>
 
@@ -174,9 +236,80 @@
       </div>
     </header>
 
+    <!-- ROADMAP -->
+    <section id="roadmap">
+      <h2 class="chapter"><span class="num">知识库</span>学习路径 · 6部分渐进掌握</h2>
+      <p class="lead">投标知识体系按"决策优先级"拆成6个部分，从最致命的<strong>决策闸门</strong>到最末端的<strong>履约兜底</strong>。每学完一部分，本页就累积一章——最终长成可检索的投标知识库。</p>
+      <div class="grid">
+        <article class="wcard" id="p1" style="--c:var(--teal-f);--ct:var(--teal)">
+          <h4>① 决策闸门 · 该不该投</h4>
+          <div class="sub">✅ 本期已建 · 本页主体</div>
+          <div class="block"><div class="lab">包含</div><ul>
+            <li>两条轴定位法（分类第一课）</li>
+            <li>采购方式六大门派 + 五大行业专属坑</li>
+            <li>决策前哨四步（定方式/定行业/查废标/算匹配度）</li>
+            <li>控标识别实战 + 商机价值判断（本期新增）</li>
+          </ul></div>
+          <div class="strat"><div class="lab" style="color:var(--teal)">核心</div>先刹车：别在该投不能投的标上浪费子弹</div>
+        </article>
+        <article class="wcard" id="p2" style="--c:var(--blue-f);--ct:var(--blue)">
+          <h4>② 吃透招标文件</h4>
+          <div class="sub">✅ 已建 · 本页新增章节</div>
+          <div class="block"><div class="lab">包含</div><ul>
+            <li>投标人须知前附表精读（总纲地图）</li>
+            <li>评标办法拆解（综合法/最低价法 + 价格分公式）</li>
+            <li>实质性条款（★号）锁定</li>
+            <li>隐性坑族谱（模糊表述/软壁垒）</li>
+          </ul></div>
+          <div class="strat"><div class="lab" style="color:var(--blue)">核心</div>读懂规则：分怎么算，力气才使对地方</div>
+        </article>
+        <article class="wcard" id="p3" style="--c:var(--amber-f);--ct:var(--amber)">
+          <h4>③ 响应合规与格式</h4>
+          <div class="sub">🔲 待建</div>
+          <div class="block"><div class="lab">将包含</div><ul>
+            <li>暗标13条红线逐条自查</li>
+            <li>实质性响应写法（无偏离表）</li>
+            <li>签字/盖章/装订/密封清单</li>
+            <li>格式翻车一票否决案例</li>
+          </ul></div>
+        </article>
+        <article class="wcard" id="p4" style="--c:var(--amber-f);--ct:var(--amber)">
+          <h4>④ 报价策略</h4>
+          <div class="sub">🔲 待建</div>
+          <div class="block"><div class="lab">将包含</div><ul>
+            <li>最高限价测算与拆解</li>
+            <li>价格分反推最优报价区间</li>
+            <li>成本底线与低价警戒</li>
+            <li>磋商/谈判报价节奏</li>
+          </ul></div>
+        </article>
+        <article class="wcard" id="p5" style="--c:var(--blue-f);--ct:var(--blue)">
+          <h4>⑤ 方案编制</h4>
+          <div class="sub">🔲 待建</div>
+          <div class="block"><div class="lab">将包含</div><ul>
+            <li>技术方案差异化得分点</li>
+            <li>人员证书矩阵凑满分</li>
+            <li>业绩组织与佐证链</li>
+            <li>千篇一律低分避坑</li>
+          </ul></div>
+        </article>
+        <article class="wcard" id="p6" style="--c:var(--coral-f);--ct:var(--coral)">
+          <h4>⑥ 流程时效与履约兜底</h4>
+          <div class="sub">🔲 待建</div>
+          <div class="block"><div class="lab">将包含</div><ul>
+            <li>CA数字证书/电子标操作</li>
+            <li>质疑与投诉时效</li>
+            <li>中标后履约兜底评估</li>
+            <li>违约罚则与风险分担</li>
+          </ul></div>
+        </article>
+      </div>
+    </section>
+
     <!-- PREFACE -->
     <section id="preface">
       <h2 class="chapter"><span class="num">前言</span>为什么"分类"是投标第一课</h2>
+      <div class="callout">本手册即<strong>【第一部分：决策闸门层】</strong>。投标助手把投标工作拆成6个优先级部分（见上方学习路径），第一部分最致命也最优先——拿标书先回答"该不该投"，再谈怎么写。下方<strong>采购方式 + 行业坑 + 决策前哨四步</strong>是第一部分骨架，本期另新增<strong>控标识别实战</strong>与<strong>商机价值判断</strong>两章。</div>
       <p class="lead">投标最常见的失误不是"标书写得差"，而是<strong>搞错战场</strong>——把货物标的逻辑套到服务标上，把公开招标的策略用到竞争性磋商里，把政府采购的政策红线当工程标处理。</p>
       <h3 class="sect"><span class="dot" style="background:var(--teal)"></span>核心方法论：两条轴定位法</h3>
       <div class="axis-box">                ┌─────────────────────────────────────┐
@@ -211,7 +344,7 @@
           <div class="lab">死亡陷阱</div>
           <ul>
             <li><b>实质性条款漏响应即废标</b>（第一大废标原因）</li>
-            <li><b>投标保证金截止前未到账</b>（到账≠汇出）</li>
+            <li><b>投标保证金截止前未到账</b>（到账≠汇出；上限为估算价2%、须基本账户转出——实施条例第26条）</li>
             <li><b>投标文件递交超时</b>（差一分钟即废）</li>
             <li><b>资格后审不过</b>（证书/业绩/社保）</li>
             <li><b>围标串标认定</b>（IP/MAC/报价规律）</li>
@@ -377,13 +510,13 @@
       <div class="hd"><h4>2.1 工程招标</h4><span class="range">施工 / 勘察 / 设计 / 监理 / 工程总承包</span></div>
       <div class="body">
         <div class="row"><div class="t">围标串标认定</div><div class="d"><ul>
-          <li>电子标：IP/MAC/CPU序列号/硬盘序列号重合 → 直接认定</li>
+          <li>电子标：IP/MAC/CPU序列号/硬盘序列号重合 → 属于"投标文件由同一单位或个人编制"情形（实施条例第40条），由评标委员会/监管部门结合认定</li>
           <li>文件痕迹：创建人/修改人/保存人一致 → 嫌疑</li>
           <li>报价规律性：等差/等比数列 → 嫌疑</li>
           <li>文件内容雷同：方案/错误表述一致 → 认定</li>
         </ul></div></div>
         <div class="row"><div class="t">项目经理锁定</div><div class="d"><ul>
-          <li>一造一建不能同时挂多个在建项目</li>
+          <li>注册建造师不得同时在两个及以上项目任项目负责人（注册建造师管理规定第21条；三种除外情形见执业管理办法第9条）</li>
           <li>社保连续缴纳（通常6个月以上）</li>
           <li>证书有效且注册单位与投标人一致</li>
           <li>中标后不得更换（更换需建设单位同意）</li>
@@ -394,7 +527,7 @@
           <li>时间范围通常近3-5年</li>
           <li>部分项目要求业绩项目经理与本次一致</li>
         </ul></div></div>
-        <div class="row"><div class="t">履约保证金</div><div class="d">比例 ≤ 中标合同金额10%；方式：银行保函/担保保函/现金；退还：验收合格后28天内</div></div>
+        <div class="row"><div class="t">履约保证金</div><div class="d">比例 ≤ 中标合同金额10%（实施条例第58条）；方式：银行保函/担保保函/现金；退还时限以合同/招标文件约定为准（"验收合格后28天内"为常见约定，非统一法条）</div></div>
         <div class="row"><div class="t">农民工工资保证金</div><div class="d">工程类强制；单独账户、专款专用；未存储影响开工</div></div>
       </div>
       <div class="stratbox"><div class="lab">应对策略</div><ul class="wcard" style="list-style:none;margin:0;padding:0">
@@ -466,14 +599,14 @@
       <div class="hd"><h4>2.4 政府采购</h4><span class="range">各级国家机关 / 事业单位 / 团体组织 · 财政性资金</span></div>
       <div class="body">
         <div class="row"><div class="t">中小企业声明函</div><div class="d"><ul>
-          <li>强制提交（所有政采项目）</li>
-          <li>价格扣除：小微6-10%（工程5-6%）</li>
-          <li>联合体：大中型+小微，2-3%扣除</li>
-          <li>造假 → 进黑名单</li>
+          <li>强制提交（财库〔2020〕46号第11条；声明函为唯一身份证明文件）</li>
+          <li>价格扣除：货物/服务小微 <b>10%-20%</b>（财库〔2022〕19号）；工程项目 <b>3%-5%</b>（财库〔2020〕46号）</li>
+          <li>联合体/分包：货物服务 <b>4%-6%</b>（19号文）；工程 1%-2%</li>
+          <li>造假 = 提供虚假材料谋取中标（46号文第20条 / 政采法第77条）→ 处罚+列入不良行为名单</li>
         </ul></div></div>
         <div class="row"><div class="t">进口产品审批</div><div class="d">原则采国货；确需进口：财政部审批+专家论证+公示；关境外生产算进口；中外合资不算</div></div>
-        <div class="row"><div class="t">节能产品清单</div><div class="d">强制清单：须采购清单内产品；优先清单：节能/环保/节水优先；半年更新；投标前核对版本</div></div>
-        <div class="row"><div class="t">信用中国查询</div><div class="d">不得为失信被执行人/重大税收违法/政采严重违法失信；查询投标截止日前3年内</div></div>
+        <div class="row"><div class="t">节能产品清单</div><div class="d">强制/优先采购按"节能产品政府采购品目清单"执行（财库〔2019〕9号 + 19号，★号品目强制）；凭有效期内的节能产品认证证书；品目清单动态调整，投标前核对现行版本</div></div>
+        <div class="row"><div class="t">信用中国查询</div><div class="d">不得为失信被执行人/重大税收违法/政采严重违法失信（财库〔2016〕125号，投标截止时点查询）；资格条件要求投标前3年内无重大违法记录（政采法第22条，定义见实施条例第19条）；失信名单公布期一般3年（财办库〔2014〕526号）</div></div>
         <div class="row"><div class="t">政策功能</div><div class="d">监狱企业/残疾人单位视同小微；支持脱贫农副产品；创新产品首购订购</div></div>
       </div>
       <div class="stratbox"><div class="lab">应对策略</div><ul style="list-style:none;margin:0;padding:0">
@@ -574,6 +707,127 @@
       </div>
     </div>
 
+    <!-- 第一部分补充：控标识别 + 商机价值判断 -->
+    <h2 class="chapter" id="kongbiao"><span class="num">第一部分补充</span>控标识别实战 · 识破"萝卜招标"</h2>
+    <p class="lead">控标（业内称"萝卜招标"）指招标人通过文件设计让特定投标人中标。这是<strong>决策闸门最隐蔽的坑</strong>：表面合规，实质已内定。投标助手的核心能力之一，就是在投之前识别它——你是去竞争，还是去陪标。</p>
+
+    <div class="step" style="border-left-color:var(--red)">
+      <div class="sn" style="color:var(--red)">形态一</div>
+      <h4>需求源头预埋</h4>
+      <ul>
+        <li>操作端口前移至<strong>立项/需求调研阶段</strong>，招标人与意向企业提前串通</li>
+        <li>把企业独有技术、专属业绩、定制服务标准直接纳入采购需求</li>
+        <li>后续招标仅走流程，从源头锁定中标对象</li>
+        <li>例：安全负责人加分条件仅指向本地少数企业；要求不存在的市级科技奖项</li>
+      </ul>
+    </div>
+
+    <div class="step" style="border-left-color:var(--red)">
+      <div class="sn" style="color:var(--red)">形态二</div>
+      <h4>招标文件伪装（隐性设限）</h4>
+      <ul>
+        <li><strong>非标参数模糊化</strong>：改用"具有某专利技术""近3年3项单项超5000万业绩"等非标准要求，仅意向企业满足</li>
+        <li><strong>资质奖项冗余化</strong>：叠加无关资质（如普通货物要求ISO 50001能源体系）、本地化服务要求（本地办公满5年）</li>
+        <li><strong>标段拆分刻意化</strong>：合并为亿元级"巨无霸"排除中小企业，或拆分仅本地企业可承接</li>
+      </ul>
+    </div>
+
+    <div class="step" style="border-left-color:var(--red)">
+      <div class="sn" style="color:var(--red)">形态三</div>
+      <h4>评审规则倾斜</h4>
+      <ul>
+        <li><strong>评分权重失衡</strong>：把权重压向意向企业优势项</li>
+        <li><strong>倾向性评分细则</strong>：模糊主观分项、特殊加分项</li>
+        <li><strong>操控评标专家</strong>：人情分、关系分</li>
+      </ul>
+    </div>
+
+    <h3 class="sect"><span class="dot" style="background:var(--red)"></span>识别信号清单（红旗）</h3>
+    <table>
+      <thead><tr><th>信号</th><th>表现</th><th>合规边界</th></tr></thead>
+      <tbody>
+        <tr><td><b>参数指向单一品牌</b></td><td>特定型号/专利，缺"或同等品质"软化</td><td>政府采购法实施条例第二十条禁止</td></tr>
+        <tr><td><b>业绩门槛过窄</b></td><td>金额/时间/范围无依据且极窄</td><td>应具合理性、不排斥潜在投标人</td></tr>
+        <tr><td><b>资质与需求错配</b></td><td>过低（形同虚设）或过高（量身）</td><td>应与项目实际需要相适应</td></tr>
+        <tr><td><b>本地化硬要求</b></td><td>本地办公场所、本地业绩年限</td><td>无正当理由限制外地企业违法</td></tr>
+        <tr><td><b>非权威认证/奖项加分</b></td><td>特定非权威诚信认证、虚构奖项</td><td>不得作为排斥性条件</td></tr>
+        <tr><td><b>权重异常</b></td><td>主观分项占比畸高、指向性打分</td><td>权重应反映项目核心需求</td></tr>
+      </tbody>
+    </table>
+    <div class="callout danger"><strong>应对：</strong>拿标书先做"控标体检"——发现2条以上红旗即可判定高风险。依据《政府采购法实施条例》第二十条提<strong>质疑/投诉</strong>，留存证据链；若非意向方且无破解空间，<strong>建议放弃</strong>，避免烧钱陪标。</div>
+
+    <h2 class="chapter" id="shangji"><span class="num">第一部分补充</span>商机价值判断 · 值不值得投</h2>
+    <p class="lead">决策闸门不仅要判"能不能投"（合规匹配），还要判"值不值得投"（商业价值）。销售侧（S1-S5）的核心动作——把每个商机分成四维度打分，再进决策矩阵。</p>
+
+    <div class="grid">
+      <article class="wcard" style="--c:var(--teal-f);--ct:var(--teal)">
+        <h4>中标概率</h4>
+        <div class="block"><ul>
+          <li>匹配度（资质/业绩/人员）是否够硬</li>
+          <li>竞争烈度：几家、是否控标</li>
+          <li>是否有定向关系优势</li>
+        </ul></div>
+      </article>
+      <article class="wcard" style="--c:var(--amber-f);--ct:var(--amber)">
+        <h4>利润空间</h4>
+        <div class="block"><ul>
+          <li>限价 vs 成本底线的差额</li>
+          <li>价格分机制下的最优报价区</li>
+          <li>是否存在低价废标/亏本风险</li>
+        </ul></div>
+      </article>
+      <article class="wcard" style="--c:var(--blue-f);--ct:var(--blue)">
+        <h4>战略价值</h4>
+        <div class="block"><ul>
+          <li>进入新行业/新客户/标杆案例</li>
+          <li>后续运维、运营收入</li>
+          <li>品牌背书与复购可能</li>
+        </ul></div>
+      </article>
+      <article class="wcard" style="--c:var(--coral-f);--ct:var(--coral)">
+        <h4>资源投入</h4>
+        <div class="block"><ul>
+          <li>编标成本（人员工时）</li>
+          <li>机会成本（放弃其他标）</li>
+          <li>保证金/履约资金占用</li>
+        </ul></div>
+      </article>
+    </div>
+
+    <h3 class="sect"><span class="dot" style="background:var(--teal)"></span>决策矩阵</h3>
+    <table>
+      <thead><tr><th>概率＼利润</th><th>高利润</th><th>低利润</th></tr></thead>
+      <tbody>
+        <tr><td><b>高概率</b></td><td>必投（黄金标）</td><td>评估战略值，无战略价值则谨慎</td></tr>
+        <tr><td><b>低概率</b></td><td>评估翻盘点（如控标可破/关系可补）</td><td>放弃（赔本陪标）</td></tr>
+      </tbody>
+    </table>
+    <div class="callout danger"><strong>红灯信号（直接放弃或极度谨慎）：</strong>明显控标且非意向方 ｜ 限价低于成本底线 ｜ 资质/业绩硬缺口无法补齐 ｜ 保证金或履约风险过高 ｜ 投标有效期/交付期无法满足。</div>
+
+    <h3 class="sect"><span class="dot" style="background:var(--red)"></span>高频废标6条速记卡</h3>
+    <div class="callout danger">
+      <strong>① 报价超最高限价</strong> → 直接废 ｜ <strong>② 投标保证金未按时到账/承诺书格式错</strong> → 废 ｜ <strong>③ 暗标格式违规</strong>（13条红线任一）→ 废 ｜ <strong>④ 必备承诺书缺失</strong>（如涉黑涉恶承诺书）→ 按无效投标 ｜ <strong>⑤ 投标有效期不足</strong>（如不足90天）→ 废 ｜ <strong>⑥ 实质性条款（★号/黑体）未响应</strong> → 废。
+    </div>
+
+    <h3 class="sect" id="mingan"><span class="dot" style="background:var(--amber)"></span>评标明暗双轨 · 明标 vs 暗标（概念卡）</h3>
+    <p class="lead">新手常把两件事混为一谈：<strong>"投标人身份要不要公开"</strong> 与 <strong>"评标时评委看不看得到你"</strong>。前者是法律铁律，后者才是"明暗标"的本意——别搅在一起。</p>
+    <table>
+      <thead><tr><th>对比维度</th><th>明标</th><th>暗标</th></tr></thead>
+      <tbody>
+        <tr><td><b>评委能否识别投标人</b></td><td>能——名称 / Logo / 签章齐全，一眼认得</td><td>不能——技术标隐去一切标识，盲评打分</td></tr>
+        <tr><td><b>主要适用位置</b></td><td>商务标、资格审查、报价——几乎全是明标</td><td>技术标 / 施工组织设计</td></tr>
+        <tr><td><b>设置目的</b></td><td>常规评审流程</td><td>防人情分、防评委主观偏向</td></tr>
+        <tr><td><b>你的最大风险</b></td><td>—</td><td>暗标13条红线，任一标识泄露即废标（见第三部分）</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <strong>① 身份层（法定，无明暗可选）：</strong>投标人身份必须真实、明确、且是本人。开标须"唱标"、中标须公示，全程透明。冒名投标、借用资质（A公司投标B公司出场）= 弄虚作假 / 围标串标，直接违法。
+    </div>
+    <div class="callout">
+      <strong>② 评标层（这才是"明暗"所指）：</strong>技术标可以"暗"着评（防偏袒），但商务标永远"明"着来。<b>不是"投暗标就能隐身去投标"，而是你光明正大投、技术内容被盲评。</b>
+    </div>
+    <p class="muted">⚠️ 速记卡第③条"暗标格式违规"正是踩在评标层红线——身份全对、方案也对，仅因技术标页眉漏了个公司名，照样出局。第三部分「响应合规与格式」将展开暗标13条红线。</p>
+
     <!-- APPENDIX -->
     <h2 class="chapter" id="appendix"><span class="num">附录</span>A / B</h2>
 
@@ -581,13 +835,13 @@
     <table>
       <thead><tr><th>废标类型</th><th>具体情形</th><th>法律依据</th></tr></thead>
       <tbody>
-        <tr><td><b>资格不符</b></td><td>资质证书过期/不符/造假</td><td>实施条例第36条</td></tr>
+        <tr><td><b>资格不符</b></td><td>资质证书过期/不符/造假</td><td>实施条例第51条第（三）项</td></tr>
         <tr><td><b>业绩不符</b></td><td>数量/金额/类型/时间不符</td><td>招标文件资格要求</td></tr>
         <tr><td><b>人员不符</b></td><td>项目经理有在建/证书不符/社保不连续</td><td>招标文件人员要求</td></tr>
         <tr><td><b>实质性条款未响应</b></td><td>★号条款未响应/负偏离</td><td>招投标法第27条</td></tr>
-        <tr><td><b>保证金未到账</b></td><td>金额不足/到账超时/账户错误</td><td>投标保证金条款</td></tr>
-        <tr><td><b>文件递交超时</b></td><td>送达超时/上传超时</td><td>招投标法第34条</td></tr>
-        <tr><td><b>围标串标</b></td><td>IP/MAC重合/痕迹一致/报价规律</td><td>招投标法第53条</td></tr>
+        <tr><td><b>保证金未到账</b></td><td>金额不足/到账超时/账户错误</td><td>招标文件保证金条款（实施条例第26条：上限估算价2%）</td></tr>
+        <tr><td><b>文件递交超时</b></td><td>送达超时/上传超时</td><td>招投标法第28条 / 实施条例第36条（拒收）</td></tr>
+        <tr><td><b>围标串标</b></td><td>IP/MAC重合/痕迹一致/报价规律</td><td>认定：招投标法第32条 + 实施条例第39-41条；责任：第53条（中标无效）</td></tr>
         <tr><td><b>弄虚作假</b></td><td>业绩/证书/社保造假</td><td>招投标法第54条</td></tr>
         <tr><td><b>信用不良</b></td><td>失信被执行人/重大税收违法</td><td>政府采购法第22条</td></tr>
         <tr><td><b>声明函造假</b></td><td>虚报企业类型/数据</td><td>政府采购法第77条</td></tr>
@@ -614,6 +868,203 @@
       · 运营侧（O1-O2）：附录A是高热度内容钩子，可拆系列图文<br>
       · 技术侧（T1-T3）：行业专属坑可作解析Agent知识图谱节点
     </div>
+
+    <!-- PART 2 · 吃透招标文件 -->
+    <section id="part2">
+      <h2 class="chapter"><span class="num">第二部分</span>吃透招标文件 · 规则怎么玩</h2>
+      <div class="callout">第一部分是"该不该投"（决策闸门），第二部分回答"<strong>游戏规则怎么定</strong>"——不读透招标文件，方案写偏、力气用错地方，等于在错误的赛道上狂奔。本章四块递进：<strong>前附表精读 → 评标办法拆解 → ★号实质性条款锁定 → 隐性坑族谱</strong>。</div>
+
+      <h3 class="sect" id="pf-read"><span class="dot" style="background:var(--blue)"></span>2.1 投标人须知前附表 · 总纲地图</h3>
+      <p class="lead">前附表是招标文件的"压缩包"——把工期、质保、保证金、有效期、递交方式、废标索引等生死节点浓缩成一页。它排在正文之前，却决定你读文件的顺序。</p>
+      <table>
+        <thead><tr><th>前附表必看字段</th><th>对应风险 / 动作</th></tr></thead>
+        <tbody>
+          <tr><td><b>投标有效期</b></td><td>通常≥90天，不足即废（见速记卡⑤）</td></tr>
+          <tr><td><b>保证金金额与形式</b></td><td>金额 / 到账时限 / 基本户要求，错一处即废（速记卡②）</td></tr>
+          <tr><td><b>递交截止与方式</b></td><td>电子标上传 vs 纸质递交，超时=0分</td></tr>
+          <tr><td><b>评标办法指向</b></td><td>直接跳到 2.2，决定力气往哪使</td></tr>
+          <tr><td><b>废标 / 无效投标索引</b></td><td>浓缩版雷区，与附录A对照看</td></tr>
+          <tr><td><b>关键时间节点</b></td><td>答疑截止、澄清、开标——错过=被动</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>动作：</strong>拿到文件第一件事——把前附表逐格抄成"自查清单"，每格打钩才能进下一环节。</div>
+
+      <h3 class="sect" id="pf-score"><span class="dot" style="background:var(--blue)"></span>2.2 评标办法拆解 · 力气往哪使</h3>
+      <p class="lead">评标办法告诉你"分怎么算"。读懂它，才知道方案写多深、报价怎么报。两大主流：</p>
+      <div class="grid">
+        <article class="wcard" style="--c:var(--blue-f);--ct:var(--blue)">
+          <h4>最低评标价法（最低价法）</h4>
+          <div class="sub">满足实质要求 · 报价最低者中标</div>
+          <div class="block"><div class="lab">适用</div><ul>
+            <li>通用技术、标准统一（标准货物 / 工程）</li>
+            <li>国际默认、客观量化、难围标</li>
+          </ul></div>
+          <div class="strat"><div class="lab" style="color:var(--blue)">你的打法</div>价格定生死，商务技术只过门槛——别在方案上堆花，省钱 + 合规即胜</div>
+        </article>
+        <article class="wcard" style="--c:var(--blue-f);--ct:var(--blue)">
+          <h4>综合评分法（综合法）</h4>
+          <div class="sub">满足实质要求 · 量化得分最高者中标</div>
+          <div class="block"><div class="lab">适用</div><ul>
+            <li>技术复杂 / 服务 / 工程</li>
+            <li>价格分 + 技术分 + 商务分加权</li>
+          </ul></div>
+          <div class="strat"><div class="lab" style="color:var(--blue)">你的打法</div>逐条拆评分表，找满分点、凑满分；主观分最容易丢，需针对性拆解</div>
+        </article>
+      </div>
+      <h4 style="margin:24px 0 4px;color:#fff;font-size:16px">价格分公式（综合法 · 低价优先法）</h4>
+      <div class="step">
+        <div class="sn">公式 · 87号令第五十五条</div>
+        <h4>投标报价得分 = (评标基准价 / 投标报价) × 价格权值 × 100</h4>
+        <pre>评标基准价 = 满足招标文件要求的最低投标报价（得满分）
+价格分值（招标·87号令第55条）：货物 ≥30% ｜ 服务 ≥10%（仅设下限，无上限）
+价格权值（竞争性磋商·财库〔2014〕214号第24条）：货物 30%-60% ｜ 服务 10%-30%
+报价越低分越高，但低于成本警戒线 = 废（可要求澄清证明）</pre>
+        <ul>
+          <li>价格权重下限是法定红线，招标文件不得突破</li>
+          <li>评标不得去掉最高 / 最低报价（防操纵）</li>
+          <li>落实政策（中小企业等）的价格扣除，以调整后价格计算</li>
+        </ul>
+      </div>
+      <div class="callout"><strong>关键动作：</strong>把评分表逐条拆成"我能拿满分 / 拿部分 / 拿不到"，排优先级。技术分里的"主观分"（如方案创新性0-5分）最易丢——对策：把招标技术需求逐条抄进方案，每条后写"解决方案：…"，让评委扣分都找不到理由。</div>
+
+      <h3 class="sect" id="pf-sub"><span class="dot" style="background:var(--red)"></span>2.3 实质性条款（★号）锁定 · 踩一条全盘输</h3>
+      <p class="lead">实质性条款 = 不可偏离的"硬杠"。招标文件用 <strong>★号、黑体、"废标 / 无效投标"</strong> 醒目标明。任一负偏离 / 漏响应 = 直接否决，评委无自由裁量空间。</p>
+      <table>
+        <thead><tr><th>类别</th><th>常见★号内容</th></tr></thead>
+        <tbody>
+          <tr><td><b>准入资格</b></td><td>资质等级 / 财务状况 / 类似业绩 / 信用记录（硬门槛）</td></tr>
+          <tr><td><b>标的核心</b></td><td>核心技术参数 / 交付标准 / 验收等级（负偏离即否决）</td></tr>
+          <tr><td><b>商务核心</b></td><td>投标有效期 / 工期 / 质保期 / 付款条件 / 违约责任</td></tr>
+          <tr><td><b>程序合规</b></td><td>签署 / 密封 / 保证金缴纳（不符直接拒收）</td></tr>
+        </tbody>
+      </table>
+      <div class="callout danger"><strong>铁律（87号令第二十条 / 第三十二条、实施条例第三十三条）：</strong>未明确标注为实质性的内容，不得作为否决依据；但凡标了★，必须逐条明确"无偏离响应"并配佐证。哪怕 CPU 主频只低 0.1GHz、噪声只高 1dB，电子评标系统结构化比对后刚性否决——"微小负偏离"无豁免口子。</div>
+      <div class="callout"><strong>实操清单：</strong>① 摘出所有★号条款，建"实质性条款响应表"；② 逐条写"完全响应 / 无偏离" + 佐证材料位置；③ 技术偏离表写"无偏离"，绝不写"见检测报告""略低"等模糊词——系统会判负偏离亮红灯。</div>
+
+      <h3 class="sect" id="pf-hidden"><span class="dot" style="background:var(--purple)"></span>2.4 隐性坑族谱 · 模糊表述与软壁垒</h3>
+      <p class="lead">显性坑（★号）看得见，隐性坑藏在"字越正经、坑越要命"的模糊表述和软壁垒里。它们往往和第一部分"控标识别"呼应——这里是识别后的证据收集。</p>
+      <table>
+        <thead><tr><th>隐性坑类型</th><th>话术表象</th><th>真实陷阱</th><th>应对</th></tr></thead>
+        <tbody>
+          <tr><td><b>付款软刀子</b></td><td>"竣工验收后付至97%"</td><td>没写几天 → 拖延尾款</td><td>书面提问明确期限</td></tr>
+          <tr><td><b>参数定制绑架</b></td><td>"需XX品牌A100芯片"</td><td>量身定做，替代即不响应</td><td>质疑要求允许同等替代</td></tr>
+          <tr><td><b>评分模糊杀人</b></td><td>"方案创新性0-5分"</td><td>无标准，主观分随意</td><td>逐条抄需求写方案</td></tr>
+          <tr><td><b>软壁垒堆叠</b></td><td>非标认证 / 特定专利 / 本地设点</td><td>变相抬高门槛</td><td>质疑投诉</td></tr>
+          <tr><td><b>偏离项数陷阱</b></td><td>未明确允许偏离项数</td><td>一般性条款稍改即淘汰</td><td>要求明确项数</td></tr>
+          <tr><td><b>清单钓鱼</b></td><td>"土方暂定10万方"</td><td>实际6万，单价包死亏穿</td><td>不平衡报价 + 备注</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>应对四式：</strong>① <b>标前书面质疑</b>（答疑截止前，把水搅浑）；② <b>报价埋伏</b>（不平衡报价 + 备注声明）；③ <b>合同预埋</b>（中标后谈判替代条款）；④ <b>证据链保命</b>（质疑函 / 澄清回复纸质盖章留存）。</div>
+      <p class="muted">⚠️ 隐性坑识别后，回到第一部分「控标识别实战」判断是否"萝卜招标"，二者构成质疑 / 投诉的证据链。第三部分「响应合规与格式」将展开暗标13条红线——那是另一类"写了就废"的格式坑。</p>
+    </section>
+
+    <!-- CLASSIFY · 招标项目分类工具箱 -->
+    <section id="classify">
+      <h2 class="chapter"><span class="num">工具箱</span>招标项目分类 · 企业画像匹配</h2>
+      <div class="callout">本模块把<strong>招投标项目类型分类体系</strong>（6 个正交维度：采购方式 / 采购对象 / 项目属性 / 金额标准 / 行业领域 / 交付模式）固化为可交互工具。三步走：<strong>① 浏览全部分类 → ② 录入企业画像 → ③ 实时生成适配分类与匹配依据</strong>。分类口径与《招投标项目类型分类体系》文档一致（采购方式 8 种法定、行业领域 14 类）。</div>
+
+      <!-- 区一 展示区 -->
+      <div class="cl-tabs" id="clTabs">
+        <button class="cl-tab active" data-panel="sectors">🏭 行业领域（14）</button>
+        <button class="cl-tab" data-panel="objects">📦 采购对象（3）</button>
+        <button class="cl-tab" data-panel="methods">⚖️ 采购方式（8）</button>
+        <button class="cl-tab" data-panel="attrs">💰 项目属性（4）</button>
+        <button class="cl-tab" data-panel="deliveries">🔧 交付模式（5）</button>
+        <button class="cl-tab" data-panel="th">📊 金额标准</button>
+      </div>
+      <div class="cl-panel active" id="clp-sectors"><div class="cl-grid" id="clg-sectors"></div></div>
+      <div class="cl-panel" id="clp-objects"><div class="cl-grid" id="clg-objects"></div></div>
+      <div class="cl-panel" id="clp-methods"><div class="cl-grid" id="clg-methods"></div></div>
+      <div class="cl-panel" id="clp-attrs"><div class="cl-grid" id="clg-attrs"></div></div>
+      <div class="cl-panel" id="clp-deliveries"><div class="cl-grid" id="clg-deliveries"></div></div>
+      <div class="cl-panel" id="clp-th"><div class="cl-grid" id="clg-th"></div></div>
+      <p class="cl-note">💡 上方为系统归纳的全部分类。填写下方企业画像后，已适配的分类会<strong style="color:var(--teal)">高亮并打 ✓</strong>，未适配的自动变暗。</p>
+
+      <!-- 区二 + 区三 -->
+      <div class="cl-work">
+        <!-- 企业画像输入区 -->
+        <div class="cl-card">
+          <h4>② 企业画像</h4>
+          <div class="sub2">录入企业信息，实时匹配适配的招标项目类型</div>
+
+          <fieldset class="cl-fs"><legend>企业类型</legend>
+            <div class="cl-chips" id="clType">
+              <button class="cl-chip" data-v="施工企业">施工企业</button>
+              <button class="cl-chip" data-v="设计院/咨询">设计院/咨询</button>
+              <button class="cl-chip" data-v="制造商">制造商</button>
+              <button class="cl-chip" data-v="贸易商/代理商">贸易商/代理商</button>
+              <button class="cl-chip" data-v="服务商(IT/物业/运维)">服务商(IT/物业/运维)</button>
+              <button class="cl-chip" data-v="检测/认证机构">检测/认证机构</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cl-fs"><legend>所属行业（多选）</legend>
+            <div class="cl-chips" id="clIndustry"></div>
+          </fieldset>
+
+          <fieldset class="cl-fs"><legend>资质（多选）</legend>
+            <div class="cl-chips" id="clQual">
+              <button class="cl-chip" data-v="施工总承包" data-o="WORKS">施工总承包</button>
+              <button class="cl-chip" data-v="专业承包(装修/机电/市政)" data-o="WORKS">专业承包(装修/机电/市政)</button>
+              <button class="cl-chip" data-v="勘察设计资质" data-o="WORKS" data-s="CONSULT">勘察设计资质</button>
+              <button class="cl-chip" data-v="工程监理资质" data-o="WORKS">工程监理资质</button>
+              <button class="cl-chip" data-v="生产制造/工厂" data-o="GOODS">生产制造/工厂</button>
+              <button class="cl-chip" data-v="医疗器械经营/生产" data-o="GOODS" data-s="MEDICAL">医疗器械经营/生产</button>
+              <button class="cl-chip" data-v="CMA/CNAS检测" data-o="GOODS">CMA/CNAS检测</button>
+              <button class="cl-chip" data-v="信息系统集成" data-o="SERVICES" data-s="IT_SOFTWARE">信息系统集成</button>
+              <button class="cl-chip" data-v="软件著作权/软件企业" data-o="SERVICES" data-s="IT_SOFTWARE">软件著作权/软件企业</button>
+              <button class="cl-chip" data-v="ISO9001/ISO27001" data-o="SERVICES">ISO9001/ISO27001</button>
+              <button class="cl-chip" data-v="物业/安保资质" data-o="SERVICES" data-s="GOV_SERVICE">物业/安保资质</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cl-fs"><legend>经营范围关键词（自由输入）</legend>
+            <input class="cl-input" id="clKeyword" placeholder="如：市政道路、污水处理、系统集成、软件开发" style="margin-top:6px">
+          </fieldset>
+
+          <fieldset class="cl-fs"><legend>人员证书（多选）</legend>
+            <div class="cl-chips" id="clCert">
+              <button class="cl-chip" data-v="一级建造师" data-o="WORKS">一级建造师</button>
+              <button class="cl-chip" data-v="二级建造师" data-o="WORKS">二级建造师</button>
+              <button class="cl-chip" data-v="注册造价/监理" data-o="WORKS" data-s="CONSULT">注册造价/监理</button>
+              <button class="cl-chip" data-v="高级职称" data-o="SERVICES">高级职称</button>
+              <button class="cl-chip" data-v="PMP/高项" data-o="SERVICES" data-s="IT_SOFTWARE">PMP/高项</button>
+              <button class="cl-chip" data-v="注册咨询工程师" data-o="SERVICES" data-s="CONSULT">注册咨询工程师</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cl-fs"><legend>目标资金属性（多选）</legend>
+            <div class="cl-chips" id="clAttr">
+              <button class="cl-chip" data-v="政府采购">政府采购</button>
+              <button class="cl-chip" data-v="国企/事业单位">国企/事业单位</button>
+              <button class="cl-chip" data-v="企业采购">企业采购</button>
+              <button class="cl-chip" data-v="国际招标">国际招标</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cl-fs"><legend>年营收规模</legend>
+            <div class="cl-chips" id="clRev">
+              <button class="cl-chip" data-v="＜2000万">＜2000万</button>
+              <button class="cl-chip" data-v="2000万-1亿">2000万-1亿</button>
+              <button class="cl-chip" data-v="＞1亿">＞1亿</button>
+            </div>
+          </fieldset>
+
+          <div class="cl-actions">
+            <button class="cl-btn primary" id="clClear">清空画像</button>
+          </div>
+          <div class="cl-summary" id="clSummary"></div>
+        </div>
+
+        <!-- 推荐结果区 -->
+        <div class="cl-card">
+          <h4>③ 推荐结果</h4>
+          <div class="sub2">基于企业画像实时生成的适配招标项目类型</div>
+          <div id="clRecs"><div class="cl-empty"><div class="big">🎯</div>填写左侧企业画像（企业类型 / 行业 / 资质 / 关键词任选其一），<br>此处实时输出适合贵司的招标项目类型与匹配依据。</div></div>
+        </div>
+      </div>
+    </section>
+
   </main>
 </div>
 
@@ -655,6 +1106,259 @@
 
   // close sidebar on mobile after click
   links.forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=900)sidebar.classList.remove('open');}));
+</script>
+
+<script>
+/* ===== 招标项目分类 · 企业画像匹配（数据与《招投标项目类型分类体系》同源）===== */
+(function(){
+  var CLS={
+    sectors:[
+      {c:'HOUSING',n:'房屋建筑',r:'住建',k:['建筑','房建','住宅','土建','住建']},
+      {c:'MUNICIPAL',n:'市政公用',r:'住建/城管',k:['市政','道路','管网','绿化','环卫','路灯']},
+      {c:'ROAD_WATER',n:'公路水运',r:'交通运输',k:['公路','高速','桥梁','隧道','水运','航道','港口']},
+      {c:'RAILWAY',n:'铁路',r:'铁路/交通',k:['铁路','轨道','地铁']},
+      {c:'WATER_CONSERVANCY',n:'水利',r:'水利',k:['水利','水库','堤防','灌溉','防洪','水务','供水','排水','污水','给排水']},
+      {c:'POWER_ENERGY',n:'电力能源',r:'能源',k:['电力','能源','光伏','风电','变电','配电','发电','充电','输变电']},
+      {c:'COMMUNICATION',n:'通信',r:'工信',k:['通信','基站','光缆','广电','信号']},
+      {c:'IT_SOFTWARE',n:'信息化/软件',r:'工信/数据局',k:['软件','系统集成','信息化','数字化','大数据','云','智慧','人工智能','AI','开发','平台']},
+      {c:'MECH_ELECTRICAL',n:'机电设备',r:'多归口',k:['机电','机械','电气','安装','暖通','空调','电梯','设备']},
+      {c:'ENVIRONMENT',n:'生态环境/环保',r:'生态环境',k:['环保','生态','环境','监测','治理','固废','废气','污染']},
+      {c:'MEDICAL',n:'医药器械',r:'卫健',k:['医疗','医药','器械','医院','耗材','药品']},
+      {c:'GOV_SERVICE',n:'政府购买服务',r:'财政',k:['物业','保洁','保安','安保','食堂','后勤','政府购买','服务']},
+      {c:'CONSULT',n:'勘察设计监理咨询',r:'住建/发改',k:['勘察','设计','监理','造价','咨询','检测','评估']},
+      {c:'AGRI',n:'农业农村',r:'农业农村',k:['农业','农村','乡村振兴','农技','种子','粮食','高标准农田']}
+    ],
+    objects:[
+      {c:'WORKS',n:'工程',d:'施工 / 与工程有关设备材料 / 勘察设计监理服务'},
+      {c:'GOODS',n:'货物',d:'设备 / 材料 / 产品等有形标的'},
+      {c:'SERVICES',n:'服务',d:'咨询 / 运维 / 物业 / 软件服务 / 政府购买服务'}
+    ],
+    methods:[
+      {c:'OPEN_TENDER',n:'公开招标',l:'政府采购法26条/87号令',e:'综合评分法或最低评标价法'},
+      {c:'INVITED_TENDER',n:'邀请招标',l:'87号令',e:'综合评分法或最低评标价法'},
+      {c:'COMPETITIVE_NEGOTIATION',n:'竞争性谈判',l:'74号令',e:'最后报价最低成交'},
+      {c:'COMPETITIVE_CONSULTATION',n:'竞争性磋商',l:'财库〔2014〕214号',e:'综合评分法（技术商务价格加权）'},
+      {c:'INQUIRY',n:'询价',l:'74号令',e:'一次性报价、最低价成交'},
+      {c:'SINGLE_SOURCE',n:'单一来源采购',l:'74号令',e:'一对一协商定价'},
+      {c:'FRAMEWORK_AGREEMENT',n:'框架协议采购',l:'财政部令第110号',e:'两阶段：入围+二次选择'},
+      {c:'CO_INNOVATION',n:'合作创新采购',l:'财库〔2024〕13号',e:'两阶段：订购研发→首购'}
+    ],
+    attrs:[
+      {c:'GOV_PROCUREMENT',n:'政府采购',l:'政府采购法及条例'},
+      {c:'MUST_TENDER',n:'依法必须招标项目',l:'招标投标法及条例'},
+      {c:'ENTERPRISE',n:'企业自主采购',l:'企业内部制度'},
+      {c:'INTL_TENDER',n:'机电产品国际招标',l:'机电产品国际招标投标实施办法'}
+    ],
+    deliveries:[
+      {c:'EPC',n:'EPC 总承包',d:'设计-采购-施工一体化'},
+      {c:'PPP',n:'PPP',d:'政府和社会资本合作，绩效考核付费'},
+      {c:'DB',n:'DB 总承包',d:'设计-施工一体化'},
+      {c:'CONSTRUCTION_GENERAL',n:'施工总承包',d:'传统施工总包'},
+      {c:'DBB',n:'DBB 传统模式',d:'设计-招标-施工分阶段'}
+    ],
+    th:[
+      {t:'依法必须招标 · 施工',v:'≥ 400 万',l:'国家发改委16号令'},
+      {t:'依法必须招标 · 货物',v:'≥ 200 万',l:'国家发改委16号令'},
+      {t:'依法必须招标 · 服务',v:'≥ 100 万',l:'国家发改委16号令'},
+      {t:'政府采购公开招标 · 货物/服务',v:'≥ 200 万',l:'国办发〔2019〕55号'},
+      {t:'政府采购公开招标 · 工程',v:'≥ 400 万',l:'国办发〔2019〕55号'},
+      {t:'分散采购限额 · 货物/服务',v:'≥ 100 万',l:'国办发〔2019〕55号'},
+      {t:'分散采购限额 · 工程',v:'≥ 120 万',l:'国办发〔2019〕55号'}
+    ]
+  };
+  var TYPE_OBJ={'施工企业':'WORKS','设计院/咨询':'WORKS','制造商':'GOODS','贸易商/代理商':'GOODS','服务商(IT/物业/运维)':'SERVICES','检测/认证机构':'GOODS'};
+  var OBJ_NAME={WORKS:'工程',GOODS:'货物',SERVICES:'服务'};
+  var $=function(id){return document.getElementById(id)};
+  var SEC={};CLS.sectors.forEach(function(s){SEC[s.c]=s});
+
+  // ---- 状态 ----
+  var S={type:'',industries:new Set(),quals:new Map(),certs:new Map(),attrs:new Set(),rev:'',keyword:''};
+  var dirty=false; // 用户是否已输入过任何画像
+
+  // ---- 展示区渲染 ----
+  function renderPanels(){
+    var grids={sectors:'clg-sectors',objects:'clg-objects',methods:'clg-methods',attrs:'clg-attrs',deliveries:'clg-deliveries',th:'clg-th'};
+    $('clg-sectors').innerHTML=CLS.sectors.map(function(s){return '<div class="cl-item" data-sector="'+s.c+'"><div class="nm">'+s.n+'</div><div class="ds">归口：'+s.r+'</div><div class="lk">'+s.c+'</div><span class="bdg">已适配</span></div>'}).join('');
+    $('clg-objects').innerHTML=CLS.objects.map(function(o){return '<div class="cl-item" data-object="'+o.c+'"><div class="nm">'+o.n+'</div><div class="ds">'+o.d+'</div><div class="lk">'+o.c+'</div><span class="bdg">已适配</span></div>'}).join('');
+    $('clg-methods').innerHTML=CLS.methods.map(function(m){return '<div class="cl-item" data-method="'+m.c+'"><div class="nm">'+m.n+'</div><div class="ds">'+m.e+'</div><div class="lk">'+m.l+'</div><span class="bdg">已适配</span></div>'}).join('');
+    $('clg-attrs').innerHTML=CLS.attrs.map(function(a){return '<div class="cl-item" data-attr="'+a.c+'"><div class="nm">'+a.n+'</div><div class="ds">适用：'+a.l+'</div><div class="lk">'+a.c+'</div><span class="bdg">已适配</span></div>'}).join('');
+    $('clg-deliveries').innerHTML=CLS.deliveries.map(function(d){return '<div class="cl-item" data-delivery="'+d.c+'"><div class="nm">'+d.n+'</div><div class="ds">'+d.d+'</div><div class="lk">'+d.c+'</div><span class="bdg">已适配</span></div>'}).join('');
+    $('clg-th').innerHTML=CLS.th.map(function(t){return '<div class="cl-item"><div class="nm">'+t.t+'</div><div class="ds">'+t.v+'</div><div class="lk">'+t.l+'</div></div>'}).join('');
+    // 行业 chips
+    $('clIndustry').innerHTML=CLS.sectors.map(function(s){return '<button class="cl-chip" data-v="'+s.c+'">'+s.n+'</button>'}).join('');
+  }
+
+  // ---- Tab ----
+  $('clTabs').addEventListener('click',function(e){
+    var b=e.target.closest('.cl-tab');if(!b)return;
+    Array.prototype.forEach.call(document.querySelectorAll('.cl-tab'),function(x){x.classList.toggle('active',x===b)});
+    Array.prototype.forEach.call(document.querySelectorAll('.cl-panel'),function(p){p.classList.toggle('active',p.id==='clp-'+b.dataset.panel)});
+  });
+
+  // ---- chips 事件 ----
+  function bindChips(id,field){
+    $(id).addEventListener('click',function(e){
+      var c=e.target.closest('.cl-chip');if(!c)return;dirty=true;
+      var v=c.dataset.v;
+      if(field==='type'||field==='rev'){
+        Array.prototype.forEach.call($(id).querySelectorAll('.cl-chip'),function(x){x.classList.remove('on')});
+        S[field]=v;c.classList.add('on');
+      }else{
+        c.classList.toggle('on');
+        if(field==='quals'||field==='certs'){
+          var m=S[field];
+          m.has(v)?m.delete(v):m.set(v,{v:v,o:c.dataset.o||'',s:c.dataset.s||''});
+        }else{
+          var set=S[field];
+          set.has(v)?set.delete(v):set.add(v);
+        }
+      }
+      render();
+    });
+  }
+  bindChips('clType','type');
+  bindChips('clIndustry','industries');
+  bindChips('clQual','quals');
+  bindChips('clCert','certs');
+  bindChips('clAttr','attrs');
+  bindChips('clRev','rev');
+  $('clKeyword').addEventListener('input',function(e){S.keyword=e.target.value.trim();dirty=!!S.keyword;render();});
+  $('clClear').addEventListener('click',function(){
+    ['type','rev'].forEach(function(k){S[k]=''});
+    S.industries.clear();S.quals.clear();S.certs.clear();S.attrs.clear();
+    S.keyword='';dirty=false;
+    Array.prototype.forEach.call(document.querySelectorAll('.cl-chip.on'),function(c){c.classList.remove('on')});
+    $('clKeyword').value='';
+    render();
+  });
+
+  // ---- 匹配引擎 ----
+  function kwMatch(keyword){
+    var hit={};if(!keyword)return hit;
+    CLS.sectors.forEach(function(s){s.k.some(function(k){return keyword.indexOf(k)>=0})&&(hit[s.c]=true)});
+    return hit;
+  }
+  function collectObjects(){
+    var set=new Set();
+    if(S.type&&TYPE_OBJ[S.type])set.add(TYPE_OBJ[S.type]);
+    S.quals.forEach(function(q){q.o&&set.add(q.o)});
+    S.certs.forEach(function(c){c.o&&set.add(c.o)});
+    return set;
+  }
+  function collectSectors(){
+    var set=new Set(S.industries);
+    Object.keys(kwMatch(S.keyword)).forEach(function(k){set.add(k)});
+    S.quals.forEach(function(q){q.s&&set.add(q.s)});
+    S.certs.forEach(function(c){c.s&&set.add(c.s)});
+    return set;
+  }
+  function suggestMethods(obj,isGov,rev){
+    var m=[];
+    if(obj==='WORKS'){
+      m.push('OPEN_TENDER','INVITED_TENDER');
+      if(rev==='＞1亿'||rev==='2000万-1亿')m.push('COMPETITIVE_NEGOTIATION');
+      if(rev==='＞1亿')m.push('COMPETITIVE_CONSULTATION');
+    }else if(obj==='GOODS'){
+      if(isGov){m.push('OPEN_TENDER','INQUIRY','FRAMEWORK_AGREEMENT');}
+      else{m.push('INQUIRY','COMPETITIVE_NEGOTIATION','OPEN_TENDER');}
+    }else{
+      m.push('COMPETITIVE_CONSULTATION','COMPETITIVE_NEGOTIATION');
+      if(isGov||rev==='＞1亿')m.push('OPEN_TENDER');
+      if(rev==='＜2000万')m.push('FRAMEWORK_AGREEMENT');
+    }
+    return m;
+  }
+  function suggestDeliveries(obj){return obj==='WORKS'?['CONSTRUCTION_GENERAL','EPC','DB']:[]}
+
+  function buildRecs(){
+    if(!dirty)return null;
+    var objs=collectObjects(),secs=collectSectors();
+    var objList=objs.size?Array.from(objs):['WORKS','GOODS','SERVICES'];
+    var secList=secs.size?Array.from(secs):[null];
+    var isGov=S.attrs.has('政府采购');
+    var recs=[],seen=new Set();
+    objList.forEach(function(o){
+      secList.forEach(function(sec){
+        var r={o:o,s:sec,reasons:[],score:0};
+        if(S.type&&TYPE_OBJ[S.type]===o){r.reasons.push('企业类型「'+S.type+'」→ '+OBJ_NAME[o]+' 类');r.score++;}
+        S.quals.forEach(function(q){if(q.o===o){r.reasons.push('资质「'+q.v+'」→ '+OBJ_NAME[o]+' 类');r.score++;}});
+        S.certs.forEach(function(c){if(c.o===o){r.reasons.push('证书「'+c.v+'」→ '+OBJ_NAME[o]+' 类');r.score++;}});
+        if(sec){
+          if(S.industries.has(sec)){r.reasons.push('所属行业「'+SEC[sec].n+'」');r.score++;}
+          var kw=kwMatch(S.keyword);
+          if(kw[sec]){r.reasons.push('经营范围关键词命中「'+SEC[sec].n+'」');r.score++;}
+          S.quals.forEach(function(q){if(q.s===sec){r.reasons.push('资质「'+q.v+'」→ '+SEC[sec].n);r.score++;}});
+          S.certs.forEach(function(c){if(c.s===sec){r.reasons.push('证书「'+c.v+'」→ '+SEC[sec].n);r.score++;}});
+        }
+        if(S.attrs.size){r.reasons.push('适配资金属性：'+Array.from(S.attrs).join('/'));r.score++;}
+        if(S.rev&&!r.reasons.length){r.reasons.push('营收规模「'+S.rev+'」在该赛道具备承接能力');r.score++;}
+        if(!r.reasons.length)return;
+        var k=o+'|'+(sec||'');if(seen.has(k))return;seen.add(k);
+        recs.push(r);
+      });
+    });
+    recs.sort(function(a,b){return b.score-a.score});
+    return {recs:recs.slice(0,8)};
+  }
+
+  // ---- 渲染 ----
+  function render(){
+    var data=buildRecs(),objs=collectObjects(),secs=collectSectors();
+    // 展示区联动
+    Array.prototype.forEach.call(document.querySelectorAll('#classify .cl-item'),function(it){
+      it.classList.remove('matched','dim');
+      var hit=false;
+      if(it.dataset.sector&&secs.has(it.dataset.sector))hit=true;
+      if(it.dataset.object&&objs.has(it.dataset.object))hit=true;
+      if(data&&data.recs.some(function(r){return r.s===it.dataset.sector||r.o===it.dataset.object}))hit=true;
+      if(hit){it.classList.add('matched');}
+      else if(dirty){it.classList.add('dim');}
+    });
+    // 画像摘要
+    var sum=$('clSummary'),chips=[];
+    S.type&&chips.push('<span class="cl-schip">类型：'+S.type+' <b data-del="type">×</b></span>');
+    S.industries.forEach(function(v){chips.push('<span class="cl-schip">行业：'+SEC[v].n+' <b data-del="ind" data-v="'+v+'">×</b></span>')});
+    S.quals.forEach(function(q){chips.push('<span class="cl-schip">资质：'+q.v+' <b data-del="qual" data-v="'+q.v+'">×</b></span>')});
+    S.certs.forEach(function(c){chips.push('<span class="cl-schip">证书：'+c.v+' <b data-del="cert" data-v="'+c.v+'">×</b></span>')});
+    S.attrs.forEach(function(v){chips.push('<span class="cl-schip">资金：'+v+' <b data-del="attr" data-v="'+v+'">×</b></span>')});
+    S.rev&&chips.push('<span class="cl-schip">营收：'+S.rev+' <b data-del="rev">×</b></span>');
+    S.keyword&&chips.push('<span class="cl-schip">关键词：'+S.keyword.slice(0,12)+'… <b data-del="kw">×</b></span>');
+    sum.innerHTML=chips.length?'<span class="cl-schip" style="color:var(--tx3);border-color:var(--line)">画像摘要：</span>'+chips.join(''):'';
+    // 推荐结果
+    var box=$('clRecs');
+    if(!data){box.innerHTML='<div class="cl-empty"><div class="big">🎯</div>填写左侧企业画像（企业类型 / 行业 / 资质 / 关键词任选其一），<br>此处实时输出适合贵司的招标项目类型与匹配依据。</div>';return;}
+    if(!data.recs.length){box.innerHTML='<div class="cl-empty"><div class="big">🔍</div>当前画像未命中可推荐分类，试试补充行业或经营范围关键词。</div>';return;}
+    var isGov=S.attrs.has('政府采购');
+    box.innerHTML=data.recs.map(function(r){
+      var ms=suggestMethods(r.o,isGov,S.rev).map(function(c){return CLS.methods.find(function(m){return m.c===c}).n});
+      var dl=suggestDeliveries(r.o).map(function(c){return CLS.deliveries.find(function(d){return d.c===c}).n});
+      var pct=Math.min(100,40+r.score*15);
+      var secName=r.s?SEC[r.s].n:'跨行业通用';
+      return '<div class="cl-rec">'+
+        '<div class="rh"><div class="rt"><span class="so">'+OBJ_NAME[r.o]+'</span> · '+secName+'<span class="sn">'+(r.o==='WORKS'?'含施工/设备/勘察设计监理':'参考行业赛道')+'</span></div>'+
+        '<div class="mh"><span class="ms">'+pct+'%</span><div class="mbar"><i style="width:'+pct+'%"></i></div></div></div>'+
+        '<div class="rm"><b style="color:var(--tx)">匹配依据：</b>'+r.reasons.join('；')+'</div>'+
+        '<div class="rb">'+ms.map(function(n){return '<span class="cl-reason">优先采购方式：<b>'+n+'</b></span>'}).join('')+
+        dl.map(function(n){return '<span class="cl-reason">交付模式：<b>'+n+'</b></span>'}).join('')+'</div></div>';
+    }).join('');
+  }
+  // 摘要 × 移除
+  $('clSummary').addEventListener('click',function(e){
+    var b=e.target.closest('b[data-del]');if(!b)return;
+    var k=b.dataset.del,v=b.dataset.v;
+    if(k==='type'){S.type='';Array.prototype.forEach.call(document.querySelectorAll('#clType .cl-chip'),function(c){c.classList.remove('on')});}
+    if(k==='ind'){S.industries.delete(v);var el=document.querySelector('#clIndustry .cl-chip[data-v="'+v+'"]');el&&el.classList.remove('on');}
+    if(k==='qual'){S.quals.delete(v);var el2=document.querySelector('#clQual .cl-chip[data-v="'+v+'"]');el2&&el2.classList.remove('on');}
+    if(k==='cert'){S.certs.delete(v);var el3=document.querySelector('#clCert .cl-chip[data-v="'+v+'"]');el3&&el3.classList.remove('on');}
+    if(k==='attr'){S.attrs.delete(v);var el4=document.querySelector('#clAttr .cl-chip[data-v="'+v+'"]');el4&&el4.classList.remove('on');}
+    if(k==='rev'){S.rev='';Array.prototype.forEach.call(document.querySelectorAll('#clRev .cl-chip'),function(c){c.classList.remove('on')});}
+    if(k==='kw'){S.keyword='';$('clKeyword').value='';}
+    dirty=true;
+    render();
+  });
+
+  renderPanels();render();
+})();
 </script>
 </body>
 </html>
