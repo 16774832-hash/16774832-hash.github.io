@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
 <title>不同招标类型 · 注意事项手册</title>
 <style>
   :root{
@@ -1073,19 +1074,19 @@
 <script>
   // progress bar
   const prog=document.getElementById('progress');
-  const top=document.getElementById('top');
+  const topBtn=document.getElementById('top');
   const sidebar=document.getElementById('sidebar');
   const toggle=document.getElementById('toggle');
   function onScroll(){
     const h=document.documentElement;
     const sc=h.scrollTop, max=h.scrollHeight-h.clientHeight;
     prog.style.width=(max>0?(sc/max*100):0)+'%';
-    top.classList.toggle('show',sc>400);
+    topBtn.classList.toggle('show',sc>400);
   }
   window.addEventListener('scroll',onScroll,{passive:true});
   onScroll();
 
-  top.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
   toggle.addEventListener('click',()=>sidebar.classList.toggle('open'));
 
   // scroll spy
