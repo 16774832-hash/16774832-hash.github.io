@@ -209,7 +209,6 @@
       <a href="#ch2" class="sub" data-group="p1">1.2 五大行业专属坑</a>
       <a href="#ch3" class="sub" data-group="p1">1.3 决策前哨四步</a>
       <a href="#kongbiao" class="sub" data-group="p1">1.4 控标识别实战</a>
-      <a href="#classify" class="sub" data-group="p1">1.5 招标项目分类工具箱</a>
       <a href="#appendix" class="sub" data-group="p1">1.6 附录 A / B</a>
       <div class="nav-group" data-group="p2">第二部分 · 吃透招标文件 ✅</div>
       <a href="#part2" class="sub" data-group="p2">章节总览</a>
@@ -230,6 +229,8 @@
       <div class="nav-group">第五、六部分 · 待建</div>
       <a href="#p5" class="sub">⑤ 方案编制</a>
       <a href="#p6" class="sub">⑥ 流程时效与履约兜底</a>
+      <div class="nav-group" data-group="toolbox">招标分类工具箱 ✅</div>
+      <a href="#classify" class="sub" data-group="toolbox">企业画像匹配</a>
     </nav>
   </aside>
 
@@ -800,123 +801,8 @@
       </tbody>
     </table>
 
-    <div class="callout" style="margin-top:28px">
-      <strong>手册使用建议</strong><br>
-      · 销售侧（S1-S5）：商机研判话术基础，第一/二章可直接转化客户沟通<br>
-      · 产品侧（P3）：知识库核心素材，第三章"四步定盘"对应决策闸门功能<br>
-      · 运营侧（O1-O2）：附录A是高热度内容钩子，可拆系列图文<br>
-      · 技术侧（T1-T3）：行业专属坑可作解析Agent知识图谱节点
-    </div>
-
     <!-- PART 2 · 吃透招标文件 -->
-    
 
-    <!-- CLASSIFY · 招标项目分类工具箱 -->
-    <section id="classify">
-      <h2 class="chapter"><span class="num">工具箱</span>招标项目分类 · 企业画像匹配</h2>
-      <div class="callout">本模块把<strong>招投标项目类型分类体系</strong>（6 个正交维度：采购方式 / 采购对象 / 项目属性 / 金额标准 / 行业领域 / 交付模式）固化为可交互工具。三步走：<strong>① 浏览全部分类 → ② 录入企业画像 → ③ 实时生成适配分类与匹配依据</strong>。分类口径与《招投标项目类型分类体系》文档一致（采购方式 8 种法定、行业领域 14 类）。</div>
-
-      <!-- 区一 展示区 -->
-      <div class="cl-tabs" id="clTabs">
-        <button class="cl-tab active" data-panel="sectors">🏭 行业领域（14）</button>
-        <button class="cl-tab" data-panel="objects">📦 采购对象（3）</button>
-        <button class="cl-tab" data-panel="methods">⚖️ 采购方式（8）</button>
-        <button class="cl-tab" data-panel="attrs">💰 项目属性（4）</button>
-        <button class="cl-tab" data-panel="deliveries">🔧 交付模式（5）</button>
-        <button class="cl-tab" data-panel="th">📊 金额标准</button>
-      </div>
-      <div class="cl-panel active" id="clp-sectors"><div class="cl-grid" id="clg-sectors"></div></div>
-      <div class="cl-panel" id="clp-objects"><div class="cl-grid" id="clg-objects"></div></div>
-      <div class="cl-panel" id="clp-methods"><div class="cl-grid" id="clg-methods"></div></div>
-      <div class="cl-panel" id="clp-attrs"><div class="cl-grid" id="clg-attrs"></div></div>
-      <div class="cl-panel" id="clp-deliveries"><div class="cl-grid" id="clg-deliveries"></div></div>
-      <div class="cl-panel" id="clp-th"><div class="cl-grid" id="clg-th"></div></div>
-      <p class="cl-note">💡 上方为系统归纳的全部分类。填写下方企业画像后，已适配的分类会<strong style="color:var(--teal)">高亮并打 ✓</strong>，未适配的自动变暗。</p>
-
-      <!-- 区二 + 区三 -->
-      <div class="cl-work">
-        <!-- 企业画像输入区 -->
-        <div class="cl-card">
-          <h4>② 企业画像</h4>
-          <div class="sub2">录入企业信息，实时匹配适配的招标项目类型</div>
-
-          <fieldset class="cl-fs"><legend>企业类型</legend>
-            <div class="cl-chips" id="clType">
-              <button class="cl-chip" data-v="施工企业">施工企业</button>
-              <button class="cl-chip" data-v="设计院/咨询">设计院/咨询</button>
-              <button class="cl-chip" data-v="制造商">制造商</button>
-              <button class="cl-chip" data-v="贸易商/代理商">贸易商/代理商</button>
-              <button class="cl-chip" data-v="服务商(IT/物业/运维)">服务商(IT/物业/运维)</button>
-              <button class="cl-chip" data-v="检测/认证机构">检测/认证机构</button>
-            </div>
-          </fieldset>
-
-          <fieldset class="cl-fs"><legend>所属行业（多选）</legend>
-            <div class="cl-chips" id="clIndustry"></div>
-          </fieldset>
-
-          <fieldset class="cl-fs"><legend>资质（多选）</legend>
-            <div class="cl-chips" id="clQual">
-              <button class="cl-chip" data-v="施工总承包" data-o="WORKS">施工总承包</button>
-              <button class="cl-chip" data-v="专业承包(装修/机电/市政)" data-o="WORKS">专业承包(装修/机电/市政)</button>
-              <button class="cl-chip" data-v="勘察设计资质" data-o="WORKS" data-s="CONSULT">勘察设计资质</button>
-              <button class="cl-chip" data-v="工程监理资质" data-o="WORKS">工程监理资质</button>
-              <button class="cl-chip" data-v="生产制造/工厂" data-o="GOODS">生产制造/工厂</button>
-              <button class="cl-chip" data-v="医疗器械经营/生产" data-o="GOODS" data-s="MEDICAL">医疗器械经营/生产</button>
-              <button class="cl-chip" data-v="CMA/CNAS检测" data-o="GOODS">CMA/CNAS检测</button>
-              <button class="cl-chip" data-v="信息系统集成" data-o="SERVICES" data-s="IT_SOFTWARE">信息系统集成</button>
-              <button class="cl-chip" data-v="软件著作权/软件企业" data-o="SERVICES" data-s="IT_SOFTWARE">软件著作权/软件企业</button>
-              <button class="cl-chip" data-v="ISO9001/ISO27001" data-o="SERVICES">ISO9001/ISO27001</button>
-              <button class="cl-chip" data-v="物业/安保资质" data-o="SERVICES" data-s="GOV_SERVICE">物业/安保资质</button>
-            </div>
-          </fieldset>
-
-          <fieldset class="cl-fs"><legend>经营范围关键词（自由输入）</legend>
-            <input class="cl-input" id="clKeyword" placeholder="如：市政道路、污水处理、系统集成、软件开发" style="margin-top:6px">
-          </fieldset>
-
-          <fieldset class="cl-fs"><legend>人员证书（多选）</legend>
-            <div class="cl-chips" id="clCert">
-              <button class="cl-chip" data-v="一级建造师" data-o="WORKS">一级建造师</button>
-              <button class="cl-chip" data-v="二级建造师" data-o="WORKS">二级建造师</button>
-              <button class="cl-chip" data-v="注册造价/监理" data-o="WORKS" data-s="CONSULT">注册造价/监理</button>
-              <button class="cl-chip" data-v="高级职称" data-o="SERVICES">高级职称</button>
-              <button class="cl-chip" data-v="PMP/高项" data-o="SERVICES" data-s="IT_SOFTWARE">PMP/高项</button>
-              <button class="cl-chip" data-v="注册咨询工程师" data-o="SERVICES" data-s="CONSULT">注册咨询工程师</button>
-            </div>
-          </fieldset>
-
-          <fieldset class="cl-fs"><legend>目标资金属性（多选）</legend>
-            <div class="cl-chips" id="clAttr">
-              <button class="cl-chip" data-v="政府采购">政府采购</button>
-              <button class="cl-chip" data-v="国企/事业单位">国企/事业单位</button>
-              <button class="cl-chip" data-v="企业采购">企业采购</button>
-              <button class="cl-chip" data-v="国际招标">国际招标</button>
-            </div>
-          </fieldset>
-
-          <fieldset class="cl-fs"><legend>年营收规模</legend>
-            <div class="cl-chips" id="clRev">
-              <button class="cl-chip" data-v="＜2000万">＜2000万</button>
-              <button class="cl-chip" data-v="2000万-1亿">2000万-1亿</button>
-              <button class="cl-chip" data-v="＞1亿">＞1亿</button>
-            </div>
-          </fieldset>
-
-          <div class="cl-actions">
-            <button class="cl-btn primary" id="clClear">清空画像</button>
-          </div>
-          <div class="cl-summary" id="clSummary"></div>
-        </div>
-
-        <!-- 推荐结果区 -->
-        <div class="cl-card">
-          <h4>③ 推荐结果</h4>
-          <div class="sub2">基于企业画像实时生成的适配招标项目类型</div>
-          <div id="clRecs"><div class="cl-empty"><div class="big">🎯</div>填写左侧企业画像（企业类型 / 行业 / 资质 / 关键词任选其一），<br>此处实时输出适合贵司的招标项目类型与匹配依据。</div></div>
-        </div>
-      </div>
-    </section>
 
   </div><div id="view-p2" class="view" style="display:none"><section id="part2">
       <h2 class="chapter"><span class="num">第二部分</span>吃透招标文件 · 规则怎么玩</h2>
@@ -1211,7 +1097,125 @@
       </ul></div>
     </div>
     <div class="callout"><strong>本部分小结：</strong>报价不是"拍脑袋"，是<b>算出来的</b>——测算限价定空间、反推价格分定靶点、守住成本底线定红线、把握磋商谈判定节奏。下一部分（方案编制）解决"技术分怎么拿满"。</div>
-  </div></main>
+  </div>
+  </div><div id="view-toolbox" class="view" style="display:none">
+    <header class="doc-head">
+      <h1>招标分类工具箱</h1>
+      <p class="lead">六维分类 × 企业画像 → 实时匹配适合贵司的招标项目类型</p>
+      <div class="tags">
+        <span class="tag">维度：<b>6</b></span>
+        <span class="tag">行业领域：<b>15</b></span>
+        <span class="tag">采购方式：<b>8</b></span>
+      </div>
+    </header>
+<!-- CLASSIFY · 招标项目分类工具箱 -->
+    <section id="classify">
+      <h2 class="chapter"><span class="num">工具箱</span>招标分类工具箱 · 企业画像匹配</h2>
+      <div class="callout">本模块把<strong>招投标项目类型分类体系</strong>（6 个正交维度：采购方式 / 采购对象 / 项目属性 / 金额标准 / 行业领域 / 交付模式）固化为可交互工具。三步走：<strong>① 浏览全部分类 → ② 录入企业画像 → ③ 实时生成适配分类与匹配依据</strong>。分类口径与《招投标项目类型分类体系》文档一致（采购方式 8 种法定、行业领域 15 类）。</div>
+
+      <!-- 区一 展示区 -->
+      <div class="cl-tabs" id="clTabs">
+        <button class="cl-tab active" data-panel="sectors">🏭 行业领域（15）</button>
+        <button class="cl-tab" data-panel="objects">📦 采购对象（3）</button>
+        <button class="cl-tab" data-panel="methods">⚖️ 采购方式（8）</button>
+        <button class="cl-tab" data-panel="attrs">💰 项目属性（4）</button>
+        <button class="cl-tab" data-panel="deliveries">🔧 交付模式（5）</button>
+        <button class="cl-tab" data-panel="th">📊 金额标准</button>
+      </div>
+      <div class="cl-panel active" id="clp-sectors"><div class="cl-grid" id="clg-sectors"></div></div>
+      <div class="cl-panel" id="clp-objects"><div class="cl-grid" id="clg-objects"></div></div>
+      <div class="cl-panel" id="clp-methods"><div class="cl-grid" id="clg-methods"></div></div>
+      <div class="cl-panel" id="clp-attrs"><div class="cl-grid" id="clg-attrs"></div></div>
+      <div class="cl-panel" id="clp-deliveries"><div class="cl-grid" id="clg-deliveries"></div></div>
+      <div class="cl-panel" id="clp-th"><div class="cl-grid" id="clg-th"></div></div>
+      <p class="cl-note">💡 上方为系统归纳的全部分类。填写下方企业画像后，已适配的分类会<strong style="color:var(--teal)">高亮并打 ✓</strong>，未适配的自动变暗。</p>
+
+      <!-- 区二 + 区三 -->
+      <div class="cl-work">
+        <!-- 企业画像输入区 -->
+        <div class="cl-card">
+          <h4>② 企业画像</h4>
+          <div class="sub2">录入企业信息，实时匹配适配的招标项目类型</div>
+
+          <fieldset class="cl-fs"><legend>企业类型</legend>
+            <div class="cl-chips" id="clType">
+              <button class="cl-chip" data-v="施工企业">施工企业</button>
+              <button class="cl-chip" data-v="设计院/咨询">设计院/咨询</button>
+              <button class="cl-chip" data-v="制造商">制造商</button>
+              <button class="cl-chip" data-v="贸易商/代理商">贸易商/代理商</button>
+              <button class="cl-chip" data-v="服务商(IT/物业/运维)">服务商(IT/物业/运维)</button>
+              <button class="cl-chip" data-v="检测/认证机构">检测/认证机构</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cl-fs"><legend>所属行业（多选）</legend>
+            <div class="cl-chips" id="clIndustry"></div>
+          </fieldset>
+
+          <fieldset class="cl-fs"><legend>资质（多选）</legend>
+            <div class="cl-chips" id="clQual">
+              <button class="cl-chip" data-v="施工总承包" data-o="WORKS">施工总承包</button>
+              <button class="cl-chip" data-v="专业承包(装修/机电/市政)" data-o="WORKS">专业承包(装修/机电/市政)</button>
+              <button class="cl-chip" data-v="勘察设计资质" data-o="WORKS" data-s="CONSULT">勘察设计资质</button>
+              <button class="cl-chip" data-v="工程监理资质" data-o="WORKS">工程监理资质</button>
+              <button class="cl-chip" data-v="生产制造/工厂" data-o="GOODS">生产制造/工厂</button>
+              <button class="cl-chip" data-v="医疗器械经营/生产" data-o="GOODS" data-s="MEDICAL">医疗器械经营/生产</button>
+              <button class="cl-chip" data-v="CMA/CNAS检测" data-o="GOODS">CMA/CNAS检测</button>
+              <button class="cl-chip" data-v="信息系统集成" data-o="SERVICES" data-s="IT_SOFTWARE">信息系统集成</button>
+              <button class="cl-chip" data-v="软件著作权/软件企业" data-o="SERVICES" data-s="IT_SOFTWARE">软件著作权/软件企业</button>
+              <button class="cl-chip" data-v="ISO9001/ISO27001" data-o="SERVICES">ISO9001/ISO27001</button>
+              <button class="cl-chip" data-v="物业/安保资质" data-o="SERVICES" data-s="GOV_SERVICE">物业/安保资质</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cl-fs"><legend>经营范围关键词（自由输入）</legend>
+            <input class="cl-input" id="clKeyword" placeholder="如：市政道路、污水处理、系统集成、软件开发" style="margin-top:6px">
+          </fieldset>
+
+          <fieldset class="cl-fs"><legend>人员证书（多选）</legend>
+            <div class="cl-chips" id="clCert">
+              <button class="cl-chip" data-v="一级建造师" data-o="WORKS">一级建造师</button>
+              <button class="cl-chip" data-v="二级建造师" data-o="WORKS">二级建造师</button>
+              <button class="cl-chip" data-v="注册造价/监理" data-o="WORKS" data-s="CONSULT">注册造价/监理</button>
+              <button class="cl-chip" data-v="高级职称" data-o="SERVICES">高级职称</button>
+              <button class="cl-chip" data-v="PMP/高项" data-o="SERVICES" data-s="IT_SOFTWARE">PMP/高项</button>
+              <button class="cl-chip" data-v="注册咨询工程师" data-o="SERVICES" data-s="CONSULT">注册咨询工程师</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cl-fs"><legend>目标资金属性（多选）</legend>
+            <div class="cl-chips" id="clAttr">
+              <button class="cl-chip" data-v="政府采购">政府采购</button>
+              <button class="cl-chip" data-v="国企/事业单位">国企/事业单位</button>
+              <button class="cl-chip" data-v="企业采购">企业采购</button>
+              <button class="cl-chip" data-v="国际招标">国际招标</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cl-fs"><legend>年营收规模</legend>
+            <div class="cl-chips" id="clRev">
+              <button class="cl-chip" data-v="＜2000万">＜2000万</button>
+              <button class="cl-chip" data-v="2000万-1亿">2000万-1亿</button>
+              <button class="cl-chip" data-v="＞1亿">＞1亿</button>
+            </div>
+          </fieldset>
+
+          <div class="cl-actions">
+            <button class="cl-btn primary" id="clClear">清空画像</button>
+          </div>
+          <div class="cl-summary" id="clSummary"></div>
+        </div>
+
+        <!-- 推荐结果区 -->
+        <div class="cl-card">
+          <h4>③ 推荐结果</h4>
+          <div class="sub2">基于企业画像实时生成的适配招标项目类型</div>
+          <div id="clRecs"><div class="cl-empty"><div class="big">🎯</div>填写左侧企业画像（企业类型 / 行业 / 资质 / 关键词任选其一），<br>此处实时输出适合贵司的招标项目类型与匹配依据。</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
 </div>
 
 <button id="top" title="回到顶部">↑</button>
