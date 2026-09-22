@@ -201,6 +201,57 @@
     }));
   }
 
+  const casesCostAgents = document.querySelector("#cases-cost-agents");
+  const casesCostTasks = document.querySelector("#cases-cost-tasks");
+  const casesCostTier = document.querySelector("#cases-cost-tier");
+  if (casesCostAgents && casesCostTasks && casesCostTier) {
+    const tiers = [
+      { name: "低成本", unit: 0.35 },
+      { name: "平衡主力", unit: 0.86 },
+      { name: "高质量", unit: 2.4 },
+    ];
+    const formatNumber = (value) => new Intl.NumberFormat("zh-CN").format(value);
+    const updateRangeProgress = (input) => {
+      const min = Number(input.min || 0);
+      const max = Number(input.max || 100);
+      const value = Number(input.value);
+      const progress = ((value - min) / (max - min)) * 100;
+      input.style.setProperty("--range-progress", `${progress}%`);
+    };
+    const updateCasesCost = () => {
+      const agents = Number(casesCostAgents.value);
+      const tasks = Number(casesCostTasks.value);
+      const tier = tiers[Number(casesCostTier.value)] || tiers[1];
+      const run = tasks * tier.unit;
+      const seat = agents * 49;
+      const total = run + seat;
+      const save = Math.round(total * 0.18);
+      const setText = (selector, value) => {
+        const element = document.querySelector(selector);
+        if (element) element.textContent = value;
+      };
+      setText("#cases-cost-agents-output", `${agents} 个`);
+      setText("#cases-cost-tasks-output", `${formatNumber(tasks)} 次`);
+      setText("#cases-cost-tier-output", tier.name);
+      setText("#cases-cost-total", `¥${formatNumber(Math.round(total))}`);
+      setText("#cases-cost-run", `¥${formatNumber(Math.round(run))}`);
+      setText("#cases-cost-seat", `¥${formatNumber(seat)}`);
+      setText("#cases-cost-agent-count", String(agents));
+      setText("#cases-cost-unit", `¥${tier.unit.toFixed(2)}`);
+      setText("#cases-cost-save", `约 ¥${formatNumber(save)}`);
+      const plan = agents <= 3 && tasks <= 500
+        ? { name: "推荐：基础方案", why: "适合先用一个明确场景跑通交付闭环，实际能力与用量按套餐配置。" }
+        : agents <= 20 && tasks <= 5000
+          ? { name: "推荐：专业版", why: "适合团队正式使用，提供更完整的模型、审批、用量与运营能力。" }
+          : { name: "推荐：企业版", why: "适合规模化部署，支持按企业需求配置审批、集成、模型与成本管理。" };
+      setText("#cases-cost-plan", plan.name);
+      setText("#cases-cost-plan-why", plan.why);
+      [casesCostAgents, casesCostTasks, casesCostTier].forEach(updateRangeProgress);
+    };
+    [casesCostAgents, casesCostTasks, casesCostTier].forEach((input) => input.addEventListener("input", updateCasesCost));
+    updateCasesCost();
+  }
+
   const revealItems = document.querySelectorAll("[data-reveal]");
   revealItems.forEach((item) => {
     const siblings = item.parentElement

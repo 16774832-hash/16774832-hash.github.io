@@ -450,8 +450,6 @@ body.scene-market-page{--ink:#000000;--ink-2:#121214;--ink-3:#222226;--paper:#F3
 .scene-market-page .scenario-sim-empty svg{margin:0 auto 16px;opacity:.7}
 
 /* Case page */
-.case-notice{margin:-24px 0 28px;padding:16px 18px;border:1px solid #E4D7FF;border-radius:14px;background:#F8F4FF;color:#5D5667;font-size:12px;line-height:1.8}
-.case-notice strong{color:#4B0CAA}
 .case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .case-card{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:0 10px 28px rgba(20,14,28,.035)}
 .case-card-head{position:relative;padding:23px 23px 21px;background:linear-gradient(125deg,#F1E9FF,#F7F6FA 76%)}
@@ -534,7 +532,7 @@ body.scene-market-page{--ink:#000000;--ink-2:#121214;--ink-3:#222226;--paper:#F3
   .scene-market-page .scene-group-index{width:40px;height:40px;flex-basis:40px;border-radius:12px}
   .section{padding:58px 0}.section-head{margin-bottom:27px}.section-head h2{font-size:30px}.section-topline{align-items:flex-start;flex-direction:column}
   .grid-2,.grid-3,.grid-4,.industry-grid,.scene-grid,.case-grid,.price-grid{grid-template-columns:1fr}.card{padding:21px}.callout{align-items:flex-start;flex-direction:column;padding:20px}.steps-row{grid-template-columns:1fr}.phase{padding:18px 12px}.phase::after{display:none!important}.example-chain{grid-template-columns:repeat(2,1fr)}.example-node:nth-child(2)::after{display:none}.trust-strip{grid-template-columns:1fr 1fr}.trust-item{padding:15px}
-  .scene-controls{align-items:stretch;flex-direction:column}.scene-filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}.filter-button{flex:0 0 auto}.search-wrap{flex-basis:auto}.preview-grid{grid-template-columns:1fr}.preview-card,.preview-card:last-child{grid-column:auto;min-height:230px}.case-notice{margin-top:-12px}.case-principles{grid-template-columns:1fr}.price-table th,.price-table td{padding:12px}.cost-grid{grid-template-columns:repeat(2,1fr)}
+  .scene-controls{align-items:stretch;flex-direction:column}.scene-filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}.filter-button{flex:0 0 auto}.search-wrap{flex-basis:auto}.preview-grid{grid-template-columns:1fr}.preview-card,.preview-card:last-child{grid-column:auto;min-height:230px}.case-principles{grid-template-columns:1fr}.price-table th,.price-table td{padding:12px}.cost-grid{grid-template-columns:repeat(2,1fr)}
   .final-cta{padding:64px 0}.final-cta-actions{width:auto;flex-direction:row}.final-cta-proof{justify-content:flex-start;gap:10px 14px;margin-top:28px}.final-cta-proof li{font-size:11.5px}.footer-brand p{max-width:100%}.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 18px}.footer-bottom{margin-top:34px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -542,8 +540,6 @@ body.scene-market-page{--ink:#000000;--ink-2:#121214;--ink-3:#222226;--paper:#F3
 }
 
 /* Case page: editorial story cards with clearly labeled source evidence */
-.case-notice{margin-top:-24px;padding:17px 20px;border-color:#DED1F2;background:#F7F2FF;color:#4B4652;font-size:13px}
-.case-notice strong{color:#4B0CAA}
 .case-grid{grid-template-columns:minmax(0,1fr);gap:22px}
 .case-card{border-color:#DDD9E4;border-radius:24px;box-shadow:0 12px 34px rgba(20,14,28,.045);transition:border-color .2s ease,box-shadow .2s ease}
 .case-card:hover{border-color:rgba(114,1,255,.3);box-shadow:0 18px 40px rgba(20,14,28,.08)}
@@ -609,7 +605,6 @@ body.scene-market-page{--ink:#000000;--ink-2:#121214;--ink-3:#222226;--paper:#F3
   .case-body-grid{grid-template-columns:minmax(0,1fr);gap:22px}
 }
 @media (max-width:580px){
-  .case-notice{margin-top:-12px;padding:14px 15px}
   .case-card-head{min-height:108px;padding:20px;gap:12px}
   .case-index{min-height:34px;padding:0 9px;font-size:9px}
   .case-body-grid{gap:18px;padding:20px}
@@ -727,7 +722,7 @@ body.page-platform .footer-links a:focus-visible,body.page-platform .brand:focus
 .knowledge-files-label{margin-top:18px;color:#4B4652;font-size:11px;font-weight:750}
 .file-type-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin-top:10px}
 .file-type{display:grid;min-height:48px;place-items:center;border:1px solid #DDD9E3;border-radius:10px;background:#fff;color:#4B4652;font-size:10px;font-weight:700}
-.file-pdf{border-color:#E8B7B7;background:#FFF5F4;color:#8F3737}
+.file-pdf{border-color:#DCC7FF;background:#F4EEFF;color:#5D16B9}
 .knowledge-divider{height:1px;margin:18px 0 7px;background:#D8D4DE}
 .memory-row{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:11px;align-items:center;padding:12px 0;border-bottom:1px solid #DBD7E1}
 .memory-row:last-of-type{border-bottom:0}
@@ -838,6 +833,102 @@ body.page-platform .footer-links a:focus-visible,body.page-platform .brand:focus
 }
 @media (prefers-reduced-motion:reduce){
   .capability-card:hover,.channel-card:hover{transform:none}
+}
+
+/* Platform typography: keep one readable Chinese scale and reserve mono for metadata. */
+body.page-platform .platform-page{
+  --platform-copy:14px;
+  --platform-copy-strong:15px;
+  --platform-meta:11px;
+  --platform-micro:10px;
+}
+body.page-platform .platform-page :where(.hero-lead,.section-head p,.detail-lead,.capability-card p,.feature-list span,.factory-panel-content p,.engine-detail-grid p,.tool-layer>p,.layer-example span,.channel-card p,.routing-card p,.security-grid p,.section-footnote,.model-disclaimer){
+  font-family:var(--font);
+}
+body.page-platform .platform-visual-note{font-size:var(--platform-meta);line-height:1.7}
+body.page-platform .hero-panel .panel-label{font-size:var(--platform-meta)}
+body.page-platform .hero-panel .panel-badge{font-size:var(--platform-meta)}
+body.page-platform .hero-panel .panel-step b{font-size:14px;line-height:1.5}
+body.page-platform .hero-panel .panel-step small{font-size:12px;line-height:1.6}
+body.page-platform .hero-panel .panel-step em{font-size:var(--platform-meta)}
+body.page-platform .hero-panel .panel-output small{font-size:var(--platform-meta)}
+body.page-platform .hero-panel .panel-output b{font-size:14px;line-height:1.5}
+
+body.page-platform .capability-index{font-size:var(--platform-meta)}
+body.page-platform .capability-card h3{font-size:21px}
+body.page-platform .capability-card p{font-size:var(--platform-copy);line-height:1.85}
+body.page-platform .capability-link{font-size:13px}
+
+body.page-platform .detail-lead{font-size:var(--platform-copy-strong);line-height:1.9}
+body.page-platform .feature-list b{font-size:14px}
+body.page-platform .feature-list span{font-size:var(--platform-copy);line-height:1.8}
+body.page-platform .demo-window-top{font-size:var(--platform-micro)}
+body.page-platform .demo-status{font-size:var(--platform-meta)}
+body.page-platform .demo-overline,
+body.page-platform .model-overline{font-size:var(--platform-micro)}
+body.page-platform .demo-heading h3{font-size:22px}
+body.page-platform .factory-step{font-size:12px}
+body.page-platform .factory-step span{font-size:var(--platform-micro)}
+body.page-platform .demo-field-label{font-size:12px}
+body.page-platform .demo-choice-list span{font-size:12px}
+body.page-platform .factory-panel-content p{font-size:12px;line-height:1.8}
+body.page-platform .demo-config-row{font-size:12px}
+body.page-platform .demo-footer{font-size:var(--platform-meta);line-height:1.6}
+
+body.page-platform .flow-step>span{font-size:var(--platform-micro)}
+body.page-platform .flow-step small{font-size:12px;line-height:1.6}
+body.page-platform .recovery-rail{font-size:12px}
+body.page-platform .recovery-note{font-size:var(--platform-meta)}
+body.page-platform .engine-detail-grid b{font-size:14px}
+body.page-platform .engine-detail-grid p{font-size:12.5px;line-height:1.8}
+
+body.page-platform .knowledge-visual-head{font-size:var(--platform-micro)}
+body.page-platform .knowledge-files-label{font-size:12px}
+body.page-platform .file-type{font-size:12px}
+body.page-platform .memory-icon{font-size:var(--platform-micro)}
+body.page-platform .memory-row b{font-size:13px}
+body.page-platform .memory-row small{font-size:11px;line-height:1.6}
+body.page-platform .memory-state{font-size:var(--platform-meta)}
+body.page-platform .visual-caption{font-size:var(--platform-meta);line-height:1.6}
+
+body.page-platform .layer-index{font-size:var(--platform-micro)}
+body.page-platform .tool-layer h3 small{font-size:12px}
+body.page-platform .tool-layer>p{font-size:var(--platform-copy);line-height:1.8}
+body.page-platform .layer-example b{font-size:12px}
+body.page-platform .layer-example span{font-size:12.5px;line-height:1.75}
+body.page-platform .section-footnote{font-size:12px;line-height:1.8}
+
+body.page-platform .channel-code{font-size:var(--platform-micro)}
+body.page-platform .channel-card p{font-size:var(--platform-copy);line-height:1.8}
+body.page-platform .channel-use{font-size:12px}
+body.page-platform .routing-card>span{font-size:var(--platform-micro)}
+body.page-platform .routing-card h3{font-size:14px;line-height:1.55}
+body.page-platform .routing-card b{font-size:12px;line-height:1.65}
+body.page-platform .routing-card p{font-size:12px;line-height:1.7}
+body.page-platform .model-label{font-size:var(--platform-meta)}
+body.page-platform .supplier-grid article>b{font-size:13px}
+body.page-platform .supplier-grid article>span{font-size:12px;line-height:1.7}
+body.page-platform .supplier-grid small{font-size:var(--platform-meta)}
+body.page-platform .model-disclaimer{font-size:12px;line-height:1.8}
+body.page-platform .security-grid article>span{font-size:var(--platform-micro)}
+body.page-platform .security-grid h3{font-size:16px}
+body.page-platform .security-grid p{font-size:13px;line-height:1.8}
+
+@media (max-width:580px){
+  body.page-platform .platform-page{
+    --platform-copy:13px;
+    --platform-copy-strong:14px;
+    --platform-meta:10.5px;
+  }
+  body.page-platform .capability-card h3{font-size:20px}
+  body.page-platform .capability-link{font-size:12.5px}
+  body.page-platform .feature-list b{font-size:13px}
+  body.page-platform .feature-list span{font-size:13px}
+  body.page-platform .demo-heading h3{font-size:20px}
+  body.page-platform .factory-step{font-size:11px}
+  body.page-platform .tool-layer h3{font-size:20px}
+  body.page-platform .routing-card h3{font-size:13px}
+  body.page-platform .security-grid h3{font-size:15px}
 }
 
 /* Scenario market motion system: explain the page without turning every surface into noise. */

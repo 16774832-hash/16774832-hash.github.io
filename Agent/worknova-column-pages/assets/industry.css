@@ -709,3 +709,49 @@ body.industry-page{
     transform:none!important;
   }
 }
+
+/* Readability pass: keep metadata compact, but bring the smallest labels above
+   the page's comfortable reading floor. */
+.industry-page .visual-eyebrow,
+.industry-page .visual-status{font-size:11px}
+.industry-page .flow-copy small{font-size:10px}
+.industry-page .flow-index{font-size:11px}
+.industry-page .industry-code{font-size:11px}
+.industry-page .industry-section-head p{font-size:14px}
+.industry-page .industry-count{font-size:11px}
+.industry-page .pain-heading span{font-size:10px}
+.industry-page .pain-list li{font-size:13px}
+.industry-page .pain-list li span{font-size:10px}
+.industry-page .mini-kicker{font-size:10px}
+.industry-page .agent-area-heading>span{font-size:11px}
+.industry-page .agent-index{font-size:10px}
+.industry-page .agent-card p{font-size:13px}
+.industry-page .agent-card p b{font-size:11px}
+.industry-page .agent-output span{font-size:11px}
+.industry-page .agent-output strong{font-size:11px}
+.industry-page .industry-anchor-nav a span{font-size:10px}
+.industry-page .example-label{font-size:11px}
+.industry-page .example-industry{font-size:12px}
+.industry-page .example-number{font-size:10px}
+.industry-page .example-card>p{font-size:14px}
+.industry-page .example-flow span{font-size:12px}
+.industry-page .example-deliverables>span{font-size:11px}
+.industry-page .example-deliverables b{font-size:11px}
+.industry-page .example-disclaimer{font-size:12px}
+.industry-page .quick-start-kicker{font-size:11px}
+.industry-page .shared-bottom-cta-points>li{font-size:13px}
+.industry-page .site-footer.shared-site-footer .screenshot-footer-brand p{font-size:13px}
+.industry-page .site-footer.shared-site-footer .screenshot-footer-links a{font-size:13px}
+.industry-page .site-footer.shared-site-footer .screenshot-footer-bottom{font-size:12px}
+
+@media (max-width:580px){
+  .industry-page .industry-hero .hero-meta{font-size:12px}
+  .industry-page .industry-section-head p{font-size:13px}
+  .industry-page .industry-count{font-size:10px}
+  .industry-page .agent-area-heading>span{font-size:10px}
+  .industry-page .agent-card p{font-size:13px}
+  .industry-page .shared-bottom-cta-points>li{font-size:12px}
+  .industry-page .site-footer.shared-site-footer .screenshot-footer-brand p{font-size:12.5px}
+  .industry-page .site-footer.shared-site-footer .screenshot-footer-links a{font-size:12.5px}
+  .industry-page .site-footer.shared-site-footer .screenshot-footer-bottom{font-size:12px}
+}

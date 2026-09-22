@@ -5,6 +5,131 @@ body.cases-page{
   --motion-ease-drawer:cubic-bezier(0.32,0.72,0,1);
 }
 
+body.cases-page #examples .section-head{max-width:100%}
+body.cases-page #examples .section-head > p{max-width:none}
+@media (min-width:1121px){
+  body.cases-page #examples .section-head > p{white-space:nowrap}
+}
+
+/* Cost calculator replacement panel: a light control surface paired with a dark result surface. */
+body.cases-page .cases-cost-section{
+  overflow:hidden;
+  background:
+    radial-gradient(560px 260px at 86% 14%,rgba(114,1,255,.08),transparent 72%),
+    linear-gradient(145deg,#F5F2FA 0%,#ECEAF2 100%);
+}
+body.cases-page .cases-cost-head{max-width:900px}
+body.cases-page .cases-cost-head .section-kicker{color:var(--purple)}
+body.cases-page .cases-cost-head h2 em{color:var(--ink)}
+body.cases-page .cases-cost-head p{max-width:900px}
+body.cases-page .cases-cost-card{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  overflow:hidden;
+  border:1px solid rgba(93,84,115,.16);
+  border-radius:30px;
+  background:#fff;
+  box-shadow:0 24px 60px rgba(45,33,75,.13);
+}
+body.cases-page .cases-cost-controls{padding:46px 50px 43px;background:#fff}
+body.cases-page .cases-cost-controls h3{margin:0;color:var(--ink);font-size:25px;line-height:1.35;letter-spacing:-.025em}
+body.cases-page .cases-cost-intro{margin:10px 0 0;color:#7A7482;font-size:15px;line-height:1.7}
+body.cases-page .cases-cost-field{margin-top:31px}
+body.cases-page .cases-cost-field-top{display:flex;align-items:baseline;justify-content:space-between;gap:18px;margin-bottom:15px}
+body.cases-page .cases-cost-field-top label{color:#29242F;font-size:15px;font-weight:750;line-height:1.55}
+body.cases-page .cases-cost-field-top output{color:#557A0B;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:16px;font-weight:800;line-height:1.4;white-space:nowrap}
+body.cases-page .cases-cost-range{
+  display:block;
+  width:100%;
+  height:8px;
+  margin:0;
+  border:0;
+  border-radius:999px;
+  outline:none;
+  appearance:none;
+  background:linear-gradient(90deg,#8FFE01 0 var(--range-progress,0%),#E5E2EB var(--range-progress,0%) 100%);
+  cursor:pointer;
+}
+body.cases-page .cases-cost-range::-webkit-slider-runnable-track{height:8px;border-radius:999px;background:transparent}
+body.cases-page .cases-cost-range::-webkit-slider-thumb{
+  width:22px;
+  height:22px;
+  margin-top:-7px;
+  border:4px solid #8FFE01;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 4px 13px rgba(143,254,1,.35);
+  appearance:none;
+  transition:transform .2s var(--motion-ease-out),box-shadow .2s ease;
+}
+body.cases-page .cases-cost-range::-moz-range-track{height:8px;border:0;border-radius:999px;background:#E5E2EB}
+body.cases-page .cases-cost-range::-moz-range-progress{height:8px;border-radius:999px;background:#8FFE01}
+body.cases-page .cases-cost-range::-moz-range-thumb{width:16px;height:16px;border:4px solid #8FFE01;border-radius:50%;background:#fff;box-shadow:0 4px 13px rgba(143,254,1,.35)}
+body.cases-page .cases-cost-range:focus-visible{box-shadow:0 0 0 4px rgba(114,1,255,.16)}
+body.cases-page .cases-cost-note{margin:20px 0 0;font-size:12.5px;line-height:1.85}
+body.cases-page .cases-cost-note-light{color:#948F9C}
+body.cases-page .cases-cost-summary{
+  position:relative;
+  overflow:hidden;
+  padding:46px 50px 39px;
+  background:
+    radial-gradient(420px 240px at 100% 0,rgba(114,1,255,.22),transparent 72%),
+    linear-gradient(160deg,#241832 0%,#17131F 58%,#111E18 100%);
+  color:#DDE6F1;
+}
+body.cases-page .cases-cost-summary::before{
+  position:absolute;
+  right:-96px;
+  bottom:-120px;
+  width:320px;
+  height:320px;
+  border:1px solid rgba(143,254,1,.13);
+  border-radius:50%;
+  box-shadow:0 0 0 28px rgba(143,254,1,.025),0 0 0 56px rgba(114,1,255,.035);
+  content:"";
+  pointer-events:none;
+  animation:cases-cost-orbit 14s var(--motion-ease-in-out) infinite alternate;
+}
+body.cases-page .cases-cost-summary > *{position:relative;z-index:1}
+body.cases-page .cases-cost-summary h3{margin:0;color:#A0B3C7;font-size:14px;font-weight:750;letter-spacing:.13em;line-height:1.5;text-transform:uppercase}
+body.cases-page .cases-cost-total{display:flex;align-items:baseline;gap:10px;margin-top:14px}
+body.cases-page .cases-cost-total b{color:#fff;font-size:clamp(43px,5vw,68px);font-variant-numeric:tabular-nums;letter-spacing:-.045em;line-height:1.05}
+body.cases-page .cases-cost-total span{color:#A9BDD0;font-size:15px;white-space:nowrap}
+body.cases-page .cases-cost-rows{display:grid;gap:1px;margin-top:29px;overflow:hidden;border:1px solid rgba(255,255,255,.13);border-radius:16px;background:rgba(255,255,255,.07)}
+body.cases-page .cases-cost-row{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 17px;background:rgba(255,255,255,.045);font-size:14px;line-height:1.55}
+body.cases-page .cases-cost-row + .cases-cost-row{border-top:1px solid rgba(255,255,255,.09)}
+body.cases-page .cases-cost-row span{color:#A6BDD0}
+body.cases-page .cases-cost-row b{color:#fff;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;font-weight:750;white-space:nowrap}
+body.cases-page .cases-cost-row i{color:#D4E4F2;font-style:normal}
+body.cases-page .cases-cost-plan{margin-top:23px;padding:18px 20px;border:1px solid rgba(114,1,255,.78);border-radius:16px;background:linear-gradient(125deg,rgba(114,1,255,.27),rgba(114,1,255,.12))}
+body.cases-page .cases-cost-plan b{display:block;color:#D9C5FF;font-size:16px;line-height:1.5}
+body.cases-page .cases-cost-plan p{margin:7px 0 0;color:#BDB0D1;font-size:13px;line-height:1.75}
+body.cases-page .cases-cost-note-dark{color:#8FA2B4}
+body.cases-page .cases-cost-card.is-visible .cases-cost-summary{animation:cases-cost-summary-in .72s var(--motion-ease-out) 90ms both}
+
+@media (hover:hover) and (pointer:fine){
+  body.cases-page .cases-cost-range:hover::-webkit-slider-thumb{box-shadow:0 5px 20px rgba(143,254,1,.48);transform:scale(1.1)}
+  body.cases-page .cases-cost-row{transition:background-color .22s ease,transform .22s var(--motion-ease-out)}
+  body.cases-page .cases-cost-row:hover{background:rgba(255,255,255,.09);transform:translateX(4px)}
+  body.cases-page .cases-cost-plan{transition:transform .24s var(--motion-ease-out),border-color .2s ease,background-color .2s ease}
+  body.cases-page .cases-cost-plan:hover{border-color:#A76BFF;background:linear-gradient(125deg,rgba(114,1,255,.38),rgba(114,1,255,.16));transform:translateY(-3px)}
+}
+
+@media (max-width:860px){
+  body.cases-page .cases-cost-card{grid-template-columns:1fr}
+  body.cases-page .cases-cost-controls{padding:35px 30px 32px}
+  body.cases-page .cases-cost-summary{padding:35px 30px 32px}
+}
+@media (max-width:580px){
+  body.cases-page .cases-cost-card{border-radius:22px}
+  body.cases-page .cases-cost-controls,
+  body.cases-page .cases-cost-summary{padding:28px 21px 26px}
+  body.cases-page .cases-cost-controls h3{font-size:22px}
+  body.cases-page .cases-cost-field{margin-top:27px}
+  body.cases-page .cases-cost-total b{font-size:43px}
+  body.cases-page .cases-cost-total span{font-size:12px}
+}
+
 /* The opening sequence makes the information hierarchy land in order. */
 body.cases-page .cases-hero .eyebrow,
 body.cases-page .cases-hero h1,
@@ -218,6 +343,8 @@ body.cases-page .site-footer.shared-site-footer .screenshot-footer-direct-link h
 @keyframes cases-head-in{from{opacity:.3;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
 @keyframes cases-head-sheen{0%,58%{transform:translateX(-72%)}82%,100%{transform:translateX(72%)}}
 @keyframes cases-card-sheen{from{transform:skewX(-18deg) translateX(-120%)}to{transform:skewX(-18deg) translateX(520%)}}
+@keyframes cases-cost-summary-in{from{opacity:.42;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
+@keyframes cases-cost-orbit{from{transform:rotate(-8deg) translate3d(0,0,0)}to{transform:rotate(9deg) translate3d(-2%,2%,0)}}
 @keyframes cases-cta-drift{from{transform:translate3d(-1%,0,0) scale(1)}to{transform:translate3d(2%,1%,0) scale(1.04)}}
 @keyframes cases-cta-orbit{from{transform:rotate(-4deg) translate3d(0,0,0)}to{transform:rotate(5deg) translate3d(-2%,2%,0)}}
 @keyframes cases-footer-orbit{from{transform:rotate(-14deg) translate3d(0,0,0)}to{transform:rotate(-11deg) translate3d(2%,1%,0)}}
@@ -242,6 +369,7 @@ body.cases-page .site-footer.shared-site-footer .screenshot-footer-direct-link h
   body.cases-page .hero-panel::after,
   body.cases-page .panel-step::after,
   body.cases-page .case-card-head::before,
+  body.cases-page .cases-cost-summary::before,
   body.cases-page .shared-bottom-cta::before,
   body.cases-page .shared-bottom-cta::after,
   body.cases-page .site-footer.shared-site-footer::before,
@@ -258,6 +386,7 @@ body.cases-page .site-footer.shared-site-footer .screenshot-footer-direct-link h
   body.cases-page .case-card.is-visible .case-results,
   body.cases-page .case-card.is-visible .case-deliverables,
   body.cases-page .case-card.is-visible .case-quote,
+  body.cases-page .cases-cost-card.is-visible .cases-cost-summary,
   body.cases-page .case-principles.is-visible .case-principle,
   body.cases-page .final-cta-inner.is-visible .shared-bottom-cta-points li{animation:none!important;opacity:1!important;transform:none!important}
   body.cases-page .case-card{transition:none}
