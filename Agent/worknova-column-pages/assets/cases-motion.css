@@ -1,0 +1,264 @@
+/* Customer cases motion layer: calm, purposeful movement with a reduced-motion escape hatch. */
+body.cases-page{
+  --motion-ease-out:cubic-bezier(0.23,1,0.32,1);
+  --motion-ease-in-out:cubic-bezier(0.77,0,0.175,1);
+  --motion-ease-drawer:cubic-bezier(0.32,0.72,0,1);
+}
+
+/* The opening sequence makes the information hierarchy land in order. */
+body.cases-page .cases-hero .eyebrow,
+body.cases-page .cases-hero h1,
+body.cases-page .cases-hero .hero-lead,
+body.cases-page .cases-hero .hero-actions,
+body.cases-page .cases-hero .hero-meta,
+body.cases-page .cases-hero .hero-panel{
+  animation:cases-hero-in .72s var(--motion-ease-out) both;
+}
+body.cases-page .cases-hero h1{animation-delay:70ms}
+body.cases-page .cases-hero .hero-lead{animation-delay:130ms}
+body.cases-page .cases-hero .hero-actions{animation-delay:190ms}
+body.cases-page .cases-hero .hero-meta{animation-delay:250ms}
+body.cases-page .cases-hero .hero-panel{animation-delay:160ms;animation-duration:.9s}
+body.cases-page .cases-hero::before{
+  opacity:.36;
+  transform-origin:center;
+  animation:cases-grid-drift 18s var(--motion-ease-in-out) infinite alternate;
+}
+body.cases-page .cases-hero::after{
+  transform-origin:center;
+  animation:cases-orbit 14s var(--motion-ease-in-out) infinite;
+}
+body.cases-page .hero-panel::before{
+  animation:cases-status-pulse 2.8s ease-in-out infinite;
+}
+body.cases-page .hero-panel::after{
+  position:absolute;
+  z-index:0;
+  inset:-1px;
+  border:1px solid rgba(143,254,1,.18);
+  border-radius:inherit;
+  content:"";
+  opacity:0;
+  pointer-events:none;
+  animation:cases-panel-ring 4.8s var(--motion-ease-out) 1.1s infinite;
+}
+body.cases-page .hero-panel > *{position:relative;z-index:1}
+body.cases-page .panel-step{
+  position:relative;
+  overflow:hidden;
+  transition:transform .22s var(--motion-ease-out),border-color .22s ease,background-color .22s ease;
+}
+body.cases-page .panel-step::after{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:-42%;
+  width:28%;
+  background:linear-gradient(104deg,transparent,rgba(143,254,1,.14),transparent);
+  content:"";
+  opacity:0;
+  transform:skewX(-18deg) translateX(-120%);
+  pointer-events:none;
+}
+body.cases-page .hero-panel .panel-step:nth-child(1)::after{animation:cases-step-sheen 5.8s var(--motion-ease-in-out) 1.4s infinite}
+body.cases-page .hero-panel .panel-step:nth-child(2)::after{animation:cases-step-sheen 5.8s var(--motion-ease-in-out) 2.1s infinite}
+body.cases-page .hero-panel .panel-step:nth-child(3)::after{animation:cases-step-sheen 5.8s var(--motion-ease-in-out) 2.8s infinite}
+body.cases-page .hero-panel .panel-step:nth-child(4)::after{animation:cases-step-sheen 5.8s var(--motion-ease-in-out) 3.5s infinite}
+
+/* Scroll reveals keep the long page readable while making each section feel connected. */
+body.cases-page [data-reveal]{will-change:opacity,transform}
+body.cases-page [data-reveal].is-visible{
+  animation:cases-reveal .72s var(--motion-ease-out) var(--reveal-delay,0ms) both;
+}
+body.cases-page .case-grid .case-card:nth-child(1){--reveal-delay:0ms}
+body.cases-page .case-grid .case-card:nth-child(2){--reveal-delay:70ms}
+body.cases-page .case-grid .case-card:nth-child(3){--reveal-delay:140ms}
+body.cases-page .case-principles.is-visible .case-principle,
+body.cases-page .final-cta-inner.is-visible .shared-bottom-cta-points li{
+  animation:cases-child-reveal .58s var(--motion-ease-out) var(--child-delay,0ms) both;
+}
+body.cases-page .case-principles .case-principle:nth-child(1){--child-delay:40ms}
+body.cases-page .case-principles .case-principle:nth-child(2){--child-delay:100ms}
+body.cases-page .case-principles .case-principle:nth-child(3){--child-delay:160ms}
+body.cases-page .final-cta-inner .shared-bottom-cta-points li:nth-child(1){--child-delay:120ms}
+body.cases-page .final-cta-inner .shared-bottom-cta-points li:nth-child(2){--child-delay:170ms}
+body.cases-page .final-cta-inner .shared-bottom-cta-points li:nth-child(3){--child-delay:220ms}
+body.cases-page .final-cta-inner .shared-bottom-cta-points li:nth-child(4){--child-delay:270ms}
+body.cases-page .final-cta-inner .shared-bottom-cta-points li:nth-child(5){--child-delay:320ms}
+
+/* Case cards use a restrained lift and a single light pass to reward inspection. */
+body.cases-page .case-card{
+  position:relative;
+  overflow:hidden;
+  transition:transform .3s var(--motion-ease-out),border-color .24s ease,box-shadow .3s var(--motion-ease-out);
+}
+body.cases-page .case-card::before{
+  position:absolute;
+  z-index:0;
+  inset:0;
+  background:radial-gradient(380px 170px at 90% -8%,rgba(114,1,255,.12),transparent 72%);
+  content:"";
+  opacity:0;
+  transition:opacity .3s ease;
+  pointer-events:none;
+}
+body.cases-page .case-card[data-accent="lime"]::before{background:radial-gradient(380px 170px at 90% -8%,rgba(143,254,1,.18),transparent 72%)}
+body.cases-page .case-card::after{
+  position:absolute;
+  z-index:2;
+  top:-20%;
+  bottom:-20%;
+  left:-38%;
+  width:24%;
+  background:linear-gradient(104deg,transparent,rgba(255,255,255,.48),transparent);
+  content:"";
+  opacity:0;
+  transform:skewX(-18deg) translateX(-120%);
+  pointer-events:none;
+}
+body.cases-page .case-card > *{position:relative;z-index:1}
+body.cases-page .case-card.is-visible .case-card-head{animation:cases-head-in .62s var(--motion-ease-out) both}
+body.cases-page .case-card.is-visible .case-field,
+body.cases-page .case-card.is-visible .case-results,
+body.cases-page .case-card.is-visible .case-deliverables,
+body.cases-page .case-card.is-visible .case-quote{
+  animation:cases-child-reveal .58s var(--motion-ease-out) var(--child-delay,0ms) both;
+}
+body.cases-page .case-card .case-field:nth-child(1){--child-delay:70ms}
+body.cases-page .case-card .case-field:nth-child(2){--child-delay:125ms}
+body.cases-page .case-card .case-deliverables{--child-delay:180ms}
+body.cases-page .case-card .case-results{--child-delay:100ms}
+body.cases-page .case-card .case-quote{--child-delay:220ms}
+body.cases-page .case-card .case-card-head,
+body.cases-page .case-card .case-field,
+body.cases-page .case-card .case-results,
+body.cases-page .case-card .case-deliverables,
+body.cases-page .case-card .case-quote{will-change:opacity,transform}
+
+body.cases-page .case-card-head{position:relative;overflow:hidden;isolation:isolate}
+body.cases-page .case-card-head::before{
+  position:absolute;
+  z-index:0;
+  inset:0;
+  background:linear-gradient(116deg,transparent 16%,rgba(255,255,255,.34) 42%,transparent 67%);
+  content:"";
+  opacity:.38;
+  transform:translateX(-72%);
+  animation:cases-head-sheen 11s var(--motion-ease-in-out) infinite;
+}
+body.cases-page .case-card[data-accent="lime"] .case-card-head::before{background:linear-gradient(116deg,transparent 16%,rgba(255,255,255,.46) 42%,transparent 67%)}
+body.cases-page .case-card-head .case-heading,
+body.cases-page .case-card-head .case-index{position:relative;z-index:1}
+body.cases-page .case-index{transition:transform .24s var(--motion-ease-out),background-color .24s ease,border-color .24s ease}
+body.cases-page .case-deliverables span,
+body.cases-page .case-metrics > div,
+body.cases-page .case-principle{
+  transition:transform .24s var(--motion-ease-out),border-color .22s ease,background-color .22s ease,box-shadow .24s ease;
+}
+body.cases-page .case-metrics dd span{display:inline-block;transition:transform .22s var(--motion-ease-out)}
+body.cases-page .case-quote{position:relative;overflow:hidden}
+body.cases-page .case-quote::before{
+  position:absolute;
+  right:17px;
+  bottom:-20px;
+  color:currentColor;
+  content:"“";
+  font-family:Georgia,serif;
+  font-size:105px;
+  line-height:1;
+  opacity:.09;
+  transform:translateY(7px);
+  transition:opacity .3s ease,transform .3s var(--motion-ease-out);
+  pointer-events:none;
+}
+
+/* Hover is deliberately limited to precise pointers so touch scrolling stays calm. */
+@media (hover:hover) and (pointer:fine){
+  body.cases-page .panel-step:hover{border-color:rgba(143,254,1,.3);background:rgba(143,254,1,.08);transform:translateX(4px)}
+  body.cases-page .case-card:hover{border-color:rgba(114,1,255,.36);box-shadow:0 24px 52px rgba(20,14,28,.13);transform:translateY(-8px)}
+  body.cases-page .case-card[data-accent="lime"]:hover{border-color:rgba(85,122,11,.42)}
+  body.cases-page .case-card:hover::before{opacity:1}
+  body.cases-page .case-card:hover::after{opacity:.8;animation:cases-card-sheen .78s var(--motion-ease-out) both}
+  body.cases-page .case-card:hover .case-index{border-color:rgba(114,1,255,.26);background:#fff;transform:translateY(-3px)}
+  body.cases-page .case-card[data-accent="lime"]:hover .case-index{border-color:rgba(85,122,11,.3)}
+  body.cases-page .case-deliverables span:hover{border-color:#C6E893;background:#F1FFD8;transform:translateY(-3px)}
+  body.cases-page .case-metrics > div:hover{border-color:rgba(114,1,255,.2);background:#FBF9FF;box-shadow:0 8px 18px rgba(114,1,255,.07);transform:translateX(4px)}
+  body.cases-page .case-metrics > div:hover dd span{transform:translateX(4px)}
+  body.cases-page .case-principle:hover{border-color:rgba(143,254,1,.42);background:rgba(255,255,255,.08);transform:translateY(-4px);box-shadow:0 12px 26px rgba(0,0,0,.16)}
+  body.cases-page .case-quote:hover::before{opacity:.16;transform:translateY(0)}
+  body.cases-page .final-cta .btn:hover span{transform:translateX(5px)}
+}
+body.cases-page .final-cta .btn span{display:inline-block;transition:transform .22s var(--motion-ease-out)}
+body.cases-page .shared-bottom-cta::before{
+  transform-origin:center;
+  animation:cases-cta-drift 18s var(--motion-ease-in-out) infinite alternate;
+}
+body.cases-page .shared-bottom-cta::after{
+  animation:cases-cta-orbit 20s var(--motion-ease-in-out) infinite alternate;
+}
+body.cases-page .site-footer.shared-site-footer::before{
+  animation:cases-footer-orbit 24s var(--motion-ease-in-out) infinite alternate;
+}
+body.cases-page .site-footer.shared-site-footer::after{
+  animation:cases-footer-glow 16s var(--motion-ease-in-out) infinite alternate;
+}
+body.cases-page .site-footer.shared-site-footer .screenshot-footer-links a,
+body.cases-page .site-footer.shared-site-footer .screenshot-footer-direct-link h2>a{
+  transition:color .2s ease,transform .22s var(--motion-ease-out),border-color .2s ease,background-color .2s ease;
+}
+
+@keyframes cases-hero-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cases-grid-drift{from{transform:translate3d(-12px,-8px,0) scale(1)}to{transform:translate3d(18px,10px,0) scale(1.04)}}
+@keyframes cases-orbit{0%,100%{transform:rotate(0deg) translate3d(0,0,0)}50%{transform:rotate(12deg) translate3d(-12px,9px,0)}}
+@keyframes cases-status-pulse{0%,100%{box-shadow:0 0 0 5px rgba(143,254,1,.1)}50%{box-shadow:0 0 0 9px rgba(143,254,1,.02)}}
+@keyframes cases-panel-ring{0%{opacity:0;transform:scale(.98)}25%{opacity:.5}75%{opacity:0}100%{opacity:0;transform:scale(1.035)}}
+@keyframes cases-step-sheen{0%,62%{opacity:0;transform:skewX(-18deg) translateX(-120%)}72%{opacity:1}88%,100%{opacity:0;transform:skewX(-18deg) translateX(470%)}}
+@keyframes cases-reveal{from{opacity:.01;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cases-child-reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cases-head-in{from{opacity:.3;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cases-head-sheen{0%,58%{transform:translateX(-72%)}82%,100%{transform:translateX(72%)}}
+@keyframes cases-card-sheen{from{transform:skewX(-18deg) translateX(-120%)}to{transform:skewX(-18deg) translateX(520%)}}
+@keyframes cases-cta-drift{from{transform:translate3d(-1%,0,0) scale(1)}to{transform:translate3d(2%,1%,0) scale(1.04)}}
+@keyframes cases-cta-orbit{from{transform:rotate(-4deg) translate3d(0,0,0)}to{transform:rotate(5deg) translate3d(-2%,2%,0)}}
+@keyframes cases-footer-orbit{from{transform:rotate(-14deg) translate3d(0,0,0)}to{transform:rotate(-11deg) translate3d(2%,1%,0)}}
+@keyframes cases-footer-glow{from{opacity:.2;transform:translate3d(-1%,0,0) scale(1)}to{opacity:.34;transform:translate3d(1%,1%,0) scale(1.03)}}
+
+@media (max-width:860px){
+  body.cases-page .case-card:hover{transform:translateY(-5px)}
+  body.cases-page .case-card::after{display:none}
+  body.cases-page .case-card-head::before{animation-duration:14s}
+}
+@media (max-width:580px){
+  body.cases-page .cases-hero::after{right:-88px;top:16%;width:210px;height:210px}
+  body.cases-page .hero-panel::after{display:none}
+  body.cases-page .case-quote::before{right:10px;bottom:-18px;font-size:84px}
+  body.cases-page .shared-bottom-cta::after{right:-35%;bottom:-44%;width:120%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  body.cases-page .cases-hero::before,
+  body.cases-page .cases-hero::after,
+  body.cases-page .hero-panel::before,
+  body.cases-page .hero-panel::after,
+  body.cases-page .panel-step::after,
+  body.cases-page .case-card-head::before,
+  body.cases-page .shared-bottom-cta::before,
+  body.cases-page .shared-bottom-cta::after,
+  body.cases-page .site-footer.shared-site-footer::before,
+  body.cases-page .site-footer.shared-site-footer::after{animation:none!important;transform:none!important}
+  body.cases-page .cases-hero .eyebrow,
+  body.cases-page .cases-hero h1,
+  body.cases-page .cases-hero .hero-lead,
+  body.cases-page .cases-hero .hero-actions,
+  body.cases-page .cases-hero .hero-meta,
+  body.cases-page .cases-hero .hero-panel,
+  body.cases-page [data-reveal].is-visible,
+  body.cases-page .case-card.is-visible .case-card-head,
+  body.cases-page .case-card.is-visible .case-field,
+  body.cases-page .case-card.is-visible .case-results,
+  body.cases-page .case-card.is-visible .case-deliverables,
+  body.cases-page .case-card.is-visible .case-quote,
+  body.cases-page .case-principles.is-visible .case-principle,
+  body.cases-page .final-cta-inner.is-visible .shared-bottom-cta-points li{animation:none!important;opacity:1!important;transform:none!important}
+  body.cases-page .case-card{transition:none}
+}

@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="场景超市 — 按任务类型，挑选你的 Agent。不按功能，按你要做什么来挑选，浏览 26 个任务场景及交付物。">
+  <title>场景超市 — 按任务类型挑选 Agent｜WorkNova</title>
+  <link rel="stylesheet" href="assets/columns.css">
+  <script src="assets/columns.js" defer></script>
+  <link rel="stylesheet" href="assets/bottom.css">
+</head>
+<body class="scene-market-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="../index1.html#top" aria-label="WorkNova 首页">
+        <img src="../WorkNova-aidy-palette-v2-reverse-transparent.png" alt="WorkNova">
+      </a>
+      <nav class="desktop-nav" aria-label="主导航"><a href="../index1.html#top">首页</a><a href="platform.html">平台能力</a><a href="industry.html">行业方案</a><a href="scenarios.html" aria-current="page">场景超市</a><a href="cases.html">客户案例</a><a href="pricing.html">定价方案</a></nav>
+      <div class="header-actions">
+        <a class="btn btn-outline" href="../index1.html#cta">免费试用</a>
+        <a class="btn btn-lime" href="../index1.html#cta">预约演示</a>
+      </div>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-controls="mobile-nav" aria-expanded="false" aria-label="打开菜单">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" data-mobile-nav hidden aria-label="移动端主导航">
+      <a href="../index1.html#top">首页</a><a href="platform.html">平台能力</a><a href="industry.html">行业方案</a><a href="scenarios.html" aria-current="page">场景超市</a><a href="cases.html">客户案例</a><a href="pricing.html">定价方案</a><a class="btn btn-outline" href="../index1.html#cta">免费试用</a><a class="btn btn-lime" href="../index1.html#cta">预约演示</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">SCENARIO MARKET · 场景超市</p>
+          <h1><span class="scene-title-line">场景超市 按任务类型，</span><em class="scene-title-line">挑选 你的 Agent</em></h1>
+          <p class="hero-lead">不按功能，按“你要做什么”来挑选。找到适合的任务类型，一键创建对应的 Agent。</p>
+          <div class="hero-actions"><a class="btn btn-lime" href="#scenario-list">浏览全部场景 <span aria-hidden="true">↓</span></a><a class="btn btn-outline" href="industry.html">按行业浏览</a></div>
+        </div>
+        <aside class="hero-panel scene-overview" aria-label="场景分类与数量">
+          <div class="panel-top"><div><span class="panel-label">BROWSE BY TASK</span><p class="panel-title">从任务类型开始挑选</p></div><span class="panel-badge">26 个场景</span></div>
+          <ul class="scene-overview-list">
+            <li><span class="scene-overview-index">01</span><span>文档类</span><b>06</b></li>
+            <li><span class="scene-overview-index">02</span><span>分析类</span><b>05</b></li>
+            <li><span class="scene-overview-index">03</span><span>流程类</span><b>05</b></li>
+            <li><span class="scene-overview-index">04</span><span>沟通类</span><b>05</b></li>
+            <li><span class="scene-overview-index">05</span><span>自动化类</span><b>05</b></li>
+          </ul>
+          <div class="panel-output"><small>TASK → DELIVERABLE</small><b>每个场景都标明预期交付物</b></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-soft scenario-simulator-section" id="scenario-simulator" aria-labelledby="scenario-simulator-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-kicker">场景模拟器</span>
+          <h2 id="scenario-simulator-title">输入一个任务，<em>看看 Agent 怎么干</em></h2>
+          <p>从场景描述开始，预览规划、执行、审批与交付，了解 Agent 如何从任务走向产物。</p>
+        </div>
+        <div class="scenario-simulator" data-reveal>
+          <div class="scenario-simulator-left">
+            <h3>描述你的任务</h3>
+            <p>一句话写清楚场景、任务和交付产物。</p>
+            <div class="scenario-sim-field">
+              <label for="scenario-sim-input">任务描述</label>
+              <textarea class="scenario-sim-input" id="scenario-sim-input" rows="3" placeholder="例：每天早上自动巡检设备，异常告警并生成巡检报告推送到飞书群">每天早上自动巡检设备，异常告警并生成巡检报告推送到飞书群</textarea>
+            </div>
+            <div class="scenario-sim-presets" id="scenario-sim-presets" aria-label="任务示例">
+              <button class="scenario-sim-preset" type="button" data-scenario-sim-task="每天早上自动巡检设备，异常告警并生成巡检报告推送到飞书群">定时设备巡检</button>
+              <button class="scenario-sim-preset" type="button" data-scenario-sim-task="每周自动抓取竞品动态，生成竞品调研周报">竞品调研周报</button>
+              <button class="scenario-sim-preset" type="button" data-scenario-sim-task="自动审查合同条款，标注风险点并生成审核报告">合同审核</button>
+              <button class="scenario-sim-preset" type="button" data-scenario-sim-task="自动解析简历，匹配岗位要求，生成评估报告与候选人排序">招聘筛选</button>
+              <button class="scenario-sim-preset" type="button" data-scenario-sim-task="自动分析销售数据，生成趋势分析与预测看板">销售数据分析</button>
+            </div>
+            <button class="btn scenario-sim-run" type="button" id="scenario-sim-run">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4.8 19 12 7 19.2V4.8Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>
+              运行模拟
+            </button>
+            <p class="scenario-sim-hint">本页为演示模拟，展示标准执行链路；真实任务运行、评测与交付在平台控制台完成。</p>
+          </div>
+          <div class="scenario-simulator-right">
+            <div class="scenario-sim-head">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h14v16H5z" stroke="#AFA1C9" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4" stroke="#AFA1C9" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <b id="scenario-sim-title">一站式交付预览</b>
+              <span class="scenario-sim-state" id="scenario-sim-state" aria-live="polite">待运行</span>
+            </div>
+            <div class="scenario-sim-track" id="scenario-sim-track" aria-live="polite" aria-busy="false">
+              <div class="scenario-sim-empty">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#8E83A8" stroke-width="1.4"/><path d="M12 7.5V12l3.2 2" stroke="#8E83A8" stroke-width="1.6" stroke-linecap="round"/></svg>
+                点击“运行模拟”，这里会按步展示 Agent 从场景到交付的完整链路。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="scenario-list">
+      <div class="container">
+        <div class="section-head" data-reveal><span class="section-kicker">BROWSE BY TASK</span><h2>你要做什么？<em>从任务开始挑</em></h2><p>选择任务类型，或搜索场景名称、描述与交付物。</p></div>
+        <div class="scene-controls" data-reveal>
+          <div class="scene-filters" role="group" aria-label="场景分类筛选">
+            <button class="filter-button" type="button" data-scene-filter="all" aria-pressed="true">全部 · 26</button>
+            <button class="filter-button" type="button" data-scene-filter="featured" aria-pressed="false">首页精选 · 06</button>
+            <button class="filter-button" type="button" data-scene-filter="doc" aria-pressed="false">文档类 · 06</button>
+            <button class="filter-button" type="button" data-scene-filter="ana" aria-pressed="false">分析类 · 05</button>
+            <button class="filter-button" type="button" data-scene-filter="flow" aria-pressed="false">流程类 · 05</button>
+            <button class="filter-button" type="button" data-scene-filter="talk" aria-pressed="false">沟通类 · 05</button>
+            <button class="filter-button" type="button" data-scene-filter="auto" aria-pressed="false">自动化类 · 05</button>
+          </div>
+          <label class="search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.3 4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span class="visually-hidden">搜索场景名称、任务描述或交付物</span>
+            <input class="search-input" type="search" data-scene-search placeholder="搜索场景或交付物" aria-label="搜索场景名称、任务描述或交付物">
+          </label>
+        </div>
+        <p class="scene-result" data-scene-status role="status" aria-live="polite">当前显示 <strong data-scene-count>26</strong> 个场景</p>
+        <div class="scene-groups">
+          <section class="scene-group" data-scene-group="doc" aria-labelledby="scene-doc-heading">
+            <div class="scene-group-heading" data-reveal><span class="scene-group-index">01</span><div><p class="scene-group-kicker">DOCUMENTS · 06 SCENARIOS</p><h3 id="scene-doc-heading">需要写文档？让 Agent 帮你写</h3></div></div>
+            <div class="scene-grid">
+          <article class="scene-card" data-scene-card data-scene-categories="doc" data-scene-featured="true" data-reveal><div class="scene-card-top"><h3>竞品调研周报</h3><span class="pill">文档类</span></div><p>定时抓取竞品信息，自动生成竞品分析周报。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3h9l4 4v14H6V3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12h7m-7 3h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>交付产物：竞品调研周报</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="doc" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>投标材料生成</h3><span class="pill">文档类</span></div><p>根据招标要求，自动整理素材生成投标材料。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3h9l4 4v14H6V3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12h7m-7 3h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>交付产物：投标文档</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="doc" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>会议纪要</h3><span class="pill">文档类</span></div><p>自动整理会议记录，生成结构化会议纪要。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3h9l4 4v14H6V3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12h7m-7 3h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>交付产物：会议纪要</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="doc" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>工作报告</h3><span class="pill">文档类</span></div><p>按模板自动生成日报/周报/月报。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3h9l4 4v14H6V3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12h7m-7 3h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>交付产物：工作报告</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="doc" data-scene-featured="true" data-reveal><div class="scene-card-top"><h3>合同审核报告</h3><span class="pill">文档类</span></div><p>自动审查合同条款，生成审核报告。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3h9l4 4v14H6V3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12h7m-7 3h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>交付产物：审核报告</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="doc" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>政策摘要</h3><span class="pill">文档类</span></div><p>自动阅读政策文件，生成关键信息摘要。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3h9l4 4v14H6V3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12h7m-7 3h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>交付产物：政策摘要</div></article>
+            </div>
+          </section>
+
+          <section class="scene-group" data-scene-group="ana" aria-labelledby="scene-ana-heading">
+            <div class="scene-group-heading" data-reveal><span class="scene-group-index">02</span><div><p class="scene-group-kicker">ANALYSIS · 05 SCENARIOS</p><h3 id="scene-ana-heading">需要分析数据？让 Agent 帮你分析</h3></div></div>
+            <div class="scene-grid">
+          <article class="scene-card" data-scene-card data-scene-categories="ana" data-scene-featured="true" data-reveal><div class="scene-card-top"><h3>销售数据分析</h3><span class="pill pill-lime">分析类</span></div><p>自动分析销售数据，生成趋势分析和预测。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19h16M6 16v-4m6 4V6m6 10V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>交付产物：分析报告</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="ana" data-scene-featured="true" data-reveal><div class="scene-card-top"><h3>客户画像分析</h3><span class="pill pill-lime">分析类</span></div><p>整合多维度数据，生成客户画像。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM5 20a7 7 0 0 1 14 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>交付产物：客户画像报告</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="ana" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>市场洞察报告</h3><span class="pill pill-lime">分析类</span></div><p>抓取市场动态，生成市场洞察报告。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19h16M6 16v-4m6 4V6m6 10V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>交付产物：市场洞察报告</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="ana" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>运维健康分析</h3><span class="pill pill-lime">分析类</span></div><p>分析系统运行数据，生成健康评估。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19h16M6 16v-4m6 4V6m6 10V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>交付产物：健康评估报告</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="ana" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>财务报表分析</h3><span class="pill pill-lime">分析类</span></div><p>自动分析财务数据，生成分析结论。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19h16M6 16v-4m6 4V6m6 10V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>交付产物：财务分析报告</div></article>
+            </div>
+          </section>
+
+          <section class="scene-group" data-scene-group="flow" aria-labelledby="scene-flow-heading">
+            <div class="scene-group-heading" data-reveal><span class="scene-group-index">03</span><div><p class="scene-group-kicker">WORKFLOW · 05 SCENARIOS</p><h3 id="scene-flow-heading">需要走流程？让 Agent 帮你跑</h3></div></div>
+            <div class="scene-grid">
+          <article class="scene-card" data-scene-card data-scene-categories="flow" data-scene-featured="true" data-reveal><div class="scene-card-top"><h3>设备巡检</h3><span class="pill">流程类</span></div><p>定时调用 API 检查设备状态，异常自动告警。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 10 17.5 19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>交付产物：巡检报告、告警</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="flow" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>合同审批</h3><span class="pill">流程类</span></div><p>自动收集审批材料，生成审批摘要。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 10 17.5 19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>交付产物：审批摘要</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="flow" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>工单处理</h3><span class="pill">流程类</span></div><p>自动分类、分派、跟踪工单处理进度。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 10 17.5 19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>交付产物：工单跟踪表</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="flow" data-scene-featured="true" data-reveal><div class="scene-card-top"><h3>招聘评估</h3><span class="pill">流程类</span></div><p>自动解析简历、匹配岗位、生成评估报告。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 10 17.5 19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>交付产物：评估报告</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="flow" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>合规审查</h3><span class="pill">流程类</span></div><p>对照合规要求审查材料，生成审查清单。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 10 17.5 19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>交付产物：审查清单</div></article>
+            </div>
+          </section>
+
+          <section class="scene-group" data-scene-group="talk" aria-labelledby="scene-talk-heading">
+            <div class="scene-group-heading" data-reveal><span class="scene-group-index">04</span><div><p class="scene-group-kicker">COMMUNICATION · 05 SCENARIOS</p><h3 id="scene-talk-heading">需要沟通协作？让 Agent 帮你跟进</h3></div></div>
+            <div class="scene-grid">
+          <article class="scene-card" data-scene-card data-scene-categories="talk" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>客户跟进</h3><span class="pill">沟通类</span></div><p>整理客户沟通记录，生成跟进建议。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6.5A2.5 2.5 0 0 1 7.5 4h9A2.5 2.5 0 0 1 19 6.5v6a2.5 2.5 0 0 1-2.5 2.5H11l-4.2 3v-3.7A2.5 2.5 0 0 1 5 12.5v-6Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>交付产物：跟进记录</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="talk" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>简历筛选</h3><span class="pill">沟通类</span></div><p>自动解析简历、匹配岗位要求，推荐候选人。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6.5A2.5 2.5 0 0 1 7.5 4h9A2.5 2.5 0 0 1 19 6.5v6a2.5 2.5 0 0 1-2.5 2.5H11l-4.2 3v-3.7A2.5 2.5 0 0 1 5 12.5v-6Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>交付产物：筛选报告</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="talk" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>客服回复</h3><span class="pill">沟通类</span></div><p>自动回复客户咨询，复杂问题转人工。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6.5A2.5 2.5 0 0 1 7.5 4h9A2.5 2.5 0 0 1 19 6.5v6a2.5 2.5 0 0 1-2.5 2.5H11l-4.2 3v-3.7A2.5 2.5 0 0 1 5 12.5v-6Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>交付产物：客服回复</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="talk" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>邮件助手</h3><span class="pill">沟通类</span></div><p>辅助撰写和发送业务邮件。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.7"/><path d="m5 7 7 6 7-6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>交付产物：邮件草稿</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="talk" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>通知推送</h3><span class="pill">沟通类</span></div><p>定时或事件触发，自动推送业务通知。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>交付产物：通知消息</div></article>
+            </div>
+          </section>
+
+          <section class="scene-group" data-scene-group="auto" aria-labelledby="scene-auto-heading">
+            <div class="scene-group-heading" data-reveal><span class="scene-group-index">05</span><div><p class="scene-group-kicker">AUTOMATION · 05 SCENARIOS</p><h3 id="scene-auto-heading">需要自动化？让 Agent 帮你跑</h3></div></div>
+            <div class="scene-grid">
+          <article class="scene-card" data-scene-card data-scene-categories="auto" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>定时巡检</h3><span class="pill">自动化类</span></div><p>按 Cron 调度自动执行巡检任务。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3.3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>交付产物：巡检报告</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="auto" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>数据同步</h3><span class="pill">自动化类</span></div><p>定时在系统间同步数据。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 7h10l-2.5-2.5M17 17H7l2.5 2.5M17 7l2.5 2.5L17 12M7 17l-2.5-2.5L7 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>交付产物：同步日志</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="auto" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>看板推送</h3><span class="pill">自动化类</span></div><p>定时汇总数据并推送看板更新。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19h16M6 16v-4m6 4V6m6 10V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>交付产物：看板更新</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="auto" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>支付同步</h3><span class="pill">自动化类</span></div><p>定时同步支付数据，核对账目。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16v10H4z" stroke="currentColor" stroke-width="1.7"/><path d="M4 10h16M8 14h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>交付产物：对账报告</div></article>
+          <article class="scene-card" data-scene-card data-scene-categories="auto" data-scene-featured="false" data-reveal><div class="scene-card-top"><h3>备份提醒</h3><span class="pill">自动化类</span></div><p>定期检查备份状态，异常自动告警。</p><div class="scene-output"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 20 6v5c0 5-3.5 8.3-8 10-4.5-1.7-8-5-8-10V6l8-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 8v4m0 3h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>交付产物：告警通知</div></article>
+            </div>
+          </section>
+        </div>
+        <div class="empty-state" data-scene-empty hidden>没有找到匹配的场景，请换一个关键词或切换任务分类。</div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-head center" data-reveal><span class="section-kicker">AFTER SELECTION</span><h2>找到场景后，<em>再判断如何落地</em></h2><p>单张场景卡只表达任务与交付方向；实际配置要进一步确认资料、工具、权限和审核要求。</p></div>
+        <div class="grid-3">
+          <article class="card" data-reveal><span class="card-number">01</span><h3>查看行业上下文</h3><p>从场景对应的行业问题出发，确认任务的业务边界。</p><a class="inline-link" href="industry.html" style="margin-top:18px">浏览行业方案 <span>→</span></a></article>
+          <article class="card" data-reveal><span class="card-number">02</span><h3>匹配平台能力</h3><p>了解创建、知识、工具接入、运行治理等能力方向。</p><a class="inline-link" href="platform.html" style="margin-top:18px">查看平台能力 <span>→</span></a></article>
+          <article class="card" data-reveal><span class="card-number">03</span><h3>核对方案与成本口径</h3><p>套餐、额度、授权与计量方式以正式方案为准。</p><a class="inline-link" href="pricing.html" style="margin-top:18px">查看定价方案 <span>→</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta shared-bottom-cta" id="scenario-cta" aria-labelledby="scenario-cta-title">
+      <div class="container cta-in">
+        <h2 id="scenario-cta-title">从一个任务开始，<em>找到适合的 Agent</em></h2>
+        <p>先描述你要完成的工作，或按任务类型筛选场景；再通过模拟预览执行链路与交付物。</p>
+        <div class="cta-actions">
+          <a class="btn btn-lime" href="#scenario-simulator">开始场景模拟
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13m0 0-5.2-5.2M18 12l-5.2 5.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-outline" href="#scenario-list">继续挑选场景</a>
+        </div>
+        <ul class="shared-bottom-cta-points" aria-label="场景超市使用方式">
+          <li><i aria-hidden="true"></i>按文档、分析、流程、沟通、自动化筛选</li>
+          <li><i aria-hidden="true"></i>26 个任务场景可浏览</li>
+          <li><i aria-hidden="true"></i>每个场景标明预期交付物</li>
+          <li><i aria-hidden="true"></i>支持按场景或交付物搜索</li>
+          <li><i aria-hidden="true"></i>先模拟执行链路，再确认如何落地</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer shared-site-footer">
+    <div class="container">
+      <div class="screenshot-footer-grid">
+        <div class="screenshot-footer-brand">
+          <a class="footer-brand-logo" href="../index1.html#top" aria-label="WorkNova 首页">
+            <img src="../WorkNova-aidy-palette-v2-reverse-transparent.png" alt="WorkNova">
+          </a>
+          <p>面向全行业企业的一站式 Agent 搭建平台：从场景评估到部署上线全链路交付，并持续支持用量监控、成本核算与效果迭代。</p>
+        </div>
+        <div class="screenshot-footer-column">
+          <h2>平台能力中心</h2>
+          <nav class="screenshot-footer-links" aria-label="平台能力中心">
+            <a href="platform.html#agent-factory">智能体编排</a>
+            <a href="platform.html#knowledge-memory">知识检索增强</a>
+            <a href="platform.html#tool-market">能力模块治理</a>
+          </nav>
+        </div>
+        <div class="screenshot-footer-column">
+          <h2>行业方案</h2>
+          <nav class="screenshot-footer-links screenshot-footer-links-paired" aria-label="行业方案">
+            <a href="industry.html#manufacturing">制造业</a>
+            <a href="industry.html#finance">金融业</a>
+            <a href="industry.html#technology">互联网/科技</a>
+            <a href="industry.html#industry-guide">更多</a>
+          </nav>
+        </div>
+        <div class="screenshot-footer-column">
+          <h2>场景超市</h2>
+          <nav class="screenshot-footer-links screenshot-footer-links-paired" aria-label="场景分类">
+            <a href="scenarios.html#scene-doc-heading">文档类</a>
+            <a href="scenarios.html#scene-ana-heading">分析类</a>
+            <a href="scenarios.html#scene-flow-heading">流程类</a>
+            <a href="scenarios.html#scenario-list">更多</a>
+          </nav>
+        </div>
+        <div class="screenshot-footer-direct-links" aria-label="快速入口">
+          <div class="screenshot-footer-column screenshot-footer-direct-link">
+            <h2><a href="cases.html#examples">客户案例</a></h2>
+          </div>
+          <div class="screenshot-footer-column screenshot-footer-direct-link">
+            <h2><a href="pricing.html#plans">定价方案</a></h2>
+          </div>
+          <div class="screenshot-footer-column screenshot-footer-direct-link">
+            <h2><a href="about.html">关于我们</a></h2>
+          </div>
+        </div>
+      </div>
+      <div class="screenshot-footer-bottom"><span>© 2026 WorkNova · 一站式 Agent 搭建平台</span></div>
+    </div>
+  </footer>
+</body>
+</html>

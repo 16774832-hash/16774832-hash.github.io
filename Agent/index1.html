@@ -6,6 +6,7 @@
 <title>WorkNova · 一站式 Agent 搭建与交付平台｜深色方案 B · 紫绿雾化</title>
 <meta name="description" content="WorkNova：面向全行业企业的一站式 Agent 搭建平台。从场景评估、Agent 创建、知识配置、工具接入到部署上线，全链路交付，让非技术人员也能通过可视化配置搭建自己的 Agent 应用。">
 <meta name="theme-color" content="#0B0C12">
+<link rel="stylesheet" href="worknova-column-pages/assets/bottom.css">
 <style>
 /* ============ 设计令牌（策划方案 9.1） ============ */
 :root{
@@ -2202,6 +2203,120 @@ body.lime-preview.lime-dark-preview.dark-atmosphere .cta .btn-primary:hover{
   background:#7201FF;border-color:#7201FF;color:#fff;
 }
 
+/* ============ CTA 交互弹层 ============ */
+body.modal-open{overflow:hidden}
+.lead-modal[hidden]{display:none}
+.lead-modal{
+  position:fixed;inset:0;z-index:50;
+  display:grid;place-items:center;
+  padding:20px;
+  background:rgba(5,6,9,.78);
+  backdrop-filter:blur(14px) saturate(115%);
+  opacity:0;
+  transition:opacity .2s ease;
+}
+.lead-modal.is-open{opacity:1}
+.lead-modal-backdrop{position:absolute;inset:0;cursor:pointer}
+.lead-modal-panel{
+  position:relative;z-index:1;
+  width:min(720px,100%);
+  max-height:min(760px,calc(100vh - 32px));
+  overflow:auto;
+  padding:32px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:24px;
+  background:
+    radial-gradient(500px 260px at 100% 0%,rgba(114,1,255,.16),transparent 72%),
+    radial-gradient(360px 220px at 0% 100%,rgba(143,254,1,.08),transparent 72%),
+    linear-gradient(145deg,#1a1c22,#101116);
+  box-shadow:0 28px 90px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.08);
+  transform:translateY(14px) scale(.985);
+  transition:transform .28s cubic-bezier(.2,.8,.2,1);
+}
+.lead-modal.is-open .lead-modal-panel{transform:none}
+.lead-modal-panel:focus{outline:none}
+.lead-modal-close{
+  position:absolute;top:16px;right:16px;
+  display:grid;place-items:center;
+  width:44px;height:44px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:50%;
+  background:rgba(255,255,255,.06);
+  color:#F7F8F4;
+  font-size:26px;line-height:1;font-weight:300;
+  cursor:pointer;
+  transition:background .2s,border-color .2s,transform .2s;
+}
+.lead-modal-close:hover{background:rgba(143,254,1,.14);border-color:#8FFE01;transform:rotate(90deg)}
+.lead-modal-eyebrow{
+  display:flex;align-items:center;gap:9px;
+  margin-bottom:13px;
+  color:#C2FF47;
+  font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+}
+.lead-modal-eyebrow i{width:8px;height:8px;border-radius:50%;background:#8FFE01;box-shadow:0 0 0 6px rgba(143,254,1,.12)}
+.lead-modal-title{max-width:calc(100% - 46px);color:#F7F8F4;font-size:clamp(25px,4vw,34px);line-height:1.25;letter-spacing:-.02em}
+.lead-modal-description{margin-top:10px;color:rgba(235,236,241,.68);font-size:14px;line-height:1.75}
+.modal-form{margin-top:24px}
+.modal-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.modal-field{min-width:0}
+.modal-field-wide{grid-column:1/-1}
+.modal-field label{display:flex;align-items:center;gap:4px;margin-bottom:7px;color:rgba(247,248,244,.86);font-size:13px;font-weight:600}
+.modal-field label span{color:#C2FF47}
+.modal-field input,.modal-field select,.modal-field textarea{
+  width:100%;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:12px;
+  background:rgba(255,255,255,.065);
+  color:#F7F8F4;
+  outline:none;
+  transition:border-color .2s,box-shadow .2s,background .2s;
+}
+.modal-field input,.modal-field select{height:48px;padding:0 14px}
+.modal-field textarea{min-height:96px;padding:12px 14px;resize:vertical;line-height:1.6}
+.modal-field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#AEB3BD 50%),linear-gradient(135deg,#AEB3BD 50%,transparent 50%);background-position:calc(100% - 18px) 21px,calc(100% - 12px) 21px;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+.modal-field select option{background:#1a1c22;color:#F7F8F4}
+.modal-field input::placeholder,.modal-field textarea::placeholder{color:rgba(235,236,241,.38)}
+.modal-field input:focus,.modal-field select:focus,.modal-field textarea:focus{border-color:#8FFE01;box-shadow:0 0 0 3px rgba(143,254,1,.14);background:rgba(255,255,255,.09)}
+.modal-field [aria-invalid="true"]{border-color:#FF7C88;box-shadow:0 0 0 3px rgba(255,124,136,.12)}
+.modal-field-error{min-height:18px;padding-top:5px;color:#FF9DA6;font-size:12px;line-height:1.4}
+.modal-form-note{margin-top:3px;color:rgba(235,236,241,.48);font-size:12px;line-height:1.6}
+.modal-form-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+.modal-form-actions .btn{min-width:120px}
+.modal-form-actions .btn-ghost{background:rgba(255,255,255,.05);color:#F7F8F4;border-color:rgba(255,255,255,.22)}
+.modal-form-actions .btn-ghost:hover{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.42)}
+.modal-form-actions .btn-primary{background:#8FFE01;color:#0B0C0B;border-color:#8FFE01;box-shadow:0 10px 24px rgba(143,254,1,.16)}
+.modal-form-actions .btn-primary:hover{background:#B5FF5D;border-color:#B5FF5D;color:#0B0C0B}
+.modal-form-actions .btn-primary.is-loading{cursor:wait}
+.modal-form-status{min-height:22px;margin-top:14px;color:rgba(235,236,241,.7);font-size:13px;line-height:1.6}
+.modal-form-status.is-success{color:#C2FF47}
+.modal-contact-grid{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:24px;align-items:stretch;margin-top:24px}
+.advisor-card{display:flex;flex-direction:column;justify-content:center;gap:20px;padding:24px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:rgba(255,255,255,.055)}
+.advisor-label{color:rgba(235,236,241,.58);font-size:13px;letter-spacing:.04em}
+.advisor-name{color:#F7F8F4;font-size:24px;line-height:1.35;font-weight:700}
+.advisor-name em{color:#C2FF47;font-style:normal}
+.advisor-item{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1);color:rgba(235,236,241,.62);font-size:13px}
+.advisor-item a{color:#F7F8F4;font-size:17px;font-weight:650;letter-spacing:.02em}
+.advisor-item a:hover{color:#C2FF47}
+.qr-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:#F2F3F5}
+.qr-card img{width:100%;max-width:218px;height:auto;border-radius:11px}
+.qr-card span{color:#6C7078;font-size:12px;letter-spacing:.04em}
+.lead-modal-contact .lead-modal-description{max-width:560px}
+@media (max-width:640px){
+  .lead-modal{padding:12px}
+  .lead-modal-panel{padding:26px 18px 20px;border-radius:20px}
+  .modal-form-grid,.modal-contact-grid{grid-template-columns:1fr}
+  .modal-field-wide{grid-column:auto}
+  .modal-contact-grid{gap:14px}
+  .qr-card{padding:12px}
+  .qr-card img{max-width:190px}
+  .modal-form-actions{flex-direction:column-reverse}
+  .modal-form-actions .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  .lead-modal,.lead-modal-panel,.lead-modal-close{transition:none}
+}
+
 </style>
 </head>
 <body class="lime-preview lime-dark-preview flow-footer-preview one-stop-positioning-preview dark-atmosphere">
@@ -2214,24 +2329,26 @@ body.lime-preview.lime-dark-preview.dark-atmosphere .cta .btn-primary:hover{
       <img class="brand-logo" src="WorkNova-aidy-palette-v2-reverse-transparent.png" alt="WorkNova">
     </a>
     <nav class="nav-links" aria-label="主导航">
-      <a href="#capability">平台能力</a>
-      <a href="#industry">行业方案</a>
-      <a href="#market">场景超市</a>
-      <a href="#cases">客户案例</a>
-      <a href="#pricing">定价方案</a>
+      <a href="#top" aria-current="page">首页</a>
+      <a href="worknova-column-pages/platform.html">平台能力</a>
+      <a href="worknova-column-pages/industry.html">行业方案</a>
+      <a href="worknova-column-pages/scenarios.html">场景超市</a>
+      <a href="worknova-column-pages/cases.html">客户案例</a>
+      <a href="worknova-column-pages/pricing.html">定价方案</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-line btn-sm" href="#cta">免费试用</a>
+      <a class="btn btn-line btn-sm" href="#trialModal" data-open-modal="trial">免费试用</a>
       <a class="btn btn-primary btn-sm" href="#cta">预约演示</a>
       <button class="nav-burger" id="burger" aria-label="打开菜单" aria-expanded="false"><span></span></button>
     </div>
   </div>
   <div class="nav-mobile" id="navMobile">
-    <a href="#capability">平台能力</a>
-    <a href="#industry">行业方案</a>
-    <a href="#market">场景超市</a>
-    <a href="#cases">客户案例</a>
-    <a href="#pricing">定价方案</a>
+    <a href="#top" aria-current="page">首页</a>
+    <a href="worknova-column-pages/platform.html">平台能力</a>
+    <a href="worknova-column-pages/industry.html">行业方案</a>
+    <a href="worknova-column-pages/scenarios.html">场景超市</a>
+    <a href="worknova-column-pages/cases.html">客户案例</a>
+    <a href="worknova-column-pages/pricing.html">定价方案</a>
     <a class="btn btn-primary" href="#cta">预约演示</a>
   </div>
 </header>
@@ -2250,7 +2367,7 @@ body.lime-preview.lime-dark-preview.dark-atmosphere .cta .btn-primary:hover{
         不是又一个聊天机器人，而是让非技术人员也能通过可视化配置，按知识、工具与业务规则搭建可落地、可运营、可持续迭代的 Agent 应用。
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#cta">免费试用
+        <a class="btn btn-primary" href="#trialModal" data-open-modal="trial">免费试用
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h13m0 0-5.2-5.2M18 12l-5.2 5.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <a class="btn btn-ghost" href="#cta">预约演示</a>
@@ -2950,7 +3067,7 @@ body.lime-preview.lime-dark-preview.dark-atmosphere .cta .btn-primary:hover{
       <a class="btn btn-primary" href="#pricing">查看方案
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h13m0 0-5.2-5.2M18 12l-5.2 5.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a class="btn btn-ghost" href="mailto:sales@worknova.example?subject=%E9%A2%84%E7%BA%A6%20WorkNova%20%E6%BC%94%E7%A4%BA">联系销售</a>
+      <a class="btn btn-ghost" href="#salesModal" data-open-modal="sales">联系销售</a>
     </div>
     <div class="cta-mini">
       <span><i></i>场景评估到部署上线</span>
@@ -2963,48 +3080,138 @@ body.lime-preview.lime-dark-preview.dark-atmosphere .cta .btn-primary:hover{
 </section>
 
 <!-- ============ 页脚 ============ -->
-<footer class="footer">
+<footer class="site-footer shared-site-footer">
   <div class="container">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a class="brand" href="#top" aria-label="WorkNova 首页">
-          <img class="brand-logo" src="WorkNova-aidy-palette-v2-reverse-transparent.png" alt="WorkNova">
+    <div class="screenshot-footer-grid">
+      <div class="screenshot-footer-brand">
+        <a class="footer-brand-logo" href="#top" aria-label="WorkNova 首页">
+          <img src="WorkNova-aidy-palette-v2-reverse-transparent.png" alt="WorkNova">
         </a>
         <p>面向全行业企业的一站式 Agent 搭建平台：从场景评估到部署上线全链路交付，并持续支持用量监控、成本核算与效果迭代。</p>
       </div>
-      <div class="foot-col">
-        <h5>平台能力中心</h5>
-        <a href="#capability">智能体编排</a>
-        <a href="#technology">知识检索增强</a>
-        <a href="#capability">能力模块治理</a>
+      <div class="screenshot-footer-column">
+        <h2>平台能力中心</h2>
+        <nav class="screenshot-footer-links" aria-label="平台能力中心">
+          <a href="#capability">智能体编排</a>
+          <a href="#technology">知识检索增强</a>
+          <a href="#capability">能力模块治理</a>
+        </nav>
       </div>
-      <div class="foot-col">
-        <h5>行业解决方案</h5>
-        <a href="#industry">制造业</a>
-        <a href="#industry">金融业</a>
-        <a href="#industry">互联网 / 科技</a>
-        <a href="#industry">零售 / 教育 / 政务</a>
+      <div class="screenshot-footer-column">
+        <h2>行业方案</h2>
+        <nav class="screenshot-footer-links screenshot-footer-links-paired" aria-label="行业方案">
+          <a href="#industry">制造业</a>
+          <a href="#industry">金融业</a>
+          <a href="#industry">互联网/科技</a>
+          <a href="#industry">更多</a>
+        </nav>
       </div>
-      <div class="foot-col">
-        <h5>场景超市</h5>
-        <a href="#market">文档类</a>
-        <a href="#market">分析类</a>
-        <a href="#market">流程类</a>
-        <a href="#market">沟通类 / 自动化类</a>
+      <div class="screenshot-footer-column">
+        <h2>场景超市</h2>
+        <nav class="screenshot-footer-links screenshot-footer-links-paired" aria-label="场景分类">
+          <a href="#market">文档类</a>
+          <a href="#market">分析类</a>
+          <a href="#market">流程类</a>
+          <a href="#market">更多</a>
+        </nav>
       </div>
-      <div class="foot-col">
-        <h5>关于与支持</h5>
-        <a href="#cases">客户案例</a>
-        <a href="#pricing">定价方案</a>
-        <a href="#diagnose">选型诊断</a>
-        <a href="#calculator">成本计算器</a>
+      <div class="screenshot-footer-direct-links" aria-label="关于与支持">
+        <div class="screenshot-footer-column screenshot-footer-direct-link">
+          <h2><a href="#cases">客户案例</a></h2>
+        </div>
+        <div class="screenshot-footer-column screenshot-footer-direct-link">
+          <h2><a href="#pricing">定价方案</a></h2>
+        </div>
+        <div class="screenshot-footer-column screenshot-footer-direct-link">
+          <h2><a href="worknova-column-pages/about.html">关于我们</a></h2>
+        </div>
       </div>
     </div>
-    <div class="foot-bottom">
+    <div class="screenshot-footer-bottom">
       <span>© 2026 WorkNova · 一站式 Agent 搭建平台</span>
     </div>
   </div>
 </footer>
+
+<!-- ============ CTA 弹层 ============ -->
+<div class="lead-modal" id="trialModal" data-modal="trial" hidden aria-hidden="true">
+  <div class="lead-modal-backdrop" data-modal-close aria-hidden="true"></div>
+  <section class="lead-modal-panel" role="dialog" aria-modal="true" aria-labelledby="trialModalTitle" aria-describedby="trialModalDescription" tabindex="-1">
+    <button class="lead-modal-close" type="button" data-modal-close aria-label="关闭免费试用弹层">×</button>
+    <div class="lead-modal-eyebrow"><i></i> FREE TRIAL</div>
+    <h2 class="lead-modal-title" id="trialModalTitle">申请免费试用</h2>
+    <p class="lead-modal-description" id="trialModalDescription">留下基本信息，我们将根据你的企业场景安排后续沟通。</p>
+    <form class="modal-form" id="trialForm" novalidate>
+      <div class="modal-form-grid">
+        <div class="modal-field">
+          <label for="trialName">联系人 <span>*</span></label>
+          <input id="trialName" name="contactName" type="text" autocomplete="name" required placeholder="请输入联系人姓名">
+          <div class="modal-field-error" aria-live="polite"></div>
+        </div>
+        <div class="modal-field">
+          <label for="trialCompany">企业名称 <span>*</span></label>
+          <input id="trialCompany" name="companyName" type="text" autocomplete="organization" required placeholder="请输入企业名称">
+          <div class="modal-field-error" aria-live="polite"></div>
+        </div>
+        <div class="modal-field">
+          <label for="trialPhone">联系电话 <span>*</span></label>
+          <input id="trialPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="请输入 11 位手机号码">
+          <div class="modal-field-error" aria-live="polite"></div>
+        </div>
+        <div class="modal-field">
+          <label for="trialDirection">需求方向</label>
+          <select id="trialDirection" name="direction">
+            <option value="">请选择需求方向</option>
+            <option value="智能体搭建">智能体搭建</option>
+            <option value="知识检索增强">知识检索增强</option>
+            <option value="流程自动化">流程自动化</option>
+            <option value="行业方案">行业方案</option>
+            <option value="其他">其他</option>
+          </select>
+          <div class="modal-field-error" aria-live="polite"></div>
+        </div>
+        <div class="modal-field modal-field-wide">
+          <label for="trialMessage">补充说明</label>
+          <textarea id="trialMessage" name="message" placeholder="可以简单描述希望优先体验的场景"></textarea>
+          <div class="modal-field-error" aria-live="polite"></div>
+        </div>
+      </div>
+      <p class="modal-form-note">当前页面为展示版，提交后仅进行前端信息校验，不会实际发送数据。</p>
+      <div class="modal-form-actions">
+        <button class="btn btn-ghost" type="button" data-modal-close>稍后再说</button>
+        <button class="btn btn-primary" type="submit" id="trialSubmit">提交申请</button>
+      </div>
+      <p class="modal-form-status" id="trialStatus" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+</div>
+
+<div class="lead-modal lead-modal-contact" id="salesModal" data-modal="sales" hidden aria-hidden="true">
+  <div class="lead-modal-backdrop" data-modal-close aria-hidden="true"></div>
+  <section class="lead-modal-panel" role="dialog" aria-modal="true" aria-labelledby="salesModalTitle" aria-describedby="salesModalDescription" tabindex="-1">
+    <button class="lead-modal-close" type="button" data-modal-close aria-label="关闭联系销售弹层">×</button>
+    <div class="lead-modal-eyebrow"><i></i> CONTACT SALES</div>
+    <h2 class="lead-modal-title" id="salesModalTitle">联系 WorkNova 顾问</h2>
+    <p class="lead-modal-description" id="salesModalDescription">如果你希望进一步了解平台能力、行业方案或部署方式，可以直接联系你的专属顾问。</p>
+    <div class="modal-contact-grid">
+      <div class="advisor-card">
+        <div>
+          <div class="advisor-label">您的 WorkNova 顾问</div>
+          <div class="advisor-name"><em>aidy</em> 景小艾</div>
+        </div>
+        <div class="advisor-item">
+          <span>联系电话</span>
+          <a href="tel:01062692880">010-62692880</a>
+        </div>
+      </div>
+      <div class="qr-card">
+        <img src="worknova-column-pages/assets/aidy-jingxiaowen-wechat.png" alt="aidy 景小艾企业微信二维码">
+        <span>扫码添加企业微信</span>
+      </div>
+    </div>
+  </section>
+</div>
+
 <script>
 (function(){
   "use strict";
@@ -3485,6 +3692,125 @@ body.lime-preview.lime-dark-preview.dark-atmosphere .cta .btn-primary:hover{
     if(quiz)quiz.style.display="";
     if(diagSide)diagSide.style.display="";
     goto(0);
+  });
+
+  /* ---------- CTA 弹层：免费试用 / 联系销售 ---------- */
+  var modalMap={trial:$("#trialModal"),sales:$("#salesModal")};
+  var activeModal=null,lastModalTrigger=null;
+  var trialForm=$("#trialForm"),trialSubmit=$("#trialSubmit"),trialStatus=$("#trialStatus");
+  var trialFields=trialForm?$$("input[required],select[required],textarea[required]",trialForm):[];
+  function modalFocusables(modal){
+    return $$("a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex='-1'])",modal).filter(function(el){
+      return el.offsetWidth||el.offsetHeight||el.getClientRects().length;
+    });
+  }
+  function resetTrialForm(){
+    if(!trialForm)return;
+    trialForm.reset();
+    trialForm.removeAttribute("data-submitted");
+    trialFields.forEach(function(field){
+      field.removeAttribute("aria-invalid");
+      var error=field.closest(".modal-field")&&$(".modal-field-error",field.closest(".modal-field"));
+      if(error)error.textContent="";
+    });
+    if(trialStatus){trialStatus.textContent="";trialStatus.className="modal-form-status"}
+    if(trialSubmit){trialSubmit.disabled=false;trialSubmit.classList.remove("is-loading");trialSubmit.textContent="提交申请"}
+  }
+  function fieldError(field){
+    var wrap=field.closest(".modal-field");
+    return wrap?$(".modal-field-error",wrap):null;
+  }
+  function validateTrialField(field){
+    var value=(field.value||"").trim(),message="";
+    if(field.required&&!value)message="请填写"+(field.id==="trialName"?"联系人姓名":field.id==="trialCompany"?"企业名称":"联系电话");
+    if(!message&&field.id==="trialPhone"&&!/^1[3-9]\\d{9}$/.test(value))message="请输入有效的 11 位手机号码";
+    var error=fieldError(field);
+    if(message){
+      field.setAttribute("aria-invalid","true");
+      if(error)error.textContent=message;
+      return false;
+    }
+    field.removeAttribute("aria-invalid");
+    if(error)error.textContent="";
+    return true;
+  }
+  function openLeadModal(name,trigger){
+    var modal=modalMap[name];
+    if(!modal)return;
+    if(activeModal)closeLeadModal(activeModal);
+    if(name==="trial")resetTrialForm();
+    activeModal=modal;
+    lastModalTrigger=trigger||document.activeElement;
+    modal.hidden=false;
+    modal.setAttribute("aria-hidden","false");
+    document.body.classList.add("modal-open");
+    requestAnimationFrame(function(){
+      modal.classList.add("is-open");
+      var target=name==="trial"?$("#trialName",modal):$(".lead-modal-close",modal);
+      if(target)target.focus();
+    });
+  }
+  function closeLeadModal(modal){
+    modal=modal||activeModal;
+    if(!modal)return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden","true");
+    document.body.classList.remove("modal-open");
+    var restore=lastModalTrigger;
+    activeModal=null;
+    lastModalTrigger=null;
+    setTimeout(function(){modal.hidden=true},reduce?0:210);
+    if(restore&&document.contains(restore)&&restore.focus)restore.focus();
+  }
+  $$("[data-open-modal]").forEach(function(trigger){
+    trigger.addEventListener("click",function(event){
+      event.preventDefault();
+      openLeadModal(trigger.getAttribute("data-open-modal"),trigger);
+    });
+  });
+  $$("[data-modal-close]").forEach(function(closeButton){
+    closeButton.addEventListener("click",function(){closeLeadModal(closeButton.closest(".lead-modal"))});
+  });
+  document.addEventListener("keydown",function(event){
+    if(!activeModal)return;
+    if(event.key==="Escape"){event.preventDefault();closeLeadModal();return}
+    if(event.key!=="Tab")return;
+    var focusables=modalFocusables(activeModal);
+    if(!focusables.length){event.preventDefault();activeModal.querySelector(".lead-modal-panel").focus();return}
+    var first=focusables[0],last=focusables[focusables.length-1];
+    if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
+    else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
+  });
+  trialFields.forEach(function(field){
+    field.addEventListener("blur",function(){validateTrialField(field)});
+    field.addEventListener("input",function(){
+      if(field.getAttribute("aria-invalid")==="true")validateTrialField(field);
+    });
+  });
+  if(trialForm)trialForm.addEventListener("submit",function(event){
+    event.preventDefault();
+    var valid=true,firstInvalid=null;
+    trialFields.forEach(function(field){
+      if(!validateTrialField(field)){valid=false;if(!firstInvalid)firstInvalid=field}
+    });
+    if(!valid){
+      if(trialStatus){trialStatus.className="modal-form-status";trialStatus.textContent="请先完善必填信息"}
+      if(firstInvalid)firstInvalid.focus();
+      return;
+    }
+    if(trialSubmit){
+      trialSubmit.disabled=true;
+      trialSubmit.classList.add("is-loading");
+      trialSubmit.textContent="正在校验…";
+    }
+    setTimeout(function(){
+      if(trialSubmit){trialSubmit.disabled=false;trialSubmit.classList.remove("is-loading");trialSubmit.textContent="提交申请"}
+      if(trialStatus){
+        trialStatus.className="modal-form-status is-success";
+        trialStatus.textContent="信息已完成校验。当前页面未连接后端提交接口，内容不会实际发送。";
+      }
+      trialForm.setAttribute("data-submitted","true");
+    },reduce?0:520);
   });
 })();
 </script>
