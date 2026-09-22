@@ -889,7 +889,7 @@ body:not(.page-platform):not(.industry-page):not(.scene-market-page):not(.pricin
   display:flex;
   justify-content:flex-end;
   align-items:center;
-  margin-top:0;
+  margin-top:16px;
   padding-top:22px;
   border-top:1px solid rgba(255,255,255,.12);
   color:#77727F;
@@ -918,7 +918,7 @@ body:not(.page-platform):not(.industry-page):not(.scene-market-page):not(.pricin
   .site-footer.shared-site-footer .screenshot-footer-direct-link h2>a{min-height:38px;padding:7px 9px}
   .site-footer.shared-site-footer .screenshot-footer-column.screenshot-footer-direct-link h2{margin-bottom:0}
   .site-footer.shared-site-footer .screenshot-footer-links a{font-size:12px}
-.site-footer.shared-site-footer .screenshot-footer-bottom{margin-top:0;padding-top:17px;font-size:11px}
+  .site-footer.shared-site-footer .screenshot-footer-bottom{margin-top:12px;padding-top:17px;font-size:11px}
 }
 
 /* Cross-page CTA baseline: keep the footer handoff stable across every column page. */
