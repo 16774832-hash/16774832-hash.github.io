@@ -192,6 +192,20 @@ img,svg{display:block}
     radial-gradient(760px 460px at 6% 108%,rgba(42,107,90,.42),transparent 60%),
     linear-gradient(160deg,var(--navy-ink),var(--navy) 46%,#1B3B60);
 }
+.hero-bg-art{
+  position:absolute;inset:-8%;z-index:0;pointer-events:none;overflow:hidden;
+  opacity:.62;mix-blend-mode:screen;
+}
+.hero-bg-art img{
+  display:block;width:100%;height:100%;object-fit:cover;transform-origin:50% 50%;will-change:transform;
+  transform:scale(1.08) translate3d(0,0,0);
+  animation:heroAtmosphereDrift 9s cubic-bezier(.77,0,.175,1) infinite alternate;
+}
+@keyframes heroAtmosphereDrift{
+  0%{transform:scale(1.14) translate3d(-5.2%,-3%,0)}
+  50%{transform:scale(1.22) translate3d(4.2%,2.6%,0)}
+  100%{transform:scale(1.14) translate3d(-2.8%,3.6%,0)}
+}
 .hero::before{
   content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
   background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
@@ -199,7 +213,7 @@ img,svg{display:block}
   mask-image:radial-gradient(760px 520px at 62% 34%,#000,transparent 78%);
   -webkit-mask-image:radial-gradient(760px 520px at 62% 34%,#000,transparent 78%);
 }
-.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:56px;align-items:center;padding-top:82px;padding-bottom:88px}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:56px;align-items:center;padding-top:82px;padding-bottom:88px}
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 9px;border-radius:999px;
   background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
@@ -223,7 +237,7 @@ img,svg{display:block}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 /* Hero 右侧：Agent 工作台动态演示（9.2-1） */
 .console{
-  position:relative;border-radius:var(--r-l);overflow:hidden;
+  position:relative;border-radius:var(--r-l);overflow:visible;
   background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.04));
   border:1px solid rgba(255,255,255,.16);
   box-shadow:var(--shadow-l);backdrop-filter:blur(10px);
@@ -231,6 +245,12 @@ img,svg{display:block}
 .console::after{
   content:"";position:absolute;inset:-40% -10% auto;height:60%;pointer-events:none;
   background:radial-gradient(60% 100% at 50% 0%,rgba(255,255,255,.14),transparent 70%);
+}
+.console-mascot-peek{position:absolute;top:-70px;right:-64px;z-index:5;width:250px;height:230px;pointer-events:none;overflow:visible}
+.console-mascot-peek img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 18px 20px rgba(6,10,18,.24));animation:mascotPeekIn .62s cubic-bezier(.23,1,.32,1) 120ms both}
+@keyframes mascotPeekIn{
+  from{opacity:0;transform:translate3d(46px,38px,0) rotate(4deg) scale(.94)}
+  to{opacity:1;transform:translate3d(0,0,0) rotate(12deg) scale(1)}
 }
 .console-bar{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.12);background:rgba(9,24,40,.42)}
 .dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.26)}
@@ -263,7 +283,7 @@ img,svg{display:block}
 .console-log{
   margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(6,18,31,.55);
   border:1px solid rgba(255,255,255,.09);font-family:var(--mono);font-size:12px;line-height:1.85;color:#9FD7BE;
-  min-height:76px;
+  height:96px;min-height:96px;max-height:96px;overflow:hidden;
 }
 .console-log p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .console-log p.dim{color:#7E93A7}
@@ -275,8 +295,6 @@ img,svg{display:block}
 .console-out span{font-size:11.5px;color:#A8CBBB}
 .console-out .ok{margin-left:auto;font-size:11.5px;font-weight:700;color:#0F2A20;background:#5FE0A6;padding:4px 10px;border-radius:999px;opacity:0;transform:scale(.8);transition:.4s}
 .console-out .ok.show{opacity:1;transform:none}
-.console-foot{display:flex;flex-wrap:wrap;gap:8px 18px;padding:13px 18px;border-top:1px solid rgba(255,255,255,.12);background:rgba(9,24,40,.36);font-size:11.5px;color:#93A9BD;font-family:var(--mono)}
-.console-foot b{color:#DCE8F3;font-weight:600}
 .hero-scroll{display:flex;justify-content:center;padding-bottom:26px}
 .hero-scroll span{font-size:11.5px;letter-spacing:.2em;color:#7E93A7;text-transform:uppercase}
 
@@ -490,6 +508,19 @@ img,svg{display:block}
 .sim-node span{font-size:12px;color:#93A9BD;line-height:1.6}
 .sim-empty{position:relative;text-align:center;padding:70px 20px;color:#7E93A7;font-size:14px}
 .sim-empty svg{margin:0 auto 16px;opacity:.5}
+#simulator > .container > .sec-head{
+  display:grid;grid-template-columns:minmax(0,1fr) 230px;column-gap:30px;align-items:center;
+  max-width:none;margin-bottom:36px;
+}
+#simulator > .container > .sec-head .sec-kicker,
+#simulator > .container > .sec-head .sec-title,
+#simulator > .container > .sec-head .sec-desc{grid-column:1}
+.sim-mascot{
+  position:relative;grid-column:2;grid-row:1 / span 3;top:auto;right:auto;z-index:1;
+  width:230px;height:250px;display:flex;align-items:flex-end;justify-content:center;
+  pointer-events:none;overflow:visible;align-self:center;transform:translate(-44px,72px);
+}
+.sim-mascot img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom;transform:rotate(0deg);transform-origin:50% 82%;filter:drop-shadow(0 14px 18px rgba(0,0,0,.26))}
 
 /* ============ 3.5 场景超市 ============ */
 .market-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
@@ -907,6 +938,8 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 .cta-mini{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
 .cta-mini span{font-size:12.5px;color:#93A9BD;display:inline-flex;align-items:center;gap:7px}
 .cta-mini i{width:5px;height:5px;border-radius:50%;background:var(--orange)}
+.cta-mascot{display:flex;align-items:center;justify-content:center;pointer-events:none}
+.cta-mascot img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 18px 22px rgba(0,0,0,.26))}
 
 /* ============ 页脚 ============ */
 .footer{background:var(--navy-ink);color:#9FB6C9;padding:64px 0 28px;font-size:13.5px}
@@ -922,6 +955,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 @media (max-width:1080px){
   .hero-in{grid-template-columns:minmax(0,1fr);gap:44px;padding-top:64px;padding-bottom:70px}
   .hero-sub{max-width:none}
+  .console-mascot-peek{top:-58px;right:-52px;width:210px;height:195px}
   .pillars,.caps,.ind-grid,.case-grid,.price-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .capability-header{align-items:flex-start;gap:32px}
   .capability-layout{grid-template-columns:minmax(0,1fr)}
@@ -934,6 +968,9 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
   .stats-head{align-items:flex-start}
   .sim,.calc,.diag{grid-template-columns:minmax(0,1fr)}
   .sim-left,.calc-left{border-right:0;border-bottom:1px solid var(--line-soft)}
+  #simulator > .container > .sec-head{grid-template-columns:minmax(0,1fr) 190px;column-gap:22px;margin-bottom:32px}
+  #simulator .sim-mascot{width:190px;height:206px;transform:translate(-44px,32px);z-index:4}
+  #simulator .simulator-stage{z-index:auto}
   .foot-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .nav-links{display:none}
   .nav-burger{display:grid}
@@ -944,9 +981,11 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
   .capability-header p{max-width:680px;margin-top:22px}
 }
 @media (max-width:720px){
+  .console{overflow:hidden}
   .sec{padding:66px 0}
   .nav-cta .btn-line{display:none}
   .hero h1 em{white-space:normal}
+  .console-mascot-peek{top:-44px;right:-42px;width:160px;height:148px}
   .pillars,.caps,.ind-grid,.case-grid,.price-grid,.pain-grid,.market-grid{grid-template-columns:minmax(0,1fr)}
   .capability-section{padding:96px 0 44px}
   .capability-header{display:block}
@@ -1002,11 +1041,14 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
   .stats-enterprise-arrow{position:absolute;top:22px;right:24px}
   .market-intro{grid-template-columns:repeat(2,minmax(0,1fr))}
   .foot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
-  .console-foot{gap:6px 14px}
+  #simulator > .container > .sec-head{display:block;margin-bottom:28px}
+  #simulator .sim-mascot{width:122px;height:134px;margin:8px 6px -14px auto;transform:none;top:auto;z-index:4}
   .ind:hover .ind-scenes{padding-right:0}
   .quiz,.calc-left,.calc-right,.sim-left,.sim-right{padding:24px 20px}
 }
 @media (max-width:480px){
+  .console-mascot-peek{top:-34px;right:-28px;width:132px;height:122px}
+  #simulator .sim-mascot{width:104px;height:114px;margin-top:6px}
   .capability-focus-visual{min-height:200px}
   .capability-focus-copy h3{font-size:20px}
   .capability-lifecycle{grid-template-columns:minmax(0,1fr)}
@@ -1216,6 +1258,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none}
   .title-line{opacity:1;transform:none;transition:none;animation:none}
+  .hero-bg-art img{animation:none;transform:scale(1.08)}
   .title-hover-zone:hover .title-line,
   .title-hover-zone:hover .title-line-delay{transform:none}
 }
@@ -1311,8 +1354,6 @@ body.lime-preview .console-out .file{background:#C2FF47;color:#0B0C0B}
 body.lime-preview .console-out b{color:#20221F}
 body.lime-preview .console-out span{color:#72766D}
 body.lime-preview .console-out .ok{background:#0B0C0B;color:#C2FF47}
-body.lime-preview .console-foot{background:#F4F4F2;border-top-color:#E4E5E2;color:#858781}
-body.lime-preview .console-foot b{color:#20221F}
 
 body.lime-preview .trust{background:#fff;border-color:#E2E3E0}
 body.lime-preview .trust-label{color:#92958E}
@@ -1788,8 +1829,6 @@ body.lime-preview.lime-dark-preview .console-out .file{background:#8FFE01;color:
 body.lime-preview.lime-dark-preview .console-out b{color:#202020}
 body.lime-preview.lime-dark-preview .console-out span{color:#77727F}
 body.lime-preview.lime-dark-preview .console-out .ok{background:#7201FF;color:#fff}
-body.lime-preview.lime-dark-preview .console-foot{background:#F3F1F7;border-top-color:#E2DFE9;color:#77727F}
-body.lime-preview.lime-dark-preview .console-foot b{color:#202020}
 
 /* 浅色内容层：参考图的 #F3F1F7 背景与白色卡片 */
 body.lime-preview.lime-dark-preview .sec,
@@ -2226,6 +2265,49 @@ body.lime-preview.lime-dark-preview.dark-atmosphere .cta .btn-primary:hover{
   background:#7201FF;border-color:#7201FF;color:#fff;
 }
 
+/* ============ 吉祥物层级与 CTA 布局 ============ */
+.hero-copy,.console{position:relative;z-index:1}
+.simulator-stage{position:relative;z-index:2}
+.cta-in > *{position:relative;z-index:1}
+body.lime-preview.lime-dark-preview .capability-section{overflow:hidden}
+body.lime-preview.lime-dark-preview.flow-footer-preview .cta-in{
+  display:grid;
+  grid-template-columns:minmax(240px,300px) minmax(0,1fr);
+  column-gap:54px;
+  align-items:center;
+  text-align:left;
+}
+body.lime-preview.lime-dark-preview.flow-footer-preview .cta-mascot{
+  grid-column:1;
+  grid-row:1 / span 4;
+  width:300px;
+  height:326px;
+  align-self:center;
+}
+body.lime-preview.lime-dark-preview.flow-footer-preview .cta-in h2,
+body.lime-preview.lime-dark-preview.flow-footer-preview .cta-in > p,
+body.lime-preview.lime-dark-preview.flow-footer-preview .cta-actions,
+body.lime-preview.lime-dark-preview.flow-footer-preview .cta-mini{grid-column:2}
+body.lime-preview.lime-dark-preview.flow-footer-preview .cta-actions,
+body.lime-preview.lime-dark-preview.flow-footer-preview .cta-mini{justify-content:flex-start}
+@media (max-width:900px){
+  body.lime-preview.lime-dark-preview.flow-footer-preview .cta-in{
+    grid-template-columns:minmax(190px,220px) minmax(0,1fr);column-gap:28px
+  }
+  body.lime-preview.lime-dark-preview.flow-footer-preview .cta-mascot{width:220px;height:238px}
+}
+@media (max-width:720px){
+  body.lime-preview.lime-dark-preview.flow-footer-preview .cta-in{
+    display:flex;flex-direction:column;align-items:center;text-align:center;gap:0
+  }
+  body.lime-preview.lime-dark-preview.flow-footer-preview .cta-mascot{
+    order:-1;width:180px;height:195px;margin-bottom:8px
+  }
+  body.lime-preview.lime-dark-preview.flow-footer-preview .cta h2{white-space:normal}
+  body.lime-preview.lime-dark-preview.flow-footer-preview .cta-actions,
+  body.lime-preview.lime-dark-preview.flow-footer-preview .cta-mini{justify-content:center}
+}
+
 /* ============ CTA 交互弹层 ============ */
 body.modal-open{overflow:hidden}
 .lead-modal[hidden]{display:none}
@@ -2399,6 +2481,9 @@ body.modal-open{overflow:hidden}
 
 <!-- ============ 3.1 首屏 Hero ============ -->
 <section class="hero">
+  <div class="hero-bg-art" aria-hidden="true">
+    <img src="WorkNova-hero-atmosphere.jpg" alt="" width="1920" height="1080" decoding="async">
+  </div>
   <div class="container hero-in">
     <div class="hero-copy">
       <span class="hero-eyebrow"><i></i>企业级一站式 Agent 平台 · 从场景评估到上线全链路交付</span>
@@ -2417,6 +2502,9 @@ body.modal-open{overflow:hidden}
 
     <!-- Agent 工作台动态演示 -->
     <div class="console" aria-label="Agent 工作台任务执行演示">
+      <div class="console-mascot-peek" aria-label="WorkNova 吉祥物从工作台后方探出">
+        <img src="WorkNova-brand-mascot.png" alt="WorkNova 吉祥物局部展示" width="1254" height="1254" decoding="async">
+      </div>
       <div class="console-bar">
         <span class="dot"></span><span class="dot"></span><span class="dot"></span>
         <span class="console-title">Agent 工作台 · 巡检助手<small>一站式交付 · 制造业场景</small></span>
@@ -2449,13 +2537,6 @@ body.modal-open{overflow:hidden}
           <span><b>示例产物：设备巡检报告 + 告警通知</b><span>已归档至运行记录 · 关键动作可审计 · 结果可追溯</span></span>
           <span class="ok" id="heroOk">演示完成</span>
         </div>
-      </div>
-      <div class="console-foot">
-        <span>耗时 <b id="fTime">示例</b></span>
-        <span>Token <b id="fToken">按实际用量</b></span>
-        <span>费用 <b id="fCost">按实际计量</b></span>
-        <span>模型 <b>按任务能力路由</b></span>
-        <span>状态 <b id="fState">执行中</b></span>
       </div>
     </div>
   </div>
@@ -2727,7 +2808,11 @@ body.modal-open{overflow:hidden}
       <span class="sec-kicker">场景模拟器</span>
       <h2 class="sec-title">输入一个任务，看看 Agent 怎么干</h2>
       <p class="sec-desc">从场景描述开始，预览规划、执行、审批与交付，了解 Agent 如何从任务走向产物。</p>
+      <div class="sim-mascot" aria-label="WorkNova 吉祥物动态预览">
+        <img src="WorkNova-mascot-simulator.gif" alt="WorkNova 吉祥物动态展示" width="1280" height="1126" decoding="async">
+      </div>
     </div>
+    <div class="simulator-stage">
     <div class="sim reveal">
       <div class="sim-left">
         <h3>描述你的任务</h3>
@@ -2762,6 +2847,7 @@ body.modal-open{overflow:hidden}
           </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -3102,6 +3188,9 @@ body.modal-open{overflow:hidden}
 <!-- ============ 3.8 底部 CTA ============ -->
 <section class="cta" id="cta">
   <div class="container cta-in">
+    <div class="cta-mascot" aria-label="WorkNova 吉祥物动态展示">
+      <img src="WorkNova-mascot-cta.gif" alt="WorkNova 吉祥物动态展示" width="1280" height="1110" decoding="async">
+    </div>
     <h2>准备好搭建你的 Agent 了吗？</h2>
     <p>一体化一站式交付：从一个明确场景开始：评估、搭建、上线运行，持续看到可衡量的交付结果。</p>
     <div class="cta-actions">
