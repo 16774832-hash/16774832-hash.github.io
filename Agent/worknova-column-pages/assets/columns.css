@@ -1182,3 +1182,93 @@ body.page-platform .security-grid p{font-size:13px;line-height:1.8}
   .scene-market-page .hero-panel::after,
   .scene-market-page .scenario-simulator-right::after{display:none}
 }
+
+/* Comfortable micro-interactions for the filter and scene index surfaces. */
+.scene-market-page .filter-button{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform 180ms var(--ease-out),
+    background-color 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease,
+    box-shadow 220ms var(--ease-out);
+}
+.scene-market-page .filter-button::after{
+  position:absolute;
+  left:50%;
+  bottom:4px;
+  width:22px;
+  height:2px;
+  border-radius:2px;
+  background:var(--lime);
+  content:"";
+  opacity:0;
+  transform:translateX(-50%) scaleX(.55);
+  transform-origin:center;
+  transition:opacity 180ms ease,transform 220ms var(--ease-out);
+}
+.scene-market-page .filter-button[aria-pressed="true"]{
+  border-color:#000000;
+  background:#000000;
+  color:#FFFFFF;
+  box-shadow:
+    0 6px 16px rgba(17,14,28,.12),
+    0 0 0 1px rgba(143,254,1,.14);
+}
+.scene-market-page .filter-button[aria-pressed="true"]::after{
+  opacity:.92;
+  transform:translateX(-50%) scaleX(1);
+}
+.scene-market-page .scene-group-index{
+  box-shadow:
+    inset 0 -2px var(--group-accent),
+    0 4px 12px rgba(18,15,28,.08);
+  transition:box-shadow 220ms var(--ease-out),transform 220ms var(--ease-out);
+}
+@keyframes scene-index-settle{
+  from{opacity:.6;transform:translate3d(0,6px,0) scale(.97)}
+  to{opacity:1;transform:translate3d(0,0,0) scale(1)}
+}
+.scene-market-page .scene-group-heading.is-visible .scene-group-index{
+  animation:scene-index-settle 360ms var(--ease-out) 55ms both;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .scene-market-page .filter-button:hover{
+    transform:translate3d(0,-1px,0);
+    box-shadow:0 7px 16px rgba(17,14,28,.10);
+  }
+  .scene-market-page .filter-button[aria-pressed="true"]:hover{
+    box-shadow:
+      0 9px 20px rgba(17,14,28,.13),
+      0 0 0 1px rgba(143,254,1,.18);
+  }
+}
+.scene-market-page .filter-button:active{
+  transform:scale(.985);
+  transition-duration:120ms;
+}
+
+@media (hover:none),(pointer:coarse){
+  .scene-market-page .filter-button:hover{transform:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .scene-market-page .filter-button,
+  .scene-market-page .filter-button:hover,
+  .scene-market-page .filter-button:active,
+  .scene-market-page .scene-group-index{
+    transition:none!important;
+    transform:none!important;
+  }
+  .scene-market-page .filter-button::after{
+    transition:none;
+    transform:translateX(-50%) scaleX(1);
+  }
+  .scene-market-page .scene-group-heading.is-visible .scene-group-index{
+    animation:none!important;
+    opacity:1;
+    transform:none;
+  }
+}
