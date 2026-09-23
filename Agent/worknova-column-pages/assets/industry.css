@@ -462,10 +462,10 @@ body.industry-page{
   transform-origin:center;
 }
 .industry-page .site-footer.shared-site-footer::before{
-  animation:industry-footer-breathe 11s var(--ease-in-out) infinite alternate;
+  animation:column-section-drift 22s var(--motion-ease-in-out) infinite alternate;
 }
 .industry-page .site-footer.shared-site-footer::after{
-  animation:industry-footer-breathe 15s var(--ease-in-out) infinite alternate-reverse;
+  animation:column-section-drift 22s var(--motion-ease-in-out) infinite alternate;
 }
 .industry-page .screenshot-footer-grid,
 .industry-page .screenshot-footer-bottom{
@@ -707,6 +707,9 @@ body.industry-page{
   .industry-page .industry-shell:hover,
   .industry-page .pain-panel:hover .pain-decoration{
     transform:none!important;
+  }
+  .industry-page .site-footer.shared-site-footer::before{
+    transform:rotate(-14deg)!important;
   }
 }
 

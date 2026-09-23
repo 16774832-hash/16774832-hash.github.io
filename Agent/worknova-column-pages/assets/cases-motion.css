@@ -322,10 +322,10 @@ body.cases-page .shared-bottom-cta::after{
   animation:cases-cta-orbit 20s var(--motion-ease-in-out) infinite alternate;
 }
 body.cases-page .site-footer.shared-site-footer::before{
-  animation:cases-footer-orbit 24s var(--motion-ease-in-out) infinite alternate;
+  animation:column-section-drift 22s var(--motion-ease-in-out) infinite alternate;
 }
 body.cases-page .site-footer.shared-site-footer::after{
-  animation:cases-footer-glow 16s var(--motion-ease-in-out) infinite alternate;
+  animation:column-section-drift 22s var(--motion-ease-in-out) infinite alternate;
 }
 body.cases-page .site-footer.shared-site-footer .screenshot-footer-links a,
 body.cases-page .site-footer.shared-site-footer .screenshot-footer-direct-link h2>a{
