@@ -1,6 +1,5 @@
 /* WorkNova About page: the supplied reference palette is intentionally the source of truth. */
 body.about-page{--about-lime:#8FFE01;--about-purple:#7201FF;--about-paper:#F3F1F7;--about-ink:#08090D;background:var(--about-paper)}
-body.about-page .site-header{background:rgba(8,9,13,.96)}
 .about-main{overflow:hidden}
 .about-hero{padding:112px 0 96px;background:radial-gradient(690px 420px at 92% 4%,rgba(143,254,1,.14),transparent 70%),radial-gradient(760px 520px at 2% 100%,rgba(114,1,255,.19),transparent 67%),linear-gradient(145deg,#000 0%,#101014 55%,#08090D 100%)}
 .about-hero::after{right:3%;top:18%;width:240px;height:240px;border-color:rgba(114,1,255,.17);box-shadow:0 0 0 30px rgba(114,1,255,.025),0 0 0 60px rgba(143,254,1,.018);opacity:.55}
@@ -140,7 +139,7 @@ body.about-page .site-header{background:rgba(8,9,13,.96)}
 .about-bottom-cta{background:linear-gradient(135deg,#111216 0%,#000 64%,#17121F 100%)}
 .about-bottom-cta h2 em{color:var(--about-lime)}
 .about-bottom-cta .section-kicker{color:#D6BFFF}
-.about-bottom-cta .section-kicker::before{background:var(--about-lime)}
+.about-bottom-cta .section-kicker::before{background:currentColor}
 .about-reveal{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
 .about-reveal.is-visible{opacity:1;transform:translateY(0)}
 .about-reveal:nth-child(2){transition-delay:70ms}.about-reveal:nth-child(3){transition-delay:140ms}.about-reveal:nth-child(4){transition-delay:210ms}

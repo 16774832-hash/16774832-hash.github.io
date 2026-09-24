@@ -109,8 +109,8 @@ body.cases-page .cases-cost-card.is-visible .cases-cost-summary{animation:cases-
 
 @media (hover:hover) and (pointer:fine){
   body.cases-page .cases-cost-range:hover::-webkit-slider-thumb{box-shadow:0 5px 20px rgba(143,254,1,.48);transform:scale(1.1)}
-  body.cases-page .cases-cost-row{transition:background-color .22s ease,transform .22s var(--motion-ease-out)}
-  body.cases-page .cases-cost-row:hover{background:rgba(255,255,255,.09);transform:translateX(4px)}
+  body.cases-page .cases-cost-row{transition:background-color .22s ease}
+  body.cases-page .cases-cost-row:hover{background:rgba(255,255,255,.09)}
   body.cases-page .cases-cost-plan{transition:transform .24s var(--motion-ease-out),border-color .2s ease,background-color .2s ease}
   body.cases-page .cases-cost-plan:hover{border-color:#A76BFF;background:linear-gradient(125deg,rgba(114,1,255,.38),rgba(114,1,255,.16));transform:translateY(-3px)}
 }
@@ -307,7 +307,7 @@ body.cases-page .case-quote::before{
   body.cases-page .case-card:hover .case-index{border-color:rgba(114,1,255,.26);background:#fff;transform:translateY(-3px)}
   body.cases-page .case-card[data-accent="lime"]:hover .case-index{border-color:rgba(85,122,11,.3)}
   body.cases-page .case-deliverables span:hover{border-color:#C6E893;background:#F1FFD8;transform:translateY(-3px)}
-  body.cases-page .case-metrics > div:hover{border-color:rgba(114,1,255,.2);background:#FBF9FF;box-shadow:0 8px 18px rgba(114,1,255,.07);transform:translateX(4px)}
+  body.cases-page .case-metrics > div:hover{border-color:rgba(114,1,255,.2);transform:translateX(4px)}
   body.cases-page .case-metrics > div:hover dd span{transform:translateX(4px)}
   body.cases-page .case-principle:hover{border-color:rgba(143,254,1,.42);background:rgba(255,255,255,.08);transform:translateY(-4px);box-shadow:0 12px 26px rgba(0,0,0,.16)}
   body.cases-page .case-quote:hover::before{opacity:.16;transform:translateY(0)}
@@ -322,10 +322,10 @@ body.cases-page .shared-bottom-cta::after{
   animation:cases-cta-orbit 20s var(--motion-ease-in-out) infinite alternate;
 }
 body.cases-page .site-footer.shared-site-footer::before{
-  animation:column-section-drift 22s var(--motion-ease-in-out) infinite alternate;
+  animation:cases-footer-orbit 24s var(--motion-ease-in-out) infinite alternate;
 }
 body.cases-page .site-footer.shared-site-footer::after{
-  animation:column-section-drift 22s var(--motion-ease-in-out) infinite alternate;
+  animation:cases-footer-glow 16s var(--motion-ease-in-out) infinite alternate;
 }
 body.cases-page .site-footer.shared-site-footer .screenshot-footer-links a,
 body.cases-page .site-footer.shared-site-footer .screenshot-footer-direct-link h2>a{

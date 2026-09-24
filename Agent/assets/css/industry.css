@@ -135,7 +135,6 @@ body.industry-page{
   .industry-page .footer-copyright{align-self:flex-end;font-size:10px}
 }
 
-.industry-page .site-header{background:#000;border-bottom-color:rgba(255,255,255,.12)}
 .industry-page .desktop-nav a[aria-current="page"]{color:var(--lime)}
 .industry-page .mobile-nav a[aria-current="page"]{color:var(--lime)}
 .industry-page .page-hero.industry-hero{
@@ -223,7 +222,7 @@ body.industry-page{
 .industry-shell{padding:33px 34px 35px;border:1px solid #DEDCE5;border-radius:25px;background:#fff;box-shadow:0 10px 36px rgba(20,16,28,.045)}
 .industry-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding-bottom:23px;border-bottom:1px solid #E9E6ED}
 .industry-code{display:inline-flex;align-items:center;gap:8px;color:var(--purple);font-family:ui-monospace,monospace;font-size:10px;font-weight:800;letter-spacing:.12em}
-.industry-code::before{width:17px;height:2px;background:var(--lime);content:""}
+.industry-code::before{width:17px;height:2px;background:var(--purple);content:""}
 .industry-section-head h2{margin:9px 0 3px;font-size:clamp(27px,3.4vw,37px);line-height:1.2;letter-spacing:-.04em}
 .industry-section-head p{margin:0;color:#605C67;font-size:13px;line-height:1.65}
 .industry-count{display:inline-flex;align-items:center;gap:9px;flex:0 0 auto;padding:9px 12px;border-radius:999px;background:#000;color:#fff;font-size:10px;font-weight:700;white-space:nowrap}
@@ -272,7 +271,7 @@ body.industry-page{
 .case-section::before{position:absolute;z-index:-1;top:-260px;right:-100px;width:600px;height:600px;border:1px solid rgba(114,1,255,.19);border-radius:50%;box-shadow:0 0 0 44px rgba(114,1,255,.025),0 0 0 88px rgba(143,254,1,.02);content:"";pointer-events:none}
 .case-section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px}
 .case-section .section-head{margin:0}
-.case-section .section-kicker{color:#C29AFF}
+/* .case-section .section-kicker{color:#C29AFF} */
 .case-section .section-head h2{color:#fff}
 .case-section .section-head h2 em{color:var(--lime)}
 .case-section .section-head p{color:#C3BFCA}
@@ -403,19 +402,6 @@ body.industry-page{
   --ease-in-out:cubic-bezier(0.77,0,0.175,1);
 }
 
-.industry-page .site-header .nav-wrap{
-  animation:industry-header-in .56s var(--ease-out) both;
-}
-.industry-page .site-header .desktop-nav a{
-  animation:industry-menu-link-in .42s var(--ease-out) both;
-}
-.industry-page .site-header .desktop-nav a:nth-child(1){animation-delay:55ms}
-.industry-page .site-header .desktop-nav a:nth-child(2){animation-delay:85ms}
-.industry-page .site-header .desktop-nav a:nth-child(3){animation-delay:115ms}
-.industry-page .site-header .desktop-nav a:nth-child(4){animation-delay:145ms}
-.industry-page .site-header .desktop-nav a:nth-child(5){animation-delay:175ms}
-.industry-page .site-header .desktop-nav a:nth-child(6){animation-delay:205ms}
-
 .industry-page [data-reveal].is-visible{
   animation:industry-reveal .72s var(--ease-out) both;
 }
@@ -432,11 +418,6 @@ body.industry-page{
   from{opacity:0;transform:translate3d(0,18px,0)}
   to{opacity:1;transform:translate3d(0,0,0)}
 }
-@keyframes industry-header-in{
-  from{opacity:0;transform:translate3d(0,-9px,0)}
-  to{opacity:1;transform:translate3d(0,0,0)}
-}
-
 /* Hero layers: the grid breathes while the orbit rings drift slowly in the background. */
 .industry-page .industry-hero::after{
   animation:industry-ring-drift 14s var(--ease-in-out) infinite alternate;
@@ -462,10 +443,10 @@ body.industry-page{
   transform-origin:center;
 }
 .industry-page .site-footer.shared-site-footer::before{
-  animation:column-section-drift 22s var(--motion-ease-in-out) infinite alternate;
+  animation:industry-footer-breathe 11s var(--ease-in-out) infinite alternate;
 }
 .industry-page .site-footer.shared-site-footer::after{
-  animation:column-section-drift 22s var(--motion-ease-in-out) infinite alternate;
+  animation:industry-footer-breathe 15s var(--ease-in-out) infinite alternate-reverse;
 }
 .industry-page .screenshot-footer-grid,
 .industry-page .screenshot-footer-bottom{
@@ -562,30 +543,6 @@ body.industry-page{
   to{opacity:1;transform:translate3d(0,0,0)}
 }
 
-/* A compact menu keeps the same entrance rhythm on smaller screens. */
-.industry-page .mobile-nav.open{
-  animation:industry-menu-in .28s var(--ease-out) both;
-}
-.industry-page .mobile-nav.open a{
-  animation:industry-menu-link-in .34s var(--ease-out) both;
-}
-.industry-page .mobile-nav.open a:nth-child(1){animation-delay:35ms}
-.industry-page .mobile-nav.open a:nth-child(2){animation-delay:65ms}
-.industry-page .mobile-nav.open a:nth-child(3){animation-delay:95ms}
-.industry-page .mobile-nav.open a:nth-child(4){animation-delay:125ms}
-.industry-page .mobile-nav.open a:nth-child(5){animation-delay:155ms}
-.industry-page .mobile-nav.open a:nth-child(6){animation-delay:185ms}
-.industry-page .mobile-nav.open a:nth-child(7){animation-delay:215ms}
-.industry-page .mobile-nav.open a:nth-child(8){animation-delay:245ms}
-@keyframes industry-menu-in{
-  from{opacity:0;transform:translate3d(0,-8px,0)}
-  to{opacity:1;transform:translate3d(0,0,0)}
-}
-@keyframes industry-menu-link-in{
-  from{opacity:0;transform:translate3d(0,-5px,0)}
-  to{opacity:1;transform:translate3d(0,0,0)}
-}
-
 /* Pointer-only details add depth without changing touch scrolling behaviour. */
 @media (hover:hover) and (pointer:fine){
   .industry-page .industry-shell,
@@ -663,8 +620,6 @@ body.industry-page{
 .industry-page .btn:active{transform:scale(.97)}
 
 @media (prefers-reduced-motion:reduce){
-  .industry-page .site-header .nav-wrap,
-  .industry-page .site-header .desktop-nav a,
   .industry-page [data-reveal].is-visible,
   .industry-page .industry-hero::after,
   .industry-page .industry-hero-visual::before,
@@ -683,8 +638,7 @@ body.industry-page{
   .industry-page .industry-shell.is-visible .pain-list li,
   .industry-page .industry-shell.is-visible .agent-area-heading,
   .industry-page .industry-shell.is-visible .agent-card,
-  .industry-page .mobile-nav.open,
-  .industry-page .mobile-nav.open a{
+  .industry-page .mobile-nav.open{
     animation:none!important;
     transform:none!important;
   }
@@ -707,9 +661,6 @@ body.industry-page{
   .industry-page .industry-shell:hover,
   .industry-page .pain-panel:hover .pain-decoration{
     transform:none!important;
-  }
-  .industry-page .site-footer.shared-site-footer::before{
-    transform:rotate(-14deg)!important;
   }
 }
 

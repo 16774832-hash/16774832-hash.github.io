@@ -82,7 +82,7 @@
   margin:0 0 16px;
   color:#A19BA9;
 }
-.shared-bottom-cta .section-kicker::before{background:#8FFE01}
+.shared-bottom-cta .section-kicker::before{background:currentColor}
 .shared-bottom-cta p{
   max-width:1120px;
   margin:22px auto 0;
@@ -337,7 +337,7 @@ body.pricing-page .site-footer.shared-site-footer::after{
   backdrop-filter:blur(14px);
 }
 .site-header .nav-wrap{
-  width:min(1200px,calc(100% - 48px));
+  width:min(1240px,calc(100% - 48px));
   min-height:68px;
   margin:0 auto;
   display:flex;
@@ -366,10 +366,11 @@ body.pricing-page .site-footer.shared-site-footer::after{
   white-space:nowrap;
   transition:color .2s,background .2s;
 }
-.site-header .desktop-nav a:hover{color:#8FFE01;background:rgba(143,254,1,.08)}
+.site-header .desktop-nav a:hover,
+.site-header .desktop-nav a[aria-current="page"]{color:#8FFE01;background:rgba(143,254,1,.08)}
 .site-header .header-actions{display:flex;align-items:center;gap:10px;flex:0 0 auto}
 .site-header .header-actions .btn{
-  min-height:36px;
+  min-height:40px;
   padding:9px 18px;
   font-size:14px;
   font-weight:600;
@@ -391,17 +392,17 @@ body.pricing-page .site-footer.shared-site-footer::after{
   .site-header .desktop-nav a{padding-inline:9px;font-size:13px}
   .site-header .header-actions .btn-outline{display:none}
 }
-@media(max-width:860px){
-  .site-header .nav-wrap{width:calc(100% - 40px);min-height:68px}
+@media(max-width:1080px){
   .site-header .desktop-nav,
   .site-header .header-actions{display:none}
   .site-header .menu-toggle{display:grid;margin-left:auto}
-  .site-header .mobile-nav{width:calc(100% - 40px);margin:0 auto;padding:0 0 18px}
+}
+@media(max-width:860px){
+  .site-header .nav-wrap{width:calc(100% - 40px);min-height:68px}
+  .site-header .mobile-nav{width:100%;margin:0 auto;padding:10px 24px 18px}
 }
 @media(max-width:580px){
   .site-header .nav-wrap{width:calc(100% - 32px)}
-  .site-header .brand img{width:145px}
-  .site-header .mobile-nav{width:calc(100% - 32px)}
 }
 
 /* Case hero lead: two balanced desktop lines, natural wrapping below the wide layout. */
@@ -1352,14 +1353,6 @@ body:not(.page-platform):not(.industry-page):not(.scene-market-page):not(.pricin
   50%{opacity:.62}
   80%,100%{opacity:.12;transform:translate3d(260%,0,0)}
 }
-@keyframes column-nav-drop{
-  from{opacity:0;transform:translate3d(0,-9px,0)}
-  to{opacity:1;transform:translate3d(0,0,0)}
-}
-@keyframes column-nav-link-in{
-  from{opacity:0;transform:translate3d(0,-5px,0)}
-  to{opacity:1;transform:translate3d(0,0,0)}
-}
 @keyframes column-point-pulse{
   0%,100%{opacity:.68;transform:scale(1)}
   50%{opacity:1;transform:scale(1.2)}
@@ -1453,17 +1446,6 @@ body:not(.page-platform):not(.industry-page):not(.scene-market-page):not(.pricin
     pointer-events:none;
     animation:column-header-sweep 8.5s var(--motion-ease-in-out) infinite;
   }
-  .site-header .mobile-nav.open{animation:column-nav-drop .28s var(--motion-ease-drawer) both}
-  .site-header .mobile-nav.open a{animation:column-nav-link-in .34s var(--motion-ease-out) both}
-  .site-header .mobile-nav.open a:nth-child(1){animation-delay:35ms}
-  .site-header .mobile-nav.open a:nth-child(2){animation-delay:65ms}
-  .site-header .mobile-nav.open a:nth-child(3){animation-delay:95ms}
-  .site-header .mobile-nav.open a:nth-child(4){animation-delay:125ms}
-  .site-header .mobile-nav.open a:nth-child(5){animation-delay:155ms}
-  .site-header .mobile-nav.open a:nth-child(6){animation-delay:185ms}
-  .site-header .mobile-nav.open a:nth-child(7){animation-delay:215ms}
-  .site-header .mobile-nav.open a:nth-child(8){animation-delay:245ms}
-
   .section-dark::before,
   .final-cta::before,
   .cta::before,
