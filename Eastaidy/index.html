@@ -1,0 +1,1439 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<title>景小艾 · 表情包素材图册</title>
+<style>
+:root{--paper:#eef8ff;--white:#ffffff;--ink:#12315e;--muted:#68829f;--line:#cce4f2;--blue:#168fe6;--blue-dark:#0968bf;--lilac:#7665e8;--lime:#ffd66b;--serif:"Songti SC","STSong","Noto Serif CJK SC",serif;--display-sans:"Noto Sans SC","Noto Sans","PingFang SC","Microsoft YaHei",sans-serif;--sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 82% 0,rgba(54,177,236,.10),transparent 34%),linear-gradient(180deg,#eff9ff 0%,var(--paper) 42rem,#f8fcff 100%);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}button,input{font:inherit}a{color:inherit}.shell{width:100%;margin:0 auto;padding-inline:clamp(14px,2.2vw,40px)}.site-header{height:84px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px;text-decoration:none}.brand-logo{display:block;width:min(200px,50vw);height:auto;max-height:78px;object-fit:contain}.header-note{font-size:12px;color:var(--muted);letter-spacing:.08em}.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,370px);gap:80px;align-items:center;padding:78px 0 68px;position:relative}.hero:before{content:"";position:absolute;width:460px;height:460px;left:42%;top:-30px;background:radial-gradient(circle,rgba(52,100,232,.09),transparent 69%);pointer-events:none}.hero-copy,.hero-art{position:relative;z-index:1}.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);font-weight:800;margin:0 0 18px;display:flex;align-items:center;gap:9px}.eyebrow:before{content:"";width:20px;height:2px;background:currentColor}.hero h1{font-family:var(--serif);font-size:clamp(48px,7vw,90px);line-height:1.06;letter-spacing:-.055em;font-weight:600;margin:0}.hero h1 em{font-style:normal;color:var(--blue)}.hero-lead{font-size:15px;line-height:1.9;color:#5a6678;max-width:510px;margin:23px 0 31px}.stats{display:flex;gap:32px;align-items:center}.hero-banner{padding:30px 0 0}.hero-banner-frame{position:relative;overflow:hidden;border-radius:8px;box-shadow:0 20px 48px rgba(26,126,188,.16)}.hero-banner-frame>img{display:block;width:100%;height:auto;border-radius:0;box-shadow:none}.hero-summary{display:flex;align-items:center;padding:18px 0 25px;border-bottom:1px solid var(--line)}.stat{display:flex;flex-direction:column;gap:3px}.stat strong{font-size:24px;letter-spacing:-.04em;font-weight:650}.stat span{font-size:11px;color:var(--muted);letter-spacing:.08em}.stat-divider{width:1px;height:36px;background:var(--line)}.hero-art{display:flex;flex-direction:column;min-height:340px;background:var(--ink);border-radius:4px;padding:22px 23px 18px;color:white;text-decoration:none;overflow:hidden;box-shadow:0 24px 50px rgba(21,35,58,.16);transform:rotate(1.5deg);transition:transform .3s,box-shadow .3s}.hero-art:hover{transform:rotate(0) translateY(-4px);box-shadow:0 28px 56px rgba(21,35,58,.22)}.art-label{font-size:10px;letter-spacing:.16em;color:#bdc7d9;display:flex;justify-content:space-between}.art-label b{font-size:12px;color:var(--lime)}.hero-art img{position:absolute;width:88%;height:78%;object-fit:contain;left:6%;top:6%;filter:drop-shadow(0 12px 20px rgba(0,0,0,.24))}.catalog-art{flex:1;display:flex;align-items:center;justify-content:center;position:relative}.catalog-art strong{font-family:var(--serif);font-size:clamp(130px,17vw,200px);font-weight:400;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.42);text-shadow:12px 12px 0 rgba(52,100,232,.25)}.catalog-art span{position:absolute;right:4px;bottom:24px;color:var(--lime);font-size:10px;letter-spacing:.18em}.art-caption{position:relative;margin-top:auto;display:flex;align-items:end;justify-content:space-between;border-top:1px solid rgba(255,255,255,.2);padding-top:14px}.art-caption strong{font-family:var(--serif);font-size:18px;font-weight:500}.art-caption span{font-size:10px;color:#c0cad9;letter-spacing:.06em}
+.toolbar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;display:flex;align-items:center;gap:18px;position:sticky;top:0;z-index:5;background:rgba(238,248,255,.94);backdrop-filter:blur(16px)}.search-wrap{height:42px;min-width:220px;width:min(300px,30vw);border:1px solid #bdd9eb;background:var(--white);display:flex;align-items:center;gap:10px;padding:0 13px;border-radius:7px}.search-wrap svg{width:16px;height:16px;stroke:#7c8795;flex:none}.search-wrap input{width:100%;border:0;outline:0;background:transparent;color:var(--ink);font-size:12px}.search-wrap input::placeholder{color:#8298ad}.filter-list{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.filter-chip{border:1px solid transparent;background:transparent;border-radius:6px;padding:9px 11px;color:#55728e;font-size:11px;cursor:pointer;transition:background .2s,color .2s,border .2s}.filter-chip span{font-size:9px;opacity:.62;margin-left:4px}.search-wrap:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px rgba(22,143,230,.13)}.filter-chip:focus-visible{outline:2px solid var(--blue);outline-offset:2px}.filter-chip:hover{border-color:#abd0e7;color:var(--blue-dark)}.filter-chip.is-active{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:white;box-shadow:0 5px 14px rgba(22,143,230,.22)}.toolbar-result{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap}.toolbar-result b{color:var(--ink)}
+.collections{padding:24px 0 80px}.collection-section{padding:48px 0 56px;border-bottom:1px solid var(--line);scroll-margin-top:86px}.collection-section[hidden],.asset-card[hidden]{display:none!important}.section-heading{display:grid;grid-template-columns:80px 1fr auto;align-items:end;gap:19px;margin-bottom:31px}.section-number{font-family:var(--display-sans);font-size:76px;font-weight:500;font-variant-numeric:tabular-nums;line-height:.9;color:var(--blue);letter-spacing:-.065em}.section-title .eyebrow{margin:0 0 8px;font-size:9px}.section-title h2{margin:0;font-family:var(--display-sans);font-size:clamp(23px,3vw,35px);font-weight:600;letter-spacing:0}.section-count{display:flex;align-items:baseline;gap:8px;color:var(--muted);padding-bottom:4px}.section-count strong{font-family:var(--serif);font-size:27px;color:var(--ink);font-weight:500}.section-count span{font-size:11px}.subgroup{margin-top:31px}.subgroup-heading{display:flex;align-items:center;gap:11px;margin-bottom:14px}.subgroup-heading:after{content:"";height:1px;flex:1;background:var(--line)}.subgroup-heading h3{margin:0;font-size:12px;font-weight:650;letter-spacing:.04em}.subgroup-heading span{font-size:10px;color:var(--muted);white-space:nowrap}.asset-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:13px}.asset-card{min-width:0;background:var(--white);border:1px solid rgba(29,112,165,.12);border-radius:8px;overflow:hidden;transition:transform .22s,box-shadow .22s,border-color .22s;animation:rise .45s both}.asset-card:hover{transform:translateY(-4px);border-color:rgba(22,143,230,.46);box-shadow:0 14px 28px rgba(31,129,190,.15)}.asset-image{appearance:none;display:grid;place-items:center;position:relative;overflow:hidden;width:100%;height:auto;aspect-ratio:1/1;padding:0;border:0;border-radius:0;cursor:zoom-in;color:inherit;text-align:inherit;background-color:#fff;background-image:linear-gradient(45deg,#e3f0f7 25%,transparent 25%),linear-gradient(-45deg,#e3f0f7 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e3f0f7 75%),linear-gradient(-45deg,transparent 75%,#e3f0f7 75%);background-size:18px 18px;background-position:0 0,0 9px,9px -9px,-9px 0}.asset-image img{width:100%;height:100%;object-fit:contain;padding:9px;transition:transform .35s}.asset-card:hover .asset-image img{transform:none}.open-mark{position:absolute;right:9px;top:9px;width:25px;height:25px;border-radius:50%;display:grid;place-items:center;background:rgba(18,49,94,.84);color:white;font-size:13px;opacity:0;transform:translateY(3px);transition:.2s}.asset-card:hover .open-mark,.asset-image:focus-visible .open-mark{opacity:1;transform:none}.asset-meta{padding:11px 12px 10px}.asset-title{font-size:11px;line-height:1.45;min-height:31px;margin:0;color:#24476f;overflow-wrap:anywhere}.asset-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;font-size:9px;color:#7891a8}.asset-foot span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.format{font-size:8px;letter-spacing:.12em;color:var(--blue);font-weight:750;flex:none}.empty-state{display:none;text-align:center;color:var(--muted);padding:65px 20px;font-family:var(--serif);font-size:22px}.empty-state.is-visible{display:block}.footer{padding:22px 0 32px;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:10px;letter-spacing:.05em}.footer strong{color:var(--ink);font-weight:600}.to-top{text-decoration:none;color:var(--blue)}
+@keyframes rise{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1050px){.hero{gap:40px}.asset-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.toolbar{flex-wrap:wrap}.toolbar-result{margin-left:0}}
+@media(max-width:700px){.shell{padding-inline:12px}.site-header{height:72px}.brand-logo{width:min(160px,52vw);max-height:64px}.header-note{font-size:10px}.hero{grid-template-columns:1fr;gap:28px;padding:52px 0 46px}.hero h1{font-size:clamp(48px,13vw,72px)}.hero-art{min-height:290px;width:min(100%,400px);justify-self:center}.toolbar{top:0;gap:10px;padding:12px 0}.search-wrap{width:100%;min-width:0}.filter-list{order:2;width:100%;overflow:auto;flex-wrap:nowrap;padding-bottom:2px}.filter-chip{flex:none}.toolbar-result{order:1;margin-left:0}.section-heading{grid-template-columns:55px 1fr auto;gap:11px}.section-number{font-size:56px}.section-title h2{font-size:22px}.section-count{flex-direction:column;gap:0;align-items:end}.asset-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.asset-image{height:auto;aspect-ratio:1/1}.asset-meta{padding:9px}.collection-section{padding:38px 0 44px}.footer{gap:15px;align-items:flex-start;line-height:1.6}}
+@media(max-width:700px){.hero-banner{padding-top:18px}.hero-banner-frame{border-radius:3px}.hero-summary{padding:15px 0 20px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+.lightbox{border:0;padding:0;background:transparent;width:min(67.2vw,1024px);max-width:none;max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);overflow:visible;color:#fff}.lightbox::backdrop{background:rgba(7,36,76,.88);backdrop-filter:blur(8px)}.lightbox-panel{position:relative;margin:auto;display:flex;flex-direction:column;gap:10px;padding:12px;background:#12315e;border:1px solid rgba(255,255,255,.16);border-radius:9px;box-shadow:0 26px 90px rgba(5,37,77,.38);width:100%;max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);min-width:0;min-height:0}.lightbox-stage{width:100%;height:min(54.4vh,calc(80vh - 176px));height:min(54.4dvh,calc(80dvh - 176px));min-width:0;min-height:0;overflow:hidden;display:grid;place-items:center;background-color:#fff;background-image:linear-gradient(45deg,#dcecf5 25%,transparent 25%),linear-gradient(-45deg,#dcecf5 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#dcecf5 75%),linear-gradient(-45deg,transparent 75%,#dcecf5 75%);background-size:20px 20px;background-position:0 0,0 10px,10px -10px,-10px 0}.lightbox-photo{display:block;width:100%;height:100%;min-width:0;min-height:0;max-width:none;max-height:none;object-fit:contain}.lightbox-close{position:absolute;right:14px;top:14px;z-index:2;width:40px;height:40px;border:1px solid rgba(255,255,255,.3);border-radius:50%;background:rgba(18,49,94,.93);color:white;font-size:24px;line-height:1;cursor:pointer;display:grid;place-items:center}.lightbox-caption{display:flex;justify-content:space-between;gap:15px;color:#d7dfeb;font-size:12px;padding:0 4px 2px}.lightbox-caption span:last-child{color:#9facc0;font-size:10px}
+@media(max-width:700px){.lightbox{width:73.6vw}.lightbox-panel{width:100%;max-height:calc(100vh - 16px);max-height:calc(100dvh - 16px);padding:8px}.lightbox-stage{width:100%;height:min(49.6vh,calc(80vh - 160px));height:min(49.6dvh,calc(80dvh - 160px))}.lightbox-photo{width:100%;height:100%;max-width:none;max-height:none}.lightbox-close{right:12px;top:12px;width:36px;height:36px}.lightbox-caption{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="shell" id="top">
+<header class="site-header">
+  <a class="brand" href="#top"><img class="brand-logo" src="%E6%99%AF%E5%B0%8F%E8%89%BE%E5%93%81%E7%89%8C%E6%A0%87%E8%AF%86_%E9%A1%B5%E9%9D%A2%E7%89%88.png" alt="East Aidy 景小艾品牌标识"></a>
+  <span class="header-note">本地素材目录　/　图像索引</span>
+</header>
+<section class="hero-banner" aria-label="景小艾的咕嘟岛主视觉">
+  <div class="hero-banner-frame">
+    <img src="%E6%99%AF%E5%B0%8F%E8%89%BE%E7%9A%84%E5%92%95%E5%98%9F%E5%B2%9B_Banner.webp" srcset="%E6%99%AF%E5%B0%8F%E8%89%BE%E7%9A%84%E5%92%95%E5%98%9F%E5%B2%9B_Banner.webp 1774w, %E6%99%AF%E5%B0%8F%E8%89%BE%E7%9A%84%E5%92%95%E5%98%9F%E5%B2%9B_Banner_4K.jpg 3840w" sizes="100vw" alt="景小艾的咕嘟岛：景小艾置身于阳光明媚的海岛乐园，左侧为立体中文标题" fetchpriority="high" decoding="async">
+    
+  </div>
+</section>
+<section class="hero-summary" aria-label="素材图册统计">
+  <div class="stats">
+    <div class="stat"><strong>07</strong><span>组素材</span></div><div class="stat-divider"></div>
+    <div class="stat"><strong>135</strong><span>张图像</span></div><div class="stat-divider"></div>
+    <div class="stat"><strong>9</strong><span>动态文件</span></div>
+  </div>
+</section>
+<div class="toolbar" aria-label="素材筛选">
+  <label class="search-wrap"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke-width="1.7"/><path d="m16 16 4.3 4.3" stroke-width="1.7" stroke-linecap="round"/></svg><input id="search" type="search" placeholder="搜索文件名或子目录…" autocomplete="off" aria-label="搜索素材"></label>
+  <div class="filter-list"><button class="filter-chip is-active" type="button" data-filter="all">全部 <span>135</span></button><button class="filter-chip" type="button" data-filter="00">00 <span>1</span></button><button class="filter-chip" type="button" data-filter="01">01 <span>17</span></button><button class="filter-chip" type="button" data-filter="02">02 <span>17</span></button><button class="filter-chip" type="button" data-filter="03">03 <span>13</span></button><button class="filter-chip" type="button" data-filter="04">04 <span>17</span></button><button class="filter-chip" type="button" data-filter="05">05 <span>11</span></button><button class="filter-chip" type="button" data-filter="06">06 <span>59</span></button></div>
+  <div class="toolbar-result" aria-live="polite">显示 <b id="visible-count">135</b> / 135 张</div>
+</div>
+<main class="collections" id="collections">
+  <section class="collection-section" id="set-00" data-category="00">
+  <div class="section-heading">
+    <div class="section-number">00</div>
+    <div class="section-title"><p class="eyebrow">COLLECTION 00</p><h2>景小艾公共角色参考</h2></div>
+    <div class="section-count"><strong>01</strong><span>张素材图</span></div>
+  </div>
+  <div class="subgroup">
+  <div class="subgroup-heading"><h3>主目录</h3><span>01 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="aidy 景小艾 aidy 景小艾.png">
+  <button class="asset-image" type="button" data-full="00_%E6%99%AF%E5%B0%8F%E8%89%BE%E5%85%AC%E5%85%B1%E8%A7%92%E8%89%B2%E5%8F%82%E8%80%83/aidy%20%E6%99%AF%E5%B0%8F%E8%89%BE.png" aria-label="查看大图：aidy 景小艾.png">
+    <img src="00_%E6%99%AF%E5%B0%8F%E8%89%BE%E5%85%AC%E5%85%B1%E8%A7%92%E8%89%B2%E5%8F%82%E8%80%83/aidy%20%E6%99%AF%E5%B0%8F%E8%89%BE.png" alt="aidy 景小艾.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="aidy 景小艾.png">aidy 景小艾</p>
+    <div class="asset-foot"><span>主目录</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div>
+</section>
+  <section class="collection-section" id="set-01" data-category="01">
+  <div class="section-heading">
+    <div class="section-number">01</div>
+    <div class="section-title"><p class="eyebrow">COLLECTION 01</p><h2>WorkNova_办公室打工人表情包</h2></div>
+    <div class="section-count"><strong>17</strong><span>张素材图</span></div>
+  </div>
+  <div class="subgroup">
+  <div class="subgroup-heading"><h3>主目录</h3><span>01 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="worknova_表情包预览 worknova_表情包预览.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/WorkNova_%E8%A1%A8%E6%83%85%E5%8C%85%E9%A2%84%E8%A7%88.png" aria-label="查看大图：WorkNova_表情包预览.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/WorkNova_%E8%A1%A8%E6%83%85%E5%8C%85%E9%A2%84%E8%A7%88.png" alt="WorkNova_表情包预览.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="WorkNova_表情包预览.png">WorkNova_表情包预览</p>
+    <div class="asset-foot"><span>主目录</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div>
+  <div class="subgroup">
+  <div class="subgroup-heading"><h3>生成源</h3><span>16 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="01_source 生成源/01_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/01_source.png" aria-label="查看大图：01_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/01_source.png" alt="01_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="01_source.png">01_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="02_source 生成源/02_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/02_source.png" aria-label="查看大图：02_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/02_source.png" alt="02_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="02_source.png">02_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="03_source 生成源/03_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/03_source.png" aria-label="查看大图：03_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/03_source.png" alt="03_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="03_source.png">03_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="04_source 生成源/04_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/04_source.png" aria-label="查看大图：04_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/04_source.png" alt="04_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="04_source.png">04_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="05_source 生成源/05_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/05_source.png" aria-label="查看大图：05_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/05_source.png" alt="05_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="05_source.png">05_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="06_source 生成源/06_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/06_source.png" aria-label="查看大图：06_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/06_source.png" alt="06_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="06_source.png">06_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="07_source 生成源/07_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/07_source.png" aria-label="查看大图：07_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/07_source.png" alt="07_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="07_source.png">07_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="08_source 生成源/08_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/08_source.png" aria-label="查看大图：08_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/08_source.png" alt="08_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="08_source.png">08_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="09_source 生成源/09_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/09_source.png" aria-label="查看大图：09_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/09_source.png" alt="09_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="09_source.png">09_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="10_source 生成源/10_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/10_source.png" aria-label="查看大图：10_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/10_source.png" alt="10_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="10_source.png">10_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="11_source 生成源/11_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/11_source.png" aria-label="查看大图：11_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/11_source.png" alt="11_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="11_source.png">11_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="12_source 生成源/12_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/12_source.png" aria-label="查看大图：12_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/12_source.png" alt="12_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="12_source.png">12_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="13_source 生成源/13_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/13_source.png" aria-label="查看大图：13_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/13_source.png" alt="13_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="13_source.png">13_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="14_source 生成源/14_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/14_source.png" aria-label="查看大图：14_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/14_source.png" alt="14_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="14_source.png">14_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="15_source 生成源/15_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/15_source.png" aria-label="查看大图：15_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/15_source.png" alt="15_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="15_source.png">15_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="16_source 生成源/16_source.png">
+  <button class="asset-image" type="button" data-full="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/16_source.png" aria-label="查看大图：16_source.png">
+    <img src="01_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85/%E7%94%9F%E6%88%90%E6%BA%90/16_source.png" alt="16_source.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="16_source.png">16_source</p>
+    <div class="asset-foot"><span>生成源</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div>
+</section>
+  <section class="collection-section" id="set-02" data-category="02">
+  <div class="section-heading">
+    <div class="section-number">02</div>
+    <div class="section-title"><p class="eyebrow">COLLECTION 02</p><h2>WorkNova_办公室打工人表情包_第二弹_20261008</h2></div>
+    <div class="section-count"><strong>17</strong><span>张素材图</span></div>
+  </div>
+  <div class="subgroup">
+  <div class="subgroup-heading"><h3>主目录</h3><span>01 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="16张预览拼图 16张预览拼图.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/16%E5%BC%A0%E9%A2%84%E8%A7%88%E6%8B%BC%E5%9B%BE.png" aria-label="查看大图：16张预览拼图.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/16%E5%BC%A0%E9%A2%84%E8%A7%88%E6%8B%BC%E5%9B%BE.png" alt="16张预览拼图.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="16张预览拼图.png">16张预览拼图</p>
+    <div class="asset-foot"><span>主目录</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div><div class="subgroup">
+  <div class="subgroup-heading"><h3>透明PNG</h3><span>16 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="01_啊对对对 透明png/01_啊对对对.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/01_%E5%95%8A%E5%AF%B9%E5%AF%B9%E5%AF%B9.png" aria-label="查看大图：01_啊对对对.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/01_%E5%95%8A%E5%AF%B9%E5%AF%B9%E5%AF%B9.png" alt="01_啊对对对.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="01_啊对对对.png">01_啊对对对</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="02_啊是是是 透明png/02_啊是是是.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/02_%E5%95%8A%E6%98%AF%E6%98%AF%E6%98%AF.png" aria-label="查看大图：02_啊是是是.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/02_%E5%95%8A%E6%98%AF%E6%98%AF%E6%98%AF.png" alt="02_啊是是是.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="02_啊是是是.png">02_啊是是是</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="03_假装在忙 透明png/03_假装在忙.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/03_%E5%81%87%E8%A3%85%E5%9C%A8%E5%BF%99.png" aria-label="查看大图：03_假装在忙.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/03_%E5%81%87%E8%A3%85%E5%9C%A8%E5%BF%99.png" alt="03_假装在忙.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="03_假装在忙.png">03_假装在忙</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="04_我在说真的 透明png/04_我在说真的.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/04_%E6%88%91%E5%9C%A8%E8%AF%B4%E7%9C%9F%E7%9A%84.png" aria-label="查看大图：04_我在说真的.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/04_%E6%88%91%E5%9C%A8%E8%AF%B4%E7%9C%9F%E7%9A%84.png" alt="04_我在说真的.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="04_我在说真的.png">04_我在说真的</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="05_已读不值得回 透明png/05_已读不值得回.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/05_%E5%B7%B2%E8%AF%BB%E4%B8%8D%E5%80%BC%E5%BE%97%E5%9B%9E.png" aria-label="查看大图：05_已读不值得回.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/05_%E5%B7%B2%E8%AF%BB%E4%B8%8D%E5%80%BC%E5%BE%97%E5%9B%9E.png" alt="05_已读不值得回.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="05_已读不值得回.png">05_已读不值得回</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="06_在弄了在弄了 透明png/06_在弄了在弄了.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/06_%E5%9C%A8%E5%BC%84%E4%BA%86%E5%9C%A8%E5%BC%84%E4%BA%86.png" aria-label="查看大图：06_在弄了在弄了.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/06_%E5%9C%A8%E5%BC%84%E4%BA%86%E5%9C%A8%E5%BC%84%E4%BA%86.png" alt="06_在弄了在弄了.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="06_在弄了在弄了.png">06_在弄了在弄了</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="07_给你个大赞 透明png/07_给你个大赞.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/07_%E7%BB%99%E4%BD%A0%E4%B8%AA%E5%A4%A7%E8%B5%9E.png" aria-label="查看大图：07_给你个大赞.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/07_%E7%BB%99%E4%BD%A0%E4%B8%AA%E5%A4%A7%E8%B5%9E.png" alt="07_给你个大赞.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="07_给你个大赞.png">07_给你个大赞</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="08_窝囊废已到账 透明png/08_窝囊废已到账.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/08_%E7%AA%9D%E5%9B%8A%E5%BA%9F%E5%B7%B2%E5%88%B0%E8%B4%A6.png" aria-label="查看大图：08_窝囊废已到账.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/08_%E7%AA%9D%E5%9B%8A%E5%BA%9F%E5%B7%B2%E5%88%B0%E8%B4%A6.png" alt="08_窝囊废已到账.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="08_窝囊废已到账.png">08_窝囊废已到账</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="09_虽迟但到 透明png/09_虽迟但到.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/09_%E8%99%BD%E8%BF%9F%E4%BD%86%E5%88%B0.png" aria-label="查看大图：09_虽迟但到.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/09_%E8%99%BD%E8%BF%9F%E4%BD%86%E5%88%B0.png" alt="09_虽迟但到.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="09_虽迟但到.png">09_虽迟但到</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="10_天选牛马 透明png/10_天选牛马.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/10_%E5%A4%A9%E9%80%89%E7%89%9B%E9%A9%AC.png" aria-label="查看大图：10_天选牛马.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/10_%E5%A4%A9%E9%80%89%E7%89%9B%E9%A9%AC.png" alt="10_天选牛马.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="10_天选牛马.png">10_天选牛马</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="11_命比咖啡苦 透明png/11_命比咖啡苦.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/11_%E5%91%BD%E6%AF%94%E5%92%96%E5%95%A1%E8%8B%A6.png" aria-label="查看大图：11_命比咖啡苦.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/11_%E5%91%BD%E6%AF%94%E5%92%96%E5%95%A1%E8%8B%A6.png" alt="11_命比咖啡苦.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="11_命比咖啡苦.png">11_命比咖啡苦</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="12_五行缺五行 透明png/12_五行缺五行.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/12_%E4%BA%94%E8%A1%8C%E7%BC%BA%E4%BA%94%E8%A1%8C.png" aria-label="查看大图：12_五行缺五行.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/12_%E4%BA%94%E8%A1%8C%E7%BC%BA%E4%BA%94%E8%A1%8C.png" alt="12_五行缺五行.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="12_五行缺五行.png">12_五行缺五行</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="13_放我一马 透明png/13_放我一马.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/13_%E6%94%BE%E6%88%91%E4%B8%80%E9%A9%AC.png" aria-label="查看大图：13_放我一马.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/13_%E6%94%BE%E6%88%91%E4%B8%80%E9%A9%AC.png" alt="13_放我一马.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="13_放我一马.png">13_放我一马</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="14_电量不足 透明png/14_电量不足.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/14_%E7%94%B5%E9%87%8F%E4%B8%8D%E8%B6%B3.png" aria-label="查看大图：14_电量不足.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/14_%E7%94%B5%E9%87%8F%E4%B8%8D%E8%B6%B3.png" alt="14_电量不足.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="14_电量不足.png">14_电量不足</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="15_正式确诊 透明png/15_正式确诊.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/15_%E6%AD%A3%E5%BC%8F%E7%A1%AE%E8%AF%8A.png" aria-label="查看大图：15_正式确诊.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/15_%E6%AD%A3%E5%BC%8F%E7%A1%AE%E8%AF%8A.png" alt="15_正式确诊.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="15_正式确诊.png">15_正式确诊</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="16_你别闹 透明png/16_你别闹.png">
+  <button class="asset-image" type="button" data-full="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/16_%E4%BD%A0%E5%88%AB%E9%97%B9.png" aria-label="查看大图：16_你别闹.png">
+    <img src="02_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%BA%8C%E5%BC%B9_20261008/%E9%80%8F%E6%98%8EPNG/16_%E4%BD%A0%E5%88%AB%E9%97%B9.png" alt="16_你别闹.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="16_你别闹.png">16_你别闹</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div>
+</section>
+  <section class="collection-section" id="set-03" data-category="03">
+  <div class="section-heading">
+    <div class="section-number">03</div>
+    <div class="section-title"><p class="eyebrow">COLLECTION 03</p><h2>WorkNova_办公室打工人表情包_第三弹_20261012</h2></div>
+    <div class="section-count"><strong>13</strong><span>张素材图</span></div>
+  </div>
+  <div class="subgroup">
+  <div class="subgroup-heading"><h3>主目录</h3><span>01 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="12张预览拼图 12张预览拼图.png">
+  <button class="asset-image" type="button" data-full="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/12%E5%BC%A0%E9%A2%84%E8%A7%88%E6%8B%BC%E5%9B%BE.png" aria-label="查看大图：12张预览拼图.png">
+    <img src="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/12%E5%BC%A0%E9%A2%84%E8%A7%88%E6%8B%BC%E5%9B%BE.png" alt="12张预览拼图.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="12张预览拼图.png">12张预览拼图</p>
+    <div class="asset-foot"><span>主目录</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div><div class="subgroup">
+  <div class="subgroup-heading"><h3>透明PNG</h3><span>12 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="01_那你看看 透明png/01_那你看看.png">
+  <button class="asset-image" type="button" data-full="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/01_%E9%82%A3%E4%BD%A0%E7%9C%8B%E7%9C%8B.png" aria-label="查看大图：01_那你看看.png">
+    <img src="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/01_%E9%82%A3%E4%BD%A0%E7%9C%8B%E7%9C%8B.png" alt="01_那你看看.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="01_那你看看.png">01_那你看看</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="02_还得是你 透明png/02_还得是你.png">
+  <button class="asset-image" type="button" data-full="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/02_%E8%BF%98%E5%BE%97%E6%98%AF%E4%BD%A0.png" aria-label="查看大图：02_还得是你.png">
+    <img src="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/02_%E8%BF%98%E5%BE%97%E6%98%AF%E4%BD%A0.png" alt="02_还得是你.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="02_还得是你.png">02_还得是你</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="03_还有谁 透明png/03_还有谁.png">
+  <button class="asset-image" type="button" data-full="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/03_%E8%BF%98%E6%9C%89%E8%B0%81.png" aria-label="查看大图：03_还有谁.png">
+    <img src="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/03_%E8%BF%98%E6%9C%89%E8%B0%81.png" alt="03_还有谁.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="03_还有谁.png">03_还有谁</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="04_真香 透明png/04_真香.png">
+  <button class="asset-image" type="button" data-full="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/04_%E7%9C%9F%E9%A6%99.png" aria-label="查看大图：04_真香.png">
+    <img src="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/04_%E7%9C%9F%E9%A6%99.png" alt="04_真香.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="04_真香.png">04_真香</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="05_饭到哪儿了 透明png/05_饭到哪儿了.png">
+  <button class="asset-image" type="button" data-full="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/05_%E9%A5%AD%E5%88%B0%E5%93%AA%E5%84%BF%E4%BA%86.png" aria-label="查看大图：05_饭到哪儿了.png">
+    <img src="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/05_%E9%A5%AD%E5%88%B0%E5%93%AA%E5%84%BF%E4%BA%86.png" alt="05_饭到哪儿了.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="05_饭到哪儿了.png">05_饭到哪儿了</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="06_耶耶耶 透明png/06_耶耶耶.png">
+  <button class="asset-image" type="button" data-full="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/06_%E8%80%B6%E8%80%B6%E8%80%B6.png" aria-label="查看大图：06_耶耶耶.png">
+    <img src="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/06_%E8%80%B6%E8%80%B6%E8%80%B6.png" alt="06_耶耶耶.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="06_耶耶耶.png">06_耶耶耶</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="07_我倒要看看 透明png/07_我倒要看看.png">
+  <button class="asset-image" type="button" data-full="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/07_%E6%88%91%E5%80%92%E8%A6%81%E7%9C%8B%E7%9C%8B.png" aria-label="查看大图：07_我倒要看看.png">
+    <img src="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/07_%E6%88%91%E5%80%92%E8%A6%81%E7%9C%8B%E7%9C%8B.png" alt="07_我倒要看看.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="07_我倒要看看.png">07_我倒要看看</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="08_你放心 透明png/08_你放心.png">
+  <button class="asset-image" type="button" data-full="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/08_%E4%BD%A0%E6%94%BE%E5%BF%83.png" aria-label="查看大图：08_你放心.png">
+    <img src="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/08_%E4%BD%A0%E6%94%BE%E5%BF%83.png" alt="08_你放心.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="08_你放心.png">08_你放心</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="09_不忍直视 透明png/09_不忍直视.png">
+  <button class="asset-image" type="button" data-full="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/09_%E4%B8%8D%E5%BF%8D%E7%9B%B4%E8%A7%86.png" aria-label="查看大图：09_不忍直视.png">
+    <img src="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/09_%E4%B8%8D%E5%BF%8D%E7%9B%B4%E8%A7%86.png" alt="09_不忍直视.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="09_不忍直视.png">09_不忍直视</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="10_忍住不笑 透明png/10_忍住不笑.png">
+  <button class="asset-image" type="button" data-full="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/10_%E5%BF%8D%E4%BD%8F%E4%B8%8D%E7%AC%91.png" aria-label="查看大图：10_忍住不笑.png">
+    <img src="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/10_%E5%BF%8D%E4%BD%8F%E4%B8%8D%E7%AC%91.png" alt="10_忍住不笑.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="10_忍住不笑.png">10_忍住不笑</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="11_闭嘴吧你 透明png/11_闭嘴吧你.png">
+  <button class="asset-image" type="button" data-full="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/11_%E9%97%AD%E5%98%B4%E5%90%A7%E4%BD%A0.png" aria-label="查看大图：11_闭嘴吧你.png">
+    <img src="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/11_%E9%97%AD%E5%98%B4%E5%90%A7%E4%BD%A0.png" alt="11_闭嘴吧你.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="11_闭嘴吧你.png">11_闭嘴吧你</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="12_溜了溜了 透明png/12_溜了溜了.png">
+  <button class="asset-image" type="button" data-full="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/12_%E6%BA%9C%E4%BA%86%E6%BA%9C%E4%BA%86.png" aria-label="查看大图：12_溜了溜了.png">
+    <img src="03_WorkNova_%E5%8A%9E%E5%85%AC%E5%AE%A4%E6%89%93%E5%B7%A5%E4%BA%BA%E8%A1%A8%E6%83%85%E5%8C%85_%E7%AC%AC%E4%B8%89%E5%BC%B9_20261012/%E9%80%8F%E6%98%8EPNG/12_%E6%BA%9C%E4%BA%86%E6%BA%9C%E4%BA%86.png" alt="12_溜了溜了.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="12_溜了溜了.png">12_溜了溜了</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div>
+</section>
+  <section class="collection-section" id="set-04" data-category="04">
+  <div class="section-heading">
+    <div class="section-number">04</div>
+    <div class="section-title"><p class="eyebrow">COLLECTION 04</p><h2>WorkNova_中秋聊天表情包_20260924</h2></div>
+    <div class="section-count"><strong>17</strong><span>张素材图</span></div>
+  </div>
+  <div class="subgroup">
+  <div class="subgroup-heading"><h3>主目录</h3><span>01 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="16张预览拼图 16张预览拼图.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/16%E5%BC%A0%E9%A2%84%E8%A7%88%E6%8B%BC%E5%9B%BE.png" aria-label="查看大图：16张预览拼图.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/16%E5%BC%A0%E9%A2%84%E8%A7%88%E6%8B%BC%E5%9B%BE.png" alt="16张预览拼图.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="16张预览拼图.png">16张预览拼图</p>
+    <div class="asset-foot"><span>主目录</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div><div class="subgroup">
+  <div class="subgroup-heading"><h3>透明PNG</h3><span>16 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="01_中秋快乐 透明png/01_中秋快乐.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/01_%E4%B8%AD%E7%A7%8B%E5%BF%AB%E4%B9%90.png" aria-label="查看大图：01_中秋快乐.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/01_%E4%B8%AD%E7%A7%8B%E5%BF%AB%E4%B9%90.png" alt="01_中秋快乐.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="01_中秋快乐.png">01_中秋快乐</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="02_月饼拿来 透明png/02_月饼拿来.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/02_%E6%9C%88%E9%A5%BC%E6%8B%BF%E6%9D%A5.png" aria-label="查看大图：02_月饼拿来.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/02_%E6%9C%88%E9%A5%BC%E6%8B%BF%E6%9D%A5.png" alt="02_月饼拿来.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="02_月饼拿来.png">02_月饼拿来</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="03_拒绝五仁 透明png/03_拒绝五仁.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/03_%E6%8B%92%E7%BB%9D%E4%BA%94%E4%BB%81.png" aria-label="查看大图：03_拒绝五仁.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/03_%E6%8B%92%E7%BB%9D%E4%BA%94%E4%BB%81.png" alt="03_拒绝五仁.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="03_拒绝五仁.png">03_拒绝五仁</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="04_一口一个 透明png/04_一口一个.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/04_%E4%B8%80%E5%8F%A3%E4%B8%80%E4%B8%AA.png" aria-label="查看大图：04_一口一个.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/04_%E4%B8%80%E5%8F%A3%E4%B8%80%E4%B8%AA.png" alt="04_一口一个.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="04_一口一个.png">04_一口一个</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="05_月饼自由 透明png/05_月饼自由.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/05_%E6%9C%88%E9%A5%BC%E8%87%AA%E7%94%B1.png" aria-label="查看大图：05_月饼自由.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/05_%E6%9C%88%E9%A5%BC%E8%87%AA%E7%94%B1.png" alt="05_月饼自由.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="05_月饼自由.png">05_月饼自由</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="06_一起赏月 透明png/06_一起赏月.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/06_%E4%B8%80%E8%B5%B7%E8%B5%8F%E6%9C%88.png" aria-label="查看大图：06_一起赏月.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/06_%E4%B8%80%E8%B5%B7%E8%B5%8F%E6%9C%88.png" alt="06_一起赏月.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="06_一起赏月.png">06_一起赏月</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="07_月亮好圆 透明png/07_月亮好圆.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/07_%E6%9C%88%E4%BA%AE%E5%A5%BD%E5%9C%86.png" aria-label="查看大图：07_月亮好圆.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/07_%E6%9C%88%E4%BA%AE%E5%A5%BD%E5%9C%86.png" alt="07_月亮好圆.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="07_月亮好圆.png">07_月亮好圆</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="08_中秋安康 透明png/08_中秋安康.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/08_%E4%B8%AD%E7%A7%8B%E5%AE%89%E5%BA%B7.png" aria-label="查看大图：08_中秋安康.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/08_%E4%B8%AD%E7%A7%8B%E5%AE%89%E5%BA%B7.png" alt="08_中秋安康.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="08_中秋安康.png">08_中秋安康</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="09_团圆啦 透明png/09_团圆啦.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/09_%E5%9B%A2%E5%9C%86%E5%95%A6.png" aria-label="查看大图：09_团圆啦.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/09_%E5%9B%A2%E5%9C%86%E5%95%A6.png" alt="09_团圆啦.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="09_团圆啦.png">09_团圆啦</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="10_玉兔驾到 透明png/10_玉兔驾到.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/10_%E7%8E%89%E5%85%94%E9%A9%BE%E5%88%B0.png" aria-label="查看大图：10_玉兔驾到.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/10_%E7%8E%89%E5%85%94%E9%A9%BE%E5%88%B0.png" alt="10_玉兔驾到.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="10_玉兔驾到.png">10_玉兔驾到</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="11_再来一块 透明png/11_再来一块.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/11_%E5%86%8D%E6%9D%A5%E4%B8%80%E5%9D%97.png" aria-label="查看大图：11_再来一块.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/11_%E5%86%8D%E6%9D%A5%E4%B8%80%E5%9D%97.png" alt="11_再来一块.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="11_再来一块.png">11_再来一块</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="12_桂花飘香 透明png/12_桂花飘香.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/12_%E6%A1%82%E8%8A%B1%E9%A3%98%E9%A6%99.png" aria-label="查看大图：12_桂花飘香.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/12_%E6%A1%82%E8%8A%B1%E9%A3%98%E9%A6%99.png" alt="12_桂花飘香.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="12_桂花飘香.png">12_桂花飘香</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="13_举杯赏月 透明png/13_举杯赏月.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/13_%E4%B8%BE%E6%9D%AF%E8%B5%8F%E6%9C%88.png" aria-label="查看大图：13_举杯赏月.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/13_%E4%B8%BE%E6%9D%AF%E8%B5%8F%E6%9C%88.png" alt="13_举杯赏月.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="13_举杯赏月.png">13_举杯赏月</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="14_月光到账 透明png/14_月光到账.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/14_%E6%9C%88%E5%85%89%E5%88%B0%E8%B4%A6.png" aria-label="查看大图：14_月光到账.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/14_%E6%9C%88%E5%85%89%E5%88%B0%E8%B4%A6.png" alt="14_月光到账.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="14_月光到账.png">14_月光到账</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="15_送你月饼 透明png/15_送你月饼.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/15_%E9%80%81%E4%BD%A0%E6%9C%88%E9%A5%BC.png" aria-label="查看大图：15_送你月饼.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/15_%E9%80%81%E4%BD%A0%E6%9C%88%E9%A5%BC.png" alt="15_送你月饼.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="15_送你月饼.png">15_送你月饼</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="16_今晚不加班 透明png/16_今晚不加班.png">
+  <button class="asset-image" type="button" data-full="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/16_%E4%BB%8A%E6%99%9A%E4%B8%8D%E5%8A%A0%E7%8F%AD.png" aria-label="查看大图：16_今晚不加班.png">
+    <img src="04_WorkNova_%E4%B8%AD%E7%A7%8B%E8%81%8A%E5%A4%A9%E8%A1%A8%E6%83%85%E5%8C%85_20260924/%E9%80%8F%E6%98%8EPNG/16_%E4%BB%8A%E6%99%9A%E4%B8%8D%E5%8A%A0%E7%8F%AD.png" alt="16_今晚不加班.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="16_今晚不加班.png">16_今晚不加班</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div>
+</section>
+  <section class="collection-section" id="set-05" data-category="05">
+  <div class="section-heading">
+    <div class="section-number">05</div>
+    <div class="section-title"><p class="eyebrow">COLLECTION 05</p><h2>景小艾_国庆节表情包_10张</h2></div>
+    <div class="section-count"><strong>11</strong><span>张素材图</span></div>
+  </div>
+  <div class="subgroup">
+  <div class="subgroup-heading"><h3>主目录</h3><span>01 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="景小艾_国庆节表情包_10张预览 景小艾_国庆节表情包_10张预览.png">
+  <button class="asset-image" type="button" data-full="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0%E9%A2%84%E8%A7%88.png" aria-label="查看大图：景小艾_国庆节表情包_10张预览.png">
+    <img src="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0%E9%A2%84%E8%A7%88.png" alt="景小艾_国庆节表情包_10张预览.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="景小艾_国庆节表情包_10张预览.png">景小艾_国庆节表情包_10张预览</p>
+    <div class="asset-foot"><span>主目录</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div>
+<div class="subgroup">
+  <div class="subgroup-heading"><h3>透明PNG</h3><span>10 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="01_国庆快乐 01_国庆快乐.png">
+  <button class="asset-image" type="button" data-full="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/01_%E5%9B%BD%E5%BA%86%E5%BF%AB%E4%B9%90.png" aria-label="查看大图：01_国庆快乐.png">
+    <img src="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/01_%E5%9B%BD%E5%BA%86%E5%BF%AB%E4%B9%90.png" alt="01_国庆快乐.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="01_国庆快乐.png">01_国庆快乐</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="02_放假啦 02_放假啦.png">
+  <button class="asset-image" type="button" data-full="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/02_%E6%94%BE%E5%81%87%E5%95%A6.png" aria-label="查看大图：02_放假啦.png">
+    <img src="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/02_%E6%94%BE%E5%81%87%E5%95%A6.png" alt="02_放假啦.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="02_放假啦.png">02_放假啦</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="03_堵车了 03_堵车了.png">
+  <button class="asset-image" type="button" data-full="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/03_%E5%A0%B5%E8%BD%A6%E4%BA%86.png" aria-label="查看大图：03_堵车了.png">
+    <img src="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/03_%E5%A0%B5%E8%BD%A6%E4%BA%86.png" alt="03_堵车了.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="03_堵车了.png">03_堵车了</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="04_我爱你中国 04_我爱你中国.png">
+  <button class="asset-image" type="button" data-full="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/04_%E6%88%91%E7%88%B1%E4%BD%A0%E4%B8%AD%E5%9B%BD.png" aria-label="查看大图：04_我爱你中国.png">
+    <img src="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/04_%E6%88%91%E7%88%B1%E4%BD%A0%E4%B8%AD%E5%9B%BD.png" alt="04_我爱你中国.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="04_我爱你中国.png">04_我爱你中国</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="05_冲 05_冲.png">
+  <button class="asset-image" type="button" data-full="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/05_%E5%86%B2.png" aria-label="查看大图：05_冲.png">
+    <img src="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/05_%E5%86%B2.png" alt="05_冲.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="05_冲.png">05_冲</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="06_点赞 06_点赞.png">
+  <button class="asset-image" type="button" data-full="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/06_%E7%82%B9%E8%B5%9E.png" aria-label="查看大图：06_点赞.png">
+    <img src="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/06_%E7%82%B9%E8%B5%9E.png" alt="06_点赞.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="06_点赞.png">06_点赞</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="07_看风景 07_看风景.png">
+  <button class="asset-image" type="button" data-full="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/07_%E7%9C%8B%E9%A3%8E%E6%99%AF.png" aria-label="查看大图：07_看风景.png">
+    <img src="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/07_%E7%9C%8B%E9%A3%8E%E6%99%AF.png" alt="07_看风景.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="07_看风景.png">07_看风景</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="08_人山人海 08_人山人海.png">
+  <button class="asset-image" type="button" data-full="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/08_%E4%BA%BA%E5%B1%B1%E4%BA%BA%E6%B5%B7.png" aria-label="查看大图：08_人山人海.png">
+    <img src="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/08_%E4%BA%BA%E5%B1%B1%E4%BA%BA%E6%B5%B7.png" alt="08_人山人海.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="08_人山人海.png">08_人山人海</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="09_吃好喝好 09_吃好喝好.png">
+  <button class="asset-image" type="button" data-full="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/09_%E5%90%83%E5%A5%BD%E5%96%9D%E5%A5%BD.png" aria-label="查看大图：09_吃好喝好.png">
+    <img src="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/09_%E5%90%83%E5%A5%BD%E5%96%9D%E5%A5%BD.png" alt="09_吃好喝好.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="09_吃好喝好.png">09_吃好喝好</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="10_平安到家 10_平安到家.png">
+  <button class="asset-image" type="button" data-full="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/10_%E5%B9%B3%E5%AE%89%E5%88%B0%E5%AE%B6.png" aria-label="查看大图：10_平安到家.png">
+    <img src="05_%E6%99%AF%E5%B0%8F%E8%89%BE_%E5%9B%BD%E5%BA%86%E8%8A%82%E8%A1%A8%E6%83%85%E5%8C%85_10%E5%BC%A0/10_%E5%B9%B3%E5%AE%89%E5%88%B0%E5%AE%B6.png" alt="10_平安到家.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="10_平安到家.png">10_平安到家</p>
+    <div class="asset-foot"><span>透明PNG</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div>
+</section>
+  <section class="collection-section" id="set-06" data-category="06">
+  <div class="section-heading">
+    <div class="section-number">06</div>
+    <div class="section-title"><p class="eyebrow">COLLECTION 06</p><h2>East-Aidy_关注动图</h2></div>
+    <div class="section-count"><strong>59</strong><span>张素材图</span></div>
+  </div>
+  <div class="subgroup">
+  <div class="subgroup-heading"><h3>v1 / 最终成品</h3><span>03 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="east-aidy-关注动图-白底预览 east-aidy-关注动图-v1/最终成品/east-aidy-关注动图-白底预览.gif">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-%E7%99%BD%E5%BA%95%E9%A2%84%E8%A7%88.gif" aria-label="查看大图：East-Aidy-关注动图-白底预览.gif">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-%E7%99%BD%E5%BA%95%E9%A2%84%E8%A7%88.gif" alt="East-Aidy-关注动图-白底预览.gif" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="East-Aidy-关注动图-白底预览.gif">East-Aidy-关注动图-白底预览</p>
+    <div class="asset-foot"><span>v1 / 最终成品</span><span class="format">GIF</span></div>
+  </div>
+</article><article class="asset-card" data-name="east-aidy-关注动图-透明 east-aidy-关注动图-v1/最终成品/east-aidy-关注动图-透明.gif">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-%E9%80%8F%E6%98%8E.gif" aria-label="查看大图：East-Aidy-关注动图-透明.gif">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-%E9%80%8F%E6%98%8E.gif" alt="East-Aidy-关注动图-透明.gif" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="East-Aidy-关注动图-透明.gif">East-Aidy-关注动图-透明</p>
+    <div class="asset-foot"><span>v1 / 最终成品</span><span class="format">GIF</span></div>
+  </div>
+</article><article class="asset-card" data-name="east-aidy-关注动图-透明 east-aidy-关注动图-v1/最终成品/east-aidy-关注动图-透明.webp">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-%E9%80%8F%E6%98%8E.webp" aria-label="查看大图：East-Aidy-关注动图-透明.webp">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-%E9%80%8F%E6%98%8E.webp" alt="East-Aidy-关注动图-透明.webp" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="East-Aidy-关注动图-透明.webp">East-Aidy-关注动图-透明</p>
+    <div class="asset-foot"><span>v1 / 最终成品</span><span class="format">WEBP</span></div>
+  </div>
+</article></div>
+</div><div class="subgroup">
+  <div class="subgroup-heading"><h3>v1 / 素材</h3><span>12 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="logo-动画尺寸 east-aidy-关注动图-v1/素材/logo-动画尺寸.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/Logo-%E5%8A%A8%E7%94%BB%E5%B0%BA%E5%AF%B8.png" aria-label="查看大图：Logo-动画尺寸.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/Logo-%E5%8A%A8%E7%94%BB%E5%B0%BA%E5%AF%B8.png" alt="Logo-动画尺寸.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="Logo-动画尺寸.png">Logo-动画尺寸</p>
+    <div class="asset-foot"><span>v1 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="完整文案 east-aidy-关注动图-v1/素材/完整文案.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E5%AE%8C%E6%95%B4%E6%96%87%E6%A1%88.png" aria-label="查看大图：完整文案.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E5%AE%8C%E6%95%B4%E6%96%87%E6%A1%88.png" alt="完整文案.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="完整文案.png">完整文案</p>
+    <div class="asset-foot"><span>v1 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="景小艾-动作-1-1 east-aidy-关注动图-v1/素材/景小艾-动作-1-1.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-1-1.png" aria-label="查看大图：景小艾-动作-1-1.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-1-1.png" alt="景小艾-动作-1-1.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="景小艾-动作-1-1.png">景小艾-动作-1-1</p>
+    <div class="asset-foot"><span>v1 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="景小艾-动作-1-2 east-aidy-关注动图-v1/素材/景小艾-动作-1-2.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-1-2.png" aria-label="查看大图：景小艾-动作-1-2.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-1-2.png" alt="景小艾-动作-1-2.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="景小艾-动作-1-2.png">景小艾-动作-1-2</p>
+    <div class="asset-foot"><span>v1 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="景小艾-动作-1-3 east-aidy-关注动图-v1/素材/景小艾-动作-1-3.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-1-3.png" aria-label="查看大图：景小艾-动作-1-3.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-1-3.png" alt="景小艾-动作-1-3.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="景小艾-动作-1-3.png">景小艾-动作-1-3</p>
+    <div class="asset-foot"><span>v1 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="景小艾-动作-1-4 east-aidy-关注动图-v1/素材/景小艾-动作-1-4.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-1-4.png" aria-label="查看大图：景小艾-动作-1-4.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-1-4.png" alt="景小艾-动作-1-4.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="景小艾-动作-1-4.png">景小艾-动作-1-4</p>
+    <div class="asset-foot"><span>v1 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="景小艾-动作-2-1 east-aidy-关注动图-v1/素材/景小艾-动作-2-1.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-2-1.png" aria-label="查看大图：景小艾-动作-2-1.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-2-1.png" alt="景小艾-动作-2-1.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="景小艾-动作-2-1.png">景小艾-动作-2-1</p>
+    <div class="asset-foot"><span>v1 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="景小艾-动作-2-2 east-aidy-关注动图-v1/素材/景小艾-动作-2-2.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-2-2.png" aria-label="查看大图：景小艾-动作-2-2.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-2-2.png" alt="景小艾-动作-2-2.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="景小艾-动作-2-2.png">景小艾-动作-2-2</p>
+    <div class="asset-foot"><span>v1 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="景小艾-动作-2-3 east-aidy-关注动图-v1/素材/景小艾-动作-2-3.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-2-3.png" aria-label="查看大图：景小艾-动作-2-3.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-2-3.png" alt="景小艾-动作-2-3.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="景小艾-动作-2-3.png">景小艾-动作-2-3</p>
+    <div class="asset-foot"><span>v1 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="景小艾-动作-2-4 east-aidy-关注动图-v1/素材/景小艾-动作-2-4.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-2-4.png" aria-label="查看大图：景小艾-动作-2-4.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C-2-4.png" alt="景小艾-动作-2-4.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="景小艾-动作-2-4.png">景小艾-动作-2-4</p>
+    <div class="asset-foot"><span>v1 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="景小艾-动作姿态原图 east-aidy-关注动图-v1/素材/景小艾-动作姿态原图.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C%E5%A7%BF%E6%80%81%E5%8E%9F%E5%9B%BE.png" aria-label="查看大图：景小艾-动作姿态原图.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8A%A8%E4%BD%9C%E5%A7%BF%E6%80%81%E5%8E%9F%E5%9B%BE.png" alt="景小艾-动作姿态原图.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="景小艾-动作姿态原图.png">景小艾-动作姿态原图</p>
+    <div class="asset-foot"><span>v1 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="景小艾-原形象 east-aidy-关注动图-v1/素材/景小艾-原形象.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8E%9F%E5%BD%A2%E8%B1%A1.png" aria-label="查看大图：景小艾-原形象.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v1/%E7%B4%A0%E6%9D%90/%E6%99%AF%E5%B0%8F%E8%89%BE-%E5%8E%9F%E5%BD%A2%E8%B1%A1.png" alt="景小艾-原形象.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="景小艾-原形象.png">景小艾-原形象</p>
+    <div class="asset-foot"><span>v1 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div><div class="subgroup">
+  <div class="subgroup-heading"><h3>v2-看书与放大镜 / 最终成品</h3><span>02 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="east-aidy-关注动图-v2-白底 east-aidy-关注动图-v2-看书与放大镜/最终成品/east-aidy-关注动图-v2-白底.gif">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%99%BD%E5%BA%95.gif" aria-label="查看大图：East-Aidy-关注动图-v2-白底.gif">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%99%BD%E5%BA%95.gif" alt="East-Aidy-关注动图-v2-白底.gif" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="East-Aidy-关注动图-v2-白底.gif">East-Aidy-关注动图-v2-白底</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 最终成品</span><span class="format">GIF</span></div>
+  </div>
+</article><article class="asset-card" data-name="east-aidy-关注动图-v2-透明 east-aidy-关注动图-v2-看书与放大镜/最终成品/east-aidy-关注动图-v2-透明.gif">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E9%80%8F%E6%98%8E.gif" aria-label="查看大图：East-Aidy-关注动图-v2-透明.gif">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E9%80%8F%E6%98%8E.gif" alt="East-Aidy-关注动图-v2-透明.gif" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="East-Aidy-关注动图-v2-透明.gif">East-Aidy-关注动图-v2-透明</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 最终成品</span><span class="format">GIF</span></div>
+  </div>
+</article></div>
+</div><div class="subgroup">
+  <div class="subgroup-heading"><h3>v2-看书与放大镜 / 素材</h3><span>14 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="放大镜-六姿态原图 east-aidy-关注动图-v2-看书与放大镜/素材/放大镜-六姿态原图.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E6%94%BE%E5%A4%A7%E9%95%9C-%E5%85%AD%E5%A7%BF%E6%80%81%E5%8E%9F%E5%9B%BE.png" aria-label="查看大图：放大镜-六姿态原图.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E6%94%BE%E5%A4%A7%E9%95%9C-%E5%85%AD%E5%A7%BF%E6%80%81%E5%8E%9F%E5%9B%BE.png" alt="放大镜-六姿态原图.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="放大镜-六姿态原图.png">放大镜-六姿态原图</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="看书-六姿态原图 east-aidy-关注动图-v2-看书与放大镜/素材/看书-六姿态原图.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%9C%8B%E4%B9%A6-%E5%85%AD%E5%A7%BF%E6%80%81%E5%8E%9F%E5%9B%BE.png" aria-label="查看大图：看书-六姿态原图.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%9C%8B%E4%B9%A6-%E5%85%AD%E5%A7%BF%E6%80%81%E5%8E%9F%E5%9B%BE.png" alt="看书-六姿态原图.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="看书-六姿态原图.png">看书-六姿态原图</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="第三只-放大镜-01 east-aidy-关注动图-v2-看书与放大镜/素材/第三只-放大镜-01.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%B8%89%E5%8F%AA-%E6%94%BE%E5%A4%A7%E9%95%9C-01.png" aria-label="查看大图：第三只-放大镜-01.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%B8%89%E5%8F%AA-%E6%94%BE%E5%A4%A7%E9%95%9C-01.png" alt="第三只-放大镜-01.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="第三只-放大镜-01.png">第三只-放大镜-01</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="第三只-放大镜-02 east-aidy-关注动图-v2-看书与放大镜/素材/第三只-放大镜-02.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%B8%89%E5%8F%AA-%E6%94%BE%E5%A4%A7%E9%95%9C-02.png" aria-label="查看大图：第三只-放大镜-02.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%B8%89%E5%8F%AA-%E6%94%BE%E5%A4%A7%E9%95%9C-02.png" alt="第三只-放大镜-02.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="第三只-放大镜-02.png">第三只-放大镜-02</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="第三只-放大镜-03 east-aidy-关注动图-v2-看书与放大镜/素材/第三只-放大镜-03.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%B8%89%E5%8F%AA-%E6%94%BE%E5%A4%A7%E9%95%9C-03.png" aria-label="查看大图：第三只-放大镜-03.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%B8%89%E5%8F%AA-%E6%94%BE%E5%A4%A7%E9%95%9C-03.png" alt="第三只-放大镜-03.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="第三只-放大镜-03.png">第三只-放大镜-03</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="第三只-放大镜-04 east-aidy-关注动图-v2-看书与放大镜/素材/第三只-放大镜-04.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%B8%89%E5%8F%AA-%E6%94%BE%E5%A4%A7%E9%95%9C-04.png" aria-label="查看大图：第三只-放大镜-04.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%B8%89%E5%8F%AA-%E6%94%BE%E5%A4%A7%E9%95%9C-04.png" alt="第三只-放大镜-04.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="第三只-放大镜-04.png">第三只-放大镜-04</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="第三只-放大镜-05 east-aidy-关注动图-v2-看书与放大镜/素材/第三只-放大镜-05.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%B8%89%E5%8F%AA-%E6%94%BE%E5%A4%A7%E9%95%9C-05.png" aria-label="查看大图：第三只-放大镜-05.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%B8%89%E5%8F%AA-%E6%94%BE%E5%A4%A7%E9%95%9C-05.png" alt="第三只-放大镜-05.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="第三只-放大镜-05.png">第三只-放大镜-05</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="第三只-放大镜-06 east-aidy-关注动图-v2-看书与放大镜/素材/第三只-放大镜-06.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%B8%89%E5%8F%AA-%E6%94%BE%E5%A4%A7%E9%95%9C-06.png" aria-label="查看大图：第三只-放大镜-06.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%B8%89%E5%8F%AA-%E6%94%BE%E5%A4%A7%E9%95%9C-06.png" alt="第三只-放大镜-06.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="第三只-放大镜-06.png">第三只-放大镜-06</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="第二只-看书-01 east-aidy-关注动图-v2-看书与放大镜/素材/第二只-看书-01.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%BA%8C%E5%8F%AA-%E7%9C%8B%E4%B9%A6-01.png" aria-label="查看大图：第二只-看书-01.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%BA%8C%E5%8F%AA-%E7%9C%8B%E4%B9%A6-01.png" alt="第二只-看书-01.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="第二只-看书-01.png">第二只-看书-01</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="第二只-看书-02 east-aidy-关注动图-v2-看书与放大镜/素材/第二只-看书-02.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%BA%8C%E5%8F%AA-%E7%9C%8B%E4%B9%A6-02.png" aria-label="查看大图：第二只-看书-02.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%BA%8C%E5%8F%AA-%E7%9C%8B%E4%B9%A6-02.png" alt="第二只-看书-02.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="第二只-看书-02.png">第二只-看书-02</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="第二只-看书-03 east-aidy-关注动图-v2-看书与放大镜/素材/第二只-看书-03.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%BA%8C%E5%8F%AA-%E7%9C%8B%E4%B9%A6-03.png" aria-label="查看大图：第二只-看书-03.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%BA%8C%E5%8F%AA-%E7%9C%8B%E4%B9%A6-03.png" alt="第二只-看书-03.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="第二只-看书-03.png">第二只-看书-03</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="第二只-看书-04 east-aidy-关注动图-v2-看书与放大镜/素材/第二只-看书-04.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%BA%8C%E5%8F%AA-%E7%9C%8B%E4%B9%A6-04.png" aria-label="查看大图：第二只-看书-04.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%BA%8C%E5%8F%AA-%E7%9C%8B%E4%B9%A6-04.png" alt="第二只-看书-04.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="第二只-看书-04.png">第二只-看书-04</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="第二只-看书-05 east-aidy-关注动图-v2-看书与放大镜/素材/第二只-看书-05.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%BA%8C%E5%8F%AA-%E7%9C%8B%E4%B9%A6-05.png" aria-label="查看大图：第二只-看书-05.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%BA%8C%E5%8F%AA-%E7%9C%8B%E4%B9%A6-05.png" alt="第二只-看书-05.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="第二只-看书-05.png">第二只-看书-05</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="第二只-看书-06 east-aidy-关注动图-v2-看书与放大镜/素材/第二只-看书-06.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%BA%8C%E5%8F%AA-%E7%9C%8B%E4%B9%A6-06.png" aria-label="查看大图：第二只-看书-06.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v2-%E7%9C%8B%E4%B9%A6%E4%B8%8E%E6%94%BE%E5%A4%A7%E9%95%9C/%E7%B4%A0%E6%9D%90/%E7%AC%AC%E4%BA%8C%E5%8F%AA-%E7%9C%8B%E4%B9%A6-06.png" alt="第二只-看书-06.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="第二只-看书-06.png">第二只-看书-06</p>
+    <div class="asset-foot"><span>v2-看书与放大镜 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div><div class="subgroup">
+  <div class="subgroup-heading"><h3>v3-阅读天平博士帽 / 最终成品</h3><span>03 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="east-aidy-关注动图-v3-白底 east-aidy-关注动图-v3-阅读天平博士帽/最终成品/east-aidy-关注动图-v3-白底.gif">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E7%99%BD%E5%BA%95.gif" aria-label="查看大图：East-Aidy-关注动图-v3-白底.gif">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E7%99%BD%E5%BA%95.gif" alt="East-Aidy-关注动图-v3-白底.gif" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="East-Aidy-关注动图-v3-白底.gif">East-Aidy-关注动图-v3-白底</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 最终成品</span><span class="format">GIF</span></div>
+  </div>
+</article><article class="asset-card" data-name="east-aidy-关注动图-v3-透明 east-aidy-关注动图-v3-阅读天平博士帽/最终成品/east-aidy-关注动图-v3-透明.gif">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%80%8F%E6%98%8E.gif" aria-label="查看大图：East-Aidy-关注动图-v3-透明.gif">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%80%8F%E6%98%8E.gif" alt="East-Aidy-关注动图-v3-透明.gif" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="East-Aidy-关注动图-v3-透明.gif">East-Aidy-关注动图-v3-透明</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 最终成品</span><span class="format">GIF</span></div>
+  </div>
+</article><article class="asset-card" data-name="三组动作-过程检查 east-aidy-关注动图-v3-阅读天平博士帽/最终成品/三组动作-过程检查.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/%E4%B8%89%E7%BB%84%E5%8A%A8%E4%BD%9C-%E8%BF%87%E7%A8%8B%E6%A3%80%E6%9F%A5.png" aria-label="查看大图：三组动作-过程检查.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E6%9C%80%E7%BB%88%E6%88%90%E5%93%81/%E4%B8%89%E7%BB%84%E5%8A%A8%E4%BD%9C-%E8%BF%87%E7%A8%8B%E6%A3%80%E6%9F%A5.png" alt="三组动作-过程检查.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="三组动作-过程检查.png">三组动作-过程检查</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 最终成品</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div><div class="subgroup">
+  <div class="subgroup-heading"><h3>v3-阅读天平博士帽 / 素材</h3><span>25 张</span></div>
+  <div class="asset-grid"><article class="asset-card" data-name="book-01 east-aidy-关注动图-v3-阅读天平博士帽/素材/book-01.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-01.png" aria-label="查看大图：book-01.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-01.png" alt="book-01.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="book-01.png">book-01</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="book-02 east-aidy-关注动图-v3-阅读天平博士帽/素材/book-02.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-02.png" aria-label="查看大图：book-02.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-02.png" alt="book-02.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="book-02.png">book-02</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="book-03 east-aidy-关注动图-v3-阅读天平博士帽/素材/book-03.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-03.png" aria-label="查看大图：book-03.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-03.png" alt="book-03.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="book-03.png">book-03</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="book-04 east-aidy-关注动图-v3-阅读天平博士帽/素材/book-04.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-04.png" aria-label="查看大图：book-04.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-04.png" alt="book-04.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="book-04.png">book-04</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="book-05 east-aidy-关注动图-v3-阅读天平博士帽/素材/book-05.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-05.png" aria-label="查看大图：book-05.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-05.png" alt="book-05.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="book-05.png">book-05</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="book-06 east-aidy-关注动图-v3-阅读天平博士帽/素材/book-06.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-06.png" aria-label="查看大图：book-06.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-06.png" alt="book-06.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="book-06.png">book-06</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="book-07 east-aidy-关注动图-v3-阅读天平博士帽/素材/book-07.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-07.png" aria-label="查看大图：book-07.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-07.png" alt="book-07.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="book-07.png">book-07</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="book-08 east-aidy-关注动图-v3-阅读天平博士帽/素材/book-08.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-08.png" aria-label="查看大图：book-08.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-08.png" alt="book-08.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="book-08.png">book-08</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="book-原始姿态表 east-aidy-关注动图-v3-阅读天平博士帽/素材/book-原始姿态表.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-%E5%8E%9F%E5%A7%8B%E5%A7%BF%E6%80%81%E8%A1%A8.png" aria-label="查看大图：book-原始姿态表.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/book-%E5%8E%9F%E5%A7%8B%E5%A7%BF%E6%80%81%E8%A1%A8.png" alt="book-原始姿态表.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="book-原始姿态表.png">book-原始姿态表</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="doctor-01 east-aidy-关注动图-v3-阅读天平博士帽/素材/doctor-01.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/doctor-01.png" aria-label="查看大图：doctor-01.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/doctor-01.png" alt="doctor-01.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="doctor-01.png">doctor-01</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="doctor-02 east-aidy-关注动图-v3-阅读天平博士帽/素材/doctor-02.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/doctor-02.png" aria-label="查看大图：doctor-02.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/doctor-02.png" alt="doctor-02.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="doctor-02.png">doctor-02</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="doctor-03 east-aidy-关注动图-v3-阅读天平博士帽/素材/doctor-03.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/doctor-03.png" aria-label="查看大图：doctor-03.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/doctor-03.png" alt="doctor-03.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="doctor-03.png">doctor-03</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="doctor-04 east-aidy-关注动图-v3-阅读天平博士帽/素材/doctor-04.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/doctor-04.png" aria-label="查看大图：doctor-04.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/doctor-04.png" alt="doctor-04.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="doctor-04.png">doctor-04</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="doctor-05 east-aidy-关注动图-v3-阅读天平博士帽/素材/doctor-05.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/doctor-05.png" aria-label="查看大图：doctor-05.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/doctor-05.png" alt="doctor-05.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="doctor-05.png">doctor-05</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="doctor-06 east-aidy-关注动图-v3-阅读天平博士帽/素材/doctor-06.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/doctor-06.png" aria-label="查看大图：doctor-06.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/doctor-06.png" alt="doctor-06.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="doctor-06.png">doctor-06</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="doctor-原始姿态表 east-aidy-关注动图-v3-阅读天平博士帽/素材/doctor-原始姿态表.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/doctor-%E5%8E%9F%E5%A7%8B%E5%A7%BF%E6%80%81%E8%A1%A8.png" aria-label="查看大图：doctor-原始姿态表.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/doctor-%E5%8E%9F%E5%A7%8B%E5%A7%BF%E6%80%81%E8%A1%A8.png" alt="doctor-原始姿态表.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="doctor-原始姿态表.png">doctor-原始姿态表</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="scales-01 east-aidy-关注动图-v3-阅读天平博士帽/素材/scales-01.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-01.png" aria-label="查看大图：scales-01.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-01.png" alt="scales-01.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="scales-01.png">scales-01</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="scales-02 east-aidy-关注动图-v3-阅读天平博士帽/素材/scales-02.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-02.png" aria-label="查看大图：scales-02.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-02.png" alt="scales-02.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="scales-02.png">scales-02</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="scales-03 east-aidy-关注动图-v3-阅读天平博士帽/素材/scales-03.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-03.png" aria-label="查看大图：scales-03.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-03.png" alt="scales-03.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="scales-03.png">scales-03</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="scales-04 east-aidy-关注动图-v3-阅读天平博士帽/素材/scales-04.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-04.png" aria-label="查看大图：scales-04.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-04.png" alt="scales-04.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="scales-04.png">scales-04</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="scales-05 east-aidy-关注动图-v3-阅读天平博士帽/素材/scales-05.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-05.png" aria-label="查看大图：scales-05.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-05.png" alt="scales-05.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="scales-05.png">scales-05</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="scales-06 east-aidy-关注动图-v3-阅读天平博士帽/素材/scales-06.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-06.png" aria-label="查看大图：scales-06.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-06.png" alt="scales-06.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="scales-06.png">scales-06</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="scales-07 east-aidy-关注动图-v3-阅读天平博士帽/素材/scales-07.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-07.png" aria-label="查看大图：scales-07.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-07.png" alt="scales-07.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="scales-07.png">scales-07</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="scales-08 east-aidy-关注动图-v3-阅读天平博士帽/素材/scales-08.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-08.png" aria-label="查看大图：scales-08.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-08.png" alt="scales-08.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="scales-08.png">scales-08</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article><article class="asset-card" data-name="scales-原始姿态表 east-aidy-关注动图-v3-阅读天平博士帽/素材/scales-原始姿态表.png">
+  <button class="asset-image" type="button" data-full="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-%E5%8E%9F%E5%A7%8B%E5%A7%BF%E6%80%81%E8%A1%A8.png" aria-label="查看大图：scales-原始姿态表.png">
+    <img src="06_East-Aidy_%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE/East-Aidy-%E5%85%B3%E6%B3%A8%E5%8A%A8%E5%9B%BE-v3-%E9%98%85%E8%AF%BB%E5%A4%A9%E5%B9%B3%E5%8D%9A%E5%A3%AB%E5%B8%BD/%E7%B4%A0%E6%9D%90/scales-%E5%8E%9F%E5%A7%8B%E5%A7%BF%E6%80%81%E8%A1%A8.png" alt="scales-原始姿态表.png" loading="lazy" decoding="async">
+    <span class="open-mark" aria-hidden="true">⤢</span>
+  </button>
+  <div class="asset-meta">
+    <p class="asset-title" title="scales-原始姿态表.png">scales-原始姿态表</p>
+    <div class="asset-foot"><span>v3-阅读天平博士帽 / 素材</span><span class="format">PNG</span></div>
+  </div>
+</article></div>
+</div>
+</section>
+  <div class="empty-state" id="empty-state">没有找到匹配的素材。</div>
+</main>
+<dialog class="lightbox" id="lightbox" aria-label="图片大图预览">
+  <div class="lightbox-panel">
+    <button class="lightbox-close" type="button" aria-label="关闭大图">×</button>
+    <div class="lightbox-stage"><img class="lightbox-photo" alt=""></div>
+    <div class="lightbox-caption"><span class="lightbox-name"></span><span>点击背景或按 Esc 关闭</span></div>
+  </div>
+</dialog>
+<footer class="footer"><span><strong>JING XIAO AI</strong>　·　素材图册</span><a class="to-top" href="#top">回到顶部 ↑</a></footer>
+</div>
+<script>
+(() => {
+  const search = document.querySelector('#search');
+  const chips = [...document.querySelectorAll('.filter-chip')];
+  const sections = [...document.querySelectorAll('.collection-section')];
+  const cards = [...document.querySelectorAll('.asset-card')];
+  const visibleCount = document.querySelector('#visible-count');
+  const emptyState = document.querySelector('#empty-state');
+  let filter = 'all';
+  const apply = () => {
+    const query = search.value.trim().toLocaleLowerCase();
+    let shown = 0;
+    for (const section of sections) {
+      const selected = filter === 'all' || section.dataset.category === filter;
+      let sectionShown = 0;
+      for (const card of section.querySelectorAll('.asset-card')) {
+        const matches = selected && (!query || card.dataset.name.includes(query));
+        card.hidden = !matches;
+        if (matches) { shown++; sectionShown++; }
+      }
+      section.hidden = sectionShown === 0;
+    }
+    visibleCount.textContent = shown;
+    emptyState.classList.toggle('is-visible', shown === 0);
+  };
+  chips.forEach(chip => chip.addEventListener('click', () => {
+    filter = chip.dataset.filter;
+    chips.forEach(item => item.classList.toggle('is-active', item === chip));
+    apply();
+  }));
+  search.addEventListener('input', apply);
+
+  const lightbox = document.querySelector('#lightbox');
+  const lightboxPhoto = lightbox.querySelector('.lightbox-photo');
+  const lightboxName = lightbox.querySelector('.lightbox-name');
+  document.addEventListener('click', event => {
+    const trigger = event.target.closest('button.asset-image[data-full]');
+    if (!trigger) return;
+    const thumbnail = trigger.querySelector('img');
+    lightboxPhoto.src = trigger.dataset.full;
+    lightboxPhoto.alt = thumbnail?.alt || '素材大图';
+    lightboxName.textContent = thumbnail?.alt || '';
+    lightbox.showModal();
+  });
+  lightbox.querySelector('.lightbox-close').addEventListener('click', () => lightbox.close());
+  lightbox.addEventListener('click', event => {
+    const stage = lightbox.querySelector('.lightbox-stage');
+    if (event.target === lightbox || event.target === stage) lightbox.close();
+  });
+  lightbox.addEventListener('close', () => lightboxPhoto.removeAttribute('src'));
+})();
+</script>
+</body>
+</html>
