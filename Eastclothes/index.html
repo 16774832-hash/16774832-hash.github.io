@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101e3b">
+  <meta name="description" content="EastAI 30th 工服图案展示：6种风格、24款配套图案，逐款查看背部印花、左右胸标与卫衣正反面效果。">
+  <title>EastAI 30th · 工服图案展示</title>
+  <link rel="preload" as="image" href="assets/hero-banner-jingxiaoai-v2.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="EastAI 工服图案展示首页">
+      <span class="brand-mark" aria-hidden="true">E</span>
+      <span><strong>EastAI</strong><small>30TH · UNIFORM GALLERY</small></span>
+    </a>
+    <nav class="top-nav" aria-label="页面导航">
+      <a href="#gallery">24 款方案</a>
+      <a href="#overview">总览图</a>
+    </nav>
+    <a class="top-cta" href="#gallery">开始浏览 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero-banner" aria-labelledby="hero-title">
+      <img class="hero-banner-art" src="assets/hero-banner-jingxiaoai-v2.png" alt="蓝色海岛泳池横幅，右侧是章鱼机器人，右上角有小型立体标题“景小艾的贴布图”。">
+      <div class="hero-banner-inner">
+        <div class="hero-copy">
+          <p class="hero-eyebrow"><span aria-hidden="true"></span>EASTAI · 30TH ANNIVERSARY</p>
+          <h1 id="hero-title">24套工服图案自选</h1>
+          <p class="hero-intro">从背部主图、左右胸标，到卫衣正反面上身效果。按风格逐套对照，快速找到喜欢的组合。</p>
+          <a class="hero-button" href="#gallery">浏览全部方案 <span aria-hidden="true">↓</span></a>
+          <div class="hero-stats" aria-label="方案概况">
+            <div><strong>06</strong><span>种风格</span></div>
+            <div><strong>24</strong><span>套搭配</span></div>
+            <div><strong>03</strong><span>处图案位置</span></div>
+          </div>
+          <div class="hero-bottomline"><span>图案位置</span><span>背部主图</span><i></i><span>左胸 30th</span><i></i><span>右胸 Eastnet</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="gallery" aria-labelledby="gallery-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow dark-eyebrow">THE COLLECTION <span>01 — 24</span></p>
+          <h2 id="gallery-title">从风格出发，逐套看细节。</h2>
+        </div>
+        <p class="section-note">点开任意一款，即可放大查看卫衣效果与三个位置的图案。</p>
+      </div>
+      <div class="toolbar">
+        <div class="filters" id="filters" role="toolbar" aria-label="按风格筛选"></div>
+        <label class="search-box">
+          <span class="search-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">搜索款式</span>
+          <input id="searchInput" type="search" placeholder="搜索款名或风格" autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+      </div>
+      <p class="result-count" id="resultCount" aria-live="polite"></p>
+      <p class="interaction-note">互动数据仅当前浏览器可见，不会汇总到其他成员；每个浏览器可点赞多款，并投 1 票。</p>
+      <div id="styleGroups" class="style-groups"></div>
+      <div id="emptyState" class="empty-state" hidden>
+        <span class="empty-symbol" aria-hidden="true">⌕</span>
+        <h3>没有找到这款图案</h3>
+        <p>试试其他关键词，或切换到「全部风格」。</p>
+      </div>
+    </section>
+
+    <section class="overview-section" id="overview" aria-labelledby="overview-title">
+      <div class="overview-intro">
+        <div>
+          <p class="eyebrow dark-eyebrow">QUICK REFERENCE</p>
+          <h2 id="overview-title">总览图，一次对照。</h2>
+        </div>
+        <p>展开查看已整理的组合、背部平面稿与胸标总览。</p>
+      </div>
+      <details class="overview-details">
+        <summary><span>查看 6 张总览图</span><span class="summary-meta">点击展开 <b aria-hidden="true">＋</b></span></summary>
+        <div class="overview-grid">
+          <button class="overview-tile" type="button" data-overview-src="assets/overview-01-12.webp" data-overview-title="01—12 套图总览" aria-label="放大查看 01 至 12 套图总览">
+            <img src="assets/overview-01-12.webp" loading="lazy" alt="01至12套主图与左右胸标总览">
+            <span><b>01—12</b> 套图总览</span>
+          </button>
+          <button class="overview-tile" type="button" data-overview-src="assets/overview-13-24.webp" data-overview-title="13—24 套图总览" aria-label="放大查看 13 至 24 套图总览">
+            <img src="assets/overview-13-24.webp" loading="lazy" alt="13至24套主图与左右胸标总览">
+            <span><b>13—24</b> 套图总览</span>
+          </button>
+          <button class="overview-tile" type="button" data-overview-src="assets/overview-flat.webp" data-overview-title="背部 24 款平面图" aria-label="放大查看背部 24 款平面图">
+            <img src="assets/overview-flat.webp" loading="lazy" alt="24款背部平面印花总览">
+            <span><b>背部</b> 24 款平面图</span>
+          </button>
+          <button class="overview-tile" type="button" data-overview-src="assets/overview-left.webp" data-overview-title="左胸 30th 图标" aria-label="放大查看左胸 30th 图标总览">
+            <img src="assets/overview-left.webp" loading="lazy" alt="24款左胸30th图标总览">
+            <span><b>左胸</b> 30th 图标</span>
+          </button>
+          <button class="overview-tile" type="button" data-overview-src="assets/overview-right.webp" data-overview-title="右胸 Eastnet 图标" aria-label="放大查看右胸 Eastnet 图标总览">
+            <img src="assets/overview-right.webp" loading="lazy" alt="24款右胸Eastnet图标总览">
+            <span><b>右胸</b> Eastnet 图标</span>
+          </button>
+          <button class="overview-tile" type="button" data-overview-src="assets/overview-combo.webp" data-overview-title="正反面卫衣效果总览" aria-label="放大查看正反面卫衣效果总览">
+            <img src="assets/overview-combo.webp" loading="lazy" alt="24套卫衣正反面组合总览">
+            <span><b>正反面</b> 卫衣效果总览</span>
+          </button>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#"><span class="brand-mark" aria-hidden="true">E</span><strong>EastAI <span>30TH</span></strong></a>
+    <p>本页按原目录中的 6 种风格、24 款配套整理。网页使用尺寸优化后的展示图，原始素材保留在原目录。</p>
+    <a class="back-top" href="#" aria-label="返回页面顶部">回到顶部 <span aria-hidden="true">↑</span></a>
+  </footer>
+
+  <dialog class="detail-dialog" id="detailDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-inner">
+      <div class="dialog-top">
+        <div class="dialog-heading">
+          <p class="dialog-kicker" id="dialogKicker"></p>
+          <h2 id="dialogTitle"></h2>
+        </div>
+        <div class="dialog-actions">
+          <span class="dialog-counter" id="dialogCounter"></span>
+          <button class="icon-button close-button" id="closeDialog" type="button" aria-label="关闭详情">×</button>
+        </div>
+      </div>
+      <div class="dialog-tabs" id="viewTabs" role="tablist" aria-label="卫衣效果视图">
+        <button type="button" role="tab" data-view="combo" aria-selected="true">正反面对照</button>
+        <button type="button" role="tab" data-view="backMockup" aria-selected="false">背面效果</button>
+        <button type="button" role="tab" data-view="frontMockup" aria-selected="false">正面效果</button>
+      </div>
+      <div class="mockup-stage">
+        <span class="stage-label" id="stageLabel">正面 / 背面</span>
+        <img id="mockupImage" src="" alt="">
+      </div>
+      <section class="position-section" aria-labelledby="positionTitle">
+        <div class="position-heading">
+          <div><p class="eyebrow dark-eyebrow">ARTWORK PLACEMENT</p><h3 id="positionTitle">三个位置的图案</h3></div>
+          <span>同款配色 · 同款风格</span>
+        </div>
+        <div class="position-grid" id="positionGrid"></div>
+      </section>
+      <div class="dialog-bottom">
+        <button class="text-button" id="previousItem" type="button"><span aria-hidden="true">←</span> 上一款</button>
+        <span>图案按穿着位置标注</span>
+        <button class="text-button" id="nextItem" type="button">下一款 <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="detail-dialog overview-dialog" id="overviewDialog" aria-labelledby="overviewDialogTitle">
+    <div class="dialog-inner">
+      <div class="dialog-top">
+        <div class="dialog-heading">
+          <p class="dialog-kicker">QUICK REFERENCE</p>
+          <h2 id="overviewDialogTitle"></h2>
+        </div>
+        <div class="dialog-actions">
+          <span class="dialog-counter" id="overviewDialogCounter"></span>
+          <button class="icon-button close-button" id="closeOverviewDialog" type="button" aria-label="关闭总览图">×</button>
+        </div>
+      </div>
+      <div class="overview-viewer-stage">
+        <button class="icon-button overview-nav" id="previousOverview" type="button" aria-label="上一张总览图">←</button>
+        <img class="overview-viewer-image" id="overviewViewerImage" alt="">
+        <button class="icon-button overview-nav" id="nextOverview" type="button" aria-label="下一张总览图">→</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
