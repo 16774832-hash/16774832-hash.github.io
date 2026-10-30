@@ -67,8 +67,8 @@
       if (!matches.length) return "";
       return '<section class="style-group" aria-labelledby="stereo-style-' + escapeHtml(style.code) + '">' +
         '<div class="style-group-heading"><div class="style-title-wrap"><span class="style-index">' +
-        escapeHtml(style.code) + " / 06</span><h2 id=\"stereo-style-" + escapeHtml(style.code) + "\">" +
-        escapeHtml(style.name) + '</h2></div><span class="style-total">' + String(matches.length).padStart(2, "0") +
+        escapeHtml(style.code) + " / 06</span><h3 id=\"stereo-style-" + escapeHtml(style.code) + "\">" +
+        escapeHtml(style.name) + '</h3></div><span class="style-total">' + String(matches.length).padStart(2, "0") +
         ' 套卫衣效果</span></div><div class="cards-grid">' + matches.map(cardMarkup).join("") +
         "</div></section>";
     }).join("");
