@@ -137,7 +137,7 @@
       const queryMatch = !query || (item.name + " " + item.style + " " + item.number).toLocaleLowerCase().includes(query);
       return styleMatch && queryMatch;
     });
-    count.textContent = "显示 " + String(visibleItems.length).padStart(2, "0") + " / 24 款";
+    count.textContent = "显示 " + String(visibleItems.length).padStart(2, "0") + " / " + String(items.length).padStart(2, "0") + " 款";
     empty.hidden = visibleItems.length !== 0;
     groups.hidden = visibleItems.length === 0;
 
@@ -147,7 +147,7 @@
       const first = matches[0];
       return '<section class="style-group" aria-labelledby="style-' + escapeHtml(first.styleCode) + '">' +
         '<div class="style-group-heading"><div class="style-title-wrap"><span class="style-index">' +
-        escapeHtml(first.styleCode) + " / 06</span><h3 id=\"style-" + escapeHtml(first.styleCode) + '">' +
+        escapeHtml(first.styleCode) + " / " + String(styles.length).padStart(2, "0") + "</span><h3 id=\"style-" + escapeHtml(first.styleCode) + '">' +
         escapeHtml(style) + '</h3></div><span class="style-total">' + String(matches.length).padStart(2, "0") + " 款</span></div>" +
         '<div class="cards-grid">' + matches.map(cardMarkup).join("") + "</div></section>";
     }).join("");
@@ -167,7 +167,7 @@
   function renderDetail() {
     const item = visibleItems[selectedIndex];
     if (!item) return;
-    dialogKicker.textContent = item.number + " / 24  ·  " + item.style;
+    dialogKicker.textContent = item.number + " / " + String(items.length).padStart(2, "0") + "  ·  " + item.style;
     dialogTitle.textContent = item.name;
     dialogCounter.textContent = String(selectedIndex + 1).padStart(2, "0") + " / " + String(visibleItems.length).padStart(2, "0");
     positionGrid.innerHTML =
