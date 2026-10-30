@@ -290,4 +290,10 @@
 
   renderFilters();
   renderGallery();
+  const linkedDesign = new URLSearchParams(window.location.search).get("design");
+  if (linkedDesign && items.some((item) => item.id === linkedDesign)) {
+    const linkedTrigger = [...groups.querySelectorAll("[data-open]")]
+      .find((button) => button.dataset.open === linkedDesign);
+    openItem(linkedDesign, linkedTrigger || null);
+  }
 })();
