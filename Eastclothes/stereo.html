@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#123c89">
-  <meta name="description" content="EastAI 30th 立体效果图：按街头涂鸦、赛博霓虹、治愈手绘、晴空卡通3D、海岛家园、热血动漫六种风格，浏览24张立体图案。">
-  <title>立体效果图 · EastAI 30th 工服图案</title>
-  <link rel="preload" as="image" href="assets/stereo/05-03.webp">
+  <meta name="theme-color" content="#101e3b">
+  <meta name="description" content="按六种风格展示24套EastAI卫衣正反面立体效果，支持筛选、搜索、放大查看与对应工服方案跳转。">
+  <title>24套卫衣立体效果 · EastAI 30th</title>
+  <link rel="preload" as="image" href="assets/stereo-mockups/05-03-thumb.webp">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="stereo.css">
 </head>
@@ -18,209 +18,72 @@
     </a>
     <nav class="top-nav" aria-label="页面导航">
       <a href="index.html#gallery">25 款工服方案</a>
-      <a href="stereo.html" aria-current="page">立体效果图</a>
+      <a href="stereo.html" aria-current="page">卫衣效果图</a>
       <a href="index.html#overview">总览图</a>
     </nav>
     <a class="top-cta" href="index.html#gallery">查看工服方案 <span aria-hidden="true">↗</span></a>
   </header>
 
   <main>
-    <section class="stereo-hero" aria-labelledby="stereo-title">
-      <div class="stereo-hero-inner">
-        <div class="stereo-hero-copy">
-          <p class="stereo-hero-eyebrow">EASTAI · 30TH ANNIVERSARY · 3D ARTWORK</p>
-          <h1 id="stereo-title">立体效果图<br><em>让创意跃出平面</em></h1>
-          <p class="stereo-hero-lead">收录指定目录中 6 种风格、24 张立体效果图。按风格浏览，放大看细节，再对照同款工服方案。</p>
-          <div class="stereo-hero-actions">
-            <a class="stereo-hero-button" href="#stereo-collection">浏览立体图 <span aria-hidden="true">↓</span></a>
-            <a class="stereo-hero-secondary" href="index.html#gallery">查看工服应用 ↗</a>
-          </div>
-          <div class="stereo-hero-stats" aria-label="立体图概况"><div><strong>06</strong><span>种风格</span></div><div><strong>24</strong><span>张立体图</span></div><div><strong>04</strong><span>每种风格</span></div></div>
+    <section class="gallery-section stereo-gallery" id="stereo-collection" aria-labelledby="stereo-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow dark-eyebrow">THE GARMENT COLLECTION <span>01 — 24</span></p>
+          <h1 id="stereo-title">24套卫衣立体效果图</h1>
         </div>
-        <div class="stereo-hero-visual">
-          <img src="assets/stereo/05-03.webp" alt="海岛家园风格的海风家园立体效果图" fetchpriority="high">
-          <span class="stereo-feature-caption">05 / 海岛家园 · 海风家园</span>
-        </div>
+        <p class="section-note">按风格浏览正反面上身效果，点开可放大查看并跳转到对应方案。</p>
       </div>
-    </section>
 
-    <section class="stereo-collection" id="stereo-collection" aria-labelledby="stereo-collection-title">
-      <div class="stereo-collection-inner">
-        <div class="stereo-intro">
-          <div><p class="eyebrow dark-eyebrow">THE 3D COLLECTION <span>01 — 24</span></p><h2 id="stereo-collection-title">按风格，逐款看立体效果</h2></div>
-          <p>点击任意图片可放大浏览；详情中可跳转到对应的卫衣正反面与胸标方案。</p>
-        </div>
-        <div class="stereo-toolbar">
-          <div class="stereo-filters" id="stereoFilters" role="toolbar" aria-label="按风格筛选">
-            <button class="stereo-filter" type="button" data-filter="all" aria-pressed="true">全部风格 <b>24</b></button>
-            <button class="stereo-filter" type="button" data-filter="01" aria-pressed="false">街头涂鸦 <b>04</b></button>
-            <button class="stereo-filter" type="button" data-filter="02" aria-pressed="false">赛博霓虹 <b>04</b></button>
-            <button class="stereo-filter" type="button" data-filter="03" aria-pressed="false">治愈手绘 <b>04</b></button>
-            <button class="stereo-filter" type="button" data-filter="04" aria-pressed="false">晴空卡通3D <b>04</b></button>
-            <button class="stereo-filter" type="button" data-filter="05" aria-pressed="false">海岛家园 <b>04</b></button>
-            <button class="stereo-filter" type="button" data-filter="06" aria-pressed="false">热血动漫 <b>04</b></button>
-          </div>
-          <label class="search-box"><span class="search-icon" aria-hidden="true"></span><span class="visually-hidden">搜索立体效果图</span><input id="stereoSearch" type="search" placeholder="搜索款名或风格" autocomplete="off"><kbd>/</kbd></label>
-        </div>
-        <p class="stereo-count" id="stereoResult" aria-live="polite">显示 24 / 24 张立体效果图</p>
-        <div class="stereo-groups" id="stereoGroups">
-        <section class="stereo-group" id="style-01" data-style="街头涂鸦" style="--card-glow:#eee8ff" aria-labelledby="style-title-01">
-          <div class="stereo-group-head"><div><span class="stereo-group-index">01 / 06</span><h3 id="style-title-01">街头涂鸦</h3></div><span class="stereo-group-total">04 张立体图</span></div>
-          <div class="stereo-grid">
-          <button class="stereo-card" type="button" data-id="01-01" data-number="01" data-style-code="01" data-style="街头涂鸦" data-name="贴纸拼贴" data-full="assets/stereo/01-01.webp" aria-label="放大查看第 01 款 街头涂鸦 · 贴纸拼贴 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/01-01-thumb.webp" alt="街头涂鸦 · 贴纸拼贴 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">01</span><span class="stereo-card-name">贴纸拼贴</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="01-02" data-number="02" data-style-code="01" data-style="街头涂鸦" data-name="斜向冲破" data-full="assets/stereo/01-02.webp" aria-label="放大查看第 02 款 街头涂鸦 · 斜向冲破 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/01-02-thumb.webp" alt="街头涂鸦 · 斜向冲破 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">02</span><span class="stereo-card-name">斜向冲破</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="01-03" data-number="03" data-style-code="01" data-style="街头涂鸦" data-name="巨字30" data-full="assets/stereo/01-03.webp" aria-label="放大查看第 03 款 街头涂鸦 · 巨字30 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/01-03-thumb.webp" alt="街头涂鸦 · 巨字30 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">03</span><span class="stereo-card-name">巨字30</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="01-04" data-number="04" data-style-code="01" data-style="街头涂鸦" data-name="环形徽章" data-full="assets/stereo/01-04.webp" aria-label="放大查看第 04 款 街头涂鸦 · 环形徽章 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/01-04-thumb.webp" alt="街头涂鸦 · 环形徽章 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">04</span><span class="stereo-card-name">环形徽章</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          </div>
-        </section>
-        <section class="stereo-group" id="style-02" data-style="赛博霓虹" style="--card-glow:#e3edff" aria-labelledby="style-title-02">
-          <div class="stereo-group-head"><div><span class="stereo-group-index">02 / 06</span><h3 id="style-title-02">赛博霓虹</h3></div><span class="stereo-group-total">04 张立体图</span></div>
-          <div class="stereo-grid">
-          <button class="stereo-card" type="button" data-id="02-01" data-number="05" data-style-code="02" data-style="赛博霓虹" data-name="霓虹巷口" data-full="assets/stereo/02-01.webp" aria-label="放大查看第 05 款 赛博霓虹 · 霓虹巷口 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/02-01-thumb.webp" alt="赛博霓虹 · 霓虹巷口 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">05</span><span class="stereo-card-name">霓虹巷口</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="02-02" data-number="06" data-style-code="02" data-style="赛博霓虹" data-name="全息30" data-full="assets/stereo/02-02.webp" aria-label="放大查看第 06 款 赛博霓虹 · 全息30 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/02-02-thumb.webp" alt="赛博霓虹 · 全息30 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">06</span><span class="stereo-card-name">全息30</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="02-03" data-number="07" data-style-code="02" data-style="赛博霓虹" data-name="赛博档案" data-full="assets/stereo/02-03.webp" aria-label="放大查看第 07 款 赛博霓虹 · 赛博档案 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/02-03-thumb.webp" alt="赛博霓虹 · 赛博档案 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">07</span><span class="stereo-card-name">赛博档案</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="02-04" data-number="08" data-style-code="02" data-style="赛博霓虹" data-name="能量跃迁" data-full="assets/stereo/02-04.webp" aria-label="放大查看第 08 款 赛博霓虹 · 能量跃迁 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/02-04-thumb.webp" alt="赛博霓虹 · 能量跃迁 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">08</span><span class="stereo-card-name">能量跃迁</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          </div>
-        </section>
-        <section class="stereo-group" id="style-03" data-style="治愈手绘" style="--card-glow:#e9f5e4" aria-labelledby="style-title-03">
-          <div class="stereo-group-head"><div><span class="stereo-group-index">03 / 06</span><h3 id="style-title-03">治愈手绘</h3></div><span class="stereo-group-total">04 张立体图</span></div>
-          <div class="stereo-grid">
-          <button class="stereo-card" type="button" data-id="03-01" data-number="09" data-style-code="03" data-style="治愈手绘" data-name="暖窗花房" data-full="assets/stereo/03-01.webp" aria-label="放大查看第 09 款 治愈手绘 · 暖窗花房 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/03-01-thumb.webp" alt="治愈手绘 · 暖窗花房 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">09</span><span class="stereo-card-name">暖窗花房</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="03-02" data-number="10" data-style-code="03" data-style="治愈手绘" data-name="绿意花环" data-full="assets/stereo/03-02.webp" aria-label="放大查看第 10 款 治愈手绘 · 绿意花环 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/03-02-thumb.webp" alt="治愈手绘 · 绿意花环 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">10</span><span class="stereo-card-name">绿意花环</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="03-03" data-number="11" data-style-code="03" data-style="治愈手绘" data-name="午后茶桌" data-full="assets/stereo/03-03.webp" aria-label="放大查看第 11 款 治愈手绘 · 午后茶桌 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/03-03-thumb.webp" alt="治愈手绘 · 午后茶桌 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">11</span><span class="stereo-card-name">午后茶桌</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="03-04" data-number="12" data-style-code="03" data-style="治愈手绘" data-name="三十生长" data-full="assets/stereo/03-04.webp" aria-label="放大查看第 12 款 治愈手绘 · 三十生长 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/03-04-thumb.webp" alt="治愈手绘 · 三十生长 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">12</span><span class="stereo-card-name">三十生长</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          </div>
-        </section>
-        <section class="stereo-group" id="style-04" data-style="晴空卡通3D" style="--card-glow:#e4f7ff" aria-labelledby="style-title-04">
-          <div class="stereo-group-head"><div><span class="stereo-group-index">04 / 06</span><h3 id="style-title-04">晴空卡通3D</h3></div><span class="stereo-group-total">04 张立体图</span></div>
-          <div class="stereo-grid">
-          <button class="stereo-card" type="button" data-id="04-01" data-number="13" data-style-code="04" data-style="晴空卡通3D" data-name="晴空花丘" data-full="assets/stereo/04-01.webp" aria-label="放大查看第 13 款 晴空卡通3D · 晴空花丘 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/04-01-thumb.webp" alt="晴空卡通3D · 晴空花丘 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">13</span><span class="stereo-card-name">晴空花丘</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="04-02" data-number="14" data-style-code="04" data-style="晴空卡通3D" data-name="风筝微风" data-full="assets/stereo/04-02.webp" aria-label="放大查看第 14 款 晴空卡通3D · 风筝微风 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/04-02-thumb.webp" alt="晴空卡通3D · 风筝微风 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">14</span><span class="stereo-card-name">风筝微风</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="04-03" data-number="15" data-style-code="04" data-style="晴空卡通3D" data-name="云端花园" data-full="assets/stereo/04-03.webp" aria-label="放大查看第 15 款 晴空卡通3D · 云端花园 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/04-03-thumb.webp" alt="晴空卡通3D · 云端花园 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">15</span><span class="stereo-card-name">云端花园</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="04-04" data-number="16" data-style-code="04" data-style="晴空卡通3D" data-name="花漾30" data-full="assets/stereo/04-04.webp" aria-label="放大查看第 16 款 晴空卡通3D · 花漾30 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/04-04-thumb.webp" alt="晴空卡通3D · 花漾30 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">16</span><span class="stereo-card-name">花漾30</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          </div>
-        </section>
-        <section class="stereo-group" id="style-05" data-style="海岛家园" style="--card-glow:#e3f5f2" aria-labelledby="style-title-05">
-          <div class="stereo-group-head"><div><span class="stereo-group-index">05 / 06</span><h3 id="style-title-05">海岛家园</h3></div><span class="stereo-group-total">04 张立体图</span></div>
-          <div class="stereo-grid">
-          <button class="stereo-card" type="button" data-id="05-01" data-number="17" data-style-code="05" data-style="海岛家园" data-name="海岛共筑" data-full="assets/stereo/05-01.webp" aria-label="放大查看第 17 款 海岛家园 · 海岛共筑 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/05-01-thumb.webp" alt="海岛家园 · 海岛共筑 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">17</span><span class="stereo-card-name">海岛共筑</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="05-02" data-number="18" data-style-code="05" data-style="海岛家园" data-name="蓝图造梦" data-full="assets/stereo/05-02.webp" aria-label="放大查看第 18 款 海岛家园 · 蓝图造梦 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/05-02-thumb.webp" alt="海岛家园 · 蓝图造梦 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">18</span><span class="stereo-card-name">蓝图造梦</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="05-03" data-number="19" data-style-code="05" data-style="海岛家园" data-name="海风家园" data-full="assets/stereo/05-03.webp" aria-label="放大查看第 19 款 海岛家园 · 海风家园 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/05-03-thumb.webp" alt="海岛家园 · 海风家园 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">19</span><span class="stereo-card-name">海风家园</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="05-04" data-number="20" data-style-code="05" data-style="海岛家园" data-name="共筑30" data-full="assets/stereo/05-04.webp" aria-label="放大查看第 20 款 海岛家园 · 共筑30 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/05-04-thumb.webp" alt="海岛家园 · 共筑30 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">20</span><span class="stereo-card-name">共筑30</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          </div>
-        </section>
-        <section class="stereo-group" id="style-06" data-style="热血动漫" style="--card-glow:#f3e9ff" aria-labelledby="style-title-06">
-          <div class="stereo-group-head"><div><span class="stereo-group-index">06 / 06</span><h3 id="style-title-06">热血动漫</h3></div><span class="stereo-group-total">04 张立体图</span></div>
-          <div class="stereo-grid">
-          <button class="stereo-card" type="button" data-id="06-01" data-number="21" data-style-code="06" data-style="热血动漫" data-name="星焰觉醒" data-full="assets/stereo/06-01.webp" aria-label="放大查看第 21 款 热血动漫 · 星焰觉醒 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/06-01-thumb.webp" alt="热血动漫 · 星焰觉醒 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">21</span><span class="stereo-card-name">星焰觉醒</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="06-02" data-number="22" data-style-code="06" data-style="热血动漫" data-name="疾电出击" data-full="assets/stereo/06-02.webp" aria-label="放大查看第 22 款 热血动漫 · 疾电出击 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/06-02-thumb.webp" alt="热血动漫 · 疾电出击 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">22</span><span class="stereo-card-name">疾电出击</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="06-03" data-number="23" data-style-code="06" data-style="热血动漫" data-name="次元集结" data-full="assets/stereo/06-03.webp" aria-label="放大查看第 23 款 热血动漫 · 次元集结 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/06-03-thumb.webp" alt="热血动漫 · 次元集结 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">23</span><span class="stereo-card-name">次元集结</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          <button class="stereo-card" type="button" data-id="06-04" data-number="24" data-style-code="06" data-style="热血动漫" data-name="燃动30" data-full="assets/stereo/06-04.webp" aria-label="放大查看第 24 款 热血动漫 · 燃动30 立体效果图">
-            <span class="stereo-card-art"><img src="assets/stereo/06-04-thumb.webp" alt="热血动漫 · 燃动30 立体效果图" loading="lazy" decoding="async"><span class="stereo-card-tag">点击放大 ↗</span></span>
-            <span class="stereo-card-meta"><span class="stereo-card-number">24</span><span class="stereo-card-name">燃动30</span><span class="stereo-card-arrow" aria-hidden="true">↗</span></span>
-          </button>
-          </div>
-        </section>
-        </div>
-        <div class="stereo-empty" id="stereoEmpty" hidden><h3>没有找到匹配的立体图</h3><p>试试其他款名，或切换到「全部风格」。</p></div>
+      <div class="toolbar">
+        <div class="filters" id="stereoFilters" role="toolbar" aria-label="按风格筛选"></div>
+        <label class="search-box">
+          <span class="search-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">搜索卫衣效果</span>
+          <input id="stereoSearch" type="search" placeholder="搜索款名或风格" autocomplete="off">
+          <kbd>/</kbd>
+        </label>
       </div>
-    </section>
-
-    <section class="stereo-outro" aria-labelledby="stereo-outro-title">
-      <div><p>NEXT / UNIFORM GALLERY</p><h2 id="stereo-outro-title">想看图案印在卫衣上的效果？</h2></div>
-      <a href="index.html#gallery">返回工服方案 <span aria-hidden="true">↗</span></a>
+      <p class="result-count" id="stereoResult" aria-live="polite"></p>
+      <div id="stereoGroups" class="style-groups"></div>
+      <div class="empty-state" id="stereoEmpty" hidden>
+        <span class="empty-symbol" aria-hidden="true">⌕</span>
+        <h2>没有找到匹配的卫衣效果</h2>
+        <p>试试其他款名，或切换到「全部」。</p>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <a class="footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true">E</span><strong>EastAI <span>30TH</span></strong></a>
-    <p>本页立体图来自“EastAI_全风格_立体平面配套”目录的 6 个立体图文件夹。网页展示优化后的图片，原始 PNG 保留在原目录。</p>
+    <p>本栏目按原素材目录展示24套正反面组合效果，分为6种风格。图片已优化尺寸，原始素材保留在素材目录。</p>
     <a class="back-top" href="#" aria-label="返回页面顶部">回到顶部 <span aria-hidden="true">↑</span></a>
   </footer>
 
-  <dialog class="stereo-dialog" id="stereoDialog" aria-labelledby="stereoDialogTitle">
-    <div class="stereo-dialog-inner">
-      <div class="stereo-dialog-head">
-        <div><p class="stereo-dialog-kicker" id="stereoDialogKicker"></p><h2 id="stereoDialogTitle"></h2></div>
-        <div class="stereo-dialog-actions"><span class="stereo-dialog-counter" id="stereoDialogCounter"></span><button class="icon-button close-button" id="stereoClose" type="button" aria-label="关闭立体图">×</button></div>
+  <dialog class="detail-dialog stereo-dialog" id="stereoDialog" aria-labelledby="stereoDialogTitle">
+    <div class="dialog-inner">
+      <div class="dialog-top">
+        <div class="dialog-heading">
+          <p class="dialog-kicker" id="stereoDialogKicker"></p>
+          <h2 id="stereoDialogTitle"></h2>
+        </div>
+        <div class="dialog-actions">
+          <span class="dialog-counter" id="stereoDialogCounter"></span>
+          <button class="icon-button close-button" id="stereoClose" type="button" aria-label="关闭卫衣效果图">×</button>
+        </div>
       </div>
-      <div class="stereo-viewer">
-        <button class="icon-button previous" id="stereoPrevious" type="button" aria-label="上一张立体图">←</button>
+      <div class="stereo-viewer-stage">
+        <button class="icon-button stereo-viewer-nav" id="stereoPrevious" type="button" aria-label="上一套卫衣效果">←</button>
         <img id="stereoViewerImage" src="" alt="">
-        <button class="icon-button next" id="stereoNext" type="button" aria-label="下一张立体图">→</button>
+        <button class="icon-button stereo-viewer-nav" id="stereoNext" type="button" aria-label="下一套卫衣效果">→</button>
       </div>
-      <div class="stereo-dialog-foot"><span>原始 PNG 素材保留在本地源目录</span><a class="stereo-match-link" id="stereoMatchingLink" href="index.html#gallery">查看对应工服方案 ↗</a></div>
+      <div class="stereo-dialog-foot">
+        <span>正面胸标与背部图案组合效果</span>
+        <a class="stereo-match-link" id="stereoMatchingLink" href="index.html#gallery">查看对应工服方案 <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
   </dialog>
+
+  <script src="data.js"></script>
   <script src="stereo.js"></script>
 </body>
 </html>
