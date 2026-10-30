@@ -56,7 +56,7 @@
 .stereo-card:focus-visible, .stereo-filter:focus-visible, .stereo-hero-button:focus-visible, .stereo-match-link:focus-visible { outline: 3px solid #8c8ff8; outline-offset: 3px; }
 .stereo-card-art { position: relative; display: grid; place-items: center; aspect-ratio: 1 / 1; overflow: hidden; background: radial-gradient(circle at 50% 41%, var(--card-glow, #e7f2ff) 0, #f5f8fd 55%, #edf2f8 100%); }
 .stereo-card-art::after { position: absolute; right: 10%; bottom: 11%; left: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(69, 99, 154, .18), transparent); content: ""; }
-.stereo-card-art img { position: relative; z-index: 1; width: 100%; height: 100%; padding: clamp(10px, 1.4vw, 20px); object-fit: contain; filter: drop-shadow(0 11px 12px rgba(25, 43, 75, .14)); transition: transform .32s; }
+.stereo-card-art img { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; padding: clamp(10px, 1.4vw, 20px); object-fit: contain; filter: drop-shadow(0 11px 12px rgba(25, 43, 75, .14)); transition: transform .32s; }
 .stereo-card:hover .stereo-card-art img { transform: scale(1.055); }
 .stereo-card-tag { position: absolute; z-index: 2; right: 11px; bottom: 11px; padding: 6px 9px; border-radius: 999px; background: rgba(255, 255, 255, .87); color: #52617c; font-size: 9px; font-weight: 740; opacity: 0; transform: translateY(5px); transition: opacity .2s, transform .2s; }
 .stereo-card:hover .stereo-card-tag, .stereo-card:focus-visible .stereo-card-tag { opacity: 1; transform: translateY(0); }
