@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fafaff">
+  <meta name="description" content="公众号运营工作阶段汇报：运营历程、近30天数据表现与招投标合集内容选辑。">
+  <title>公众号运营工作阶段汇报</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #171722;
+      --ink-soft: #383849;
+      --muted: #777888;
+      --faint: #a1a2b1;
+      --paper: #fff;
+      --canvas: #fafaff;
+      --line: #e9e9f2;
+      --line-strong: #dcdaed;
+      --violet: #5c49ec;
+      --violet-deep: #4934d9;
+      --violet-soft: #efedff;
+      --blue: #5785ef;
+      --mint: #38a987;
+      --content-width: 1180px;
+      --radius-card: 22px;
+      --shadow-soft: 0 18px 50px rgba(57, 49, 111, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 88% 4%, rgba(222, 218, 255, .42), transparent 27rem),
+        linear-gradient(180deg, #fdfdff 0%, #fff 48%, #fbfaff 100%);
+      font-family: "PingFang SC", "HarmonyOS Sans SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 3px solid rgba(92, 73, 236, .42); outline-offset: 4px; }
+    .skip-link { position: fixed; z-index: 50; top: 10px; left: 10px; padding: 9px 14px; transform: translateY(-160%); border-radius: 10px; color: white; background: var(--violet-deep); }
+    .skip-link:focus { transform: translateY(0); }
+    .container { width: min(var(--content-width), calc(100% - 56px)); margin-inline: auto; }
+    .site-header { position: sticky; z-index: 20; top: 0; border-bottom: 1px solid rgba(232, 231, 241, .78); background: rgba(253, 253, 255, .84); backdrop-filter: blur(18px); }
+    .header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 14px; font-weight: 720; letter-spacing: -.02em; }
+    .brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 12px; color: white; background: linear-gradient(145deg, #6c5df1, #8377ff); box-shadow: 0 7px 16px rgba(92, 73, 236, .2); }
+    .brand-mark svg { width: 18px; height: 18px; }
+    .nav-links { display: flex; align-items: center; gap: clamp(18px, 3vw, 38px); color: #676778; font-size: 13px; }
+    .nav-links a { transition: color .18s ease; }
+    .nav-links a:hover { color: var(--violet); }
+    .header-tag { padding: 7px 12px; border: 1px solid var(--line-strong); border-radius: 999px; color: #625d7f; background: rgba(255,255,255,.78); font-size: 11px; white-space: nowrap; }
+    .hero { position: relative; padding: 70px 0 58px; overflow: hidden; isolation: isolate; }
+    .hero::before { position: absolute; z-index: -1; content: ""; width: 600px; height: 600px; top: -70px; right: -230px; border-radius: 50%; background: radial-gradient(circle, rgba(194,185,255,.32), rgba(229,225,255,.13) 45%, transparent 70%); }
+    .hero::after { position: absolute; z-index: -1; content: ""; width: 300px; height: 300px; left: -180px; bottom: -160px; border-radius: 50%; background: radial-gradient(circle, rgba(188,235,237,.28), transparent 70%); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr); align-items: center; gap: clamp(34px, 6vw, 86px); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 7px 12px; border: 1px solid rgba(220,217,247,.9); border-radius: 999px; color: #5e587d; background: rgba(255,255,255,.78); font-size: 11px; font-weight: 680; letter-spacing: .04em; }
+    .eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 4px rgba(92,73,236,.1); }
+    h1, h2, h3, p { margin-top: 0; }
+    .hero h1 { max-width: 700px; margin: 22px 0 19px; font-size: clamp(40px, 5.1vw, 66px); line-height: 1.16; letter-spacing: -.06em; font-weight: 760; }
+    .hero h1 span { color: transparent; background: linear-gradient(105deg, #4b39d8 5%, #6b5bf2 58%, #997fff 100%); background-clip: text; -webkit-background-clip: text; }
+    .hero-lede { max-width: 600px; margin-bottom: 23px; color: #666879; font-size: 16px; line-height: 1.95; }
+    .hero-footnote { display: flex; align-items: center; gap: 9px; color: #777888; font-size: 12px; }
+    .hero-footnote svg { width: 16px; height: 16px; color: var(--mint); flex: none; }
+    .hero-stat { position: relative; min-height: 296px; padding: 30px; overflow: hidden; border: 1px solid rgba(226,224,239,.95); border-radius: 28px; background: rgba(255,255,255,.86); box-shadow: 0 28px 72px rgba(67,54,150,.12); }
+    .hero-stat::after { position: absolute; content: ""; width: 250px; height: 250px; right: -82px; bottom: -142px; border: 1px solid rgba(92,73,236,.13); border-radius: 50%; box-shadow: 0 0 0 24px rgba(92,73,236,.035), 0 0 0 50px rgba(92,73,236,.025); }
+    .hero-stat-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: #707082; font-size: 12px; }
+    .hero-stat-head span:last-child { padding: 5px 9px; border-radius: 999px; color: var(--violet-deep); background: var(--violet-soft); font-size: 10px; }
+    .hero-total { display: flex; align-items: baseline; gap: 11px; margin: 12px 0 22px; }
+    .hero-total strong { color: var(--violet); font-size: clamp(78px, 9vw, 110px); line-height: .98; letter-spacing: -.08em; font-weight: 760; }
+    .hero-total span { color: var(--ink-soft); font-size: 18px; font-weight: 660; }
+    .hero-stat-rule { height: 1px; background: linear-gradient(90deg, var(--line), transparent); }
+    .hero-substats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-top: 19px; }
+    .hero-substats div { display: flex; align-items: baseline; gap: 8px; }
+    .hero-substats strong { color: var(--ink); font-size: 24px; letter-spacing: -.04em; }
+    .hero-substats span { color: var(--muted); font-size: 11px; }
+    .section { padding: 56px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 26px; margin-bottom: 27px; }
+    .section-kicker { display: block; margin-bottom: 8px; color: var(--violet); font-size: 10px; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; }
+    .section-head h2 { margin: 0; font-size: clamp(26px, 3vw, 36px); line-height: 1.25; letter-spacing: -.05em; }
+    .section-head p { max-width: 470px; margin: 0; color: var(--muted); font-size: 13px; }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-card); background: rgba(255,255,255,.85); box-shadow: var(--shadow-soft); }
+    .metric { min-height: 145px; padding: 25px 27px; border-right: 1px solid var(--line); }
+    .metric:last-child { border: 0; }
+    .metric-label { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; }
+    .metric-label i { width: 6px; height: 6px; border-radius: 50%; background: var(--violet); }
+    .metric strong { display: block; margin-top: 12px; font-size: 38px; line-height: 1.15; letter-spacing: -.06em; font-weight: 730; }
+    .metric small { margin-left: 6px; color: #777888; font-size: 12px; font-weight: 500; letter-spacing: 0; }
+    .timeline-wrap { padding: 30px; border: 1px solid var(--line); border-radius: var(--radius-card); background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(250,249,255,.88)); box-shadow: var(--shadow-soft); }
+    .timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .stage { position: relative; display: flex; flex-direction: column; min-height: 226px; padding: 24px 23px 22px; border: 1px solid #ecebf5; border-radius: 18px; background: white; }
+    .stage:not(:last-child)::after { position: absolute; content: ""; z-index: 1; width: 23px; height: 1px; top: 38px; right: -23px; background: #cac5f5; }
+    .stage-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #737385; font-size: 11px; }
+    .stage-num { color: var(--violet); font-size: 11px; font-weight: 760; letter-spacing: .08em; }
+    .stage h3 { margin: 21px 0 9px; font-size: 19px; letter-spacing: -.035em; }
+    .stage p { margin-bottom: 18px; color: #707082; font-size: 12px; line-height: 1.85; }
+    .stage-detail { display: inline-flex; align-items: baseline; align-self: flex-start; gap: 7px; margin-top: auto; padding: 7px 10px; border-radius: 10px; color: #4f4a73; background: #f3f1ff; font-size: 11px; }
+    .stage-detail strong { color: var(--violet-deep); font-size: 16px; }
+    .scope-note { display: flex; align-items: start; gap: 9px; margin: 19px 2px 0; color: #777888; font-size: 11px; }
+    .scope-note svg { width: 15px; height: 15px; margin-top: 2px; color: var(--blue); flex: none; }
+    .performance { padding-top: 62px; }
+    .period-link { display: inline-flex; align-items: center; gap: 9px; color: #625f79; font-size: 11px; white-space: nowrap; }
+    .period-link .period-pill { padding: 7px 11px; border-radius: 999px; color: var(--violet-deep); background: var(--violet-soft); font-weight: 650; }
+    .performance-grid { display: grid; grid-template-columns: minmax(280px, .78fr) minmax(0, 1.22fr); gap: 20px; }
+    .panel { border: 1px solid var(--line); border-radius: var(--radius-card); background: rgba(255,255,255,.92); box-shadow: var(--shadow-soft); }
+    .read-panel { padding: 26px 28px 25px; }
+    .panel-label { color: var(--muted); font-size: 12px; }
+    .read-total { display: flex; align-items: baseline; gap: 10px; margin: 7px 0 6px; }
+    .read-total strong { color: var(--violet); font-size: 67px; line-height: 1; letter-spacing: -.07em; }
+    .read-total span { color: #686879; font-size: 14px; }
+    .read-period { margin: 0 0 23px; color: var(--faint); font-size: 11px; }
+    .interaction-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); }
+    .interaction { padding: 15px 7px 3px 0; }
+    .interaction:nth-child(even) { padding-left: 18px; border-left: 1px solid var(--line); }
+    .interaction:nth-child(n+3) { border-top: 1px solid var(--line); padding-top: 14px; }
+    .interaction span { display: block; color: var(--muted); font-size: 11px; }
+    .interaction strong { display: block; margin-top: 3px; font-size: 23px; letter-spacing: -.03em; }
+    .channels-panel { padding: 26px 28px; }
+    .channels-head { display: flex; align-items: start; justify-content: space-between; gap: 12px; margin-bottom: 22px; }
+    .channels-head h3 { margin: 0 0 4px; font-size: 16px; letter-spacing: -.03em; }
+    .channels-head p { margin: 0; color: var(--faint); font-size: 11px; }
+    .channel-list { display: grid; gap: 14px; }
+    .channel { display: grid; grid-template-columns: 94px minmax(80px, 1fr) 45px; align-items: center; gap: 12px; color: #696a7a; font-size: 11px; }
+    .channel-track { height: 8px; overflow: hidden; border-radius: 99px; background: #f1f0f8; }
+    .channel-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #7a6cf3, #aa9dff); }
+    .channel:first-child .channel-fill { background: linear-gradient(90deg, var(--violet), #9c8cff); }
+    .channel-value { color: #403b5f; font-variant-numeric: tabular-nums; text-align: right; font-weight: 680; }
+    .table-panel { margin-top: 20px; overflow: hidden; }
+    .table-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 23px 26px 17px; }
+    .table-head h3 { margin: 0; font-size: 16px; letter-spacing: -.03em; }
+    .table-head p { margin: 0; color: var(--muted); font-size: 11px; }
+    .table-scroll { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 690px; font-size: 12px; }
+    thead { color: #858595; background: #f8f8fc; font-size: 10px; text-align: left; }
+    th, td { padding: 13px 25px; border-top: 1px solid #eeeeF4; }
+    th { font-weight: 600; white-space: nowrap; }
+    td { color: #4c4c5c; }
+    td:first-child { width: 56%; color: #292937; font-weight: 560; }
+    td:not(:first-child) { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    tbody tr:first-child td:first-child::before { content: "01"; display: inline-grid; width: 25px; height: 25px; place-items: center; margin-right: 10px; border-radius: 8px; color: var(--violet-deep); background: var(--violet-soft); font-size: 9px; font-weight: 740; vertical-align: middle; }
+    .table-source { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 25px; border-top: 1px solid var(--line); color: var(--faint); font-size: 10px; }
+    .table-source a { color: #5e5a8d; text-decoration: underline; text-decoration-color: #d5d1f4; text-underline-offset: 3px; }
+    .gallery-section { padding-top: 74px; }
+    .gallery-note { display: flex; align-items: center; gap: 8px; color: #737385; font-size: 11px; white-space: nowrap; }
+    .gallery-note svg { width: 15px; height: 15px; color: var(--violet); }
+    .gallery-feature { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, .9fr); align-items: stretch; gap: 16px; margin-bottom: 16px; }
+    .gallery-feature-main.gallery-card { display: flex; flex-direction: column; }
+    .gallery-feature-main .gallery-image { width: 100%; height: auto; object-fit: contain; background: #f4f3fb; }
+    .gallery-feature-main .gallery-copy { display: flex; flex: 1; flex-direction: column; padding: 19px 22px 21px; }
+    .gallery-feature-main .gallery-copy h3 { font-size: 19px; }
+    .gallery-inserted-wrap { display: flex; flex: 1; min-height: 150px; align-items: center; justify-content: center; }
+    .gallery-inserted-visual { display: block; width: auto; height: auto; max-width: min(100%, 520px); max-height: 240px; object-fit: contain; border-radius: 12px; }
+    .gallery-feature-side { display: grid; align-content: start; gap: 16px; }
+    .gallery-masonry { columns: 3 270px; column-gap: 16px; }
+    .gallery-card { display: inline-block; width: 100%; margin: 0 0 16px; break-inside: avoid; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: white; box-shadow: 0 10px 28px rgba(57,49,111,.05); transition: transform .2s ease, box-shadow .2s ease; }
+    .gallery-card:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(57,49,111,.11); }
+    .gallery-image { width: 100%; height: auto; object-fit: contain; background: #f4f3fb; }
+    .gallery-copy { padding: 15px 17px 17px; }
+    .gallery-kind { display: block; margin-bottom: 4px; color: var(--violet); font-size: 9px; font-weight: 720; letter-spacing: .08em; }
+    .gallery-copy h3 { margin: 0; color: #282837; font-size: 14px; line-height: 1.55; letter-spacing: -.025em; }
+    .gallery-copy p { margin: 7px 0 0; color: var(--muted); font-size: 11px; line-height: 1.65; }
+    .summary { padding: 62px 0 72px; }
+    .summary-inner { position: relative; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 26px; padding: 33px 38px; overflow: hidden; border-radius: 24px; color: white; background: linear-gradient(110deg, #4b3bd0 0%, #6857eb 55%, #8172f2 100%); box-shadow: 0 22px 55px rgba(78,62,200,.22); }
+    .summary-inner::after { position: absolute; content: ""; width: 240px; height: 240px; top: -140px; right: 95px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; box-shadow: 0 0 0 25px rgba(255,255,255,.05), 0 0 0 50px rgba(255,255,255,.035); }
+    .summary-label { display: block; margin-bottom: 8px; color: rgba(255,255,255,.73); font-size: 10px; font-weight: 720; letter-spacing: .14em; }
+    .summary-inner h2 { max-width: 860px; margin: 0; font-size: clamp(16px, 1.8vw, 20px); line-height: 1.5; letter-spacing: -.025em; }
+    .summary-mark { position: relative; z-index: 1; display: grid; width: 54px; height: 54px; place-items: center; border: 1px solid rgba(255,255,255,.35); border-radius: 17px; background: rgba(255,255,255,.12); }
+    .summary-mark svg { width: 25px; height: 25px; }
+    .page-footer { padding: 20px 0 32px; border-top: 1px solid var(--line); color: #9292a1; font-size: 10px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 18px; }
+    .footer-inner p { margin: 0; }
+    @media (max-width: 840px) {
+      .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(280px, .82fr); gap: 25px; }
+      .hero-stat { min-height: 270px; padding: 24px; }
+      .metric { padding-inline: 19px; }
+      .timeline { gap: 13px; }
+      .stage { padding: 20px 17px; }
+      .performance-grid { grid-template-columns: minmax(250px, .78fr) minmax(0, 1.22fr); }
+      .channels-panel, .read-panel { padding: 23px; }
+      .gallery-feature { grid-template-columns: 1fr; }
+      .gallery-feature-side { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gallery-masonry { columns: 2 260px; }
+    }
+    @media (max-width: 640px) {
+      html { scroll-padding-top: 70px; }
+      .container { width: min(100% - 36px, var(--content-width)); }
+      .header-inner { min-height: 66px; gap: 10px; }
+      .brand { font-size: 12px; gap: 8px; }
+      .brand-mark { width: 30px; height: 30px; border-radius: 10px; }
+      .nav-links { gap: 14px; margin-left: auto; font-size: 11px; }
+      .nav-links a:last-child { display: none; }
+      .header-tag { display: none; }
+      .hero { padding: 48px 0 42px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 27px; }
+      .hero h1 { max-width: 520px; font-size: clamp(39px, 11vw, 54px); }
+      .hero-lede { font-size: 14px; }
+      .hero-stat { min-height: unset; padding: 23px; border-radius: 22px; }
+      .hero-total { margin-bottom: 17px; }
+      .hero-total strong { font-size: 82px; }
+      .section { padding: 42px 0; }
+      .section-head { display: block; margin-bottom: 20px; }
+      .section-head p { margin-top: 10px; font-size: 12px; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .metric { min-height: 123px; padding: 19px; border-bottom: 1px solid var(--line); }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(n+3) { border-bottom: 0; }
+      .metric strong { margin-top: 8px; font-size: 32px; }
+      .timeline-wrap { padding: 15px; }
+      .timeline { grid-template-columns: 1fr; gap: 11px; }
+      .stage { min-height: 0; padding: 19px; }
+      .stage:not(:last-child)::after { width: 1px; height: 12px; top: auto; right: auto; bottom: -12px; left: 32px; }
+      .stage h3 { margin: 12px 0 5px; }
+      .stage p { margin-bottom: 12px; }
+      .performance { padding-top: 46px; }
+      .period-link { margin-top: 14px; }
+      .performance-grid { grid-template-columns: 1fr; gap: 13px; }
+      .read-panel, .channels-panel { padding: 21px; }
+      .read-total strong { font-size: 60px; }
+      .channels-head { margin-bottom: 18px; }
+      .channel { grid-template-columns: 83px minmax(55px, 1fr) 43px; gap: 9px; font-size: 10px; }
+      .table-panel { margin-top: 13px; }
+      .table-head { display: block; padding: 19px 18px 13px; }
+      .table-head p { margin-top: 4px; }
+      th, td { padding-inline: 17px; }
+      .table-source { align-items: start; padding: 12px 17px; }
+      .gallery-section { padding-top: 49px; }
+      .gallery-note { margin-top: 11px; }
+      .gallery-feature { gap: 11px; margin-bottom: 11px; }
+      .gallery-feature-side { grid-template-columns: 1fr; gap: 11px; }
+      .gallery-feature-main .gallery-copy { padding: 15px 17px 17px; }
+      .gallery-feature-main .gallery-copy h3 { font-size: 14px; }
+      .gallery-inserted-wrap { min-height: 0; padding-top: 12px; }
+      .gallery-inserted-visual { max-height: 220px; }
+      .gallery-masonry { columns: 1; column-gap: 0; }
+      .gallery-masonry .gallery-card { margin-bottom: 11px; }
+      .gallery-image { height: auto; }
+      .summary { padding: 42px 0 48px; }
+      .summary-inner { grid-template-columns: 1fr auto; padding: 25px 22px; gap: 14px; border-radius: 20px; }
+      .summary-mark { width: 43px; height: 43px; border-radius: 14px; }
+      .summary-mark svg { width: 20px; height: 20px; }
+      .footer-inner { display: block; }
+      .footer-inner p + p { margin-top: 5px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+    @media print {
+      @page { margin: 14mm; }
+      body { background: white; font-size: 11px; }
+      .site-header { position: static; background: white; backdrop-filter: none; }
+      .nav-links, .header-tag, .skip-link { display: none; }
+      .hero { padding: 35px 0; }
+      .section { padding: 28px 0; }
+      .panel, .metrics, .timeline-wrap, .gallery-card { box-shadow: none; break-inside: avoid; }
+      .gallery-card:hover { transform: none; }
+      .table-scroll { overflow: visible; }
+      table { min-width: 0; font-size: 9px; }
+      th, td { padding: 8px 10px; }
+      .summary { padding: 24px 0; }
+      .page-footer { padding-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="公众号运营工作阶段汇报，回到顶部">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 18V6h3l4 6 4-6h3v12h-3V11l-4 5-4-5v7H5Z" fill="currentColor"/></svg></span>
+        <span>公众号运营工作阶段汇报</span>
+      </a>
+      <nav class="nav-links" aria-label="页面导航">
+        <a href="#journey">运营历程</a>
+        <a href="#performance">数据表现</a>
+        <a href="#content">内容选辑</a>
+      </nav>
+      <span class="header-tag">阶段简报 · 2026.11</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow"><i class="eyebrow-dot"></i>内容运营 · 阶段复盘</span>
+          <h1>从资讯起步，<br><span>到专题沉淀</span></h1>
+          <p class="hero-lede">公众号自 2025 年 5 月启动运营，内容从 AI 相关信息逐步拓展至招投标专题。当前已建立《招投标的那些事》合集，持续整理行业规则与投标实务内容。</p>
+          <div class="hero-footnote">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m4 10 3.5 3.5L16 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>运营总量截至 2026 年 11 月 5 日 · 后台表现按截图数据区间统计</span>
+          </div>
+        </div>
+        <aside class="hero-stat" aria-label="累计发布 37 期">
+          <div class="hero-stat-head"><span>公众号累计发布</span><span>2025.05 — 至今</span></div>
+          <div class="hero-total"><strong>37</strong><span>期</span></div>
+          <div class="hero-stat-rule"></div>
+          <div class="hero-substats">
+            <div><strong>23</strong><span>连续运营期</span></div>
+            <div><strong>10</strong><span>专题合集内容期</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="scale-title">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="section-kicker">01 / OPERATING SCALE</span><h2 id="scale-title">运营规模</h2></div>
+          <p>从启动至今，已形成阶段性连续运营，并围绕招投标主题开展合集化内容建设。</p>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="metric-label"><i></i>累计发布</span><strong>37<small>期</small></strong></div>
+          <div class="metric"><span class="metric-label"><i></i>连续运营阶段</span><strong>23<small>期</small></strong></div>
+          <div class="metric"><span class="metric-label"><i></i>同期文章</span><strong>27<small>篇</small></strong></div>
+          <div class="metric"><span class="metric-label"><i></i>招投标合集</span><strong>10<small>期</small></strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journey" aria-labelledby="journey-title">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="section-kicker">02 / CONTENT JOURNEY</span><h2 id="journey-title">三阶段运营脉络</h2></div>
+          <p>沿着内容方向的变化，逐步从信息分享走向专题化整理。</p>
+        </div>
+        <div class="timeline-wrap">
+          <div class="timeline">
+            <article class="stage">
+              <div class="stage-top"><span class="stage-num">PHASE 01</span><span>2025 年 5 月启动</span></div>
+              <h3>AI 资讯运营</h3>
+              <p>围绕 AI 相关信息开展公众号内容运营，建立初始的内容发布模式。</p>
+              <span class="stage-detail">内容方向 <strong>AI 相关信息</strong></span>
+            </article>
+            <article class="stage">
+              <div class="stage-top"><span class="stage-num">PHASE 02</span><span>2026.05.28 — 至今</span></div>
+              <h3>连续性运营</h3>
+              <p>进入持续发布阶段，逐步形成稳定的内容更新节奏。</p>
+              <span class="stage-detail"><strong>23</strong> 期 · <strong>27</strong> 篇文章</span>
+            </article>
+            <article class="stage">
+              <div class="stage-top"><span class="stage-num">PHASE 03</span><span>当前阶段</span></div>
+              <h3>招投标专题合集</h3>
+              <p>建立《招投标的那些事》合集，围绕招投标主题持续发布内容。</p>
+              <span class="stage-detail">合集发布 <strong>10</strong> 期</span>
+            </article>
+          </div>
+          <p class="scope-note"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7.2" stroke="currentColor" stroke-width="1.5"/><path d="M10 9v4m0-6h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>期数与文章数按提供口径分别呈现；合集内容期数单独列示，未与连续运营阶段期数相加。</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section performance" id="performance" aria-labelledby="performance-title">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="section-kicker">03 / RECENT PERFORMANCE</span><h2 id="performance-title">近期内容表现</h2></div>
+          <a class="period-link" href="assets/后台数据分析.png" target="_blank" rel="noopener"><span class="period-pill">近 30 天</span><span>2026.10.06 — 11.04 · 查看原始数据图 ↗</span></a>
+        </div>
+        <div class="performance-grid">
+          <article class="panel read-panel">
+            <span class="panel-label">阅读总人数</span>
+            <div class="read-total"><strong>312</strong><span>人</span></div>
+            <p class="read-period">平台截图统计区间：2026 年 10 月 6 日至 11 月 4 日</p>
+            <div class="interaction-grid" aria-label="近期互动指标">
+              <div class="interaction"><span>分享</span><strong>28</strong></div>
+              <div class="interaction"><span>点赞</span><strong>7</strong></div>
+              <div class="interaction"><span>收藏</span><strong>2</strong></div>
+              <div class="interaction"><span>留言</span><strong>0</strong></div>
+            </div>
+          </article>
+          <article class="panel channels-panel">
+            <div class="channels-head"><div><h3>阅读流量来源</h3><p>后台截图显示的各渠道占比</p></div></div>
+            <div class="channel-list" role="list" aria-label="阅读流量来源比例">
+              <div class="channel" role="listitem"><span>推荐</span><div class="channel-track"><div class="channel-fill" style="width:82.1%"></div></div><span class="channel-value">82.1%</span></div>
+              <div class="channel" role="listitem"><span>公众号消息</span><div class="channel-track"><div class="channel-fill" style="width:5.1%"></div></div><span class="channel-value">5.1%</span></div>
+              <div class="channel" role="listitem"><span>公众号主页</span><div class="channel-track"><div class="channel-fill" style="width:4.5%"></div></div><span class="channel-value">4.5%</span></div>
+              <div class="channel" role="listitem"><span>朋友圈</span><div class="channel-track"><div class="channel-fill" style="width:3.8%"></div></div><span class="channel-value">3.8%</span></div>
+              <div class="channel" role="listitem"><span>其他</span><div class="channel-track"><div class="channel-fill" style="width:2.6%"></div></div><span class="channel-value">2.6%</span></div>
+              <div class="channel" role="listitem"><span>搜一搜</span><div class="channel-track"><div class="channel-fill" style="width:1.6%"></div></div><span class="channel-value">1.6%</span></div>
+              <div class="channel" role="listitem"><span>聊天会话</span><div class="channel-track"><div class="channel-fill" style="width:1.3%"></div></div><span class="channel-value">1.3%</span></div>
+            </div>
+          </article>
+        </div>
+
+        <article class="panel table-panel">
+          <div class="table-head"><h3>文章阅读表现</h3><p>列出数据分析截图中可见的文章记录</p></div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th scope="col">文章标题</th><th scope="col">发布时间</th><th scope="col">阅读人数</th><th scope="col">阅读占比</th></tr></thead>
+              <tbody>
+                <tr><td>2026年投标这5个细节没查清，标书可能白忙一场</td><td>2026/09/30</td><td>130</td><td>41.67%</td></tr>
+                <tr><td>招投标那些事儿-2000 年以来的第一次大修</td><td>2026/10/10</td><td>65</td><td>20.83%</td></tr>
+                <tr><td>招投标的规则在改，投标的人也在换</td><td>2026/09/18</td><td>50</td><td>16.03%</td></tr>
+                <tr><td>招投标的那些事——1份被跳过的表格可能值 3 分</td><td>2026/10/22</td><td>24</td><td>7.69%</td></tr>
+                <tr><td>招投标的那些事——2026 年起，你卖的东西还算“国产”吗</td><td>2026/10/29</td><td>17</td><td>5.45%</td></tr>
+                <tr><td>招投标的那些事——报得越低，越要证明自己撑得住</td><td>2026/10/15</td><td>16</td><td>5.13%</td></tr>
+                <tr><td>行距 28 磅，也能让一份标书作废！</td><td>2026/09/24</td><td>5</td><td>1.60%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-source"><span>来源：用户提供的公众号后台「数据分析」截图；仅录入截图中可辨识数据。</span><a href="assets/后台数据分析.png" target="_blank" rel="noopener">打开完整截图 ↗</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="content" aria-labelledby="content-title">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="section-kicker">04 / CONTENT SELECTION</span><h2 id="content-title">《招投标的那些事》内容选辑</h2></div>
+          <div class="gallery-note"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 4.7A1.7 1.7 0 0 1 5.7 3h8.6A1.7 1.7 0 0 1 16 4.7v10.6a1.7 1.7 0 0 1-1.7 1.7H5.7A1.7 1.7 0 0 1 4 15.3V4.7Z" stroke="currentColor" stroke-width="1.5"/><path d="M7 7h6M7 10h6M7 13h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>摘选自合集文章配图素材</span></div>
+        </div>
+        <div class="gallery-feature">
+          <article class="gallery-card gallery-feature-main">
+            <img class="gallery-image" src="assets/投标避坑-关键检查点.png" alt="2026 投标避坑：5 个关键检查点的文章封面配图" loading="lazy">
+            <div class="gallery-copy"><span class="gallery-kind">重点内容 · 投标实务</span><h3>2026 年投标这 5 个细节没查清，标书可能白忙一场</h3><div class="gallery-inserted-wrap"><img class="gallery-inserted-visual" src="assets/电子投标五步逐项核.png" alt="电子投标五步逐项核验流程图" loading="lazy"></div></div>
+          </article>
+          <div class="gallery-feature-side">
+            <article class="gallery-card">
+              <img class="gallery-image" src="assets/招投标法规大修.png" alt="招投标法规大修主题文章封面配图" loading="lazy">
+              <div class="gallery-copy"><span class="gallery-kind">法规观察</span><h3>招投标法规迎来大修</h3></div>
+            </article>
+            <article class="gallery-card">
+              <img class="gallery-image" src="assets/异常低价证明.png" alt="异常低价需要证明的主题文章封面配图" loading="lazy">
+              <div class="gallery-copy"><span class="gallery-kind">投标风险</span><h3>报得越低，越要证明自己撑得住</h3></div>
+            </article>
+          </div>
+        </div>
+        <div class="gallery-masonry">
+          <article class="gallery-card">
+            <img class="gallery-image" src="assets/规则在变.png" alt="招投标规则在变，投标的人也在变主题配图" loading="lazy">
+            <div class="gallery-copy"><span class="gallery-kind">规则变化</span><h3>招投标的规则在改，投标的人也在换</h3></div>
+          </article>
+          <article class="gallery-card">
+            <img class="gallery-image" src="assets/法规修订时间轴.png" alt="招投标法修订时间轴信息图" loading="lazy">
+            <div class="gallery-copy"><span class="gallery-kind">法规观察 · 内页配图</span><h3>一部法的修订之路</h3></div>
+          </article>
+          <article class="gallery-card">
+            <img class="gallery-image" src="assets/修订四个方向.png" alt="招投标法规四个修订方向信息图" loading="lazy">
+            <div class="gallery-copy"><span class="gallery-kind">法规观察 · 内页配图</span><h3>修订草案的四个方向</h3></div>
+          </article>
+          <article class="gallery-card">
+            <img class="gallery-image" src="assets/标前标中标后.png" alt="招投标流程标前、标中、标后信息图" loading="lazy">
+            <div class="gallery-copy"><span class="gallery-kind">投标风险 · 内页配图</span><h3>标前、标中、标后</h3></div>
+          </article>
+          <article class="gallery-card">
+            <img class="gallery-image" src="assets/三条比例线.png" alt="异常低价三条比例线信息图" loading="lazy">
+            <div class="gallery-copy"><span class="gallery-kind">投标风险 · 内页配图</span><h3>异常低价的三条比例线</h3></div>
+          </article>
+          <article class="gallery-card">
+            <img class="gallery-image" src="assets/国产产品标准.png" alt="2026 年国产产品适用标准主题封面配图" loading="lazy">
+            <div class="gallery-copy"><span class="gallery-kind">政策边界</span><h3>2026 年起，你卖的东西还算“国产”吗</h3></div>
+          </article>
+          <article class="gallery-card">
+            <img class="gallery-image" src="assets/本国产品例外范围.png" alt="本国产品适用范围与九类例外信息图" loading="lazy">
+            <div class="gallery-copy"><span class="gallery-kind">政策边界 · 内页配图</span><h3>本国产品适用范围与例外</h3></div>
+          </article>
+          <article class="gallery-card">
+            <img class="gallery-image" src="assets/中小企业入场券.png" alt="中小企业参与投标路径主题文章封面配图" loading="lazy">
+            <div class="gallery-copy"><span class="gallery-kind">企业参与</span><h3>中小企业的投标入场券</h3></div>
+          </article>
+          <article class="gallery-card">
+            <img class="gallery-image" src="assets/中小企业参与路径.png" alt="中小企业参与投标路径信息图" loading="lazy">
+            <div class="gallery-copy"><span class="gallery-kind">企业参与 · 内页配图</span><h3>中小企业参与路径</h3></div>
+          </article>
+          <article class="gallery-card">
+            <img class="gallery-image" src="assets/投标前三查.png" alt="投标前三项检查信息图" loading="lazy">
+            <div class="gallery-copy"><span class="gallery-kind">投标实务 · 内页配图</span><h3>投标前，先做这三查</h3></div>
+          </article>
+          <article class="gallery-card">
+            <img class="gallery-image" src="assets/评标定标两阶段.png" alt="评标与定标两阶段信息图" loading="lazy">
+            <div class="gallery-copy"><span class="gallery-kind">评标机制 · 内页配图</span><h3>评标与定标两阶段</h3></div>
+          </article>
+          <article class="gallery-card">
+            <img class="gallery-image" src="assets/评定分离三点变化.png" alt="评定分离三点变化信息图" loading="lazy">
+            <div class="gallery-copy"><span class="gallery-kind">评标机制 · 内页配图</span><h3>评定分离的三点变化</h3></div>
+          </article>
+          <article class="gallery-card">
+            <img class="gallery-image" src="assets/行距28磅.png" alt="行距 28 磅也可能让标书作废的主题配图" loading="lazy">
+            <div class="gallery-copy"><span class="gallery-kind">标书细节</span><h3>行距 28 磅，也能让一份标书作废！</h3></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary" aria-label="阶段小结">
+      <div class="container">
+        <div class="summary-inner">
+          <div><span class="summary-label">阶段小结</span><h2>内容方向已从 AI 资讯运营，逐步延展到招投标主题的持续发布与合集沉淀。</h2></div>
+          <span class="summary-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 18V6h3l4 6 4-6h3v12h-3V11l-4 5-4-5v7H5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <div class="container footer-inner">
+      <p>数据来源：用户提供的运营说明、公众号后台数据分析截图及合集文章配图素材。</p>
+      <p>页面整理日期：2026 年 11 月 5 日</p>
+    </div>
+  </footer>
+</body>
+</html>
