@@ -61,7 +61,7 @@
     .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 7px 12px; border: 1px solid rgba(220,217,247,.9); border-radius: 999px; color: #5e587d; background: rgba(255,255,255,.78); font-size: 11px; font-weight: 680; letter-spacing: .04em; }
     .eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 4px rgba(92,73,236,.1); }
     h1, h2, h3, p { margin-top: 0; }
-    .hero h1 { max-width: 700px; margin: 22px 0 19px; font-size: clamp(40px, 5.1vw, 66px); line-height: 1.16; letter-spacing: -.06em; font-weight: 760; }
+    .hero h1 { max-width: none; margin: 22px 0 19px; font-size: clamp(24px, 4.2vw, 48px); line-height: 1.25; letter-spacing: -.055em; font-weight: 760; white-space: nowrap; }
     .hero h1 span { color: transparent; background: linear-gradient(105deg, #4b39d8 5%, #6b5bf2 58%, #997fff 100%); background-clip: text; -webkit-background-clip: text; }
     .hero-lede { max-width: 600px; margin-bottom: 23px; color: #666879; font-size: 16px; line-height: 1.95; }
     .hero-footnote { display: flex; align-items: center; gap: 9px; color: #777888; font-size: 12px; }
@@ -196,7 +196,7 @@
       .header-tag { display: none; }
       .hero { padding: 48px 0 42px; }
       .hero-grid { grid-template-columns: 1fr; gap: 27px; }
-      .hero h1 { max-width: 520px; font-size: clamp(39px, 11vw, 54px); }
+      .hero h1 { max-width: none; font-size: clamp(20px, 7.5vw, 44px); white-space: nowrap; }
       .hero-lede { font-size: 14px; }
       .hero-stat { min-height: unset; padding: 23px; border-radius: 22px; }
       .hero-total { margin-bottom: 17px; }
@@ -287,7 +287,7 @@
       <div class="container hero-grid">
         <div>
           <span class="eyebrow"><i class="eyebrow-dot"></i>内容运营 · 阶段复盘</span>
-          <h1>从资讯起步，<br><span>到专题沉淀</span></h1>
+          <h1>从资讯起步，<span>到专题沉淀</span></h1>
           <p class="hero-lede">公众号自 2025 年 5 月启动运营，内容从 AI 相关信息逐步拓展至招投标专题。当前已建立《招投标的那些事》合集，持续整理行业规则与投标实务内容。</p>
           <div class="hero-footnote">
             <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m4 10 3.5 3.5L16 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
